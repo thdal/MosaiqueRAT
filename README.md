@@ -21,4 +21,4 @@ Mosaic - Remote administration tools
 
 # Licence
 
-Mosaic is distributed under the MIT License. Thank to QuasarRAT, n1nj4sec, DarkComet for inspiration 
+Mosaic is distributed under the MIT License. Thanks to QuasarRAT, n1nj4sec, DarkComet for inspiration 
