@@ -8,16 +8,16 @@ Mosaic - Remote administration tools
 
 # Features in coming
 
-_Remote Webcam
-_Remote Shell
-_Fun features
-_Computer Commands (Restart, Shutdown, Standby)
-_Keylogger
-_Task Manager
-_File Manager
+* Remote Webcam
+* Remote Shell
+* Fun features
+* Computer Commands (Restart, Shutdown, Standby)
+* Keylogger
+* Task Manager
+* File Manager
 
-_New UI !
-_And many other great features !!
+* New UI !
+* And many other great features !!
 
 # Licence
 
