@@ -1,6 +1,8 @@
 # MosaicRAT
 
-Mosaic - Remote administration tools
+###### Mosaic - Remote administration tools
+
+Mosaic is writing in C# under the MVC architecture, ZeroFormatter serializer is used.
 
 # Features
 
@@ -25,4 +27,4 @@ For the moment: Open solution in Your IDE and run the "Serveur"(Server) debugger
 
 # Licence
 
-Mosaic is distributed under the MIT License. Thanks to QuasarRAT, n1nj4sec, DarkComet for inspiration 
+Mosaic is distributed under the MIT License. Thanks to QuasarRAT, n1nj4sec, DarkComet for inspiration.
