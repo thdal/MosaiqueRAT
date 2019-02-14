@@ -4,7 +4,7 @@ Mosaic - Remote administration tools
 
 # Features
 
-_Remote Desktop
+_ Remote Desktop
 
 # Features in coming
 
