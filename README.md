@@ -4,21 +4,21 @@ Mosaic - Remote administration tools
 
 # Features
 
--Remote Desktop
+_Remote Desktop
 
 # Features in coming
 
--Remote Webcam
--Remote Shell
--Fun features
--Computer Commands (Restart, Shutdown, Standby)
--Keylogger
--Task Manager
--File Manager
+_Remote Webcam
+_Remote Shell
+_Fun features
+_Computer Commands (Restart, Shutdown, Standby)
+_Keylogger
+_Task Manager
+_File Manager
 
--New UI !
--And many other great features !!
+_New UI !
+_And many other great features !!
 
 # Licence
 
-Mosaic is distributed under the MIT License.
+Mosaic is distributed under the MIT License. Thank to QuasarRAT, n1nj4sec, DarkComet for inspiration 
