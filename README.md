@@ -19,6 +19,10 @@ Mosaic - Remote administration tools
 * New UI !
 * And many other great features !!
 
+# Launch Mosaic
+
+For the moment: Open solution in Your IDE and run the "Serveur"(Server) debugger, build the stub and go.
+
 # Licence
 
 Mosaic is distributed under the MIT License. Thanks to QuasarRAT, n1nj4sec, DarkComet for inspiration 
