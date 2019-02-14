@@ -7,6 +7,7 @@ using System.Net.Sockets;
 
 namespace Client.Controllers
 {
+    //BootController
     public class BootController
     {
         //Thread Deco
