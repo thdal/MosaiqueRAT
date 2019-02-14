@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace Serveur.Controllers
 {
+    //Authentification
     class AuthenticationController
     {
         public static void HandleGetAuthenticationResponse(ClientMosaic client, GetAuthenticationResponse packet)
