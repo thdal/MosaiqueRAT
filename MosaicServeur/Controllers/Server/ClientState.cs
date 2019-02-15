@@ -23,6 +23,7 @@ namespace Serveur.Controllers.Server
         public string downloadDirectory { get; set; }
 
         public FrmRemoteDesktop frmRdp { get; set; }
+        public FrmRemoteShell frmRms { get; set; }
 
         public ClientState()
         {

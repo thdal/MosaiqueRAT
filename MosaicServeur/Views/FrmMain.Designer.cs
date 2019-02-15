@@ -51,6 +51,7 @@
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.builderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.remoteShellToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.DgvMain)).BeginInit();
             this.cmsMain.SuspendLayout();
             this.msMain.SuspendLayout();
@@ -183,39 +184,40 @@
             this.spyingToolStripMenuItem});
             this.cmsMain.Name = "cmsMain";
             this.cmsMain.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.cmsMain.Size = new System.Drawing.Size(118, 92);
+            this.cmsMain.Size = new System.Drawing.Size(181, 114);
             // 
             // manageToolStripMenuItem
             // 
             this.manageToolStripMenuItem.Name = "manageToolStripMenuItem";
-            this.manageToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
+            this.manageToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.manageToolStripMenuItem.Text = "Manage";
             // 
             // systemToolStripMenuItem
             // 
             this.systemToolStripMenuItem.Name = "systemToolStripMenuItem";
-            this.systemToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
+            this.systemToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.systemToolStripMenuItem.Text = "System";
             // 
             // funToolStripMenuItem
             // 
             this.funToolStripMenuItem.Name = "funToolStripMenuItem";
-            this.funToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
+            this.funToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.funToolStripMenuItem.Text = "Fun";
             // 
             // spyingToolStripMenuItem
             // 
             this.spyingToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.remoteDesktopToolStripMenuItem});
+            this.remoteDesktopToolStripMenuItem,
+            this.remoteShellToolStripMenuItem});
             this.spyingToolStripMenuItem.Name = "spyingToolStripMenuItem";
-            this.spyingToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
+            this.spyingToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.spyingToolStripMenuItem.Text = "Spying";
             // 
             // remoteDesktopToolStripMenuItem
             // 
             this.remoteDesktopToolStripMenuItem.Name = "remoteDesktopToolStripMenuItem";
-            this.remoteDesktopToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
-            this.remoteDesktopToolStripMenuItem.Text = "RemoteDesktop";
+            this.remoteDesktopToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.remoteDesktopToolStripMenuItem.Text = "Remote Desktop";
             this.remoteDesktopToolStripMenuItem.Click += new System.EventHandler(this.remoteDesktopToolStripMenuItem_Click);
             // 
             // msMain
@@ -249,6 +251,13 @@
             this.builderToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
             this.builderToolStripMenuItem.Text = "Builder";
             this.builderToolStripMenuItem.Click += new System.EventHandler(this.builderToolStripMenuItem_Click);
+            // 
+            // remoteShellToolStripMenuItem
+            // 
+            this.remoteShellToolStripMenuItem.Name = "remoteShellToolStripMenuItem";
+            this.remoteShellToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.remoteShellToolStripMenuItem.Text = "Remote Shell";
+            this.remoteShellToolStripMenuItem.Click += new System.EventHandler(this.remoteShellToolStripMenuItem_Click);
             // 
             // FrmMain
             // 
@@ -292,5 +301,6 @@
         private System.Windows.Forms.ToolStripMenuItem funToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem spyingToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem remoteDesktopToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem remoteShellToolStripMenuItem;
     }
 }

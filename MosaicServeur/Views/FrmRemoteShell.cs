@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Serveur.Controllers;
+using Serveur.Controllers.Server;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +14,26 @@ namespace Serveur.Views
 {
     public partial class FrmRemoteShell : Form
     {
-        public FrmRemoteShell()
+        //Instance de classe
+        public FrmRemoteShellController frmremoteShellController;
+        private readonly ClientMosaic _clientMosaic;
+
+        public FrmRemoteShell(ClientMosaic client)
         {
+            _clientMosaic = client;
+            _clientMosaic.value.frmRms = this;
+            frmremoteShellController = new FrmRemoteShellController(client);
             InitializeComponent();
+        }
+
+        private void FrmRemoteShell_Load(object sender, EventArgs e)
+        {
+            this.DoubleBuffered = true;
+
+            if(_clientMosaic != null)
+            {
+
+            }
         }
     }
 }

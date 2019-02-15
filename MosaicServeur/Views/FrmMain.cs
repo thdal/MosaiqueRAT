@@ -31,15 +31,22 @@ namespace Serveur.Views
             _frmMainController.frmListener(_frmListenerController);
         }
 
+        private void builderToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _frmMainController.frmBuilder();
+        }
+
         private void remoteDesktopToolStripMenuItem_Click(object sender, EventArgs e)
         {
             _frmMainController.frmRdp(getClient());
         }
 
-        private void builderToolStripMenuItem_Click(object sender, EventArgs e)
+        private void remoteShellToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            _frmMainController.frmBuilder();
+            _frmMainController.frmRms(getClient());
         }
+
+        
 
 
         // ADD CLIENT INTO DATAGRIDVIEW
@@ -91,7 +98,5 @@ namespace Serveur.Views
         {
             selectedRow = e.RowIndex;
         }
-
-        
     }
 }

@@ -20,7 +20,7 @@ namespace Serveur.Controllers
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "FrmStub MainController", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, "FrmListener MainController", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -49,7 +49,21 @@ namespace Serveur.Controllers
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "FrmStub MainController", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, "FrmRdp MainController", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        public void frmRms(ClientMosaic client)
+        {
+            try
+            {
+                FrmRemoteShell frmRemoteShell = new FrmRemoteShell(client);
+                frmRemoteShell.Text = "Remote Shell";
+                frmRemoteShell.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "FrmRms MainController", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
