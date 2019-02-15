@@ -23,7 +23,7 @@ Mosaic is writing in C# under the MVC architecture, ZeroFormatter serializer is 
 
 # Launch Mosaic
 
-For the moment: Open solution in Your IDE and run the "Serveur"(Server) debugger, build the stub and go.
+For the moment: Open solution in Your IDE and run the "MosaicServeur"(Server) debugger, build the stub and enjoy.
 
 # Licence
 
