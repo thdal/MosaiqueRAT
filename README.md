@@ -2,7 +2,7 @@
 
 ## Mosaic - Remote administration tools
 
-Mosaic is writing in C# under the MVC architecture, ZeroFormatter serializer is used.
+Mosaic is writing in C# under the "MVC" architecture, ZeroFormatter serializer is used.
 
 # Features
 
