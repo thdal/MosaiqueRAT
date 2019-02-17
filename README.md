@@ -12,7 +12,6 @@ Mosaic is writing in C# under the MVC architecture, ZeroFormatter serializer is 
 # Features in coming
 
 * Remote Webcam
-* Remote Shell
 * Fun features
 * Computer Commands (Restart, Shutdown, Standby)
 * Keylogger
