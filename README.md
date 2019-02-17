@@ -7,6 +7,7 @@ Mosaic is writing in C# under the MVC architecture, ZeroFormatter serializer is 
 # Features
 
 * Remote Desktop
+* Remote Shell
 
 # Features in coming
 
