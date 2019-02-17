@@ -19,10 +19,18 @@ namespace Serveur.Views
 
         public FrmMain()
         {
+            //* Listener Part *
+            _frmListenerController = new FrmListenerController();
+            FrmListenerController.startListen = false;
+            if(FrmListenerController.autoListen == true)
+            {
+                FrmListenerController.startListen = true;
+                _frmListenerController.listen(FrmListenerController.listenPort);
+            }
+            //* Listener Part *
             InitializeComponent();
             _connectedClients = new List<ClientMosaic>();
             _frmMainController = new FrmMainController();
-            _frmListenerController = new FrmListenerController();
             ClientMosaic.RemplirDGV += dgvUpdater;
         }
 
@@ -45,9 +53,6 @@ namespace Serveur.Views
         {
             _frmMainController.frmRms(getClient());
         }
-
-        
-
 
         // ADD CLIENT INTO DATAGRIDVIEW
         public void dgvUpdater(ClientMosaic client)

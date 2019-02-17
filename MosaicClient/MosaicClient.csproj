@@ -57,6 +57,7 @@
     <Compile Include="Controllers\AuthenticationController.cs" />
     <Compile Include="Controllers\BootController.cs" />
     <Compile Include="Controllers\Server\ClientMosaic.cs" />
+    <Compile Include="Controllers\RemoteShellController.cs" />
     <Compile Include="Packets\ClientPackets\GetAuthenticationResponse.cs" />
     <Compile Include="Packets\ClientPackets\GetDesktopResponse.cs" />
     <Compile Include="Packets\ClientPackets\GetExecuteShellCmdResponse.cs" />

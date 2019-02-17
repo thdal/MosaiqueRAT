@@ -4,7 +4,7 @@ using ZeroFormatter;
 namespace Serveur.Packets.ServerPackets
 {
     [ZeroFormattable]
-    class GetExecuteShellCmd : IPackets
+    public class GetExecuteShellCmd : IPackets
     {
         public override TypePackets Type
         {

@@ -24,7 +24,7 @@ namespace Serveur.Packets.ClientPackets
         {
         }
 
-        public GetExecuteShellCmdResponse(string output, bool isError)
+        public GetExecuteShellCmdResponse(string output, bool isError = false)
         {
             this.output = output;
             this.isError = isError;

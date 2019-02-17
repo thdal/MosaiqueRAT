@@ -30,8 +30,8 @@
         {
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.chkPopupNotification = new System.Windows.Forms.CheckBox();
+            this.chkStartupConnections = new System.Windows.Forms.CheckBox();
             this.txtPort = new System.Windows.Forms.NumericUpDown();
             this.btnListen = new System.Windows.Forms.Button();
             this.lblPort = new System.Windows.Forms.Label();
@@ -45,8 +45,9 @@
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(87, 27);
             this.btnCancel.TabIndex = 14;
-            this.btnCancel.Text = "Cancel";
+            this.btnCancel.Text = "Close";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnSave
             // 
@@ -57,28 +58,29 @@
             this.btnSave.TabIndex = 13;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // checkBox2
+            // chkPopupNotification
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox2.Location = new System.Drawing.Point(15, 63);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(265, 19);
-            this.checkBox2.TabIndex = 12;
-            this.checkBox2.Text = "Show popup notification on new connection.";
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.chkPopupNotification.AutoSize = true;
+            this.chkPopupNotification.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkPopupNotification.Location = new System.Drawing.Point(15, 63);
+            this.chkPopupNotification.Name = "chkPopupNotification";
+            this.chkPopupNotification.Size = new System.Drawing.Size(265, 19);
+            this.chkPopupNotification.TabIndex = 12;
+            this.chkPopupNotification.Text = "Show popup notification on new connection.";
+            this.chkPopupNotification.UseVisualStyleBackColor = true;
             // 
-            // checkBox1
+            // chkStartupConnections
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox1.Location = new System.Drawing.Point(15, 35);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(228, 19);
-            this.checkBox1.TabIndex = 11;
-            this.checkBox1.Text = "Listen for new connections on startup.";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.chkStartupConnections.AutoSize = true;
+            this.chkStartupConnections.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkStartupConnections.Location = new System.Drawing.Point(15, 35);
+            this.chkStartupConnections.Name = "chkStartupConnections";
+            this.chkStartupConnections.Size = new System.Drawing.Size(228, 19);
+            this.chkStartupConnections.TabIndex = 11;
+            this.chkStartupConnections.Text = "Listen for new connections on startup.";
+            this.chkStartupConnections.UseVisualStyleBackColor = true;
             // 
             // txtPort
             // 
@@ -132,8 +134,8 @@
             this.ClientSize = new System.Drawing.Size(338, 132);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSave);
-            this.Controls.Add(this.checkBox2);
-            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.chkPopupNotification);
+            this.Controls.Add(this.chkStartupConnections);
             this.Controls.Add(this.txtPort);
             this.Controls.Add(this.btnListen);
             this.Controls.Add(this.lblPort);
@@ -152,8 +154,8 @@
 
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox chkPopupNotification;
+        private System.Windows.Forms.CheckBox chkStartupConnections;
         private System.Windows.Forms.NumericUpDown txtPort;
         private System.Windows.Forms.Button btnListen;
         private System.Windows.Forms.Label lblPort;

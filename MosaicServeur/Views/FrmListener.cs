@@ -17,12 +17,14 @@ namespace Serveur.Views
         private void FrmListener_Load(object sender, EventArgs e)
         {
             txtPort.Value = FrmListenerController.listenPort;
+                
             if (FrmListenerController.startListen == true)
             {
                 btnListen.Text = "Stop listening";
             }
-            //checkBox1.Checked = FrmListenerController.autoListen;
-            //checkBox2.Checked = FrmListenerController.showPopup;
+
+            chkStartupConnections.Checked = FrmListenerController.autoListen;
+            chkPopupNotification.Checked = FrmListenerController.showPopup;
         }
 
         private void btnListen_Click(object sender, EventArgs e)
@@ -36,10 +38,21 @@ namespace Serveur.Views
             }
             else
             {
-                _frmListenerController.stopListening();
                 FrmListenerController.startListen = false;
+                _frmListenerController.stopListening();
                 btnListen.Text = "Start listening";
             }
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            FrmListenerController.autoListen = chkStartupConnections.Checked;      
+            FrmListenerController.showPopup = chkPopupNotification.Checked;
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

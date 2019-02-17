@@ -19,6 +19,10 @@ namespace Serveur.Packets
             {
                 FrmRemoteDesktopController.getDesktopResponse(client, (GetDesktopResponse)packet);
             }
+            else if (type == TypePackets.GetExecuteShellCmdResponse)
+            {
+                FrmRemoteShellController.getShellCmdExecuteResponse(client, (GetExecuteShellCmdResponse)packet);
+            }
         }
     }
 }

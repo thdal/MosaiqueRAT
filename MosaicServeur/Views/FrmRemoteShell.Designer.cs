@@ -38,9 +38,10 @@
             this.txtConsoleOutput.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtConsoleOutput.Location = new System.Drawing.Point(1, 2);
             this.txtConsoleOutput.Name = "txtConsoleOutput";
-            this.txtConsoleOutput.Size = new System.Drawing.Size(630, 275);
-            this.txtConsoleOutput.TabIndex = 4;
+            this.txtConsoleOutput.Size = new System.Drawing.Size(638, 275);
+            this.txtConsoleOutput.TabIndex = 2;
             this.txtConsoleOutput.Text = "";
+            this.txtConsoleOutput.TextChanged += new System.EventHandler(this.txtConsoleOutput_TextChanged);
             // 
             // txtConsoleInput
             // 
@@ -49,17 +50,19 @@
             this.txtConsoleInput.ForeColor = System.Drawing.Color.White;
             this.txtConsoleInput.Location = new System.Drawing.Point(1, 283);
             this.txtConsoleInput.Name = "txtConsoleInput";
-            this.txtConsoleInput.Size = new System.Drawing.Size(630, 16);
+            this.txtConsoleInput.Size = new System.Drawing.Size(638, 16);
             this.txtConsoleInput.TabIndex = 3;
+            this.txtConsoleInput.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtConsoleInput_KeyDown);
+            this.txtConsoleInput.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtConsoleInput_KeyPress);
             // 
             // FrmRemoteShell
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(632, 300);
-            this.Controls.Add(this.txtConsoleOutput);
+            this.ClientSize = new System.Drawing.Size(638, 301);
             this.Controls.Add(this.txtConsoleInput);
+            this.Controls.Add(this.txtConsoleOutput);
             this.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "FrmRemoteShell";

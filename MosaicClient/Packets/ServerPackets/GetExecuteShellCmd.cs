@@ -4,7 +4,7 @@ using ZeroFormatter;
 namespace Client.Packets.ServerPackets
 {
     [ZeroFormattable]
-    class GetExecuteShellCmd : IPackets
+    public class GetExecuteShellCmd : IPackets
     {
         public override TypePackets Type
         {
@@ -15,7 +15,7 @@ namespace Client.Packets.ServerPackets
         }
 
         [Index(0)]
-        public virtual string command {get; set;}
+        public virtual string command { get; set; }
 
         public GetExecuteShellCmd()
         {
