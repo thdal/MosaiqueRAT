@@ -27,4 +27,4 @@ For the moment: Open solution in Your IDE and run the "MosaicServeur"(Server) de
 
 # Licence
 
-Mosaic is distributed under the MIT License. Thanks to QuasarRAT, n1nj4sec, DarkComet for inspiration.
+Mosaic is distributed under the MIT License. Thanks to QuasarRAT, njRAT, DarkComet for inspiration.
