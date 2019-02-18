@@ -8,10 +8,10 @@ Mosaic is writing in C# under the "MVC" architecture, ZeroFormatter serializer i
 
 * Remote Desktop
 * Remote Shell
+* Remote Webcam
 
 # Features in coming
 
-* Remote Webcam
 * Fun features
 * Computer Commands (Restart, Shutdown, Standby)
 * Keylogger
