@@ -61,7 +61,6 @@
     <Compile Include="Controllers\FrmRemoteWebcamController.cs" />
     <Compile Include="Controllers\Server\ClientMosaic.cs" />
     <Compile Include="Controllers\Server\ClientState.cs" />
-    <Compile Include="Controllers\Server\ServerMosaic.cs" />
     <Compile Include="Packets\ClientPackets\GetAuthenticationResponse.cs" />
     <Compile Include="Packets\ClientPackets\GetAvailableWebcamsResponse.cs" />
     <Compile Include="Packets\ClientPackets\GetDesktopResponse.cs" />

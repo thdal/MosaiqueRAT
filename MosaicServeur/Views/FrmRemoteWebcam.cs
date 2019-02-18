@@ -27,6 +27,10 @@ namespace Serveur.Views
 
         private void btnStart_Click(object sender, EventArgs e)
         {
+            btnStop.Enabled = true;
+            btnStart.Enabled = false;
+            cboResolutions.Enabled = false;
+            cboWebcams.Enabled = false;
             IsStarted = true;
             this.ActiveControl = pbWebcam;
             new GetWebcam(cboResolutions.SelectedIndex, cboWebcams.SelectedIndex).Execute(client);
@@ -34,11 +38,16 @@ namespace Serveur.Views
 
         private void btnStop_Click(object sender, EventArgs e)
         {
-            //if (btnStart.Enabled == false) btnStart.Enabled = true;
-            //if (cboWebcams.Enabled == false) cboWebcams.Enabled = true;
-            //btnStop.Enabled = false;
+            btnStop.Enabled = false;
+
+            if (IsStarted == true)
+             new StopWebcam().Execute(client);
+
+            if (btnStart.Enabled == false) btnStart.Enabled = true;
+            if (cboWebcams.Enabled == false) cboWebcams.Enabled = true;
+            if (cboResolutions.Enabled == false) cboResolutions.Enabled = true;
+
             IsStarted = false;
-            new StopWebcam().Execute(client);
         }
 
         public void AddWebcams(Dictionary<string, List<string>> webcams)
@@ -67,7 +76,10 @@ namespace Serveur.Views
 
         private void FrmRemoteWebcam_FormClosing(object sender, FormClosingEventArgs e)
         {
-            base.OnFormClosing(e);
+            if (IsStarted == true)
+                new StopWebcam().Execute(client);
+
+            IsStarted = false;
         }
 
         private void cboWebcams_SelectedIndexChanged(object sender, EventArgs e)
