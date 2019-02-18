@@ -12,7 +12,7 @@ namespace Serveur.Controllers.Server
         public string version { get; set; }
         public string operatingSystem { get; set; }
         public string accountType { get; set; }
-        public int imageIndex { get; set; }
+        public int    imageIndex { get; set; }
         public string country { get; set; }
         public string countryCode { get; set; }
         public string region { get; set; }
@@ -24,11 +24,10 @@ namespace Serveur.Controllers.Server
 
         public FrmRemoteDesktop frmRdp { get; set; }
         public FrmRemoteShell frmRms { get; set; }
+        public FrmRemoteWebcam frmWbc { get; set; }
 
         public ClientState()
         {
-
         }
-
     }
 }

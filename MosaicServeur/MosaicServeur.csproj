@@ -58,20 +58,26 @@
     <Compile Include="Controllers\FrmMainController.cs" />
     <Compile Include="Controllers\FrmRemoteDesktopController.cs" />
     <Compile Include="Controllers\FrmRemoteShellController.cs" />
+    <Compile Include="Controllers\FrmRemoteWebcamController.cs" />
     <Compile Include="Controllers\Server\ClientMosaic.cs" />
     <Compile Include="Controllers\Server\ClientState.cs" />
     <Compile Include="Controllers\Server\ServerMosaic.cs" />
     <Compile Include="Packets\ClientPackets\GetAuthenticationResponse.cs" />
+    <Compile Include="Packets\ClientPackets\GetAvailableWebcamsResponse.cs" />
     <Compile Include="Packets\ClientPackets\GetDesktopResponse.cs" />
     <Compile Include="Packets\ClientPackets\GetMonitorsResponse.cs" />
     <Compile Include="Packets\ClientPackets\GetExecuteShellCmdResponse.cs" />
+    <Compile Include="Packets\ClientPackets\GetWebcamResponse.cs" />
     <Compile Include="Packets\PacketHandler.cs" />
     <Compile Include="Packets\ServerPackets\GetAuthentication.cs" />
     <Compile Include="Packets\IPackets.cs" />
+    <Compile Include="Packets\ServerPackets\GetAvailableWebcams.cs" />
     <Compile Include="Packets\ServerPackets\GetDesktop.cs" />
     <Compile Include="Packets\ServerPackets\GetMonitors.cs" />
     <Compile Include="Packets\ServerPackets\GetExecuteShellCmd.cs" />
+    <Compile Include="Packets\ServerPackets\GetWebcam.cs" />
     <Compile Include="Packets\ServerPackets\SetAuthenticationSuccess.cs" />
+    <Compile Include="Packets\ServerPackets\StopWebcam.cs" />
     <Compile Include="Serveur.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -110,6 +116,12 @@
     <Compile Include="Views\FrmRemoteShell.Designer.cs">
       <DependentUpon>FrmRemoteShell.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\FrmRemoteWebcam.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FrmRemoteWebcam.Designer.cs">
+      <DependentUpon>FrmRemoteWebcam.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Serveur.resx">
       <DependentUpon>Serveur.cs</DependentUpon>
     </EmbeddedResource>
@@ -137,6 +149,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\FrmRemoteShell.resx">
       <DependentUpon>FrmRemoteShell.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FrmRemoteWebcam.resx">
+      <DependentUpon>FrmRemoteWebcam.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

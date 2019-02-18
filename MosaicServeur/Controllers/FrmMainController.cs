@@ -53,6 +53,20 @@ namespace Serveur.Controllers
             }
         }
 
+        public void frmWbc(ClientMosaic client)
+        {
+            try
+            {
+                FrmRemoteWebcam frmRemoteWebcam = new FrmRemoteWebcam(client);
+                frmRemoteWebcam.Text = "Remote Webcam";
+                frmRemoteWebcam.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), "FrmWbc MainController", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         public void frmRms(ClientMosaic client)
         {
             try

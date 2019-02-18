@@ -36,6 +36,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AForge.Video">
+      <HintPath>..\..\..\..\Downloads\AForge.NET Framework-2.2.5-(libs only)\Release\AForge.Video.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Video.DirectShow">
+      <HintPath>..\..\..\..\Downloads\AForge.NET Framework-2.2.5-(libs only)\Release\AForge.Video.DirectShow.dll</HintPath>
+    </Reference>
     <Reference Include="Costura, Version=3.3.2.0, Culture=neutral, PublicKeyToken=9919ef960d84173d, processorArchitecture=MSIL">
       <HintPath>..\packages\Costura.Fody.3.3.2\lib\net40\Costura.dll</HintPath>
     </Reference>
@@ -62,19 +68,25 @@
   <ItemGroup>
     <Compile Include="Controllers\AuthenticationController.cs" />
     <Compile Include="Controllers\BootController.cs" />
+    <Compile Include="Controllers\RemoteWebcamController.cs" />
     <Compile Include="Controllers\Server\ClientMosaic.cs" />
     <Compile Include="Controllers\RemoteShellController.cs" />
     <Compile Include="Packets\ClientPackets\GetAuthenticationResponse.cs" />
+    <Compile Include="Packets\ClientPackets\GetAvailableWebcamsResponse.cs" />
     <Compile Include="Packets\ClientPackets\GetDesktopResponse.cs" />
     <Compile Include="Packets\ClientPackets\GetExecuteShellCmdResponse.cs" />
     <Compile Include="Packets\ClientPackets\GetMonitorsResponse.cs" />
+    <Compile Include="Packets\ClientPackets\GetWebcamResponse.cs" />
     <Compile Include="Packets\IPackets.cs" />
     <Compile Include="Packets\PacketHandler.cs" />
     <Compile Include="Packets\ServerPackets\GetAuthentication.cs" />
+    <Compile Include="Packets\ServerPackets\GetAvailableWebcams.cs" />
     <Compile Include="Packets\ServerPackets\GetDesktop.cs" />
     <Compile Include="Packets\ServerPackets\GetExecuteShellCmd.cs" />
     <Compile Include="Packets\ServerPackets\GetMonitors.cs" />
+    <Compile Include="Packets\ServerPackets\GetWebcam.cs" />
     <Compile Include="Packets\ServerPackets\SetAuthenticationSuccess.cs" />
+    <Compile Include="Packets\ServerPackets\StopWebcam.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Controllers\RemoteDesktopController.cs" />

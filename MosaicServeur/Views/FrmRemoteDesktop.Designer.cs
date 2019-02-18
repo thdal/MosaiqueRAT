@@ -47,7 +47,6 @@
             this.tsRdp.Name = "tsRdp";
             this.tsRdp.Size = new System.Drawing.Size(477, 25);
             this.tsRdp.TabIndex = 0;
-            this.tsRdp.Text = "toolStrip1";
             // 
             // btnStart
             // 

