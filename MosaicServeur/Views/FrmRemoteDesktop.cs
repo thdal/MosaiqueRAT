@@ -83,5 +83,10 @@ namespace Serveur.Views
             {
             }
         }
+
+        private void FrmRemoteDesktop_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            stopRdp = true;
+        }
     }
 }
