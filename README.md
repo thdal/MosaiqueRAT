@@ -13,7 +13,6 @@ Mosaic is writing in C# under the "MVC" architecture, ZeroFormatter serializer i
 # Features in coming
 
 * Fun features
-* Computer Commands (Restart, Shutdown, Standby)
 * Keylogger
 * Task Manager
 * File Manager
