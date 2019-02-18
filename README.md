@@ -22,7 +22,7 @@ Mosaic is writing in C# under the "MVC" architecture, ZeroFormatter serializer i
 
 # Launch Mosaic
 
-For the moment: Open solution in Your IDE and run the "MosaicServeur"(Server) debugger, build the stub.
+For the moment: Open the solution in Your IDE and run the "MosaicServeur"(Server) debugger you will be able to build the stub.
 
 # Licence
 
