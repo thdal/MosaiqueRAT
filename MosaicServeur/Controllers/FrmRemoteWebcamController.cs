@@ -23,14 +23,6 @@ namespace Serveur.Controllers
             new GetAvailableWebcams().Execute(client);
         }
 
-        public void startFlux(int selectedWebcam)
-        {
-            //client.value.FrmWbc.picWebcam.Start();
-            //client.value.FrmWbc.picWebcam.SetFrameUpdatedEvent(_frameCounter_FrameUpdated);
-            //client.value.FrmWbc.ActiveControl = _connectClient.Value.FrmWbc.picWebcam;
-            new GetWebcam(75, selectedWebcam).Execute(client);
-        }
-
         public static void getAvailableWebcamsResponse(ClientMosaic client, GetAvailableWebcamsResponse packet)
         {
             if (client.value == null || client.value.frmWbc

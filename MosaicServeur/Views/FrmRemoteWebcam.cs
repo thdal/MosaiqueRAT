@@ -73,14 +73,7 @@ namespace Serveur.Views
             pbWebcam.Image = new Bitmap(bmp, pbWebcam.Width, pbWebcam.Height);
         }
 
-        private void FrmRemoteWebcam_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            if (IsStarted == true)
-                new StopWebcam().Execute(client);
-
-            IsStarted = false;
-        }
-
+        // EVENTS
         private void cboWebcams_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -99,6 +92,14 @@ namespace Serveur.Views
             catch (InvalidOperationException)
             {
             }
+        }
+
+        private void FrmRemoteWebcam_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (IsStarted == true)
+                new StopWebcam().Execute(client);
+
+            IsStarted = false;
         }
     }
 }
