@@ -13,7 +13,6 @@ Mosaic is writing in C# under the "MVC" architecture, ZeroFormatter serializer i
 # Features in coming
 
 * Fun features
-* Computer Commands (Restart, Shutdown, Standby)
 * Keylogger
 * Task Manager
 * File Manager
@@ -23,7 +22,7 @@ Mosaic is writing in C# under the "MVC" architecture, ZeroFormatter serializer i
 
 # Launch Mosaic
 
-For the moment: Open solution in Your IDE and run the "MosaicServeur"(Server) debugger, build the stub and enjoy.
+For the moment: Open the solution in Your IDE and run the "MosaicServeur"(Server) debugger you will be able to build the stub.
 
 # Licence
 
