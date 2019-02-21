@@ -47,12 +47,13 @@
             this.funToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.spyingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.remoteDesktopToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.remoteWebcamToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.remoteShellToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.msMain = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.builderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.remoteWebcamToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.fileManagerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.DgvMain)).BeginInit();
             this.cmsMain.SuspendLayout();
             this.msMain.SuspendLayout();
@@ -195,6 +196,8 @@
             // 
             // systemToolStripMenuItem
             // 
+            this.systemToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileManagerToolStripMenuItem});
             this.systemToolStripMenuItem.Name = "systemToolStripMenuItem";
             this.systemToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.systemToolStripMenuItem.Text = "System";
@@ -218,14 +221,21 @@
             // remoteDesktopToolStripMenuItem
             // 
             this.remoteDesktopToolStripMenuItem.Name = "remoteDesktopToolStripMenuItem";
-            this.remoteDesktopToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.remoteDesktopToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
             this.remoteDesktopToolStripMenuItem.Text = "Remote Desktop";
             this.remoteDesktopToolStripMenuItem.Click += new System.EventHandler(this.remoteDesktopToolStripMenuItem_Click);
+            // 
+            // remoteWebcamToolStripMenuItem
+            // 
+            this.remoteWebcamToolStripMenuItem.Name = "remoteWebcamToolStripMenuItem";
+            this.remoteWebcamToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.remoteWebcamToolStripMenuItem.Text = "Remote Webcam";
+            this.remoteWebcamToolStripMenuItem.Click += new System.EventHandler(this.remoteWebcamToolStripMenuItem_Click);
             // 
             // remoteShellToolStripMenuItem
             // 
             this.remoteShellToolStripMenuItem.Name = "remoteShellToolStripMenuItem";
-            this.remoteShellToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.remoteShellToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
             this.remoteShellToolStripMenuItem.Text = "Remote Shell";
             this.remoteShellToolStripMenuItem.Click += new System.EventHandler(this.remoteShellToolStripMenuItem_Click);
             // 
@@ -261,12 +271,12 @@
             this.builderToolStripMenuItem.Text = "Builder";
             this.builderToolStripMenuItem.Click += new System.EventHandler(this.builderToolStripMenuItem_Click);
             // 
-            // remoteWebcamToolStripMenuItem
+            // fileManagerToolStripMenuItem
             // 
-            this.remoteWebcamToolStripMenuItem.Name = "remoteWebcamToolStripMenuItem";
-            this.remoteWebcamToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.remoteWebcamToolStripMenuItem.Text = "Remote Webcam";
-            this.remoteWebcamToolStripMenuItem.Click += new System.EventHandler(this.remoteWebcamToolStripMenuItem_Click);
+            this.fileManagerToolStripMenuItem.Name = "fileManagerToolStripMenuItem";
+            this.fileManagerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.fileManagerToolStripMenuItem.Text = "File Manager";
+            this.fileManagerToolStripMenuItem.Click += new System.EventHandler(this.fileManagerToolStripMenuItem_Click);
             // 
             // FrmMain
             // 
@@ -312,5 +322,6 @@
         private System.Windows.Forms.ToolStripMenuItem remoteDesktopToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem remoteShellToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem remoteWebcamToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem fileManagerToolStripMenuItem;
     }
 }

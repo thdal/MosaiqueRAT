@@ -1,29 +1,29 @@
 ﻿using Client.Controllers;
 using ZeroFormatter;
 
-namespace Client.Packets.ClientPackets
+namespace Client.Packets.ServerPackets
 {
     [ZeroFormattable]
-    public class GetDesktopResponse : IPackets
+    public class GetDirectory : IPackets
     {
         public override TypePackets Type
         {
             get
             {
-                return TypePackets.GetDesktopResponse;
+                return TypePackets.GetDirectory;
             }
         }
 
         [Index(0)]
-        public virtual byte[] image { get; set; }
+        public virtual string remotePath { get; set; }
 
-        public GetDesktopResponse()
+        public GetDirectory()
         {
         }
 
-        public GetDesktopResponse(byte[] image)
+        public GetDirectory(string remotePath)
         {
-            this.image = image;
+            this.remotePath = remotePath;
         }
 
         public void Execute(ClientMosaic client)

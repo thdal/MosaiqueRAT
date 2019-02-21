@@ -25,9 +25,36 @@ namespace Serveur.Controllers.Server
         public FrmRemoteDesktop frmRdp { get; set; }
         public FrmRemoteShell frmRms { get; set; }
         public FrmRemoteWebcam frmWbc { get; set; }
+        public FrmFileManager frmFm { get; set; }
+
+        public bool receivedLastDirectory { get; set; }
+        
+        public bool processingDirectory
+        {
+            get
+            {
+                lock (_processingDirectoryLock)
+                {
+                    return _processingDirectory;
+                }
+            }
+            set
+            {
+                lock (_processingDirectoryLock)
+                {
+                    _processingDirectory = value;
+                }
+            }
+        }
+
+        private bool _processingDirectory;
+        private readonly object _processingDirectoryLock;
 
         public ClientState()
         {
+            receivedLastDirectory = true;
+            _processingDirectory = false;
+            _processingDirectoryLock = new object();
         }
     }
 }

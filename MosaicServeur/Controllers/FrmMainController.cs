@@ -80,5 +80,19 @@ namespace Serveur.Controllers
                 MessageBox.Show(ex.Message, "FrmRms MainController", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        public void frmFm(ClientMosaic client)
+        {
+            try
+            {
+                FrmFileManager frmFileManager = new FrmFileManager(client);
+                frmFileManager.Text = "File Manager";
+                frmFileManager.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "FrmFm MainController", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

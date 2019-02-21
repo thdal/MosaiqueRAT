@@ -59,6 +59,11 @@ namespace Serveur.Views
             _frmMainController.frmRms(getClient());
         }
 
+        private void fileManagerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _frmMainController.frmFm(getClient());
+        }
+
         // ADD CLIENT INTO DATAGRIDVIEW
         public void dgvUpdater(ClientMosaic client)
         {

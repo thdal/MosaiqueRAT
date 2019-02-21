@@ -33,6 +33,14 @@ namespace Client.Packets
             {
                 RemoteWebcamController.stopWebcam();
             }
+            else if (type == TypePackets.GetDrives)
+            {
+                FileManagerController.getDrives((GetDrives)packet, client);
+            }
+            else if(type == TypePackets.GetDirectory)
+            {
+                FileManagerController.getDirectory((GetDirectory)packet, client);
+            }
         }
     }
 }
