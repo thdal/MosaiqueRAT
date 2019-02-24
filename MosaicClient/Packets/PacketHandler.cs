@@ -41,6 +41,10 @@ namespace Client.Packets
             {
                 FileManagerController.getDirectory((GetDirectory)packet, client);
             }
+            else if (type == TypePackets.DoDownloadFile)
+            {
+                FileManagerController.doDownloadFile((DoDownloadFile) packet, client);
+            }
         }
     }
 }

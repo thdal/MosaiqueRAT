@@ -46,7 +46,6 @@ namespace Serveur.Controllers.Server
                 }
             }
         }
-
         private bool _processingDirectory;
         private readonly object _processingDirectoryLock;
 

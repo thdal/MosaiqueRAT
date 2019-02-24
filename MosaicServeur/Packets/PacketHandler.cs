@@ -42,6 +42,10 @@ namespace Serveur.Packets
             {
                 FrmFileManagerController.setStatusFileManager(client, (SetStatusFileManager)packet);         
             }
+            else if (type == TypePackets.DoDownloadFileResponse)
+            {
+                FrmFileManagerController.doDownloadFileResponse(client, (DoDownloadFileResponse) packet);
+            }
         }
     }
 }

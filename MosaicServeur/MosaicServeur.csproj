@@ -63,6 +63,7 @@
     <Compile Include="Controllers\Server\ClientMosaic.cs" />
     <Compile Include="Controllers\Server\ClientState.cs" />
     <Compile Include="Models\RemoteDrive.cs" />
+    <Compile Include="Packets\ClientPackets\DoDownloadFileResponse.cs" />
     <Compile Include="Packets\ClientPackets\GetAuthenticationResponse.cs" />
     <Compile Include="Packets\ClientPackets\GetAvailableWebcamsResponse.cs" />
     <Compile Include="Packets\ClientPackets\GetDesktopResponse.cs" />
@@ -73,6 +74,7 @@
     <Compile Include="Packets\ClientPackets\GetWebcamResponse.cs" />
     <Compile Include="Packets\ClientPackets\SetStatusFileManager.cs" />
     <Compile Include="Packets\PacketHandler.cs" />
+    <Compile Include="Packets\ServerPackets\DoDownloadFile.cs" />
     <Compile Include="Packets\ServerPackets\GetAuthentication.cs" />
     <Compile Include="Packets\IPackets.cs" />
     <Compile Include="Packets\ServerPackets\GetAvailableWebcams.cs" />

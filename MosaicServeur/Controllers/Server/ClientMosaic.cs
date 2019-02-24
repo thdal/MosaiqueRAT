@@ -277,6 +277,15 @@ namespace Serveur.Controllers.Server
         }
         #endregion
 
+        public void sendBlocking<T>(T packet) where T : IPackets
+        {
+            send(packet);
+            while (_sendingPackets)
+            {
+                Thread.Sleep(10);
+            }
+        }
+
         #region SEND
         public void send<T>(T packet) where T : IPackets
         {
