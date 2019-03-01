@@ -191,16 +191,26 @@ namespace Client.Controllers
                         if (!srcFile.ReadBlock(currentBlock, out block))
                             throw new Exception(srcFile.LastError);
 
-                        new DoDownloadFileResponse(command.id, Path.GetFileName(command.remotePath), block, srcFile.MaxBlocks, currentBlock, srcFile.LastError).Execute(client);
+                        new DoDownloadFileResponse(command.id, command.lvItem, Path.GetFileName(command.remotePath), block, srcFile.MaxBlocks, currentBlock, srcFile.LastError).Execute(client);
                     }
                 }
                 catch (Exception ex)
                 {
-                    new DoDownloadFileResponse(command.id, Path.GetFileName(command.remotePath), new byte[0], -1, -1, ex.Message).Execute(client);
+                    new DoDownloadFileResponse(command.id, command.lvItem, Path.GetFileName(command.remotePath), new byte[0], -1, -1, ex.Message).Execute(client);
                 }
 
                 _limitThreads.Release();
             }).Start();
+        }
+
+        public static void doDownloadFileCancel(DoDownloadFileCancel packet, ClientMosaic client)
+        {
+            if (!_canceledDownloads.ContainsKey(packet.id))
+            {
+                _canceledDownloads.Add(packet.id, "canceled");
+
+                new DoDownloadFileResponse(packet.id, packet.lvItem, "canceled", new byte[0], -1, -1, "Canceled").Execute(client);
+            }
         }
     }
 

@@ -110,8 +110,19 @@ namespace Client.Controllers
             try
             {
                 received = _clientSocket.EndReceive(AR);
+
+                if (received <= 0)
+                    throw new Exception("no bytes transferred");
             }
-            catch (SocketException)
+            catch (NullReferenceException)
+            {
+                return;
+            }
+            catch (ObjectDisposedException)
+            {
+                return;
+            }
+            catch (Exception)
             {
                 disconnect();
                 return;
@@ -145,7 +156,10 @@ namespace Client.Controllers
 
             try
             {
-                _clientSocket.BeginReceive(_readBuffer, 0, BUFFER_SIZE, SocketFlags.None, receiveCallBack, _clientSocket);
+                _clientSocket.BeginReceive(_readBuffer, 0, BUFFER_SIZE, SocketFlags.None, receiveCallBack, null);
+            }
+            catch (ObjectDisposedException)
+            {
             }
             catch (Exception)
             {
@@ -314,6 +328,38 @@ namespace Client.Controllers
         }
         #endregion
 
+        #region SEND
+        public void send<T>(T packet) where T : IPackets
+        {
+            connected = true;
+            byte[] payload;
+            if (!connected || packet == null) return;
+            lock (_sendBuffers)
+            {
+                try
+                {
+                    payload = ZeroFormatterSerializer.Serialize<IPackets>(packet);
+                }
+                catch (Exception ex)
+                {
+                    System.Windows.Forms.MessageBox.Show(ex.ToString());
+                    disconnect();
+                    return;
+                }
+
+                _sendBuffers.Enqueue(payload);
+
+
+                lock (_sendingPacketsLock)
+                {
+                    if (_sendingPackets) return;
+
+                    _sendingPackets = true;
+                }
+                ThreadPool.QueueUserWorkItem(Send);
+            }
+        }
+
         public void sendBlocking<T>(T packet) where T : IPackets
         {
             send(packet);
@@ -323,32 +369,13 @@ namespace Client.Controllers
             }
         }
 
-        #region SEND
-        public void send<T>(T packet) where T : IPackets
-        {
-            connected = true;
-            // if (!connected || packet == null) return;
-
-            var payload = ZeroFormatterSerializer.Serialize<IPackets>(packet);
-            _sendBuffers.Enqueue(payload);
-
-
-            lock (_sendingPacketsLock)
-            {
-                if (_sendingPackets) return;
-
-                _sendingPackets = true;
-            }
-            ThreadPool.QueueUserWorkItem(Send);
-        }
-
         private void Send(object state)
         {
             while (true)
             {
                 if (!connected)
                 {
-                    // SendCleanup(true);
+                    SendCleanup(true);
                     return;
                 }
 
@@ -357,7 +384,7 @@ namespace Client.Controllers
                 {
                     if (_sendBuffers.Count == 0)
                     {
-                        //SendCleanup();
+                        SendCleanup();
                         return;
                     }
 
@@ -374,7 +401,7 @@ namespace Client.Controllers
                 catch (Exception)
                 {
                     disconnect();
-                    //SendCleanup(true);
+                    SendCleanup(true);
                     return;
                 }
             }
@@ -388,6 +415,21 @@ namespace Client.Controllers
             Array.Copy(BitConverter.GetBytes(payload.Length), packet_, HEADER_SIZE);
             Array.Copy(payload, 0, packet_, HEADER_SIZE, payload.Length);
             return packet_;
+        }
+
+        private void SendCleanup(bool clear = false)
+        {
+            lock (_sendingPacketsLock)
+            {
+                _sendingPackets = false;
+            }
+
+            if (!clear) return;
+
+            lock (_sendBuffers)
+            {
+                _sendBuffers.Clear();
+            }
         }
 
         private void packetReader(IPackets packet)

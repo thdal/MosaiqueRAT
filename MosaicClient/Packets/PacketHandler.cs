@@ -43,7 +43,11 @@ namespace Client.Packets
             }
             else if (type == TypePackets.DoDownloadFile)
             {
-                FileManagerController.doDownloadFile((DoDownloadFile) packet, client);
+                FileManagerController.doDownloadFile((DoDownloadFile)packet, client);
+            }
+            else if (type == TypePackets.DoDownloadFileCancel)
+            {
+                FileManagerController.doDownloadFileCancel((DoDownloadFileCancel)packet, client);
             }
         }
     }

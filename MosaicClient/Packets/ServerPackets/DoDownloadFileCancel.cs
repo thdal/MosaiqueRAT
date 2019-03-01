@@ -1,35 +1,31 @@
-﻿using Serveur.Controllers.Server;
+﻿using Client.Controllers;
 using ZeroFormatter;
 
-namespace Serveur.Packets.ServerPackets
+namespace Client.Packets.ServerPackets
 {
     [ZeroFormattable]
-    public class DoDownloadFile : IPackets
+    public class DoDownloadFileCancel : IPackets
     {
         public override TypePackets Type
         {
             get
             {
-                return TypePackets.DoDownloadFile;
+                return TypePackets.DoDownloadFileCancel;
             }
         }
 
         [Index(0)]
-        public virtual string remotePath { get; set; }
-
-        [Index(1)]
         public virtual int id { get; set; }
 
-        [Index(2)]
+        [Index(1)]
         public virtual int lvItem { get; set; }
 
-        public DoDownloadFile()
+        public DoDownloadFileCancel()
         {
         }
 
-        public DoDownloadFile(string remotePath, int id, int lvItem)
+        public DoDownloadFileCancel(int id, int lvItem)
         {
-            this.remotePath = remotePath;
             this.id = id;
             this.lvItem = lvItem;
         }

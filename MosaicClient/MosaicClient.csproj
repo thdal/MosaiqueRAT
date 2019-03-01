@@ -72,6 +72,7 @@
     <Compile Include="Controllers\RemoteWebcamController.cs" />
     <Compile Include="Controllers\Server\ClientMosaic.cs" />
     <Compile Include="Controllers\RemoteShellController.cs" />
+    <Compile Include="Packets\ServerPackets\DoDownloadFileCancel.cs" />
     <Compile Include="Packets\ClientPackets\DoDownloadFileResponse.cs" />
     <Compile Include="Packets\ServerPackets\DoDownloadFile.cs" />
     <Compile Include="Packets\ClientPackets\GetAuthenticationResponse.cs" />

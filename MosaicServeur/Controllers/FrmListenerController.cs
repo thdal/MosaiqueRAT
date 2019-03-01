@@ -12,6 +12,8 @@ namespace Serveur.Controllers
     public class FrmListenerController
     {
         private Socket _serverSocket;
+        private SocketAsyncEventArgs _item;
+
         private const int BUFFER_SIZE = 2048;
         //private const int PORT = 4444;
         private int _port;
@@ -26,7 +28,8 @@ namespace Serveur.Controllers
             {
                 _serverSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
                 _serverSocket.Bind(new IPEndPoint(IPAddress.Any, port));
-                _serverSocket.Listen(0);
+                _serverSocket.Listen(1000);               
+
                 _serverSocket.BeginAccept(new AsyncCallback(acceptClient), null);
 
             }

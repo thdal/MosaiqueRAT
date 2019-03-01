@@ -1,10 +1,13 @@
 ﻿using Serveur.Controllers.Server;
 using Serveur.Models;
 using Serveur.Packets.ClientPackets;
+using Serveur.Packets.ServerPackets;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Threading;
 
 namespace Serveur.Controllers
@@ -17,12 +20,17 @@ namespace Serveur.Controllers
         public static Dictionary<int, string> canceledDownloads = new Dictionary<int, string>();
         public static Dictionary<int, string> renamedFiles = new Dictionary<int, string>();
 
-
         public enum PathType
         {
             File,
             Directory,
             Back
+        }
+
+        public enum TransferType
+        {
+            Upload,
+            Download
         }
 
         public static void getDrivesResponse(ClientMosaic client, GetDrivesResponse packet)
@@ -103,15 +111,7 @@ namespace Serveur.Controllers
         public static void doDownloadFileResponse(ClientMosaic client, DoDownloadFileResponse packet)
         {
             if (canceledDownloads.ContainsKey(packet.id) || string.IsNullOrEmpty(packet.fileName))
-                return;
-
-            // don't escape from download directory
-            if (checkPathForIllegalChars(packet.fileName))
-            {
-                // disconnect malicious client
-                client.disconnect();
-                return;
-            }
+                return;            
 
             if (!Directory.Exists(client.value.downloadDirectory))
                 Directory.CreateDirectory(client.value.downloadDirectory);
@@ -138,20 +138,21 @@ namespace Serveur.Controllers
             if (client.value == null || client.value.frmFm == null)
             {
                 //FrmMain.Instance.SetStatusByClient(client, "Download aborted, please keep the File Manager open.");
-                //new Packets.ServerPackets.DoDownloadFileCancel(packet.id).Execute(client);
+                new DoDownloadFileCancel(packet.id, packet.lvItem).Execute(client);
                 return;
             }
 
             int index = client.value.frmFm.getTransferIndex(packet.id);
             if (index < 0)
                 return;
+            
 
             if (!string.IsNullOrEmpty(packet.customMessage))
             {
                 if (client.value.frmFm == null) // abort download when form is closed
                     return;
 
-                client.value.frmFm.updateTransferStatus(index, packet.customMessage, 0);
+                client.value.frmFm.updateTransferStatus(packet.lvItem, index, packet.customMessage, 0);
                 return;
             }
 
@@ -161,7 +162,7 @@ namespace Serveur.Controllers
                 if (client.value == null || client.value.frmFm == null)
                     return;
 
-                client.value.frmFm.updateTransferStatus(index, destFile.LastError, 0);
+                client.value.frmFm.updateTransferStatus(packet.lvItem, index, destFile.LastError, 0);
                 return;
             }
 
@@ -173,14 +174,14 @@ namespace Serveur.Controllers
 
             if (canceledDownloads.ContainsKey(packet.id)) return;
 
-            client.value.frmFm.updateTransferStatus(index, string.Format("Downloading...({0}%)", progress), -1);
+            client.value.frmFm.updateTransferStatus(packet.lvItem, index, string.Format("Downloading...({0}%)", progress), -1);
 
             if ((packet.currentBlock + 1) == packet.maxBlocks)
             {
                 if (client.value.frmFm == null)
                     return;
                 renamedFiles.Remove(packet.id);
-                client.value.frmFm.updateTransferStatus(index, "Completed", 1);
+                client.value.frmFm.updateTransferStatus(packet.lvItem, index, "Completed", 1);
             }
         }
 

