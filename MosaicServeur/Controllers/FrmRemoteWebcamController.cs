@@ -20,7 +20,6 @@ namespace Serveur.Controllers
         public FrmRemoteWebcamController(ClientMosaic client)
         {
             this.client = client;
-            new GetAvailableWebcams().Execute(client);
         }
 
         public static void getAvailableWebcamsResponse(ClientMosaic client, GetAvailableWebcamsResponse packet)

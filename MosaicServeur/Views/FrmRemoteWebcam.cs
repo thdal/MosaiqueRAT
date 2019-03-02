@@ -24,6 +24,22 @@ namespace Serveur.Views
             InitializeComponent();
         }
 
+        private void FrmRemoteWebcam_Load(object sender, EventArgs e)
+        {
+            new GetAvailableWebcams().Execute(client);
+        }
+
+        private void FrmRemoteWebcam_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            //if(!pbWebcam.IsDisposed && !pbWebcam.Disposing)
+            //    pbWebcam.Dispose();
+
+            if (IsStarted == true)
+                new StopWebcam().Execute(client);
+
+            IsStarted = false;
+        }
+
         private void btnStart_Click(object sender, EventArgs e)
         {
             btnStop.Enabled = true;
@@ -92,17 +108,6 @@ namespace Serveur.Views
             catch (InvalidOperationException)
             {
             }
-        }
-
-        private void FrmRemoteWebcam_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            //if(!pbWebcam.IsDisposed && !pbWebcam.Disposing)
-            //    pbWebcam.Dispose();
-
-            if (IsStarted == true)
-                new StopWebcam().Execute(client);
-
-            IsStarted = false;
         }
     }
 }

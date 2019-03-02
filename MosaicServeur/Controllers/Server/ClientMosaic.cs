@@ -382,7 +382,7 @@ namespace Serveur.Controllers.Server
             return packet_;
         }
 
-        private void SendCleanup(bool clear = false)
+        public void SendCleanup(bool clear = false)
         {
             lock (_sendingPacketsLock)
             {

@@ -73,12 +73,14 @@
             // 
             // cboWebcams
             // 
+            this.cboWebcams.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboWebcams.Name = "cboWebcams";
             this.cboWebcams.Size = new System.Drawing.Size(121, 25);
             this.cboWebcams.SelectedIndexChanged += new System.EventHandler(this.cboWebcams_SelectedIndexChanged);
             // 
             // cboResolutions
             // 
+            this.cboResolutions.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboResolutions.Name = "cboResolutions";
             this.cboResolutions.Size = new System.Drawing.Size(121, 25);
             // 
@@ -103,6 +105,7 @@
             this.Name = "FrmRemoteWebcam";
             this.Text = "Remote Webcam";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmRemoteWebcam_FormClosing);
+            this.Load += new System.EventHandler(this.FrmRemoteWebcam_Load);
             this.tsFrmWbc.ResumeLayout(false);
             this.tsFrmWbc.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbWebcam)).EndInit();
