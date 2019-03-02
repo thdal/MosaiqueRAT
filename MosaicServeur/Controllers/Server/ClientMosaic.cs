@@ -382,7 +382,7 @@ namespace Serveur.Controllers.Server
             return packet_;
         }
 
-        public void SendCleanup(bool clear = false)
+        private void SendCleanup(bool clear = false)
         {
             lock (_sendingPacketsLock)
             {
@@ -413,7 +413,7 @@ namespace Serveur.Controllers.Server
                 }
                 else
                 {
-                    //disconnect();
+                    disconnect();
                 }
                 return;
             }

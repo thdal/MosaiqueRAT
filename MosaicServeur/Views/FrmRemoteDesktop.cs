@@ -49,6 +49,15 @@ namespace Serveur.Views
             setToolStrip(false);
         }
 
+
+        public void setToolStrip(bool state)
+        {
+            cbMonitors.Enabled = !state;
+            btnStart.Enabled = !state;
+            btnStop.Enabled = state;
+            stopRdp = !state;
+        }
+
         //CALLBACK
         public void cleanComboBox()
         {
@@ -96,14 +105,6 @@ namespace Serveur.Views
             catch (InvalidOperationException)
             {
             }
-        }
-
-        public void setToolStrip(bool state)
-        {
-            cbMonitors.Enabled = !state;
-            btnStart.Enabled = !state;
-            btnStop.Enabled = state;
-            stopRdp = !state;
         }
     }
 }

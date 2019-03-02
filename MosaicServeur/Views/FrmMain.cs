@@ -11,11 +11,8 @@ namespace Serveur.Views
         private FrmMainController _frmMainController;
         private FrmListenerController _frmListenerController;
         private List<ClientMosaic> _connectedClients;
-
         private int selectedRow;
-
         private readonly object _clientsLock = new object();
-
 
         public FrmMain()
         {
