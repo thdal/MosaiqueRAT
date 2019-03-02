@@ -113,5 +113,18 @@ namespace Serveur.Views
         {
             selectedRow = e.RowIndex;
         }
+
+        private void testToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if(getClient().value.frmFm == null)
+            {
+                MessageBox.Show("null");
+
+            }
+            else
+            {
+                MessageBox.Show("notNull");
+            }
+        }
     }
 }

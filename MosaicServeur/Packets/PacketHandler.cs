@@ -32,6 +32,7 @@ namespace Serveur.Packets
             }
             else if (type == TypePackets.GetDrivesResponse)
             {
+                System.Windows.Forms.MessageBox.Show("GetDrivesR");
                 FrmFileManagerController.getDrivesResponse(client, (GetDrivesResponse)packet);
             }
             else if (type == TypePackets.GetDirectoryResponse)
@@ -44,6 +45,7 @@ namespace Serveur.Packets
             }
             else if (type == TypePackets.DoDownloadFileResponse)
             {
+               // System.Windows.Forms.MessageBox.Show("DownloadFileR");
                 FrmFileManagerController.doDownloadFileResponse(client, (DoDownloadFileResponse) packet);
             }
         }

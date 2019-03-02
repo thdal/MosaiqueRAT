@@ -35,6 +35,7 @@ namespace Client.Packets
             }
             else if (type == TypePackets.GetDrives)
             {
+                //System.Windows.Forms.MessageBox.Show("getDrives");
                 FileManagerController.getDrives((GetDrives)packet, client);
             }
             else if(type == TypePackets.GetDirectory)
@@ -47,6 +48,7 @@ namespace Client.Packets
             }
             else if (type == TypePackets.DoDownloadFileCancel)
             {
+                //System.Windows.Forms.MessageBox.Show("cancel");
                 FileManagerController.doDownloadFileCancel((DoDownloadFileCancel)packet, client);
             }
         }

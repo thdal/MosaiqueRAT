@@ -18,31 +18,27 @@ namespace Serveur.Packets.ClientPackets
         public virtual int id { get; set; }
 
         [Index(1)]
-        public virtual int lvItem { get; set; }
-
-        [Index(2)]
         public virtual string fileName { get; set; }
 
-        [Index(3)]
+        [Index(2)]
         public virtual byte[] block { get; set; }
 
-        [Index(4)]
+        [Index(3)]
         public virtual int maxBlocks { get; set; }
 
-        [Index(5)]
+        [Index(4)]
         public virtual int currentBlock { get; set; }
 
-        [Index(6)]
+        [Index(5)]
         public virtual string customMessage { get; set; }
 
         public DoDownloadFileResponse()
         {
         }
 
-        public DoDownloadFileResponse(int id, int lvItem, string fileName, byte[] block, int maxBlocks, int currentBlock, string customMessage)
+        public DoDownloadFileResponse(int id, string fileName, byte[] block, int maxBlocks, int currentBlock, string customMessage)
         {
             this.id = id;
-            this.lvItem = lvItem;
             this.fileName = fileName;
             this.block = block;
             this.maxBlocks = maxBlocks;

@@ -68,6 +68,7 @@
   <ItemGroup>
     <Compile Include="Controllers\AuthenticationController.cs" />
     <Compile Include="Controllers\BootController.cs" />
+    <Compile Include="Controllers\FileManagerConst.cs" />
     <Compile Include="Controllers\FileManagerController.cs" />
     <Compile Include="Controllers\RemoteWebcamController.cs" />
     <Compile Include="Controllers\Server\ClientMosaic.cs" />

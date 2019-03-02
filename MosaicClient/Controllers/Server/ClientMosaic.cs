@@ -458,10 +458,14 @@ namespace Client.Controllers
             if (_clientSocket != null)
             {
                 _clientSocket.Close();
-                _clientSocket = null;               
-            }
-
-            _receiveState = ReceiveType.Header;
+                _clientSocket = null;
+                _readOffset = 0;
+                _writeOffset = 0;
+                _tempHeaderOffset = 0;
+                _payloadLen = 0;
+                _payloadBuffer = null;
+                _receiveState = ReceiveType.Header;
+            } 
 
             connected = false;
             authenticated = false;

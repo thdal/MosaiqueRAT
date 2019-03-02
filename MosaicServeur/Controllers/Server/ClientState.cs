@@ -28,7 +28,9 @@ namespace Serveur.Controllers.Server
         public FrmFileManager frmFm { get; set; }
 
         public bool receivedLastDirectory { get; set; }
-        
+        public bool ttttest { get; set; }
+
+
         public bool processingDirectory
         {
             get

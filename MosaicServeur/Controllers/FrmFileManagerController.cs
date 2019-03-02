@@ -110,7 +110,7 @@ namespace Serveur.Controllers
 
         public static void doDownloadFileResponse(ClientMosaic client, DoDownloadFileResponse packet)
         {
-            if (canceledDownloads.ContainsKey(packet.id) || string.IsNullOrEmpty(packet.fileName))
+            if (canceledDownloads.ContainsKey(packet.id) || string.IsNullOrEmpty(packet.fileName) || client.value.ttttest == true)
                 return;            
 
             if (!Directory.Exists(client.value.downloadDirectory))
@@ -137,8 +137,9 @@ namespace Serveur.Controllers
 
             if (client.value == null || client.value.frmFm == null)
             {
+                //System.Windows.Forms.MessageBox.Show("l 140 - FMController");
                 //FrmMain.Instance.SetStatusByClient(client, "Download aborted, please keep the File Manager open.");
-                new DoDownloadFileCancel(packet.id, packet.lvItem).Execute(client);
+                new DoDownloadFileCancel(packet.id).Execute(client);
                 return;
             }
 
@@ -152,7 +153,7 @@ namespace Serveur.Controllers
                 if (client.value.frmFm == null) // abort download when form is closed
                     return;
 
-                client.value.frmFm.updateTransferStatus(packet.lvItem, index, packet.customMessage, 0);
+                client.value.frmFm.updateTransferStatus(index, packet.customMessage, 0);
                 return;
             }
 
@@ -162,7 +163,7 @@ namespace Serveur.Controllers
                 if (client.value == null || client.value.frmFm == null)
                     return;
 
-                client.value.frmFm.updateTransferStatus(packet.lvItem, index, destFile.LastError, 0);
+                client.value.frmFm.updateTransferStatus(index, destFile.LastError, 0);
                 return;
             }
 
@@ -174,14 +175,14 @@ namespace Serveur.Controllers
 
             if (canceledDownloads.ContainsKey(packet.id)) return;
 
-            client.value.frmFm.updateTransferStatus(packet.lvItem, index, string.Format("Downloading...({0}%)", progress), -1);
+            client.value.frmFm.updateTransferStatus(index, string.Format("Downloading...({0}%)", progress), -1);
 
             if ((packet.currentBlock + 1) == packet.maxBlocks)
             {
                 if (client.value.frmFm == null)
                     return;
                 renamedFiles.Remove(packet.id);
-                client.value.frmFm.updateTransferStatus(packet.lvItem, index, "Completed", 1);
+                client.value.frmFm.updateTransferStatus(index, "Completed", 1);
             }
         }
 

@@ -20,18 +20,14 @@ namespace Serveur.Packets.ServerPackets
         [Index(1)]
         public virtual int id { get; set; }
 
-        [Index(2)]
-        public virtual int lvItem { get; set; }
-
         public DoDownloadFile()
         {
         }
 
-        public DoDownloadFile(string remotePath, int id, int lvItem)
+        public DoDownloadFile(string remotePath, int id)
         {
             this.remotePath = remotePath;
             this.id = id;
-            this.lvItem = lvItem;
         }
 
         public void Execute(ClientMosaic client)

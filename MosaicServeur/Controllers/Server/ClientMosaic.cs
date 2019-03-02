@@ -428,6 +428,12 @@ namespace Serveur.Controllers.Server
             {
                 _clientSocket.Close();
                 _clientSocket = null;
+                _readOffset = 0;
+                _writeOffset = 0;
+                _tempHeaderOffset = 0;
+                _payloadLen = 0;
+                _payloadBuffer = null;
+                _receiveState = ReceiveType.Header;
             }
 
             if (value != null)

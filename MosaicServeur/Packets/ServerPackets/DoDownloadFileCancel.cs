@@ -15,19 +15,15 @@ namespace Serveur.Packets.ServerPackets
         }
 
         [Index(0)]
-        public virtual int id { get; set; }
-
-        [Index(1)]
-        public virtual int lvItem { get; set; }
+        public virtual int id { get; set; }        
 
         public DoDownloadFileCancel()
         {
         }
 
-        public DoDownloadFileCancel(int id, int lvItem)
+        public DoDownloadFileCancel(int id)
         {
             this.id = id;
-            this.lvItem = lvItem;
         }
 
         public void Execute(ClientMosaic client)

@@ -44,7 +44,6 @@
             this.lblDrive = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.lvTransfers = new System.Windows.Forms.ListView();
-            this.colID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colTransferType = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colStatus = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colFilename = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -53,6 +52,7 @@
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.stripLblStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.colUniqID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.testToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tcFileManager.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.cmsDirectory.SuspendLayout();
@@ -200,7 +200,6 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lvTransfers.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.colUniqID,
-            this.colID,
             this.colTransferType,
             this.colStatus,
             this.colFilename});
@@ -213,11 +212,6 @@
             this.lvTransfers.TabIndex = 0;
             this.lvTransfers.UseCompatibleStateImageBehavior = false;
             this.lvTransfers.View = System.Windows.Forms.View.Details;
-            // 
-            // colID
-            // 
-            this.colID.Text = "ID";
-            this.colID.Width = 39;
             // 
             // colTransferType
             // 
@@ -237,9 +231,10 @@
             // cmsTransfers
             // 
             this.cmsTransfers.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.cancelToolStripMenuItem});
+            this.cancelToolStripMenuItem,
+            this.testToolStripMenuItem});
             this.cmsTransfers.Name = "cmsTransfers";
-            this.cmsTransfers.Size = new System.Drawing.Size(111, 26);
+            this.cmsTransfers.Size = new System.Drawing.Size(111, 48);
             // 
             // cancelToolStripMenuItem
             // 
@@ -268,6 +263,13 @@
             // 
             this.colUniqID.Text = "packetID";
             this.colUniqID.Width = 118;
+            // 
+            // testToolStripMenuItem
+            // 
+            this.testToolStripMenuItem.Name = "testToolStripMenuItem";
+            this.testToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.testToolStripMenuItem.Text = "test";
+            this.testToolStripMenuItem.Click += new System.EventHandler(this.testToolStripMenuItem_Click);
             // 
             // FrmFileManager
             // 
@@ -314,12 +316,12 @@
         private System.Windows.Forms.ContextMenuStrip cmsDirectory;
         private System.Windows.Forms.ToolStripMenuItem downloadToolStripMenuItem;
         private System.Windows.Forms.ListView lvTransfers;
-        private System.Windows.Forms.ColumnHeader colID;
         private System.Windows.Forms.ColumnHeader colTransferType;
         private System.Windows.Forms.ColumnHeader colStatus;
         private System.Windows.Forms.ColumnHeader colFilename;
         private System.Windows.Forms.ContextMenuStrip cmsTransfers;
         private System.Windows.Forms.ToolStripMenuItem cancelToolStripMenuItem;
         private System.Windows.Forms.ColumnHeader colUniqID;
+        private System.Windows.Forms.ToolStripMenuItem testToolStripMenuItem;
     }
 }
