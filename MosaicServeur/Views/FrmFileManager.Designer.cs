@@ -52,7 +52,6 @@
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.stripLblStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.colUniqID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.testToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tcFileManager.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.cmsDirectory.SuspendLayout();
@@ -231,10 +230,9 @@
             // cmsTransfers
             // 
             this.cmsTransfers.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.cancelToolStripMenuItem,
-            this.testToolStripMenuItem});
+            this.cancelToolStripMenuItem});
             this.cmsTransfers.Name = "cmsTransfers";
-            this.cmsTransfers.Size = new System.Drawing.Size(111, 48);
+            this.cmsTransfers.Size = new System.Drawing.Size(181, 48);
             // 
             // cancelToolStripMenuItem
             // 
@@ -263,13 +261,6 @@
             // 
             this.colUniqID.Text = "packetID";
             this.colUniqID.Width = 118;
-            // 
-            // testToolStripMenuItem
-            // 
-            this.testToolStripMenuItem.Name = "testToolStripMenuItem";
-            this.testToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.testToolStripMenuItem.Text = "test";
-            this.testToolStripMenuItem.Click += new System.EventHandler(this.testToolStripMenuItem_Click);
             // 
             // FrmFileManager
             // 
@@ -322,6 +313,5 @@
         private System.Windows.Forms.ContextMenuStrip cmsTransfers;
         private System.Windows.Forms.ToolStripMenuItem cancelToolStripMenuItem;
         private System.Windows.Forms.ColumnHeader colUniqID;
-        private System.Windows.Forms.ToolStripMenuItem testToolStripMenuItem;
     }
 }

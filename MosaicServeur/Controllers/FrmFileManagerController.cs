@@ -3,11 +3,9 @@ using Serveur.Models;
 using Serveur.Packets.ClientPackets;
 using Serveur.Packets.ServerPackets;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Security.Cryptography;
 using System.Threading;
 
 namespace Serveur.Controllers
@@ -16,6 +14,8 @@ namespace Serveur.Controllers
     {
         private const string DELIMITER = "$E$";
         private static readonly string[] _sizes = { "B", "KB", "MB", "GB" };
+        public static string _currentDir;
+        private static readonly Random _rnd = new Random(Environment.TickCount);
         private static readonly char[] _illegalChars = Path.GetInvalidPathChars().Union(Path.GetInvalidFileNameChars()).ToArray();
         public static Dictionary<int, string> canceledDownloads = new Dictionary<int, string>();
         public static Dictionary<int, string> renamedFiles = new Dictionary<int, string>();
@@ -186,6 +186,27 @@ namespace Serveur.Controllers
             }
         }
 
+        public static void setStatusFileManager(ClientMosaic client, SetStatusFileManager packet)
+        {
+            if (client.value == null || client.value.frmFm == null) return;
+
+            client.value.frmFm.setStatus(packet.message, packet.setLastDirSeen);
+        }
+
+        public static void refreshDirectory(ClientMosaic client)
+        {
+            if (client == null || client.value == null) return;
+
+            if (!client.value.receivedLastDirectory)
+            {
+                client.value.processingDirectory = false;
+            }
+
+            new GetDirectory(_currentDir).Execute(client);
+            client.value.frmFm.setStatus("Loading directory content...");
+            client.value.receivedLastDirectory = false;
+        }
+
         public static bool checkPathForIllegalChars(string path)
         {
             return path.Any(c => _illegalChars.Contains(c));
@@ -203,11 +224,40 @@ namespace Serveur.Controllers
             return string.Format("{0:0.##} {1}", len, _sizes[order]);
         }
 
-        public static void setStatusFileManager(ClientMosaic client, SetStatusFileManager packet)
+        public static int getNewTransferId(int o = 0)
         {
-            if (client.value == null || client.value.frmFm == null) return;
+            return _rnd.Next(0, int.MaxValue) + o;
+        }
 
-            client.value.frmFm.setStatus(packet.message, packet.setLastDirSeen);
+        public static string getAbsolutePath(string item)
+        {
+            if (!string.IsNullOrEmpty(_currentDir) && _currentDir[0] == '/') // support forward slashes
+            {
+                if (_currentDir.Length == 1)
+                    return Path.Combine(_currentDir, item);
+                else
+                    return Path.Combine(_currentDir + '/', item);
+            }
+
+            return Path.GetFullPath(Path.Combine(_currentDir, item));
+        }
+
+        public static void navigateUp(ClientMosaic client)
+        {
+            if (!string.IsNullOrEmpty(_currentDir) && _currentDir[0] == '/') // support forward slashes
+            {
+                if (_currentDir.LastIndexOf('/') > 0)
+                {
+                    _currentDir = _currentDir.Remove(_currentDir.LastIndexOf('/') + 1);
+                    _currentDir = _currentDir.TrimEnd('/');
+                }
+                else
+                    _currentDir = "/";
+
+                client.value.frmFm.setCurrentDir(_currentDir);
+            }
+            else
+                client.value.frmFm.setCurrentDir(getAbsolutePath(@"..\"));
         }
     }
 

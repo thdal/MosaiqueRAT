@@ -13,7 +13,7 @@ namespace Client.Controllers
     {
         private const string DELIMITER = "$E$";
         private static readonly Semaphore _limitThreads = new Semaphore(2, 2); // maximum simultaneous file downloads
-        private static bool tester = true;
+        private static Dictionary<int, string> _canceledDownloads = new Dictionary<int, string>();
         public static void getDrives(GetDrives command, ClientMosaic client)
         {
             DriveInfo[] drives;
@@ -170,35 +170,6 @@ namespace Client.Controllers
 
         public static void doDownloadFile(DoDownloadFile command, ClientMosaic client)
         {
-            //while (tester)
-            //{
-            //    try
-            //    {
-            //        FileSplit srcFile = new FileSplit(command.remotePath);
-            //        if (srcFile.MaxBlocks < 0)
-            //            throw new Exception(srcFile.LastError);
-
-            //        for (int currentBlock = 0; currentBlock < srcFile.MaxBlocks; currentBlock++)
-            //        {
-            //            if (!client.connected || _canceledDownloads.ContainsKey(command.id))
-            //            {
-            //                //System.Windows.Forms.MessageBox.Show("break cancel");
-            //                break;
-            //            }
-
-            //            byte[] block;
-
-            //            if (!srcFile.ReadBlock(currentBlock, out block))
-            //                throw new Exception(srcFile.LastError);
-
-            //            new DoDownloadFileResponse(command.id, command.lvItem, Path.GetFileName(command.remotePath), block, srcFile.MaxBlocks, currentBlock, srcFile.LastError).Execute(client);
-            //        }
-            //    }
-            //    catch (Exception ex)
-            //    {
-            //        new DoDownloadFileResponse(command.id, command.lvItem, Path.GetFileName(command.remotePath), new byte[0], -1, -1, ex.Message).Execute(client);
-            //    }
-            //}
             new Thread(() =>
             {
                 _limitThreads.WaitOne();
@@ -213,7 +184,6 @@ namespace Client.Controllers
                     {
                         if (!client.connected || _canceledDownloads.ContainsKey(command.id))
                         {
-                            //System.Windows.Forms.MessageBox.Show("break cancel");
                             break;
                         }
 
@@ -238,10 +208,7 @@ namespace Client.Controllers
         {
             if (!_canceledDownloads.ContainsKey(packet.id))
             {
-                //System.Windows.Forms.MessageBox.Show("boucleCancel");
                 _canceledDownloads.Add(packet.id, "canceled");
-                tester = false;
-
                 new DoDownloadFileResponse(packet.id, "canceled", new byte[0], -1, -1, "Canceled").Execute(client);
             }
         }
