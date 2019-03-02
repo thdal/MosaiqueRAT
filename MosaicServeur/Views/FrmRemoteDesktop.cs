@@ -14,28 +14,42 @@ namespace Serveur.Views
 
         public FrmRemoteDesktop(ClientMosaic client)
         {
-            InitializeComponent();
             client.value.frmRdp = this;
             _client = client;
+            InitializeComponent();
         }
 
         private void FrmRemoteDesktop_Load(object sender, System.EventArgs e)
         {
             if (_client.value != null)
+            {
+                setToolStrip(false);
                 new Packets.ServerPackets.GetMonitors().Execute(_client);
+            }
         }
 
+        private void FrmRemoteDesktop_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (!pbRdp.IsDisposed && !pbRdp.Disposing)            
+                pbRdp.Dispose();
+            if (_client.value != null)
+                _client.value.frmRdp = null;
+            setToolStrip(false);
+        }
+
+        //BUTTONS
         private void btnStart_Click(object sender, EventArgs e)
         {
-            stopRdp = false;
+            setToolStrip(true);
             FrmRemoteDesktopController.getDesktop(_client, cbMonitors.SelectedIndex);
         }
 
         private void btnStop_Click(object sender, EventArgs e)
         {
-            stopRdp = true;
+            setToolStrip(false);
         }
 
+        //CALLBACK
         public void cleanComboBox()
         {
             try
@@ -84,9 +98,12 @@ namespace Serveur.Views
             }
         }
 
-        private void FrmRemoteDesktop_FormClosing(object sender, FormClosingEventArgs e)
+        public void setToolStrip(bool state)
         {
-            stopRdp = true;
+            cbMonitors.Enabled = !state;
+            btnStart.Enabled = !state;
+            btnStop.Enabled = state;
+            stopRdp = !state;
         }
     }
 }

@@ -15,10 +15,10 @@ namespace Client.Packets.ServerPackets
         }
 
         [Index(0)]
-        public virtual int Quality { get; set; }
+        public virtual int quality { get; set; }
 
         [Index(1)]
-        public virtual int Monitor { get; set; }
+        public virtual int monitor { get; set; }
 
         public GetDesktop()
         {
@@ -26,8 +26,8 @@ namespace Client.Packets.ServerPackets
 
         public GetDesktop(int quality, int monitor)
         {
-            this.Quality = quality;
-            this.Monitor = monitor;
+            this.quality = quality;
+            this.monitor = monitor;
         }
 
         public void Execute(ClientMosaic client)

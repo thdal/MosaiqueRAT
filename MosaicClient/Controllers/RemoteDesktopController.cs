@@ -17,10 +17,10 @@ namespace Client.Controllers
             }
         }
 
-        public static void getDesktop(ClientMosaic client)
+        public static void getDesktop(Packets.ServerPackets.GetDesktop packet, ClientMosaic client)
         {
             byte[] desktop;
-            Rectangle bounds = Screen.PrimaryScreen.Bounds;
+            Rectangle bounds = Screen.AllScreens[packet.monitor].Bounds;
             Bitmap bitmap = new Bitmap(bounds.Width, bounds.Height, PixelFormat.Format32bppArgb);
             Graphics graph = Graphics.FromImage(bitmap);
             graph.CopyFromScreen(bounds.X, bounds.Y, 0, 0, bounds.Size, CopyPixelOperation.SourceCopy);
@@ -29,7 +29,7 @@ namespace Client.Controllers
                 bitmap.Save(stream, ImageFormat.Png);
                 desktop = stream.ToArray();
             }
-            new GetDesktopResponse(desktop).Execute(client);
+            new GetDesktopResponse(desktop, packet.monitor).Execute(client);
         }
     }
 }

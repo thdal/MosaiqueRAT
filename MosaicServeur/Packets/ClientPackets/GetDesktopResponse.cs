@@ -17,13 +17,17 @@ namespace Serveur.Packets.ClientPackets
         [Index(0)]
         public virtual byte[] image { get; set; }
 
+        [Index(1)]
+        public virtual int monitor { get; set; }
+
         public GetDesktopResponse()
         {
         }
 
-        public GetDesktopResponse(byte[] image)
+        public GetDesktopResponse(byte[] image, int monitor)
         {
             this.image = image;
+            this.monitor = monitor;
         }
 
         public void Execute(ClientMosaic client)

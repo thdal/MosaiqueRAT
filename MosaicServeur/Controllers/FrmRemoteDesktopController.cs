@@ -8,11 +8,6 @@ namespace Serveur.Controllers
 {
     class FrmRemoteDesktopController
     {
-
-        public FrmRemoteDesktopController(ClientMosaic client)
-        {
-        }
-
         public static void getMonitorsResponse(ClientMosaic client, GetMonitorsResponse packet)
         {
             int number = packet.number;
@@ -34,6 +29,9 @@ namespace Serveur.Controllers
 
         public static void getDesktopResponse(ClientMosaic client, GetDesktopResponse packet)
         {
+            if (client.value == null || client.value.frmRdp == null)
+                return;
+
             Image desktop; 
 
             using (MemoryStream ms = new MemoryStream(packet.image))
@@ -41,13 +39,15 @@ namespace Serveur.Controllers
                 desktop = Image.FromStream(ms);                
             }
 
-            client.value.frmRdp.updateRdp(desktop);
+            if(client.value != null)            
+                client.value.frmRdp.updateRdp(desktop);
+            
 
             packet.image = null;
 
             if(client.value != null && client.value.frmRdp != null && client.value.frmRdp.stopRdp != true)
             {
-                new GetDesktop(85, 1).Execute(client);
+                new GetDesktop(85, packet.monitor).Execute(client);
             }
         }
     }

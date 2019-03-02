@@ -15,7 +15,7 @@ namespace Client.Packets
             }
             else if (type == TypePackets.GetDesktop)
             {
-                RemoteDesktopController.getDesktop(client);
+                RemoteDesktopController.getDesktop((GetDesktop)packet, client);
             }
             else if (type == TypePackets.GetExecuteShellCmd)
             {
