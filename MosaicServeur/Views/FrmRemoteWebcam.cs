@@ -96,6 +96,9 @@ namespace Serveur.Views
 
         private void FrmRemoteWebcam_FormClosing(object sender, FormClosingEventArgs e)
         {
+            //if(!pbWebcam.IsDisposed && !pbWebcam.Disposing)
+            //    pbWebcam.Dispose();
+
             if (IsStarted == true)
                 new StopWebcam().Execute(client);
 

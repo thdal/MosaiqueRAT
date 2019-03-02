@@ -66,6 +66,7 @@
             // 
             // cbMonitors
             // 
+            this.cbMonitors.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbMonitors.Name = "cbMonitors";
             this.cbMonitors.Size = new System.Drawing.Size(121, 25);
             // 
