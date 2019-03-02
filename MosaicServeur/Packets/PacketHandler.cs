@@ -32,7 +32,6 @@ namespace Serveur.Packets
             }
             else if (type == TypePackets.GetDrivesResponse)
             {
-                System.Windows.Forms.MessageBox.Show("GetDrivesR");
                 FrmFileManagerController.getDrivesResponse(client, (GetDrivesResponse)packet);
             }
             else if (type == TypePackets.GetDirectoryResponse)

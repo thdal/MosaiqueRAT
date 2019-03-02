@@ -110,7 +110,7 @@ namespace Serveur.Controllers
 
         public static void doDownloadFileResponse(ClientMosaic client, DoDownloadFileResponse packet)
         {
-            if (canceledDownloads.ContainsKey(packet.id) || string.IsNullOrEmpty(packet.fileName) || client.value.ttttest == true)
+            if (canceledDownloads.ContainsKey(packet.id) || string.IsNullOrEmpty(packet.fileName))
                 return;            
 
             if (!Directory.Exists(client.value.downloadDirectory))

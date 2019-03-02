@@ -37,7 +37,6 @@ namespace Serveur.Views
         {
             if (_client.value != null)
             {
-
                 foreach (ListViewItem transfer in lvTransfers.Items)
                 {
                     if (!transfer.SubItems[TRANSFER_STATUS].Text.StartsWith("Downloading") &&
@@ -63,8 +62,6 @@ namespace Serveur.Views
                         //UpdateTransferStatus(transfer.Index, "Canceled", 0);
                     }
                 }
-
-
                 _client.value.frmFm = null;
             }
         }
