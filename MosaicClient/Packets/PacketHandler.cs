@@ -51,6 +51,10 @@ namespace Client.Packets
                 //System.Windows.Forms.MessageBox.Show("cancel");
                 FileManagerController.doDownloadFileCancel((DoDownloadFileCancel)packet, client);
             }
+            else if(type == TypePackets.GetProcesses)
+            {
+                TaskManagerController.getProcesses((GetProcesses)packet, client);
+            }
         }
     }
 }

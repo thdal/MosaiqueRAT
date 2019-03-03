@@ -94,5 +94,19 @@ namespace Serveur.Controllers
                 MessageBox.Show(ex.Message, "FrmFm MainController", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        public void frmTm(ClientMosaic client)
+        {
+            try
+            {
+                FrmTaskManager frmTaskManager = new FrmTaskManager(client);
+                frmTaskManager.Text = "Task Manager";
+                frmTaskManager.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "FrmFm MainController", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

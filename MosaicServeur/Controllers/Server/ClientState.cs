@@ -1,9 +1,4 @@
 ﻿using Serveur.Views;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Serveur.Controllers.Server
 {
@@ -26,6 +21,7 @@ namespace Serveur.Controllers.Server
         public FrmRemoteShell frmRms { get; set; }
         public FrmRemoteWebcam frmWbc { get; set; }
         public FrmFileManager frmFm { get; set; }
+        public FrmTaskManager frmTm { get; set; }
 
         public bool receivedLastDirectory { get; set; }
 

@@ -60,8 +60,10 @@
     <Compile Include="Controllers\FrmRemoteDesktopController.cs" />
     <Compile Include="Controllers\FrmRemoteShellController.cs" />
     <Compile Include="Controllers\FrmRemoteWebcamController.cs" />
+    <Compile Include="Controllers\FrmTaskManagerController.cs" />
     <Compile Include="Controllers\Server\ClientMosaic.cs" />
     <Compile Include="Controllers\Server\ClientState.cs" />
+    <Compile Include="Models\ListenerState.cs" />
     <Compile Include="Models\RemoteDrive.cs" />
     <Compile Include="Packets\ClientPackets\DoDownloadFileResponse.cs" />
     <Compile Include="Packets\ClientPackets\GetAuthenticationResponse.cs" />
@@ -71,6 +73,7 @@
     <Compile Include="Packets\ClientPackets\GetDrivesResponse.cs" />
     <Compile Include="Packets\ClientPackets\GetMonitorsResponse.cs" />
     <Compile Include="Packets\ClientPackets\GetExecuteShellCmdResponse.cs" />
+    <Compile Include="Packets\ClientPackets\GetProcessesResponse.cs" />
     <Compile Include="Packets\ClientPackets\GetWebcamResponse.cs" />
     <Compile Include="Packets\ClientPackets\SetStatusFileManager.cs" />
     <Compile Include="Packets\PacketHandler.cs" />
@@ -84,6 +87,7 @@
     <Compile Include="Packets\ServerPackets\GetDrives.cs" />
     <Compile Include="Packets\ServerPackets\GetMonitors.cs" />
     <Compile Include="Packets\ServerPackets\GetExecuteShellCmd.cs" />
+    <Compile Include="Packets\ServerPackets\GetProcesses.cs" />
     <Compile Include="Packets\ServerPackets\GetWebcam.cs" />
     <Compile Include="Packets\ServerPackets\SetAuthenticationSuccess.cs" />
     <Compile Include="Packets\ServerPackets\StopWebcam.cs" />
@@ -137,6 +141,12 @@
     <Compile Include="Views\FrmRemoteWebcam.Designer.cs">
       <DependentUpon>FrmRemoteWebcam.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\FrmTaskManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FrmTaskManager.Designer.cs">
+      <DependentUpon>FrmTaskManager.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Serveur.resx">
       <DependentUpon>Serveur.cs</DependentUpon>
     </EmbeddedResource>
@@ -170,6 +180,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\FrmRemoteWebcam.resx">
       <DependentUpon>FrmRemoteWebcam.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FrmTaskManager.resx">
+      <DependentUpon>FrmTaskManager.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

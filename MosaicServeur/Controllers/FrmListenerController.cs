@@ -12,7 +12,6 @@ namespace Serveur.Controllers
     public class FrmListenerController
     {
         private Socket _serverSocket;
-        private SocketAsyncEventArgs _item;
 
         private const int BUFFER_SIZE = 2048;
         //private const int PORT = 4444;

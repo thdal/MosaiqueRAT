@@ -7,17 +7,14 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
-using ZeroFormatter;
 
 namespace Client.Controllers
 {
     public static class RemoteWebcamController
     {
         public static ClientMosaic c;
-
         private static FilterInfoCollection videoCaptureDevices;
         private static VideoCaptureDevice finalVideo;
-
         public static bool needsCapture;
         public static int webcam;
         public static int quality;
