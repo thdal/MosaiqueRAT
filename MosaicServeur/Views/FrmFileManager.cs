@@ -1,8 +1,8 @@
-﻿using Serveur.Controllers;
-using Serveur.Controllers.Server;
+﻿using Serveur.Controllers.Server;
 using Serveur.Models;
 using Serveur.Packets.ServerPackets;
 using System;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
@@ -292,6 +292,14 @@ namespace Serveur.Views
             }
 
             return index;
+        }
+
+        private void btnDwnldFolder_Click(object sender, EventArgs e)
+        {
+            if(_client.value != null && _client.value.downloadDirectory != null)
+            {
+                Process.Start(@_client.value.downloadDirectory);
+            }
         }
     }
 }

@@ -11,7 +11,8 @@ namespace Serveur.Packets
         GetExecuteShellCmd, GetExecuteShellCmdResponse, // Remote Shell
         GetAvailableWebcams, GetAvailableWebcamsResponse, GetWebcam, GetWebcamResponse, StopWebcam, // Remote Webcam
         GetDrives, GetDrivesResponse, SetStatusFileManager, GetDirectory, GetDirectoryResponse, DoDownloadFile, DoDownloadFileResponse, DoDownloadFileCancel, // File Manager
-        GetProcesses, GetProcessesResponse // Task Manager
+        GetProcesses, GetProcessesResponse, // Task Manager
+        GetSysInfo, GetSysInfoResponse // System Information
     }
 
     [Union(typeof(GetAuthentication), typeof(GetAuthenticationResponse), typeof(SetAuthenticationSuccess), // Authentification
@@ -19,7 +20,9 @@ namespace Serveur.Packets
         typeof(GetExecuteShellCmd), typeof(GetExecuteShellCmdResponse), // Remote Shell
         typeof(GetAvailableWebcams), typeof(GetAvailableWebcamsResponse), typeof(GetWebcam), typeof(GetWebcamResponse), typeof(StopWebcam), // Remote Webcam
         typeof(GetDrives), typeof(GetDrivesResponse), typeof(SetStatusFileManager), typeof(GetDirectory), typeof(GetDirectoryResponse), typeof(DoDownloadFile), typeof(DoDownloadFileResponse), typeof(DoDownloadFileCancel), // File Manager
-        typeof(GetProcesses), typeof(GetProcessesResponse))] // Task Manager
+        typeof(GetProcesses), typeof(GetProcessesResponse), // Task Manager
+        typeof(GetSysInfo), typeof(GetSysInfoResponse))] // System Information
+
     public abstract class IPackets
     {
         [UnionKey]

@@ -43,9 +43,9 @@ namespace Serveur.Controllers
         {
             try
             {
-                FrmRemoteDesktop frmRemoteDesktop = new FrmRemoteDesktop(client);
-                frmRemoteDesktop.Text = "Remote Desktop";
-                frmRemoteDesktop.ShowDialog();
+                FrmRemoteDesktop frmRdp = new FrmRemoteDesktop(client);
+                frmRdp.Text = "Remote Desktop";
+                frmRdp.ShowDialog();
             }
             catch (Exception ex)
             {
@@ -57,9 +57,9 @@ namespace Serveur.Controllers
         {
             try
             {
-                FrmRemoteWebcam frmRemoteWebcam = new FrmRemoteWebcam(client);
-                frmRemoteWebcam.Text = "Remote Webcam";
-                frmRemoteWebcam.ShowDialog();
+                FrmRemoteWebcam frmwbc = new FrmRemoteWebcam(client);
+                frmwbc.Text = "Remote Webcam";
+                frmwbc.ShowDialog();
             }
             catch (Exception ex)
             {
@@ -85,9 +85,9 @@ namespace Serveur.Controllers
         {
             try
             {
-                FrmFileManager frmFileManager = new FrmFileManager(client);
-                frmFileManager.Text = "File Manager";
-                frmFileManager.ShowDialog();
+                FrmFileManager frmFm = new FrmFileManager(client);
+                frmFm.Text = "File Manager";
+                frmFm.ShowDialog();
             }
             catch (Exception ex)
             {
@@ -99,13 +99,27 @@ namespace Serveur.Controllers
         {
             try
             {
-                FrmTaskManager frmTaskManager = new FrmTaskManager(client);
-                frmTaskManager.Text = "Task Manager";
-                frmTaskManager.ShowDialog();
+                FrmTaskManager frmTm = new FrmTaskManager(client);
+                frmTm.Text = "Task Manager";
+                frmTm.ShowDialog();
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "FrmFm MainController", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, "FrmTm MainController", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        public void frmSi(ClientMosaic client)
+        {
+            try
+            {
+                FrmSystemInformation frmSi = new FrmSystemInformation(client);
+                frmSi.Text = "System Information";
+                frmSi.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "FrmSi MainController", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

@@ -43,7 +43,7 @@
             // 
             // lvProcesses
             // 
-            this.lvProcesses.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.lvProcesses.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lvProcesses.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.colName,
             this.colPID,
@@ -53,7 +53,7 @@
             this.lvProcesses.GridLines = true;
             this.lvProcesses.Location = new System.Drawing.Point(0, 0);
             this.lvProcesses.Name = "lvProcesses";
-            this.lvProcesses.Size = new System.Drawing.Size(800, 450);
+            this.lvProcesses.Size = new System.Drawing.Size(635, 376);
             this.lvProcesses.TabIndex = 0;
             this.lvProcesses.UseCompatibleStateImageBehavior = false;
             this.lvProcesses.View = System.Windows.Forms.View.Details;
@@ -110,7 +110,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(635, 376);
             this.Controls.Add(this.lvProcesses);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "FrmTaskManager";

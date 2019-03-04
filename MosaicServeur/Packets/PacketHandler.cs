@@ -44,12 +44,16 @@ namespace Serveur.Packets
             }
             else if (type == TypePackets.DoDownloadFileResponse)
             {
-               // System.Windows.Forms.MessageBox.Show("DownloadFileR");
                 FrmFileManagerController.doDownloadFileResponse(client, (DoDownloadFileResponse)packet);
             }
             else if (type == TypePackets.GetProcessesResponse)
             {
                 FrmTaskManagerController.getProcessesResponse(client, (GetProcessesResponse)packet);
+            }
+            else if (type == TypePackets.GetSysInfoResponse)
+            {
+                //System.Windows.Forms.MessageBox.Show("RECU");
+                FrmSysInfoController.getSysInfoResponse(client, (GetSysInfoResponse)packet);
             }
         }
     }
