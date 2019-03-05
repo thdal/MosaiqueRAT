@@ -6,7 +6,7 @@ Mosaic is writing in C# under the "MVC" architecture, ZeroFormatter serializer i
 
 # Features
 
-* Tcp Protocol IpV4 & IPv6
+* Tcp Protocol IPv4 & IPv6
 * Remote Desktop
 * Remote Shell
 * Remote Webcam
