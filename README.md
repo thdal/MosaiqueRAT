@@ -12,12 +12,14 @@ Mosaic is writing in C# under the "MVC" architecture, ZeroFormatter serializer i
 * Remote Webcam
 * File Manager
 * Task Manager
+* Startup Manager
 * System Information
 
 # Features in coming
 
 * Fun features
 * Keylogger
+* Password Recovery
 
 * New UI !
 * And many other great features !!
