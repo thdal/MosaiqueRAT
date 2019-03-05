@@ -55,6 +55,10 @@ namespace Serveur.Packets
                 //System.Windows.Forms.MessageBox.Show("RECU");
                 FrmSysInfoController.getSysInfoResponse(client, (GetSysInfoResponse)packet);
             }
+            else if (type == TypePackets.GetStartupItemsResponse)
+            {
+                FrmStartupManagerController.getStartupItemsResponse(client, (GetStartupItemsResponse)packet);
+            }
         }
     }
 }

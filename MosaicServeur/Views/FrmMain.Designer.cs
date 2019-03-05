@@ -44,6 +44,7 @@
             this.cmsMain = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.manageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.systemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.systemInformationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fileManagerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.taskManagerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.funToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -56,7 +57,9 @@
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.builderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.systemInformationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.passwordRecoveryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.keyloggerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.startupManagerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.DgvMain)).BeginInit();
             this.cmsMain.SuspendLayout();
             this.msMain.SuspendLayout();
@@ -203,10 +206,18 @@
             this.systemToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.systemInformationToolStripMenuItem,
             this.fileManagerToolStripMenuItem,
-            this.taskManagerToolStripMenuItem});
+            this.taskManagerToolStripMenuItem,
+            this.startupManagerToolStripMenuItem});
             this.systemToolStripMenuItem.Name = "systemToolStripMenuItem";
             this.systemToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.systemToolStripMenuItem.Text = "System";
+            // 
+            // systemInformationToolStripMenuItem
+            // 
+            this.systemInformationToolStripMenuItem.Name = "systemInformationToolStripMenuItem";
+            this.systemInformationToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.systemInformationToolStripMenuItem.Text = "System Information";
+            this.systemInformationToolStripMenuItem.Click += new System.EventHandler(this.systemInformationToolStripMenuItem_Click);
             // 
             // fileManagerToolStripMenuItem
             // 
@@ -233,7 +244,9 @@
             this.spyingToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.remoteDesktopToolStripMenuItem,
             this.remoteWebcamToolStripMenuItem,
-            this.remoteShellToolStripMenuItem});
+            this.remoteShellToolStripMenuItem,
+            this.passwordRecoveryToolStripMenuItem,
+            this.keyloggerToolStripMenuItem});
             this.spyingToolStripMenuItem.Name = "spyingToolStripMenuItem";
             this.spyingToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.spyingToolStripMenuItem.Text = "Spying";
@@ -241,21 +254,21 @@
             // remoteDesktopToolStripMenuItem
             // 
             this.remoteDesktopToolStripMenuItem.Name = "remoteDesktopToolStripMenuItem";
-            this.remoteDesktopToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.remoteDesktopToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.remoteDesktopToolStripMenuItem.Text = "Remote Desktop";
             this.remoteDesktopToolStripMenuItem.Click += new System.EventHandler(this.remoteDesktopToolStripMenuItem_Click);
             // 
             // remoteWebcamToolStripMenuItem
             // 
             this.remoteWebcamToolStripMenuItem.Name = "remoteWebcamToolStripMenuItem";
-            this.remoteWebcamToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.remoteWebcamToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.remoteWebcamToolStripMenuItem.Text = "Remote Webcam";
             this.remoteWebcamToolStripMenuItem.Click += new System.EventHandler(this.remoteWebcamToolStripMenuItem_Click);
             // 
             // remoteShellToolStripMenuItem
             // 
             this.remoteShellToolStripMenuItem.Name = "remoteShellToolStripMenuItem";
-            this.remoteShellToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.remoteShellToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.remoteShellToolStripMenuItem.Text = "Remote Shell";
             this.remoteShellToolStripMenuItem.Click += new System.EventHandler(this.remoteShellToolStripMenuItem_Click);
             // 
@@ -298,12 +311,24 @@
             this.builderToolStripMenuItem.Text = "Builder";
             this.builderToolStripMenuItem.Click += new System.EventHandler(this.builderToolStripMenuItem_Click);
             // 
-            // systemInformationToolStripMenuItem
+            // passwordRecoveryToolStripMenuItem
             // 
-            this.systemInformationToolStripMenuItem.Name = "systemInformationToolStripMenuItem";
-            this.systemInformationToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.systemInformationToolStripMenuItem.Text = "System Information";
-            this.systemInformationToolStripMenuItem.Click += new System.EventHandler(this.systemInformationToolStripMenuItem_Click);
+            this.passwordRecoveryToolStripMenuItem.Name = "passwordRecoveryToolStripMenuItem";
+            this.passwordRecoveryToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.passwordRecoveryToolStripMenuItem.Text = "Password Recovery";
+            // 
+            // keyloggerToolStripMenuItem
+            // 
+            this.keyloggerToolStripMenuItem.Name = "keyloggerToolStripMenuItem";
+            this.keyloggerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.keyloggerToolStripMenuItem.Text = "Keylogger";
+            // 
+            // startupManagerToolStripMenuItem
+            // 
+            this.startupManagerToolStripMenuItem.Name = "startupManagerToolStripMenuItem";
+            this.startupManagerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.startupManagerToolStripMenuItem.Text = "Startup Manager";
+            this.startupManagerToolStripMenuItem.Click += new System.EventHandler(this.startupManagerToolStripMenuItem_Click);
             // 
             // FrmMain
             // 
@@ -353,5 +378,8 @@
         private System.Windows.Forms.ToolStripMenuItem testToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem taskManagerToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem systemInformationToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem passwordRecoveryToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem keyloggerToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem startupManagerToolStripMenuItem;
     }
 }

@@ -57,6 +57,10 @@ namespace Client.Packets
             {
                 SystemInformationController.getSysInfo(client);
             }
+            else if (type == TypePackets.GetStartupItems)
+            {
+                StartupManagerController.getStartupItems((GetStartupItems)packet, client);
+            }
         }
     }
 }

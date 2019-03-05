@@ -105,7 +105,7 @@
             this.tabControl1.Location = new System.Drawing.Point(12, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(441, 400);
+            this.tabControl1.Size = new System.Drawing.Size(441, 396);
             this.tabControl1.TabIndex = 5;
             // 
             // tabPage1
@@ -131,7 +131,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 24);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(433, 372);
+            this.tabPage1.Size = new System.Drawing.Size(433, 368);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Connexion Settings";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -485,7 +485,7 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 24);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(433, 372);
+            this.tabPage3.Size = new System.Drawing.Size(433, 368);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Installation Settings";
             this.tabPage3.UseVisualStyleBackColor = true;

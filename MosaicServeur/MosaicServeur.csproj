@@ -60,6 +60,7 @@
     <Compile Include="Controllers\FrmRemoteDesktopController.cs" />
     <Compile Include="Controllers\FrmRemoteShellController.cs" />
     <Compile Include="Controllers\FrmRemoteWebcamController.cs" />
+    <Compile Include="Controllers\FrmStartupManagerController.cs" />
     <Compile Include="Controllers\FrmSysInfoController.cs" />
     <Compile Include="Controllers\FrmTaskManagerController.cs" />
     <Compile Include="Controllers\Server\ClientMosaic.cs" />
@@ -75,6 +76,7 @@
     <Compile Include="Packets\ClientPackets\GetMonitorsResponse.cs" />
     <Compile Include="Packets\ClientPackets\GetExecuteShellCmdResponse.cs" />
     <Compile Include="Packets\ClientPackets\GetProcessesResponse.cs" />
+    <Compile Include="Packets\ClientPackets\GetStartupItemsResponse.cs" />
     <Compile Include="Packets\ClientPackets\GetSysInfoResponse.cs" />
     <Compile Include="Packets\ClientPackets\GetWebcamResponse.cs" />
     <Compile Include="Packets\ClientPackets\SetStatusFileManager.cs" />
@@ -90,6 +92,7 @@
     <Compile Include="Packets\ServerPackets\GetMonitors.cs" />
     <Compile Include="Packets\ServerPackets\GetExecuteShellCmd.cs" />
     <Compile Include="Packets\ServerPackets\GetProcesses.cs" />
+    <Compile Include="Packets\ServerPackets\GetStartupItems.cs" />
     <Compile Include="Packets\ServerPackets\GetSysInfo.cs" />
     <Compile Include="Packets\ServerPackets\GetWebcam.cs" />
     <Compile Include="Packets\ServerPackets\SetAuthenticationSuccess.cs" />
@@ -144,6 +147,12 @@
     <Compile Include="Views\FrmRemoteWebcam.Designer.cs">
       <DependentUpon>FrmRemoteWebcam.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\FrmStartupManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FrmStartupManager.Designer.cs">
+      <DependentUpon>FrmStartupManager.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\FrmSystemInformation.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -189,6 +198,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\FrmRemoteWebcam.resx">
       <DependentUpon>FrmRemoteWebcam.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FrmStartupManager.resx">
+      <DependentUpon>FrmStartupManager.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\FrmSystemInformation.resx">
       <DependentUpon>FrmSystemInformation.cs</DependentUpon>

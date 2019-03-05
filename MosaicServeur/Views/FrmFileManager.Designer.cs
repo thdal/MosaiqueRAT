@@ -43,6 +43,7 @@
             this.cboDrives = new System.Windows.Forms.ComboBox();
             this.lblDrive = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.btnDwnldFolder = new System.Windows.Forms.Button();
             this.lvTransfers = new System.Windows.Forms.ListView();
             this.colUniqID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colTransferType = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -52,7 +53,6 @@
             this.cancelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.stripLblStatus = new System.Windows.Forms.ToolStripStatusLabel();
-            this.btnDwnldFolder = new System.Windows.Forms.Button();
             this.tcFileManager.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.cmsDirectory.SuspendLayout();
@@ -69,10 +69,10 @@
             this.tcFileManager.Controls.Add(this.tabPage1);
             this.tcFileManager.Controls.Add(this.tabPage2);
             this.tcFileManager.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.tcFileManager.Location = new System.Drawing.Point(12, 2);
+            this.tcFileManager.Location = new System.Drawing.Point(12, 12);
             this.tcFileManager.Name = "tcFileManager";
             this.tcFileManager.SelectedIndex = 0;
-            this.tcFileManager.Size = new System.Drawing.Size(631, 412);
+            this.tcFileManager.Size = new System.Drawing.Size(631, 389);
             this.tcFileManager.TabIndex = 0;
             // 
             // tabPage1
@@ -85,7 +85,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(623, 386);
+            this.tabPage1.Size = new System.Drawing.Size(623, 363);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "File Explorer";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -104,7 +104,7 @@
             this.lvDirectory.GridLines = true;
             this.lvDirectory.Location = new System.Drawing.Point(3, 36);
             this.lvDirectory.Name = "lvDirectory";
-            this.lvDirectory.Size = new System.Drawing.Size(614, 331);
+            this.lvDirectory.Size = new System.Drawing.Size(614, 308);
             this.lvDirectory.SmallImageList = this.imgListDirectory;
             this.lvDirectory.TabIndex = 4;
             this.lvDirectory.UseCompatibleStateImageBehavior = false;
@@ -114,7 +114,7 @@
             // colName
             // 
             this.colName.Text = "Name";
-            this.colName.Width = 92;
+            this.colName.Width = 165;
             // 
             // colSize
             // 
@@ -124,7 +124,7 @@
             // colType
             // 
             this.colType.Text = "Type";
-            this.colType.Width = 378;
+            this.colType.Width = 253;
             // 
             // cmsDirectory
             // 
@@ -189,10 +189,20 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(623, 386);
+            this.tabPage2.Size = new System.Drawing.Size(623, 363);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Transfers";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // btnDwnldFolder
+            // 
+            this.btnDwnldFolder.Location = new System.Drawing.Point(6, 334);
+            this.btnDwnldFolder.Name = "btnDwnldFolder";
+            this.btnDwnldFolder.Size = new System.Drawing.Size(135, 23);
+            this.btnDwnldFolder.TabIndex = 1;
+            this.btnDwnldFolder.Text = "Download Folder";
+            this.btnDwnldFolder.UseVisualStyleBackColor = true;
+            this.btnDwnldFolder.Click += new System.EventHandler(this.btnDwnldFolder_Click);
             // 
             // lvTransfers
             // 
@@ -209,14 +219,14 @@
             this.lvTransfers.GridLines = true;
             this.lvTransfers.Location = new System.Drawing.Point(0, 0);
             this.lvTransfers.Name = "lvTransfers";
-            this.lvTransfers.Size = new System.Drawing.Size(623, 348);
+            this.lvTransfers.Size = new System.Drawing.Size(623, 325);
             this.lvTransfers.TabIndex = 0;
             this.lvTransfers.UseCompatibleStateImageBehavior = false;
             this.lvTransfers.View = System.Windows.Forms.View.Details;
             // 
             // colUniqID
             // 
-            this.colUniqID.Text = "packetID";
+            this.colUniqID.Text = "ID";
             this.colUniqID.Width = 91;
             // 
             // colTransferType
@@ -263,16 +273,6 @@
             this.stripLblStatus.Name = "stripLblStatus";
             this.stripLblStatus.Size = new System.Drawing.Size(131, 17);
             this.stripLblStatus.Text = "Status: Loading drives...";
-            // 
-            // btnDwnldFolder
-            // 
-            this.btnDwnldFolder.Location = new System.Drawing.Point(3, 354);
-            this.btnDwnldFolder.Name = "btnDwnldFolder";
-            this.btnDwnldFolder.Size = new System.Drawing.Size(135, 23);
-            this.btnDwnldFolder.TabIndex = 1;
-            this.btnDwnldFolder.Text = "Download Folder";
-            this.btnDwnldFolder.UseVisualStyleBackColor = true;
-            this.btnDwnldFolder.Click += new System.EventHandler(this.btnDwnldFolder_Click);
             // 
             // FrmFileManager
             // 

@@ -23,6 +23,7 @@ namespace Serveur.Controllers.Server
         public FrmFileManager frmFm { get; set; }
         public FrmTaskManager frmTm { get; set; }
         public FrmSystemInformation frmSi { get; set; }
+        public FrmStartupManager frmStm { get; set; }
 
         public bool receivedLastDirectory { get; set; }
 

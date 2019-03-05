@@ -28,7 +28,6 @@ namespace Serveur.Controllers
                     SocketOptionName ipv6only = (SocketOptionName)27;
                     _serverSocket.SetSocketOption(SocketOptionLevel.IPv6, ipv6only, 0);
                     _serverSocket.Bind(new IPEndPoint(IPAddress.IPv6Any, port));
-
                 }
                 else
                 {

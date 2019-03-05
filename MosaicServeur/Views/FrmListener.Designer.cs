@@ -65,7 +65,7 @@
             // 
             this.chkPopupNotification.AutoSize = true;
             this.chkPopupNotification.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkPopupNotification.Location = new System.Drawing.Point(15, 90);
+            this.chkPopupNotification.Location = new System.Drawing.Point(15, 88);
             this.chkPopupNotification.Name = "chkPopupNotification";
             this.chkPopupNotification.Size = new System.Drawing.Size(265, 19);
             this.chkPopupNotification.TabIndex = 12;
@@ -76,7 +76,7 @@
             // 
             this.chkStartupConnections.AutoSize = true;
             this.chkStartupConnections.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkStartupConnections.Location = new System.Drawing.Point(15, 62);
+            this.chkStartupConnections.Location = new System.Drawing.Point(15, 60);
             this.chkStartupConnections.Name = "chkStartupConnections";
             this.chkStartupConnections.Size = new System.Drawing.Size(228, 19);
             this.chkStartupConnections.TabIndex = 11;
@@ -131,7 +131,7 @@
             // 
             this.chkIPv6.AutoSize = true;
             this.chkIPv6.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkIPv6.Location = new System.Drawing.Point(15, 37);
+            this.chkIPv6.Location = new System.Drawing.Point(15, 35);
             this.chkIPv6.Name = "chkIPv6";
             this.chkIPv6.Size = new System.Drawing.Size(134, 19);
             this.chkIPv6.TabIndex = 15;
@@ -143,7 +143,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(338, 175);
+            this.ClientSize = new System.Drawing.Size(338, 151);
             this.Controls.Add(this.chkIPv6);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSave);

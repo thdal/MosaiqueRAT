@@ -12,7 +12,8 @@ namespace Serveur.Packets
         GetAvailableWebcams, GetAvailableWebcamsResponse, GetWebcam, GetWebcamResponse, StopWebcam, // Remote Webcam
         GetDrives, GetDrivesResponse, SetStatusFileManager, GetDirectory, GetDirectoryResponse, DoDownloadFile, DoDownloadFileResponse, DoDownloadFileCancel, // File Manager
         GetProcesses, GetProcessesResponse, // Task Manager
-        GetSysInfo, GetSysInfoResponse // System Information
+        GetSysInfo, GetSysInfoResponse, // System Information
+        GetStartupItems, GetStartupItemsResponse // Startup Manager
     }
 
     [Union(typeof(GetAuthentication), typeof(GetAuthenticationResponse), typeof(SetAuthenticationSuccess), // Authentification
@@ -21,7 +22,8 @@ namespace Serveur.Packets
         typeof(GetAvailableWebcams), typeof(GetAvailableWebcamsResponse), typeof(GetWebcam), typeof(GetWebcamResponse), typeof(StopWebcam), // Remote Webcam
         typeof(GetDrives), typeof(GetDrivesResponse), typeof(SetStatusFileManager), typeof(GetDirectory), typeof(GetDirectoryResponse), typeof(DoDownloadFile), typeof(DoDownloadFileResponse), typeof(DoDownloadFileCancel), // File Manager
         typeof(GetProcesses), typeof(GetProcessesResponse), // Task Manager
-        typeof(GetSysInfo), typeof(GetSysInfoResponse))] // System Information
+        typeof(GetSysInfo), typeof(GetSysInfoResponse), // System Information
+        typeof(GetStartupItems), typeof(GetStartupItemsResponse))] // Startup Manager
 
     public abstract class IPackets
     {

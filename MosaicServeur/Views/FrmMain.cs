@@ -72,6 +72,11 @@ namespace Serveur.Views
             _frmMainController.frmSi(getClient());
         }
 
+        private void startupManagerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _frmMainController.frmStm(getClient());
+        }
+
         // ADD CLIENT INTO DATAGRIDVIEW
         public void dgvUpdater(ClientMosaic client)
         {
