@@ -35,15 +35,17 @@
             // 
             // lvSysInfo
             // 
+            this.lvSysInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lvSysInfo.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.colCpt,
             this.colVal});
-            this.lvSysInfo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lvSysInfo.FullRowSelect = true;
             this.lvSysInfo.GridLines = true;
-            this.lvSysInfo.Location = new System.Drawing.Point(0, 0);
+            this.lvSysInfo.Location = new System.Drawing.Point(12, 12);
             this.lvSysInfo.Name = "lvSysInfo";
-            this.lvSysInfo.Size = new System.Drawing.Size(468, 345);
+            this.lvSysInfo.Size = new System.Drawing.Size(494, 321);
             this.lvSysInfo.TabIndex = 0;
             this.lvSysInfo.UseCompatibleStateImageBehavior = false;
             this.lvSysInfo.View = System.Windows.Forms.View.Details;
@@ -56,17 +58,17 @@
             // colVal
             // 
             this.colVal.Text = "Value";
-            this.colVal.Width = 239;
+            this.colVal.Width = 259;
             // 
             // FrmSystemInformation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(468, 345);
+            this.ClientSize = new System.Drawing.Size(511, 345);
             this.Controls.Add(this.lvSysInfo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Name = "FrmSystemInformation";
-            this.Text = "FrmSystemInformation";
+            this.Text = "System Information";
             this.Load += new System.EventHandler(this.FrmSystemInformation_Load);
             this.ResumeLayout(false);
 

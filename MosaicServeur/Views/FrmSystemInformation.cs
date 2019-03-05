@@ -46,8 +46,6 @@ namespace Serveur.Views
                         if (lviItem != null)
                             lvSysInfo.Items.Add(lviItem);
                     }
-
-                    //lvSysInfo.AutosizeColumns();
                 });
             }
             catch (InvalidOperationException)

@@ -1,11 +1,8 @@
 ﻿using Serveur.Controllers.Server;
 using System;
-using System.IO;
 using System.Net;
 using System.Net.Sockets;
 using System.Windows.Forms;
-using System.Xml;
-using System.Xml.XPath;
 
 namespace Serveur.Controllers
 {
@@ -17,18 +14,29 @@ namespace Serveur.Controllers
         //private const int PORT = 4444;
         private int _port;
         private static readonly byte[] _buffer = new byte[BUFFER_SIZE];
-        private static readonly string SettingsPath = Path.Combine(Application.StartupPath, "settings.xml");
 
-        public void listen(int port)
+        public void listen(int port, bool IPv6)
         {
             _port = port;
 
             try
             {
-                _serverSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-                _serverSocket.Bind(new IPEndPoint(IPAddress.Any, port));
-                _serverSocket.Listen(1000);               
+                if(Socket.OSSupportsIPv6 && IPv6)
+                {
+                    _serverSocket = new Socket(AddressFamily.InterNetworkV6, SocketType.Stream, ProtocolType.Tcp);
+                    // fix for mono compatibility, SocketOptionName.IPv6Only
+                    SocketOptionName ipv6only = (SocketOptionName)27;
+                    _serverSocket.SetSocketOption(SocketOptionLevel.IPv6, ipv6only, 0);
+                    _serverSocket.Bind(new IPEndPoint(IPAddress.IPv6Any, port));
 
+                }
+                else
+                {
+                    _serverSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+                    _serverSocket.Bind(new IPEndPoint(IPAddress.Any, port));
+                }
+
+                _serverSocket.Listen(1000);        
                 _serverSocket.BeginAccept(new AsyncCallback(acceptClient), null);
 
             }
@@ -69,118 +77,5 @@ namespace Serveur.Controllers
         {
             new Packets.ServerPackets.GetAuthentication().Execute(client); // begin handshake                   
         }
-
-        #region XML PART
-
-        public static int listenPort
-        {
-            get
-            {
-                return int.Parse(readValueSafe("listenPort", "4444"));
-            }
-            set
-            {
-                writeValue("listenPort", value.ToString());
-            }
-        }
-        public static bool autoListen
-        {
-            get
-            {
-                return bool.Parse(readValueSafe("autoListen", "false"));
-            }
-            set
-            {
-                writeValue("autoListen", value.ToString());
-            }
-        }
-        public static bool startListen
-        {
-            get
-            {
-                return bool.Parse(readValueSafe("startListen", "false"));
-            }
-            set
-            {
-                writeValue("startListen", value.ToString());
-            }
-        }
-        public static bool showPopup
-        {
-            get
-            {
-                return bool.Parse(readValueSafe("showPopup", "false"));
-            }
-            set
-            {
-                writeValue("showPopup", value.ToString());
-            }
-        }
-        private static string readValue(string pstrValueToRead)
-        {
-            try
-            {
-                XPathDocument doc = new XPathDocument(SettingsPath);
-                XPathNavigator nav = doc.CreateNavigator();
-                XPathExpression expr = nav.Compile(@"/settings/" + pstrValueToRead);
-                XPathNodeIterator iterator = nav.Select(expr);
-                while (iterator.MoveNext())
-                {
-                    return iterator.Current.Value;
-                }
-
-                return string.Empty;
-            }
-            catch
-            {
-                return string.Empty;
-            }
-        }
-        private static string readValueSafe(string pstrValueToRead, string defaultValue = "")
-        {
-            string value = readValue(pstrValueToRead);
-            return (!string.IsNullOrEmpty(value)) ? value : defaultValue;
-        }
-        private static void writeValue(string pstrValueToRead, string pstrValueToWrite)
-        {
-            try
-            {
-                XmlDocument doc = new XmlDocument();
-
-                if (File.Exists(SettingsPath))
-                {
-                    using (var reader = new XmlTextReader(SettingsPath))
-                    {
-                        doc.Load(reader);
-                    }
-                }
-                else
-                {
-                    var dir = Path.GetDirectoryName(SettingsPath);
-                    if (!Directory.Exists(dir))
-                    {
-                        Directory.CreateDirectory(dir);
-                    }
-                    doc.AppendChild(doc.CreateElement("settings"));
-                }
-
-                XmlElement root = doc.DocumentElement;
-                XmlNode oldNode = root.SelectSingleNode(@"/settings/" + pstrValueToRead);
-                if (oldNode == null) // create if not exist
-                {
-                    oldNode = doc.SelectSingleNode("settings");
-                    oldNode.AppendChild(doc.CreateElement(pstrValueToRead)).InnerText = pstrValueToWrite;
-                    doc.Save(SettingsPath);
-                    return;
-                }
-                oldNode.InnerText = pstrValueToWrite;
-                doc.Save(SettingsPath);
-            }
-            catch
-            {
-            }
-        }
-
-        #endregion
     }
 }

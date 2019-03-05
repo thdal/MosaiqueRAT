@@ -1,5 +1,6 @@
 ﻿using Serveur.Controllers;
 using Serveur.Controllers.Server;
+using Serveur.Models;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -18,11 +19,11 @@ namespace Serveur.Views
         {
             //* Listener Part *
             _frmListenerController = new FrmListenerController();
-            FrmListenerController.startListen = false;
-            if(FrmListenerController.autoListen == true)
+            ListenerState.startListen = false;
+            if(ListenerState.autoListen == true)
             {
-                FrmListenerController.startListen = true;
-                _frmListenerController.listen(FrmListenerController.listenPort);
+                ListenerState.startListen = true;
+                _frmListenerController.listen(ListenerState.listenPort, ListenerState.IPv6Support);
             }
             //* Listener Part *
             InitializeComponent();

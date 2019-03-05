@@ -1,4 +1,5 @@
 ﻿using Serveur.Controllers;
+using Serveur.Models;
 using System;
 using System.Windows.Forms;
 
@@ -16,29 +17,30 @@ namespace Serveur.Views
 
         private void FrmListener_Load(object sender, EventArgs e)
         {
-            txtPort.Value = FrmListenerController.listenPort;
+            txtPort.Value = ListenerState.listenPort;
                 
-            if (FrmListenerController.startListen == true)
+            if (ListenerState.startListen == true)
             {
                 btnListen.Text = "Stop listening";
             }
 
-            chkStartupConnections.Checked = FrmListenerController.autoListen;
-            chkPopupNotification.Checked = FrmListenerController.showPopup;
+            chkStartupConnections.Checked = ListenerState.autoListen;
+            chkPopupNotification.Checked = ListenerState.showPopup;
+            chkIPv6.Checked = ListenerState.IPv6Support;
         }
 
         private void btnListen_Click(object sender, EventArgs e)
         {
             if(btnListen.Text =="Start listening")
             {
-                FrmListenerController.listenPort = Convert.ToInt32(txtPort.Text);
-                FrmListenerController.startListen = true;
-                _frmListenerController.listen(int.Parse(txtPort.Text));
+                ListenerState.listenPort = Convert.ToInt32(txtPort.Text);
+                ListenerState.startListen = true;
+                _frmListenerController.listen(int.Parse(txtPort.Text), chkIPv6.Checked);
                 btnListen.Text = "Stop listening";
             }
             else
             {
-                FrmListenerController.startListen = false;
+                ListenerState.startListen = false;
                 _frmListenerController.stopListening();
                 btnListen.Text = "Start listening";
             }
@@ -46,8 +48,9 @@ namespace Serveur.Views
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            FrmListenerController.autoListen = chkStartupConnections.Checked;      
-            FrmListenerController.showPopup = chkPopupNotification.Checked;
+            ListenerState.autoListen = chkStartupConnections.Checked;
+            ListenerState.showPopup = chkPopupNotification.Checked;
+            ListenerState.IPv6Support = chkIPv6.Checked;
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

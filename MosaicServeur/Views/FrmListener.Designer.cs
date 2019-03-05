@@ -35,13 +35,14 @@
             this.txtPort = new System.Windows.Forms.NumericUpDown();
             this.btnListen = new System.Windows.Forms.Button();
             this.lblPort = new System.Windows.Forms.Label();
+            this.chkIPv6 = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.txtPort)).BeginInit();
             this.SuspendLayout();
             // 
             // btnCancel
             // 
             this.btnCancel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.Location = new System.Drawing.Point(141, 93);
+            this.btnCancel.Location = new System.Drawing.Point(146, 115);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(87, 27);
             this.btnCancel.TabIndex = 14;
@@ -52,7 +53,7 @@
             // btnSave
             // 
             this.btnSave.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSave.Location = new System.Drawing.Point(234, 93);
+            this.btnSave.Location = new System.Drawing.Point(239, 115);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(87, 27);
             this.btnSave.TabIndex = 13;
@@ -64,7 +65,7 @@
             // 
             this.chkPopupNotification.AutoSize = true;
             this.chkPopupNotification.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkPopupNotification.Location = new System.Drawing.Point(15, 63);
+            this.chkPopupNotification.Location = new System.Drawing.Point(15, 90);
             this.chkPopupNotification.Name = "chkPopupNotification";
             this.chkPopupNotification.Size = new System.Drawing.Size(265, 19);
             this.chkPopupNotification.TabIndex = 12;
@@ -75,7 +76,7 @@
             // 
             this.chkStartupConnections.AutoSize = true;
             this.chkStartupConnections.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkStartupConnections.Location = new System.Drawing.Point(15, 35);
+            this.chkStartupConnections.Location = new System.Drawing.Point(15, 62);
             this.chkStartupConnections.Name = "chkStartupConnections";
             this.chkStartupConnections.Size = new System.Drawing.Size(228, 19);
             this.chkStartupConnections.TabIndex = 11;
@@ -126,12 +127,24 @@
             this.lblPort.TabIndex = 8;
             this.lblPort.Text = "Port to listen on :";
             // 
+            // chkIPv6
+            // 
+            this.chkIPv6.AutoSize = true;
+            this.chkIPv6.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkIPv6.Location = new System.Drawing.Point(15, 37);
+            this.chkIPv6.Name = "chkIPv6";
+            this.chkIPv6.Size = new System.Drawing.Size(134, 19);
+            this.chkIPv6.TabIndex = 15;
+            this.chkIPv6.Text = "Enable IPv6 Protocol";
+            this.chkIPv6.UseVisualStyleBackColor = true;
+            // 
             // FrmListener
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(338, 132);
+            this.ClientSize = new System.Drawing.Size(338, 175);
+            this.Controls.Add(this.chkIPv6);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.chkPopupNotification);
@@ -159,5 +172,6 @@
         private System.Windows.Forms.NumericUpDown txtPort;
         private System.Windows.Forms.Button btnListen;
         private System.Windows.Forms.Label lblPort;
+        private System.Windows.Forms.CheckBox chkIPv6;
     }
 }
