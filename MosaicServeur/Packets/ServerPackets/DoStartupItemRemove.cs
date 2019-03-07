@@ -17,10 +17,10 @@ namespace Serveur.Packets.ServerPackets
         [Index(0)]
         public virtual string name { get; set; }
 
-        [Index(0)]
+        [Index(1)]
         public virtual string path { get; set; }
 
-        [Index(0)]
+        [Index(2)]
         public virtual int type { get; set; }
 
         public DoStartupItemRemove()

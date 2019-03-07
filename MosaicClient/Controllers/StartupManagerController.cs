@@ -227,9 +227,9 @@ namespace Client.Controllers
             }
         }
 
-        /// :: REGISTRY KEY TOOLS :: ///
+        // :: REGISTRY KEY TOOLS :: //
 
-        // :: GET :: //
+        /// :: GET :: ///
         public static RegistryKey openReadonlySubKey(RegistryHive hive, string path)
         {
             try
@@ -263,7 +263,7 @@ namespace Client.Controllers
                 return defaultValue;
             }
         }
-        // :: ADD :: //
+        /// :: ADD :: ///
         public static bool addRegistryKeyValue(RegistryHive hive, string path, string name, string value, bool addQuotes = false)
         {
             try
@@ -284,7 +284,7 @@ namespace Client.Controllers
                 return false;
             }
         }
-        // :: REMOVE :: //
+        /// :: REMOVE :: ///
         public static bool deleteRegistryKeyValue(RegistryHive hive, string path, string name)
         {
             try
@@ -302,7 +302,7 @@ namespace Client.Controllers
             }
         }
 
-        // :: TOOLS :: //
+        /// :: TOOLS :: ///
         private static bool isNameOrValueNull(this string keyName, RegistryKey key)
         {
             return (string.IsNullOrEmpty(keyName) || (key == null));

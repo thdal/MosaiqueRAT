@@ -72,7 +72,7 @@
             this.addToolStripMenuItem,
             this.removeToolStripMenuItem});
             this.cmsStm.Name = "cmsStm";
-            this.cmsStm.Size = new System.Drawing.Size(118, 48);
+            this.cmsStm.Size = new System.Drawing.Size(181, 70);
             // 
             // addToolStripMenuItem
             // 
@@ -84,8 +84,9 @@
             // removeToolStripMenuItem
             // 
             this.removeToolStripMenuItem.Name = "removeToolStripMenuItem";
-            this.removeToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
+            this.removeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.removeToolStripMenuItem.Text = "Remove";
+            this.removeToolStripMenuItem.Click += new System.EventHandler(this.removeToolStripMenuItem_Click);
             // 
             // FrmStartupManager
             // 
