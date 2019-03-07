@@ -21,6 +21,7 @@ namespace Serveur.Controllers
                 if (!int.TryParse(item.Substring(0, 1), out type)) continue;
 
                 string preparedItem = item.Remove(0, 1);
+
                 var temp = preparedItem.Split(new string[] { "||" }, StringSplitOptions.None);
 
                 var l = new ListViewItem(temp)

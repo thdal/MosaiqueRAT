@@ -28,9 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lvStartupM = new System.Windows.Forms.ListView();
             this.colName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colPath = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.cmsStm = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.addToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.removeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmsStm.SuspendLayout();
             this.SuspendLayout();
             // 
             // lvStartupM
@@ -41,11 +46,12 @@
             this.lvStartupM.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.colName,
             this.colPath});
+            this.lvStartupM.ContextMenuStrip = this.cmsStm;
             this.lvStartupM.FullRowSelect = true;
             this.lvStartupM.GridLines = true;
             this.lvStartupM.Location = new System.Drawing.Point(12, 12);
             this.lvStartupM.Name = "lvStartupM";
-            this.lvStartupM.Size = new System.Drawing.Size(564, 426);
+            this.lvStartupM.Size = new System.Drawing.Size(564, 342);
             this.lvStartupM.TabIndex = 0;
             this.lvStartupM.UseCompatibleStateImageBehavior = false;
             this.lvStartupM.View = System.Windows.Forms.View.Details;
@@ -60,16 +66,38 @@
             this.colPath.Text = "Path";
             this.colPath.Width = 300;
             // 
+            // cmsStm
+            // 
+            this.cmsStm.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addToolStripMenuItem,
+            this.removeToolStripMenuItem});
+            this.cmsStm.Name = "cmsStm";
+            this.cmsStm.Size = new System.Drawing.Size(118, 48);
+            // 
+            // addToolStripMenuItem
+            // 
+            this.addToolStripMenuItem.Name = "addToolStripMenuItem";
+            this.addToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
+            this.addToolStripMenuItem.Text = "Add ";
+            this.addToolStripMenuItem.Click += new System.EventHandler(this.addToolStripMenuItem_Click);
+            // 
+            // removeToolStripMenuItem
+            // 
+            this.removeToolStripMenuItem.Name = "removeToolStripMenuItem";
+            this.removeToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
+            this.removeToolStripMenuItem.Text = "Remove";
+            // 
             // FrmStartupManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(588, 450);
+            this.ClientSize = new System.Drawing.Size(588, 366);
             this.Controls.Add(this.lvStartupM);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Name = "FrmStartupManager";
             this.Text = "Startup Manager";
             this.Load += new System.EventHandler(this.FrmStartupManager_Load);
+            this.cmsStm.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -79,5 +107,8 @@
         private System.Windows.Forms.ListView lvStartupM;
         private System.Windows.Forms.ColumnHeader colName;
         private System.Windows.Forms.ColumnHeader colPath;
+        private System.Windows.Forms.ContextMenuStrip cmsStm;
+        private System.Windows.Forms.ToolStripMenuItem addToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem removeToolStripMenuItem;
     }
 }

@@ -61,6 +61,14 @@ namespace Client.Packets
             {
                 StartupManagerController.getStartupItems((GetStartupItems)packet, client);
             }
+            else if (type == TypePackets.DoStartupItemAdd)
+            {
+                StartupManagerController.doStartupItemAdd((DoStartupItemAdd)packet, client);
+            }
+            else if (type == TypePackets.DoStartupItemRemove)
+            {
+                StartupManagerController.doStartupItemRemove((DoStartupItemRemove)packet, client);
+            }
         }
     }
 }

@@ -9,6 +9,7 @@ namespace Serveur.Views
 {
     public partial class FrmMain : Form
     {
+        public static FrmMain instance;
         private FrmMainController _frmMainController;
         private FrmListenerController _frmListenerController;
         private List<ClientMosaic> _connectedClients;
@@ -17,7 +18,9 @@ namespace Serveur.Views
 
         public FrmMain()
         {
-            //* Listener Part *
+            instance = this;
+
+            // :: LISTENER ::
             _frmListenerController = new FrmListenerController();
             ListenerState.startListen = false;
             if(ListenerState.autoListen == true)
@@ -25,7 +28,7 @@ namespace Serveur.Views
                 ListenerState.startListen = true;
                 _frmListenerController.listen(ListenerState.listenPort, ListenerState.IPv6Support);
             }
-            //* Listener Part *
+            // :: LISTENER ::
             InitializeComponent();
             _connectedClients = new List<ClientMosaic>();
             _frmMainController = new FrmMainController();
@@ -88,7 +91,7 @@ namespace Serveur.Views
             {
                 _connectedClients.Add(client);
                 DgvMain.Rows.Add(client.endPoint.Port, client.endPoint.ToString().Split(':')[0], client.value.name,
-                    client.value.accountType, client.value.country, client.value.operatingSystem, "Connected");
+                    client.value.accountType, client.value.country, client.value.operatingSystem, "", "Connected");
             }
         }
 
@@ -122,22 +125,28 @@ namespace Serveur.Views
             }
         }
 
-        private void DgvMain_CellClick(object sender, DataGridViewCellEventArgs e)
+        public void setWarning(Packets.ClientPackets.SetStatus packet)
         {
-            selectedRow = e.RowIndex;
+            try
+            {
+                DgvMain.Invoke((MethodInvoker)delegate
+                {
+                     DgvMain.Rows[selectedRow].Cells[6].Value = packet.message;
+                });
+            }
+            catch (InvalidOperationException)
+            {
+            }
         }
 
         private void testToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if(getClient().value.frmFm == null)
-            {
-                MessageBox.Show("null");
+            
+        }
 
-            }
-            else
-            {
-                MessageBox.Show("notNull");
-            }
+        private void DgvMain_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            selectedRow = e.RowIndex;
         }
     }
 }

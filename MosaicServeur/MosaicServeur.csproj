@@ -65,6 +65,7 @@
     <Compile Include="Controllers\FrmTaskManagerController.cs" />
     <Compile Include="Controllers\Server\ClientMosaic.cs" />
     <Compile Include="Controllers\Server\ClientState.cs" />
+    <Compile Include="Models\AutostartItem.cs" />
     <Compile Include="Models\ListenerState.cs" />
     <Compile Include="Models\RemoteDrive.cs" />
     <Compile Include="Packets\ClientPackets\DoDownloadFileResponse.cs" />
@@ -79,10 +80,13 @@
     <Compile Include="Packets\ClientPackets\GetStartupItemsResponse.cs" />
     <Compile Include="Packets\ClientPackets\GetSysInfoResponse.cs" />
     <Compile Include="Packets\ClientPackets\GetWebcamResponse.cs" />
+    <Compile Include="Packets\ClientPackets\SetStatus.cs" />
     <Compile Include="Packets\ClientPackets\SetStatusFileManager.cs" />
     <Compile Include="Packets\PacketHandler.cs" />
     <Compile Include="Packets\ServerPackets\DoDownloadFile.cs" />
     <Compile Include="Packets\ServerPackets\DoDownloadFileCancel.cs" />
+    <Compile Include="Packets\ServerPackets\DoStartupItemAdd.cs" />
+    <Compile Include="Packets\ServerPackets\DoStartupItemRemove.cs" />
     <Compile Include="Packets\ServerPackets\GetAuthentication.cs" />
     <Compile Include="Packets\IPackets.cs" />
     <Compile Include="Packets\ServerPackets\GetAvailableWebcams.cs" />
@@ -129,6 +133,12 @@
     <Compile Include="Views\FrmListener.Designer.cs">
       <DependentUpon>FrmListener.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\FrmPasswordRecovery.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FrmPasswordRecovery.Designer.cs">
+      <DependentUpon>FrmPasswordRecovery.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\FrmRemoteDesktop.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -152,6 +162,12 @@
     </Compile>
     <Compile Include="Views\FrmStartupManager.Designer.cs">
       <DependentUpon>FrmStartupManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FrmStartupManagerToAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FrmStartupManagerToAdd.Designer.cs">
+      <DependentUpon>FrmStartupManagerToAdd.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\FrmSystemInformation.cs">
       <SubType>Form</SubType>
@@ -201,6 +217,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\FrmStartupManager.resx">
       <DependentUpon>FrmStartupManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FrmStartupManagerToAdd.resx">
+      <DependentUpon>FrmStartupManagerToAdd.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\FrmSystemInformation.resx">
       <DependentUpon>FrmSystemInformation.cs</DependentUpon>

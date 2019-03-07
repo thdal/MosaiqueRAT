@@ -78,6 +78,7 @@
     <Compile Include="Packets\ClientPackets\GetProcessesResponse.cs" />
     <Compile Include="Packets\ClientPackets\GetStartupItemsResponse.cs" />
     <Compile Include="Packets\ClientPackets\GetSysInfoResponse.cs" />
+    <Compile Include="Packets\ClientPackets\SetStatus.cs" />
     <Compile Include="Packets\ServerPackets\DoDownloadFileCancel.cs" />
     <Compile Include="Packets\ClientPackets\DoDownloadFileResponse.cs" />
     <Compile Include="Packets\ServerPackets\DoDownloadFile.cs" />
@@ -92,6 +93,8 @@
     <Compile Include="Packets\ClientPackets\SetStatusFileManager.cs" />
     <Compile Include="Packets\IPackets.cs" />
     <Compile Include="Packets\PacketHandler.cs" />
+    <Compile Include="Packets\ServerPackets\DoStartupItemAdd.cs" />
+    <Compile Include="Packets\ServerPackets\DoStartupItemRemove.cs" />
     <Compile Include="Packets\ServerPackets\GetAuthentication.cs" />
     <Compile Include="Packets\ServerPackets\GetAvailableWebcams.cs" />
     <Compile Include="Packets\ServerPackets\GetDesktop.cs" />

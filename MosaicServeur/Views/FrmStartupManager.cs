@@ -1,4 +1,5 @@
 ﻿using Serveur.Controllers.Server;
+using Serveur.Models;
 using Serveur.Packets.ServerPackets;
 using System;
 using System.Windows.Forms;
@@ -71,6 +72,22 @@ namespace Serveur.Views
             }
             catch (InvalidOperationException)
             {
+            }
+        }
+
+        private void addToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (var frm = new FrmStartupManagerToAdd())
+            {
+                if(frm.ShowDialog() == DialogResult.OK)
+                {
+                    if(_client != null)
+                    {
+                        new DoStartupItemAdd(AutostartItem.name, AutostartItem.path, AutostartItem.type).Execute(_client);
+                        lvStartupM.Items.Clear();
+                        new GetStartupItems().Execute(_client);
+                    }
+                }
             }
         }
     }
