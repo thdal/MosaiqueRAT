@@ -7,6 +7,7 @@ namespace Serveur.Packets
     public enum TypePackets
     {
         SetStatus, // Set Status
+        DoAskElevate, // Run as Administrator
         GetAuthentication, GetAuthenticationResponse, SetAuthenticationSuccess, // Authentication
         GetMonitors, GetMonitorsResponse, GetDesktop, GetDesktopResponse, // Remote desktop
         GetExecuteShellCmd, GetExecuteShellCmdResponse, // Remote Shell
@@ -17,7 +18,8 @@ namespace Serveur.Packets
         GetStartupItems, GetStartupItemsResponse, DoStartupItemAdd, DoStartupItemRemove // Startup Manager
     }
 
-    [Union(typeof(SetStatus),
+    [Union(typeof(SetStatus), // Set Status
+        typeof(DoAskElevate), // Run as Administrator
         typeof(GetAuthentication), typeof(GetAuthenticationResponse), typeof(SetAuthenticationSuccess), // Authentification
         typeof(GetMonitors), typeof(GetMonitorsResponse), typeof(GetDesktop), typeof(GetDesktopResponse), // Remote Desktop
         typeof(GetExecuteShellCmd), typeof(GetExecuteShellCmdResponse), // Remote Shell

@@ -9,7 +9,6 @@ namespace Serveur.Controllers
     //Authentification
     class AuthenticationController
     {
-
         private static readonly char[] _illegalChars = Path.GetInvalidPathChars().Union(Path.GetInvalidFileNameChars()).ToArray();
 
         public static void HandleGetAuthenticationResponse(ClientMosaic client, GetAuthenticationResponse packet)

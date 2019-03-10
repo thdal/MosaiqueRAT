@@ -42,7 +42,7 @@ namespace Client.Controllers
         private bool _sendingPackets;
         private readonly object _sendingPacketsLock = new object();
         //STATE
-        public bool Exiting { get; private set; }
+        public bool EXITING { get; private set; }
         public bool authenticated { get; private set; }
         public bool connected { get; private set; }
 
@@ -56,7 +56,7 @@ namespace Client.Controllers
         //CONNECT TO SERVER
         public void connect()
         {
-            while (!Exiting)
+            while (!EXITING)
             {
                 if (!connected)
                 {
@@ -94,7 +94,7 @@ namespace Client.Controllers
                     Thread.Sleep(2500);
                 }
 
-                if (Exiting)
+                if (EXITING)
                 {
                     disconnect();
                     return;
@@ -469,6 +469,12 @@ namespace Client.Controllers
 
             connected = false;
             authenticated = false;
+        }
+
+        public void Exit()
+        {
+            EXITING = false;
+            disconnect();
         }
     }
 }

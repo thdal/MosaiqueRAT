@@ -47,8 +47,8 @@ namespace Serveur.Controllers.Server
         public bool connected { get; private set; }
         public ClientState value { get; set; }
         //CALLBACK
-        public delegate void dgvUpdater(ClientMosaic client);        // ADD CLIENT INTO DATAGRIDVIEW
-        public static event dgvUpdater RemplirDGV;                   // ADD CLIENT INTO DATAGRIDVIEW
+        public delegate void DgvUpdater(ClientMosaic client, bool addOrRem);        // ADD OR REMOVE CLIENT INTO DATAGRIDVIEW
+        public static event DgvUpdater DvgUpdater;                   // ADD OR REMOVE CLIENT INTO DATAGRIDVIEW
 
         //CONSTRUCTEUR
         public ClientMosaic(Socket socket)
@@ -408,7 +408,7 @@ namespace Serveur.Controllers.Server
                     authenticated = true;
                     new Packets.ServerPackets.SetAuthenticationSuccess().Execute(this); // finish handshake
                     AuthenticationController.HandleGetAuthenticationResponse(this, (GetAuthenticationResponse)packet);
-                    RemplirDGV(this);
+                    DvgUpdater(this, true);
                     authenticated = true;
                 }
                 else
@@ -442,6 +442,8 @@ namespace Serveur.Controllers.Server
             }
 
             authenticated = false;
+
+            DvgUpdater(this, false);
         }
     }
 }

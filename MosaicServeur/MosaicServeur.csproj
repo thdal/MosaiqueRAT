@@ -83,6 +83,7 @@
     <Compile Include="Packets\ClientPackets\SetStatus.cs" />
     <Compile Include="Packets\ClientPackets\SetStatusFileManager.cs" />
     <Compile Include="Packets\PacketHandler.cs" />
+    <Compile Include="Packets\ServerPackets\DoAskElevate.cs" />
     <Compile Include="Packets\ServerPackets\DoDownloadFile.cs" />
     <Compile Include="Packets\ServerPackets\DoDownloadFileCancel.cs" />
     <Compile Include="Packets\ServerPackets\DoStartupItemAdd.cs" />

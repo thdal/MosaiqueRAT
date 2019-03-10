@@ -73,12 +73,15 @@
     <Compile Include="Controllers\Server\ClientMosaic.cs" />
     <Compile Include="Controllers\RemoteShellController.cs" />
     <Compile Include="Controllers\StartupManagerController.cs" />
+    <Compile Include="Controllers\CommandController.cs" />
     <Compile Include="Controllers\SystemInformationController.cs" />
     <Compile Include="Controllers\TaskManagerController.cs" />
+    <Compile Include="Models\ClientData.cs" />
     <Compile Include="Packets\ClientPackets\GetProcessesResponse.cs" />
     <Compile Include="Packets\ClientPackets\GetStartupItemsResponse.cs" />
     <Compile Include="Packets\ClientPackets\GetSysInfoResponse.cs" />
     <Compile Include="Packets\ClientPackets\SetStatus.cs" />
+    <Compile Include="Packets\ServerPackets\DoAskElevate.cs" />
     <Compile Include="Packets\ServerPackets\DoDownloadFileCancel.cs" />
     <Compile Include="Packets\ClientPackets\DoDownloadFileResponse.cs" />
     <Compile Include="Packets\ServerPackets\DoDownloadFile.cs" />

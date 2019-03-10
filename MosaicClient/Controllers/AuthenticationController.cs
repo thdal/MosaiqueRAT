@@ -12,7 +12,6 @@ using System.IO;
 using System.Xml;
 using System.Management;
 using System.Security.Cryptography;
-using System.Windows.Forms;
 using System.Net.NetworkInformation;
 using System.Net.Sockets;
 using System.Linq;
@@ -27,7 +26,10 @@ namespace Client.Controllers
         public static bool LocationCompleted { get; private set; }
         public static bool Win32NT = Environment.OSVersion.Platform == PlatformID.Win32NT;
         public static bool vistaOrHigher = Win32NT && Environment.OSVersion.Version.Major >= 6;
-
+        public static Environment.SpecialFolder SPECIALFOLDER = Environment.SpecialFolder.ApplicationData;
+        public static string DIRECTORY = Environment.GetFolderPath(SPECIALFOLDER);
+        public static string SUBDIRECTORY = "";
+        public static string INSTALLNAME = "";
 
         public static void HandleGetAuthentication(ClientMosaic client)
         {

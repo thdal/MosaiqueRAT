@@ -14,6 +14,7 @@ namespace Serveur.Controllers
         //private const int PORT = 4444;
         private int _port;
         private static readonly byte[] _buffer = new byte[BUFFER_SIZE];
+        public static bool LISTENING;
 
         public void listen(int port, bool IPv6)
         {
@@ -21,23 +22,26 @@ namespace Serveur.Controllers
 
             try
             {
-                if(Socket.OSSupportsIPv6 && IPv6)
+                if (!LISTENING)
                 {
-                    _serverSocket = new Socket(AddressFamily.InterNetworkV6, SocketType.Stream, ProtocolType.Tcp);
-                    // fix for mono compatibility, SocketOptionName.IPv6Only
-                    SocketOptionName ipv6only = (SocketOptionName)27;
-                    _serverSocket.SetSocketOption(SocketOptionLevel.IPv6, ipv6only, 0);
-                    _serverSocket.Bind(new IPEndPoint(IPAddress.IPv6Any, port));
-                }
-                else
-                {
-                    _serverSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-                    _serverSocket.Bind(new IPEndPoint(IPAddress.Any, port));
-                }
+                    if(Socket.OSSupportsIPv6 && IPv6)
+                    {
+                        _serverSocket = new Socket(AddressFamily.InterNetworkV6, SocketType.Stream, ProtocolType.Tcp);
+                        // fix for mono compatibility, SocketOptionName.IPv6Only
+                        SocketOptionName ipv6only = (SocketOptionName)27;
+                        _serverSocket.SetSocketOption(SocketOptionLevel.IPv6, ipv6only, 0);
+                        _serverSocket.Bind(new IPEndPoint(IPAddress.IPv6Any, port));
+                    }
+                    else
+                    {
+                        _serverSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+                        _serverSocket.Bind(new IPEndPoint(IPAddress.Any, port));
+                    }
 
-                _serverSocket.Listen(1000);        
-                _serverSocket.BeginAccept(new AsyncCallback(acceptClient), null);
-
+                    _serverSocket.Listen(1000);
+                    LISTENING = true;
+                    _serverSocket.BeginAccept(new AsyncCallback(acceptClient), null);
+                }
             }
             catch (Exception ex)
             {
@@ -52,6 +56,7 @@ namespace Serveur.Controllers
                 _serverSocket.Dispose();
                 _serverSocket.Close();
                 _serverSocket = null;
+                LISTENING = false;
             }
         }
 
