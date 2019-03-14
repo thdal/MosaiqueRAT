@@ -19,20 +19,20 @@ namespace Serveur.Views
             this.Hide();
         }
 
-        private void FrmStub_Load(object sender, EventArgs e)
-        {
-            txtMutex.Text = buildercontroller.getUniqueMutex(18);
-            txtClientTag.Text = "Client01";
-        }
-
         private void btnMutex_Click(object sender, EventArgs e)
         {
             txtMutex.Text = buildercontroller.getUniqueMutex(18);
-        }
+        }        
 
         private void numPort_ValueChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void FrmBuilder_Load(object sender, EventArgs e)
+        {
+            txtMutex.Text = buildercontroller.getUniqueMutex(18);
+            txtClientTag.Text = "Client01";
         }
     }
 }

@@ -44,7 +44,6 @@
             this.remoteShellToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.passwordRecoveryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.keyloggerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.testToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.msMain = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -56,8 +55,11 @@
             this.colCountry = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colOS = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colStatus = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.statusStrip = new System.Windows.Forms.StatusStrip();
+            this.tslListening = new System.Windows.Forms.ToolStripStatusLabel();
             this.cmsMain.SuspendLayout();
             this.msMain.SuspendLayout();
+            this.statusStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // cmsMain
@@ -66,11 +68,10 @@
             this.manageToolStripMenuItem,
             this.systemToolStripMenuItem,
             this.funToolStripMenuItem,
-            this.spyingToolStripMenuItem,
-            this.testToolStripMenuItem});
+            this.spyingToolStripMenuItem});
             this.cmsMain.Name = "cmsMain";
             this.cmsMain.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.cmsMain.Size = new System.Drawing.Size(118, 114);
+            this.cmsMain.Size = new System.Drawing.Size(181, 114);
             // 
             // manageToolStripMenuItem
             // 
@@ -140,7 +141,7 @@
             this.passwordRecoveryToolStripMenuItem,
             this.keyloggerToolStripMenuItem});
             this.spyingToolStripMenuItem.Name = "spyingToolStripMenuItem";
-            this.spyingToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
+            this.spyingToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.spyingToolStripMenuItem.Text = "Spying";
             // 
             // remoteDesktopToolStripMenuItem
@@ -167,21 +168,15 @@
             // passwordRecoveryToolStripMenuItem
             // 
             this.passwordRecoveryToolStripMenuItem.Name = "passwordRecoveryToolStripMenuItem";
-            this.passwordRecoveryToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
+            this.passwordRecoveryToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.passwordRecoveryToolStripMenuItem.Text = "Password Recovery";
+            this.passwordRecoveryToolStripMenuItem.Click += new System.EventHandler(this.passwordRecoveryToolStripMenuItem_Click);
             // 
             // keyloggerToolStripMenuItem
             // 
             this.keyloggerToolStripMenuItem.Name = "keyloggerToolStripMenuItem";
             this.keyloggerToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
             this.keyloggerToolStripMenuItem.Text = "Keylogger";
-            // 
-            // testToolStripMenuItem
-            // 
-            this.testToolStripMenuItem.Name = "testToolStripMenuItem";
-            this.testToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
-            this.testToolStripMenuItem.Text = "test";
-            this.testToolStripMenuItem.Click += new System.EventHandler(this.testToolStripMenuItem_Click);
             // 
             // msMain
             // 
@@ -240,38 +235,53 @@
             // colAddress
             // 
             this.colAddress.Text = "Address";
-            this.colAddress.Width = 78;
+            this.colAddress.Width = 58;
             // 
             // colName
             // 
             this.colName.Text = "Name";
-            this.colName.Width = 161;
+            this.colName.Width = 45;
             // 
             // colAccType
             // 
             this.colAccType.Text = "Account Type";
-            this.colAccType.Width = 90;
+            this.colAccType.Width = 86;
             // 
             // colCountry
             // 
             this.colCountry.Text = "Country";
-            this.colCountry.Width = 81;
+            this.colCountry.Width = 56;
             // 
             // colOS
             // 
             this.colOS.Text = "Operating System";
-            this.colOS.Width = 131;
+            this.colOS.Width = 115;
             // 
             // colStatus
             // 
             this.colStatus.Text = "Status";
-            this.colStatus.Width = 103;
+            this.colStatus.Width = 52;
+            // 
+            // statusStrip
+            // 
+            this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tslListening});
+            this.statusStrip.Location = new System.Drawing.Point(0, 232);
+            this.statusStrip.Name = "statusStrip";
+            this.statusStrip.Size = new System.Drawing.Size(666, 22);
+            this.statusStrip.TabIndex = 3;
+            // 
+            // tslListening
+            // 
+            this.tslListening.Name = "tslListening";
+            this.tslListening.Size = new System.Drawing.Size(0, 17);
             // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(666, 254);
+            this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.lvClients);
             this.Controls.Add(this.msMain);
             this.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -283,6 +293,8 @@
             this.cmsMain.ResumeLayout(false);
             this.msMain.ResumeLayout(false);
             this.msMain.PerformLayout();
+            this.statusStrip.ResumeLayout(false);
+            this.statusStrip.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -302,7 +314,6 @@
         private System.Windows.Forms.ToolStripMenuItem remoteShellToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem remoteWebcamToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem fileManagerToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem testToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem taskManagerToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem systemInformationToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem passwordRecoveryToolStripMenuItem;
@@ -316,5 +327,7 @@
         private System.Windows.Forms.ColumnHeader colCountry;
         private System.Windows.Forms.ColumnHeader colOS;
         private System.Windows.Forms.ColumnHeader colStatus;
+        private System.Windows.Forms.StatusStrip statusStrip;
+        private System.Windows.Forms.ToolStripStatusLabel tslListening;
     }
 }

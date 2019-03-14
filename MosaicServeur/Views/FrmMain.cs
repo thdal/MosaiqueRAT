@@ -89,6 +89,11 @@ namespace Serveur.Views
             new Packets.ServerPackets.DoAskElevate().Execute(getClient());
         }
 
+        private void passwordRecoveryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _frmMainController.frmPr(getClient());
+        }
+
         // :: GET - ADD - REMOVE FROM DATAGRIDVIEW :: //
         public void dgvUpdater(ClientMosaic client, bool addOrRem)
         {
@@ -256,6 +261,14 @@ namespace Serveur.Views
             catch (InvalidOperationException)
             {
             }
+        }
+
+        public void setListeningStatus(string status)
+        {
+            statusStrip.Invoke((MethodInvoker)delegate
+            {
+                tslListening.Text = status;
+            });
         }
 
         private void testToolStripMenuItem_Click(object sender, EventArgs e)

@@ -473,7 +473,7 @@ namespace Client.Controllers
 
         public void Exit()
         {
-            EXITING = false;
+            EXITING = true;
             disconnect();
         }
     }

