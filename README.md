@@ -21,7 +21,6 @@ Mosaic is writing in C# under the "MVC" architecture, ZeroFormatter serializer i
 
 * Fun features
 * Keylogger
-* Password Recovery
 
 * New UI !
 * And many other great features !!
