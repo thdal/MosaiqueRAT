@@ -15,12 +15,12 @@ Mosaic is writing in C# under the "MVC" architecture, ZeroFormatter serializer i
 * Startup Manager
 * System Information
 * Administrator elevator
+* Password Recovery
 
 # Features in coming
 
 * Fun features
 * Keylogger
-* Password Recovery
 
 * New UI !
 * And many other great features !!
