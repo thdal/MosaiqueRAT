@@ -24,7 +24,7 @@ namespace Serveur.Controllers.Server
         public FrmTaskManager frmTm { get; set; }
         public FrmSystemInformation frmSi { get; set; }
         public FrmStartupManager frmStm { get; set; }
-        public FrmKeylogger frmKl { get; set; }
+        public FrmKeyLogger frmKl { get; set; }
         public FrmPasswordRecovery frmPr { get; set; }
 
         public bool receivedLastDirectory { get; set; }

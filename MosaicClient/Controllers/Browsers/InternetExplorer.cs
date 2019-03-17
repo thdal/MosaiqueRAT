@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 using System.Security.Cryptography;
 using System.Text;
 
-namespace Client.Controllers.BrowsersControllers
+namespace Client.Controllers.Browsers
 {
     public static class InternetExplorer
     {

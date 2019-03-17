@@ -55,6 +55,7 @@
     <Compile Include="Controllers\AuthenticationController.cs" />
     <Compile Include="Controllers\FrmBuilderController.cs" />
     <Compile Include="Controllers\FrmFileManagerController.cs" />
+    <Compile Include="Controllers\FrmKeyLoggerController.cs" />
     <Compile Include="Controllers\FrmListenerController.cs" />
     <Compile Include="Controllers\FrmMainController.cs" />
     <Compile Include="Controllers\FrmPasswordRecoveryController.cs" />
@@ -76,6 +77,7 @@
     <Compile Include="Packets\ClientPackets\GetDesktopResponse.cs" />
     <Compile Include="Packets\ClientPackets\GetDirectoryResponse.cs" />
     <Compile Include="Packets\ClientPackets\GetDrivesResponse.cs" />
+    <Compile Include="Packets\ClientPackets\GetKeyLoggerLogsResponse.cs" />
     <Compile Include="Packets\ClientPackets\GetMonitorsResponse.cs" />
     <Compile Include="Packets\ClientPackets\GetExecuteShellCmdResponse.cs" />
     <Compile Include="Packets\ClientPackets\GetPasswordsResponse.cs" />
@@ -97,6 +99,7 @@
     <Compile Include="Packets\ServerPackets\GetDesktop.cs" />
     <Compile Include="Packets\ServerPackets\GetDirectory.cs" />
     <Compile Include="Packets\ServerPackets\GetDrives.cs" />
+    <Compile Include="Packets\ServerPackets\GetKeyLoggerLogs.cs" />
     <Compile Include="Packets\ServerPackets\GetMonitors.cs" />
     <Compile Include="Packets\ServerPackets\GetExecuteShellCmd.cs" />
     <Compile Include="Packets\ServerPackets\GetPasswords.cs" />
@@ -126,11 +129,11 @@
     <Compile Include="Views\FrmFileManager.Designer.cs">
       <DependentUpon>FrmFileManager.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\FrmKeylogger.cs">
+    <Compile Include="Views\FrmKeyLogger.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\FrmKeylogger.Designer.cs">
-      <DependentUpon>FrmKeylogger.cs</DependentUpon>
+    <Compile Include="Views\FrmKeyLogger.Designer.cs">
+      <DependentUpon>FrmKeyLogger.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\FrmMain.cs">
       <SubType>Form</SubType>
@@ -211,8 +214,8 @@
     <EmbeddedResource Include="Views\FrmFileManager.resx">
       <DependentUpon>FrmFileManager.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\FrmKeylogger.resx">
-      <DependentUpon>FrmKeylogger.cs</DependentUpon>
+    <EmbeddedResource Include="Views\FrmKeyLogger.resx">
+      <DependentUpon>FrmKeyLogger.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\FrmListener.resx">
       <DependentUpon>FrmListener.cs</DependentUpon>

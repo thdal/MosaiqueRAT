@@ -1,6 +1,6 @@
 ﻿namespace Serveur.Views
 {
-    partial class FrmKeylogger
+    partial class FrmKeyLogger
     {
         /// <summary>
         /// Required designer variable.

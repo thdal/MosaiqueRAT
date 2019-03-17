@@ -5,7 +5,7 @@ using System.IO;
 using System.Text;
 using System.Xml;
 
-namespace Client.Controllers.BrowsersControllers
+namespace Client.Controllers.Browsers
 {
     public class FileZilla
     {

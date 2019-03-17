@@ -8,8 +8,9 @@ using Microsoft.Win32;
 using System.Diagnostics;
 using Client.Models;
 using System.Runtime.Serialization.Json;
+using Client.Controllers.Tools;
 
-namespace Client.Controllers.BrowsersControllers
+namespace Client.Controllers.Browsers
 {
     /// <summary>
     /// A small class to recover Firefox Data

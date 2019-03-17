@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Net.NetworkInformation;
-using static Client.Controllers.AuthenticationController;
+using static Client.Controllers.Tools.AuthenticationController;
 
 namespace Client.Controllers
 {

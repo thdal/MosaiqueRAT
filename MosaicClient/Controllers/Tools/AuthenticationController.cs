@@ -16,7 +16,7 @@ using System.Net.NetworkInformation;
 using System.Net.Sockets;
 using System.Linq;
 
-namespace Client.Controllers
+namespace Client.Controllers.Tools
 {
     public static class AuthenticationController
     {

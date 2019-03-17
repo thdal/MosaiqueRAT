@@ -1,17 +1,17 @@
 ﻿using System.Threading;
 
-namespace Client.Controllers
+namespace Client.Controllers.Tools
 {
     class MutexController
     {
-        private static Mutex _appMutex;
+        private static System.Threading.Mutex _appMutex;
 
         public static string mutexKey;
 
         public static bool createMutex()
         {
             bool createdNew;
-            _appMutex = new Mutex(false, mutexKey, out createdNew);
+            _appMutex = new System.Threading.Mutex(false, mutexKey, out createdNew);
             return createdNew;
         }
 

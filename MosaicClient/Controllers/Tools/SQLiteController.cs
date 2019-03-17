@@ -5,7 +5,7 @@ using System.Text;
 using Microsoft.VisualBasic;
 using Microsoft.VisualBasic.CompilerServices;
 
-namespace Client.Controllers.BrowsersControllers
+namespace Client.Controllers.Tools
 {
     class SQLiteController
     {

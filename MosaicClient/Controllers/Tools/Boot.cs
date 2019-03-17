@@ -5,10 +5,10 @@ using System.IO;
 using System.Net;
 using System.Net.Sockets;
 
-namespace Client.Controllers
+namespace Client.Controllers.Tools
 {
     //BootController
-    public class BootController
+    public class Boot
     {
         //Thread Deco
         public Socket socket;
@@ -23,7 +23,7 @@ namespace Client.Controllers
         public ushort port { get; set; }
         public int numReconnectTries { get; set; }
 
-        public BootController()
+        public Boot()
         {
             foreach (string index in readerFactory)
             {

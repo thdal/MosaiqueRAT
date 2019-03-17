@@ -2,7 +2,7 @@
 using Client.Packets.ServerPackets;
 using System.Diagnostics;
 
-namespace Client.Controllers
+namespace Client.Controllers.Tools
 {
     public static class CommandController
     {

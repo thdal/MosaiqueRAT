@@ -94,6 +94,11 @@ namespace Serveur.Views
             _frmMainController.frmPr(getClient());
         }
 
+        private void keyloggerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _frmMainController.frmKl(getClient());
+        }
+
         // :: GET - ADD - REMOVE FROM DATAGRIDVIEW :: //
         public void dgvUpdater(ClientMosaic client, bool addOrRem)
         {

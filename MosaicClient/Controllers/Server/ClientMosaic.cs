@@ -1,4 +1,5 @@
-﻿using Client.Packets;
+﻿using Client.Controllers.Tools;
+using Client.Packets;
 using System;
 using System.Collections.Generic;
 using System.Net.Sockets;
@@ -42,7 +43,8 @@ namespace Client.Controllers
         private bool _sendingPackets;
         private readonly object _sendingPacketsLock = new object();
         //STATE
-        public bool EXITING { get; private set; }
+        public static bool EXITING { get; private set; }
+        public static bool testexit = true;
         public bool authenticated { get; private set; }
         public bool connected { get; private set; }
 

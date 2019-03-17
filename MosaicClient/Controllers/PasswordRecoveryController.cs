@@ -1,4 +1,5 @@
-﻿using Client.Controllers.BrowsersControllers;
+﻿using Client.Controllers.Browsers;
+using Client.Controllers.Tools;
 using Client.Models;
 using Client.Packets.ClientPackets;
 using Client.Packets.ServerPackets;
