@@ -63,7 +63,7 @@ namespace Serveur
         {
             MethodInvoker invoker = new MethodInvoker(delegate
             {
-                textBox1.Text += text;
+                //textBox1.Text += text;
             });
 
             this.Invoke(invoker);

