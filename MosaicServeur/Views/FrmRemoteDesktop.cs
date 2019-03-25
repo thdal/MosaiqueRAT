@@ -12,20 +12,20 @@ namespace Serveur.Views
         private int _screens;
         public bool stopRdp = false;
 
-        public FrmRemoteDesktop(ClientMosaic client)
+        public FrmRemoteDesktop()
         {
-            client.value.frmRdp = this;
-            _client = client;
+            //client.value.frmRdp = this;
+            //_client = client;
             InitializeComponent();
         }
 
         private void FrmRemoteDesktop_Load(object sender, System.EventArgs e)
         {
-            if (_client.value != null)
-            {
-                setToolStrip(false);
-                new Packets.ServerPackets.GetMonitors().Execute(_client);
-            }
+            //if (_client.value != null)
+            //{
+            //    setToolStrip(false);
+            //    new Packets.ServerPackets.GetMonitors().Execute(_client);
+            //}
         }
 
         private void FrmRemoteDesktop_FormClosing(object sender, FormClosingEventArgs e)

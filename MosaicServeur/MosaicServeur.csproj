@@ -4,13 +4,14 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{19A32E89-A029-4D44-88C6-7F8B6389ED6F}</ProjectGuid>
+    <ProjectGuid>{03BCD2AA-AD40-4A8F-8248-4D798D5717AC}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>Serveur</RootNamespace>
-    <AssemblyName>Serveur</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <RootNamespace>MosaicServeur</RootNamespace>
+    <AssemblyName>MosaicServeur</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -33,17 +34,36 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AForge.Video, Version=2.2.5.0, Culture=neutral, PublicKeyToken=cbfb6e07d173c401, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Desktop\MosaicRAT\Librairies\AForge.NET Framework-2.2.5-(libs only)\Release\AForge.Video.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Video.DirectShow, Version=2.2.5.0, Culture=neutral, PublicKeyToken=61ea4348d43881b7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Desktop\MosaicRAT\Librairies\AForge.NET Framework-2.2.5-(libs only)\Release\AForge.Video.DirectShow.dll</HintPath>
+    </Reference>
+    <Reference Include="MaterialDesignColors, Version=1.0.0.14576, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignColors.1.1.1\lib\net45\MaterialDesignColors.dll</HintPath>
+    </Reference>
+    <Reference Include="MaterialDesignThemes.Wpf, Version=2.5.0.1205, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignThemes.2.5.0.1205\lib\net45\MaterialDesignThemes.Wpf.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Deployment" />
-    <Reference Include="System.Drawing" />
     <Reference Include="System.Net.Http" />
-    <Reference Include="System.Windows.Forms" />
-    <Reference Include="System.Xml" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="ZeroFormatter, Version=1.6.4.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\ZeroFormatter.1.6.4\lib\net45\ZeroFormatter.dll</HintPath>
     </Reference>
@@ -52,6 +72,99 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Views\FrmBuilder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FrmBuilder.designer.cs">
+      <DependentUpon>FrmBuilder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FrmFileManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FrmFileManager.designer.cs">
+      <DependentUpon>FrmFileManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FrmKeylogger.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FrmKeylogger.designer.cs">
+      <DependentUpon>FrmKeylogger.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FrmListener.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FrmListener.designer.cs">
+      <DependentUpon>FrmListener.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FrmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FrmMain.designer.cs">
+      <DependentUpon>FrmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FrmMain\App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FrmMain\Builder.xaml.cs">
+      <DependentUpon>Builder.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FrmMain\ClientsListView.xaml.cs">
+      <DependentUpon>ClientsListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FrmMain\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FrmMain\Settings.xaml.cs">
+      <DependentUpon>Settings.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FrmPasswordRecovery.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FrmPasswordRecovery.designer.cs">
+      <DependentUpon>FrmPasswordRecovery.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FrmRemoteDesktop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FrmRemoteDesktop.designer.cs">
+      <DependentUpon>FrmRemoteDesktop.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FrmRemoteShell.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FrmRemoteShell.designer.cs">
+      <DependentUpon>FrmRemoteShell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FrmRemoteWebcam.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FrmRemoteWebcam.designer.cs">
+      <DependentUpon>FrmRemoteWebcam.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FrmStartupManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FrmStartupManager.designer.cs">
+      <DependentUpon>FrmStartupManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FrmStartupManagerToAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FrmStartupManagerToAdd.designer.cs">
+      <DependentUpon>FrmStartupManagerToAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FrmSystemInformation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FrmSystemInformation.designer.cs">
+      <DependentUpon>FrmSystemInformation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FrmTaskManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FrmTaskManager.designer.cs">
+      <DependentUpon>FrmTaskManager.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\AuthenticationController.cs" />
     <Compile Include="Controllers\FrmBuilderController.cs" />
     <Compile Include="Controllers\FrmFileManagerController.cs" />
@@ -67,6 +180,28 @@
     <Compile Include="Controllers\FrmTaskManagerController.cs" />
     <Compile Include="Controllers\Server\ClientMosaic.cs" />
     <Compile Include="Controllers\Server\ClientState.cs" />
+    <ApplicationDefinition Include="Views\FrmMain\App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Page Include="Views\FrmMain\Builder.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\FrmMain\ClientsListView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\FrmMain\MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\FrmMain\Settings.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
     <Compile Include="Models\AutostartItem.cs" />
     <Compile Include="Models\ListenerState.cs" />
     <Compile Include="Models\RecoveredAccount.cs" />
@@ -77,9 +212,9 @@
     <Compile Include="Packets\ClientPackets\GetDesktopResponse.cs" />
     <Compile Include="Packets\ClientPackets\GetDirectoryResponse.cs" />
     <Compile Include="Packets\ClientPackets\GetDrivesResponse.cs" />
+    <Compile Include="Packets\ClientPackets\GetExecuteShellCmdResponse.cs" />
     <Compile Include="Packets\ClientPackets\GetKeyLoggerLogsResponse.cs" />
     <Compile Include="Packets\ClientPackets\GetMonitorsResponse.cs" />
-    <Compile Include="Packets\ClientPackets\GetExecuteShellCmdResponse.cs" />
     <Compile Include="Packets\ClientPackets\GetPasswordsResponse.cs" />
     <Compile Include="Packets\ClientPackets\GetProcessesResponse.cs" />
     <Compile Include="Packets\ClientPackets\GetStartupItemsResponse.cs" />
@@ -87,6 +222,7 @@
     <Compile Include="Packets\ClientPackets\GetWebcamResponse.cs" />
     <Compile Include="Packets\ClientPackets\SetStatus.cs" />
     <Compile Include="Packets\ClientPackets\SetStatusFileManager.cs" />
+    <Compile Include="Packets\IPackets.cs" />
     <Compile Include="Packets\PacketHandler.cs" />
     <Compile Include="Packets\ServerPackets\DoAskElevate.cs" />
     <Compile Include="Packets\ServerPackets\DoDownloadFile.cs" />
@@ -94,14 +230,13 @@
     <Compile Include="Packets\ServerPackets\DoStartupItemAdd.cs" />
     <Compile Include="Packets\ServerPackets\DoStartupItemRemove.cs" />
     <Compile Include="Packets\ServerPackets\GetAuthentication.cs" />
-    <Compile Include="Packets\IPackets.cs" />
     <Compile Include="Packets\ServerPackets\GetAvailableWebcams.cs" />
     <Compile Include="Packets\ServerPackets\GetDesktop.cs" />
     <Compile Include="Packets\ServerPackets\GetDirectory.cs" />
     <Compile Include="Packets\ServerPackets\GetDrives.cs" />
+    <Compile Include="Packets\ServerPackets\GetExecuteShellCmd.cs" />
     <Compile Include="Packets\ServerPackets\GetKeyLoggerLogs.cs" />
     <Compile Include="Packets\ServerPackets\GetMonitors.cs" />
-    <Compile Include="Packets\ServerPackets\GetExecuteShellCmd.cs" />
     <Compile Include="Packets\ServerPackets\GetPasswords.cs" />
     <Compile Include="Packets\ServerPackets\GetProcesses.cs" />
     <Compile Include="Packets\ServerPackets\GetStartupItems.cs" />
@@ -109,113 +244,28 @@
     <Compile Include="Packets\ServerPackets\GetWebcam.cs" />
     <Compile Include="Packets\ServerPackets\SetAuthenticationSuccess.cs" />
     <Compile Include="Packets\ServerPackets\StopWebcam.cs" />
-    <Compile Include="Serveur.cs">
-      <SubType>Form</SubType>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Serveur.Designer.cs">
-      <DependentUpon>Serveur.cs</DependentUpon>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Program.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Views\FrmBuilder.cs">
-      <SubType>Form</SubType>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="Views\FrmBuilder.Designer.cs">
-      <DependentUpon>FrmBuilder.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\FrmFileManager.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\FrmFileManager.Designer.cs">
-      <DependentUpon>FrmFileManager.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\FrmKeyLogger.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\FrmKeyLogger.Designer.cs">
-      <DependentUpon>FrmKeyLogger.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\FrmMain.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\FrmMain.Designer.cs">
-      <DependentUpon>FrmMain.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\FrmListener.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\FrmListener.Designer.cs">
-      <DependentUpon>FrmListener.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\FrmPasswordRecovery.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\FrmPasswordRecovery.Designer.cs">
-      <DependentUpon>FrmPasswordRecovery.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\FrmRemoteDesktop.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\FrmRemoteDesktop.Designer.cs">
-      <DependentUpon>FrmRemoteDesktop.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\FrmRemoteShell.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\FrmRemoteShell.Designer.cs">
-      <DependentUpon>FrmRemoteShell.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\FrmRemoteWebcam.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\FrmRemoteWebcam.Designer.cs">
-      <DependentUpon>FrmRemoteWebcam.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\FrmStartupManager.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\FrmStartupManager.Designer.cs">
-      <DependentUpon>FrmStartupManager.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\FrmStartupManagerToAdd.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\FrmStartupManagerToAdd.Designer.cs">
-      <DependentUpon>FrmStartupManagerToAdd.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\FrmSystemInformation.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\FrmSystemInformation.Designer.cs">
-      <DependentUpon>FrmSystemInformation.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\FrmTaskManager.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\FrmTaskManager.Designer.cs">
-      <DependentUpon>FrmTaskManager.cs</DependentUpon>
-    </Compile>
-    <EmbeddedResource Include="Serveur.resx">
-      <DependentUpon>Serveur.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <EmbeddedResource Include="Views\FrmBuilder.resx">
       <DependentUpon>FrmBuilder.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\FrmFileManager.resx">
       <DependentUpon>FrmFileManager.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\FrmKeyLogger.resx">
-      <DependentUpon>FrmKeyLogger.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\FrmListener.resx">
       <DependentUpon>FrmListener.cs</DependentUpon>
@@ -252,17 +302,12 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <Compile Include="Properties\Settings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Settings.settings</DependentUpon>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Resources\Client.exe" />
+    <None Include="Resources\Client.exe" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

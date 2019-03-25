@@ -24,7 +24,7 @@ namespace Serveur.Controllers
                 save_file.Filter = "Application |*.exe";
                 if (save_file.ShowDialog() == DialogResult.OK)
                 {
-                    File.WriteAllBytes(Application.StartupPath + "\\client.exe", Properties.Resources.Client);
+                    File.WriteAllBytes(Application.StartupPath + "\\client.exe", MosaicServeur.Properties.Resources.Client);
                     File.Copy(Application.StartupPath + "\\client.exe", save_file.FileName);
                     FileStream stream = new FileStream(save_file.FileName, FileMode.Append);
                     BinaryWriter writer = new BinaryWriter(stream);

@@ -1,0 +1,36 @@
+﻿<UserControl x:Class="MosaicServeur.Main.ClientsListView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MosaicServeur.Main"
+             mc:Ignorable="d" 
+             Height="auto" Width="auto">
+    <Grid Background="White">
+        <ListView Name="lvClients">
+            <!--context  Menu-->
+            <ListView.ContextMenu>
+                <ContextMenu Style="{x:Null}" Name="ZoneIformationList" StaysOpen="false" Background="WhiteSmoke">
+                    <ContextMenu.BitmapEffect>
+                        <BitmapEffectGroup/>
+                    </ContextMenu.BitmapEffect>
+                    <MenuItem  Style="{x:Null}" Header="Edit" Name="EditNutritionContextMenu"  />
+                    <MenuItem  Style="{x:Null}" Header="Remove" Name="RemoveNutritionContextMenu">
+                        <MenuItem Click="testFrm" Style="{x:Null}" Header="Add"/>
+                    </MenuItem>
+                </ContextMenu>
+            </ListView.ContextMenu>
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Ip Address" DisplayMemberBinding="{Binding Ip}"/>
+                    <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}"/>
+                    <GridViewColumn Header="Account Type" DisplayMemberBinding="{Binding AccType}"/>
+                    <GridViewColumn Header="Country" DisplayMemberBinding="{Binding Country}"/>
+                    <GridViewColumn Header="Operating System" DisplayMemberBinding="{Binding Os}"/>
+                    <GridViewColumn Header="Status" DisplayMemberBinding="{Binding Status}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+    </Grid>
+</UserControl>

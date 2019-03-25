@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Serveur.Properties
+namespace MosaicServeur.Properties
 {
 
 

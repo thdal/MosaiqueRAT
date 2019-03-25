@@ -43,9 +43,9 @@ namespace Serveur.Controllers
         {
             try
             {
-                FrmRemoteDesktop frmRdp = new FrmRemoteDesktop(client);
-                frmRdp.Text = "Remote Desktop" + ' ' + client.endPoint.Address + " : " + client.endPoint.Port;
-                frmRdp.ShowDialog();
+                //FrmRemoteDesktop frmRdp = new FrmRemoteDesktop(client);
+                //frmRdp.Text = "Remote Desktop" + ' ' + client.endPoint.Address + " : " + client.endPoint.Port;
+                //frmRdp.ShowDialog();
             }
             catch (Exception ex)
             {
