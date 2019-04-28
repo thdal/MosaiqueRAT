@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.329
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MosaicClient", "MosaicClient\MosaicClient.csproj", "{79B6BAA0-A953-43B0-A21F-FB71660E59BB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MosaiqueClient", "MosaiqueClient\MosaiqueClient.csproj", "{79B6BAA0-A953-43B0-A21F-FB71660E59BB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MosaicServeur", "MosaicServeur\MosaicServeur.csproj", "{03BCD2AA-AD40-4A8F-8248-4D798D5717AC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MosaiqueServer", "MosaiqueServer\MosaiqueServer.csproj", "{03BCD2AA-AD40-4A8F-8248-4D798D5717AC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
