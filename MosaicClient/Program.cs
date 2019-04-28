@@ -10,7 +10,7 @@ namespace Client
 {
     static class Program
     {
-
+        //
         public static ClientMosaic client;
         public static Boot bootController;
         private static ApplicationContext _msgLoop;
