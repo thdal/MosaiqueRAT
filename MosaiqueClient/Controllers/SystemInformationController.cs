@@ -7,7 +7,7 @@ namespace Client.Controllers
 {
     public static class SystemInformationController
     {
-        public static void getSysInfo(ClientMosaic client)
+        public static void getSysInfo(ClientMosaique client)
         {
             try
             {

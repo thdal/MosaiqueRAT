@@ -15,7 +15,7 @@ namespace Client.Controllers
         private const string DELIMITER = "$E$";
         private static readonly Semaphore _limitThreads = new Semaphore(2, 2); // maximum simultaneous file downloads
         private static Dictionary<int, string> _canceledDownloads = new Dictionary<int, string>();
-        public static void getDrives(GetDrives command, ClientMosaic client)
+        public static void getDrives(GetDrives command, ClientMosaique client)
         {
             DriveInfo[] drives;
             try
@@ -83,12 +83,12 @@ namespace Client.Controllers
             }
         }
 
-        public static void getDirectory(GetDirectory command, ClientMosaic client)
+        public static void getDirectory(GetDirectory command, ClientMosaique client)
         {
             bool isError = false;
             string message = null;
 
-            Action<string> onError = (msg) => 
+            Action<string> onError = (msg) =>
             {
                 isError = true;
                 message = msg;
@@ -106,26 +106,26 @@ namespace Client.Controllers
                 string[] folders = new string[iFolders.Length];
 
                 int i = 0;
-                foreach(FileInfo file in iFiles)
+                foreach (FileInfo file in iFiles)
                 {
                     files[i] = file.Name;
                     filessize[i] = file.Length;
                     i++;
                 }
-                if(files.Length == 0)
+                if (files.Length == 0)
                 {
-                    files = new string[] {DELIMITER};
+                    files = new string[] { DELIMITER };
                     filessize = new long[] { 0 };
                 }
 
                 i = 0;
 
-                foreach(DirectoryInfo folder in iFolders)
+                foreach (DirectoryInfo folder in iFolders)
                 {
                     folders[i] = folder.Name;
                     i++;
                 }
-                if(folders.Length == 0)
+                if (folders.Length == 0)
                 {
                     folders = new string[] { DELIMITER };
                 }
@@ -162,14 +162,14 @@ namespace Client.Controllers
             }
             finally
             {
-                if(isError && !string.IsNullOrEmpty(message))
+                if (isError && !string.IsNullOrEmpty(message))
                 {
                     new SetStatusFileManager(message, true).Execute(client);
                 }
             }
         }
 
-        public static void doDownloadFile(DoDownloadFile command, ClientMosaic client)
+        public static void doDownloadFile(DoDownloadFile command, ClientMosaique client)
         {
             new Thread(() =>
             {
@@ -205,7 +205,7 @@ namespace Client.Controllers
             }).Start();
         }
 
-        public static void doDownloadFileCancel(DoDownloadFileCancel packet, ClientMosaic client)
+        public static void doDownloadFileCancel(DoDownloadFileCancel packet, ClientMosaique client)
         {
             if (!_canceledDownloads.ContainsKey(packet.id))
             {

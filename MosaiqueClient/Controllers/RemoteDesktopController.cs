@@ -9,7 +9,7 @@ namespace Client.Controllers
     static class RemoteDesktopController
     {
 
-        public static void getMonitors(ClientMosaic client)
+        public static void getMonitors(ClientMosaique client)
         {
             if (Screen.AllScreens.Length > 0)
             {
@@ -17,7 +17,7 @@ namespace Client.Controllers
             }
         }
 
-        public static void getDesktop(Packets.ServerPackets.GetDesktop packet, ClientMosaic client)
+        public static void getDesktop(Packets.ServerPackets.GetDesktop packet, ClientMosaique client)
         {
             byte[] desktop;
             Rectangle bounds = Screen.AllScreens[packet.monitor].Bounds;

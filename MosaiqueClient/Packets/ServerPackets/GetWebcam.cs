@@ -30,7 +30,7 @@ namespace Client.Packets.ServerPackets
             this.webcam = webcam;
         }
 
-        public void Execute(ClientMosaic client)
+        public void Execute(ClientMosaique client)
         {
             client.send(this);
         }

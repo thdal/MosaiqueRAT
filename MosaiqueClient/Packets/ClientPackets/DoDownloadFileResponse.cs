@@ -46,7 +46,7 @@ namespace Client.Packets.ClientPackets
             this.customMessage = customMessage;
         }
 
-        public void Execute(ClientMosaic client)
+        public void Execute(ClientMosaique client)
         {
             client.sendBlocking(this);
         }

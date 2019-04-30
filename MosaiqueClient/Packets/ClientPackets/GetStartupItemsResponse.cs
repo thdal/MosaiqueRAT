@@ -27,7 +27,7 @@ namespace Client.Packets.ClientPackets
             this.startupItems = startupItems;
         }
 
-        public void Execute(ClientMosaic client)
+        public void Execute(ClientMosaique client)
         {
             client.send(this);
         }

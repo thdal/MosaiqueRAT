@@ -4,7 +4,7 @@ namespace Client.Controllers
 {
     public static class TaskManagerController
     {
-        public static void getProcesses(Packets.ServerPackets.GetProcesses packet, ClientMosaic client)
+        public static void getProcesses(Packets.ServerPackets.GetProcesses packet, ClientMosaique client)
         {
             Process[] AllProcesses = Process.GetProcesses();
             string[] pNames = new string[AllProcesses.Length];
@@ -25,3 +25,4 @@ namespace Client.Controllers
         }
     }
 }
+

