@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:MosaicServeur"
              mc:Ignorable="d" 
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-             Height="auto" Width="auto">
+             Height="auto" Width="auto" Loaded="Load">
 
     <Grid Background="White">
 
@@ -22,9 +22,9 @@
 
         <Grid Grid.Row="0">
             <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Margin="0 -2">
-                <Button Width="150" Content="Settings" HorizontalAlignment="Left" VerticalAlignment="Center" Height="40" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black" FontSize="14" FontWeight="Medium"/>
+                <Button Cursor="Hand" Style="{StaticResource tabControl}" Width="110" Content="Settings" HorizontalAlignment="Left" VerticalAlignment="Center" Height="40" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black" FontSize="14" FontWeight="Medium"/>
             </StackPanel>
-            <Grid x:Name="GridCursor" Width="150" Height="4" Background="#4a9ff5"  Margin="0 20 0 0" HorizontalAlignment="Left"/>
+            <Grid x:Name="GridCursor" Width="110" Height="4" Background="#4a9ff5"  Margin="0 20 0 0" HorizontalAlignment="Left"/>
         </Grid>
 
         <Border Margin="2 0 2 0" BorderBrush="LightGray" Grid.Row="1" BorderThickness="1">
@@ -38,22 +38,25 @@
                     <StackPanel HorizontalAlignment="Left" Grid.Column="0" Orientation="Horizontal">
                         <TextBlock VerticalAlignment="Center" FontSize="11"> Port to listen on :</TextBlock>
                         <StackPanel Margin="20,0" Orientation="Horizontal">
-                            <TextBox Style="{x:Null}" x:Name="txtNum" x:FieldModifier="private" Margin="5,5,0,5" Width="70" Text="0" TextChanged="txtNum_TextChanged" FontSize="11" />
-                            <Button Style="{x:Null}" x:Name="cmdDown" x:FieldModifier="private" Margin="0,5,0,5" FontSize="11"  Content="-" Width="15" Click="cmdDown_Click" />
-                            <Button Style="{x:Null}" x:Name="cmdUp" x:FieldModifier="private" Margin="0,5,0,5" FontSize="11" Content="+" Width="15" Click="cmdUp_Click" />
+                            <TextBox Style="{x:Null}" x:Name="txtPort" x:FieldModifier="private" Margin="5,5,0,5"
+                                     Width="70" Text="0" TextChanged="txtNum_TextChanged" FontSize="11" />
+                            <Button Style="{x:Null}" x:Name="cmdDown" x:FieldModifier="private" Margin="0,5,0,5"
+                                    FontSize="11"  Content="-" Width="15" Click="cmdDown_Click" />
+                            <Button Style="{x:Null}" x:Name="cmdUp" x:FieldModifier="private" Margin="0,5,0,5"
+                                    FontSize="11" Content="+" Width="15" Click="cmdUp_Click" />
                         </StackPanel>
-                        <Button Style="{StaticResource btnBlue}" Content="Start listening"/>
+                        <Button Style="{StaticResource btnBlue}" x:Name="btnListen" Content="Start listening" Click="btnListening" />
                     </StackPanel>
                 </Grid>
                 <Label FontWeight="Medium" FontSize="25" Content="Related Settings"></Label>
 
-                <CheckBox Margin="0 15 0 0" Style="{StaticResource MaterialDesignAccentCheckBox}" Background="#4a9ff5" Foreground="black" FontSize="11">
+                <CheckBox x:Name="chkIPv6"  Margin="0 15 0 0" FontSize="11">
                     Enable IPV6 Protocol.
                 </CheckBox>
-                <CheckBox Margin="0 15" Style="{StaticResource MaterialDesignAccentCheckBox}" Background="#4a9ff5" Foreground="black" FontSize="11">
+                <CheckBox x:Name="chkStartupConnections" Margin="0 15" Foreground="black" FontSize="11">
                     Listen for new connections on startup.
                 </CheckBox>
-                <CheckBox Style="{StaticResource MaterialDesignAccentCheckBox}" Background="#4a9ff5" Foreground="black" FontSize="11">
+                <CheckBox x:Name="chkPopupNotification" Foreground="black" FontSize="11">
                     Show popup notification on new connection.
                 </CheckBox>
             </StackPanel>
@@ -61,8 +64,8 @@
 
         <Grid Grid.Row="2">
             <StackPanel Margin="10 0" VerticalAlignment="Center" HorizontalAlignment="Right" Orientation="Horizontal">
-                <Button Style="{StaticResource btnBlue}" Margin="10,0" Content="Cancel"/>
-                <Button Style="{StaticResource btnBlue}" Margin="10,0" Content="Save"/>
+                <Button Style="{StaticResource btnBlue}" Margin="10,0" Content="Cancel" Click="btnCancel"/>
+                <Button Style="{StaticResource btnBlue}" Margin="10,0" Content="Save" Click="btnSave"/>
             </StackPanel>
         </Grid>
 

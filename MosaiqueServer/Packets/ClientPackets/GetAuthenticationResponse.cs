@@ -42,11 +42,15 @@ namespace Serveur.Packets.ClientPackets
         [Index(8)]
         public virtual string name { get; set; }
 
+        [Index(9)]
+        public virtual string clientID { get; set; }
+
         public GetAuthenticationResponse()
         {
         }
 
-        public GetAuthenticationResponse(string version, string operatingsystem, string accounttype, string country, string countrycode, string city, int imageindex, string id, string name)
+        public GetAuthenticationResponse(string version, string operatingsystem, string accounttype, string country, string countrycode,
+            string city, int imageindex, string id, string name, string clientID)
         {
             this.version = version;
             this.operatingSystem = operatingsystem;
@@ -57,9 +61,10 @@ namespace Serveur.Packets.ClientPackets
             this.imageIndex = imageindex;
             this.id = id;
             this.name = name;
+            this.clientID = clientID;
         }
 
-        public void Execute(ClientMosaic client)
+        public void Execute(ClientMosaique client)
         {
             client.send(this);
         }

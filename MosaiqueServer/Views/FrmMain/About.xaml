@@ -1,0 +1,32 @@
+﻿<UserControl x:Class="MosaicServeur.Views.FrmMain.About"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MosaicServeur.Views.FrmMain"
+             mc:Ignorable="d" 
+             Height="Auto" Width="Auto">
+    <Grid Background="White">
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="70"/>
+        </Grid.RowDefinitions>
+        <StackPanel>
+            <Label FontFamily="{StaticResource OpSans}" 
+                   FontSize="15" Foreground="Black">MosaiqueRAT</Label>
+            <StackPanel Margin="10 0" Orientation="Vertical">
+                <TextBlock Style="{x:Null}">Remote Administration Tool v1.0.0.0</TextBlock>
+                <TextBlock Style="{x:Null}">Copyright © 2019 thdal</TextBlock>
+            </StackPanel>
+            <StackPanel Margin="0 10 0 0" Orientation="Vertical">
+                <Label FontFamily="{StaticResource OpSans}" Foreground="Black" FontWeight="Bold">Github</Label>
+                <TextBlock Margin="10 5" Style="{x:Null}">https://www.github.com/thdal/MosaiqueRAT</TextBlock>
+            </StackPanel>
+            <StackPanel Margin="0 10 0 0" Orientation="Vertical">
+                <Label FontFamily="{StaticResource OpSans}" Foreground="Black" FontWeight="Bold">Licence</Label>
+                <TextBlock Margin="10 5" HorizontalAlignment="Left" Style="{x:Null}" x:Name="lblAbout" Width="600" TextWrapping="WrapWithOverflow"/>
+            </StackPanel>
+        </StackPanel>   
+    </Grid>
+</UserControl>

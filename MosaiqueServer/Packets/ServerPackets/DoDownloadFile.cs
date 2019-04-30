@@ -30,7 +30,7 @@ namespace Serveur.Packets.ServerPackets
             this.id = id;
         }
 
-        public void Execute(ClientMosaic client)
+        public void Execute(ClientMosaique client)
         {
             client.send(this);
         }

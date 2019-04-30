@@ -9,7 +9,7 @@ using ZeroFormatter;
 
 namespace Serveur.Controllers.Server
 {
-    public class ClientMosaic
+    public class ClientMosaique
     {
         //SOCKET
         public Socket _clientSocket;
@@ -47,11 +47,11 @@ namespace Serveur.Controllers.Server
         public bool connected { get; private set; }
         public ClientState value { get; set; }
         //CALLBACK
-        public delegate void DgvUpdater(ClientMosaic client, bool addOrRem);        // ADD OR REMOVE CLIENT INTO DATAGRIDVIEW
+        public delegate void DgvUpdater(ClientMosaique client, bool addOrRem);        // ADD OR REMOVE CLIENT INTO DATAGRIDVIEW
         public static event DgvUpdater DvgUpdater;                   // ADD OR REMOVE CLIENT INTO DATAGRIDVIEW
 
         //CONSTRUCTEUR
-        public ClientMosaic(Socket socket)
+        public ClientMosaique(Socket socket)
         {
             _clientSocket = socket;
 

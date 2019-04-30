@@ -39,7 +39,7 @@ namespace Serveur.Controllers
                     }
 
                     _serverSocket.Listen(1000);
-                    Views.FrmMain.instance.setListeningStatus("Port : " + port + ' ' + "Listening.");
+                    MosaicServeur.MainWindow.instance.setListeningStatus("Mosaique is listening on port " + port + ".");
                     LISTENING = true;
                     _serverSocket.BeginAccept(new AsyncCallback(acceptClient), null);
                 }
@@ -58,7 +58,7 @@ namespace Serveur.Controllers
                 _serverSocket.Close();
                 _serverSocket = null;
                 LISTENING = false;
-                Views.FrmMain.instance.setListeningStatus("Not listening.");
+                MosaicServeur.MainWindow.instance.setListeningStatus("Mosaique no longer listening on any port.");
             }
         }
 
@@ -75,11 +75,11 @@ namespace Serveur.Controllers
                 return;
             }
 
-            authentication(new ClientMosaic(socket));
+            authentication(new ClientMosaique(socket));
             _serverSocket.BeginAccept(acceptClient, null);
         }
 
-        private void authentication(ClientMosaic client)
+        private void authentication(ClientMosaique client)
         {
             new Packets.ServerPackets.GetAuthentication().Execute(client); // begin handshake                   
         }

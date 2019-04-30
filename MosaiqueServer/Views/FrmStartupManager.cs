@@ -9,9 +9,9 @@ namespace Serveur.Views
 {
     public partial class FrmStartupManager : Form
     {
-        private readonly ClientMosaic _client;
+        private readonly ClientMosaique _client;
 
-        public FrmStartupManager(ClientMosaic client)
+        public FrmStartupManager(ClientMosaique client)
         {
             this._client = client;
             _client.value.frmStm = this;

@@ -65,6 +65,17 @@ namespace Serveur.Models
                 writeValue("IPv6Support", value.ToString());
             }
         }
+        public static bool ShowTermsAndConditions
+        {
+            get
+            {
+                return bool.Parse(readValueSafe("ShowTermsAndConditions", "true"));
+            }
+            set
+            {
+                writeValue("ShowTermsAndConditions", value.ToString());
+            }
+        }
         private static string readValue(string pstrValueToRead)
         {
             try

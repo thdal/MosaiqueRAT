@@ -10,11 +10,11 @@ namespace Serveur.Views
 {
     public partial class FrmRemoteWebcam : Form
     {
-        public ClientMosaic client;
+        public ClientMosaique client;
         private Dictionary<string, List<string>> _webcams;
         public bool IsStarted { get; private set; }
 
-        public FrmRemoteWebcam(ClientMosaic client)
+        public FrmRemoteWebcam(ClientMosaique client)
         {
             this.client = client;
             client.value.frmWbc = this;

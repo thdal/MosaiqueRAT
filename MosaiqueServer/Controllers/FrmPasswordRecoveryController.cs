@@ -13,7 +13,7 @@ namespace Serveur.Controllers
     {
         private const string DELIMITER = "$E$";
 
-        public static void HandleGetPasswordsResponse(ClientMosaic client, GetPasswordsResponse packet)
+        public static void HandleGetPasswordsResponse(ClientMosaique client, GetPasswordsResponse packet)
         {
             if (client.value == null || client.value.frmPr == null)
                 return;

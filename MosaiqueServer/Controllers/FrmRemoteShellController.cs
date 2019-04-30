@@ -9,14 +9,14 @@ namespace Serveur.Controllers
 {
     public class FrmRemoteShellController
     {
-        private static ClientMosaic _client;
+        private static ClientMosaique _client;
 
-        public FrmRemoteShellController(ClientMosaic client)
+        public FrmRemoteShellController(ClientMosaique client)
         {
            _client = client;
         }
 
-        public static void getShellCmdExecuteResponse(ClientMosaic client, GetExecuteShellCmdResponse packet)
+        public static void getShellCmdExecuteResponse(ClientMosaique client, GetExecuteShellCmdResponse packet)
         {
             if (client.value == null || client.value.frmRms == null)
                 return;

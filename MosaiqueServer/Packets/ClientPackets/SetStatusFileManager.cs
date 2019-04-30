@@ -29,7 +29,7 @@ namespace Serveur.Packets.ClientPackets
             this.setLastDirSeen = setLastDirSeen;
         }
 
-        public void Execute(ClientMosaic client)
+        public void Execute(ClientMosaique client)
         {
             client.send(this);
         }

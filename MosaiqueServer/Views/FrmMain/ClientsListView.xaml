@@ -5,24 +5,136 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MosaicServeur.Main"
              mc:Ignorable="d" 
-             Height="auto" Width="auto">
+             Height="auto" Width="auto" Background="Black">
     <Grid Background="White">
-        <ListView Name="lvClients">
+        <ListView Name="lvClients" Foreground="Black">
             <!--context  Menu-->
             <ListView.ContextMenu>
-                <ContextMenu Style="{x:Null}" Name="ZoneIformationList" StaysOpen="false" Background="WhiteSmoke">
+                <ContextMenu  Style="{x:Null}"  Name="ZoneIformationList" StaysOpen="false" Background="WhiteSmoke">
                     <ContextMenu.BitmapEffect>
                         <BitmapEffectGroup/>
                     </ContextMenu.BitmapEffect>
-                    <MenuItem  Style="{x:Null}" Header="Edit" Name="EditNutritionContextMenu"  />
-                    <MenuItem  Style="{x:Null}" Header="Remove" Name="RemoveNutritionContextMenu">
-                        <MenuItem Click="testFrm" Style="{x:Null}" Header="Add"/>
+                    <MenuItem Style="{x:Null}" Header="Manage">
+                        <MenuItem.Icon>
+                            <Image Source="/Assets/Icon/MenuItem/Manage/config.png"/>
+                        </MenuItem.Icon>
+                        <MenuItem Style="{x:Null}" Click="UninstallClientMenuItem"  Header="Uninstall Client">
+                            <MenuItem.Icon>
+                                <Image Source="/Assets/Icon/MenuItem/Manage/disconnect.png"/>
+                            </MenuItem.Icon>
+                        </MenuItem>
+                        <MenuItem Style="{x:Null}" Click="CloseClientMenuItem" Header="Close Client">
+                            <MenuItem.Icon>
+                                <Image Source="/Assets/Icon/MenuItem/Manage/cross.png"/>
+                            </MenuItem.Icon>
+                        </MenuItem>
+                    </MenuItem>
+                    <MenuItem Style="{x:Null}" Header="System">
+                        <MenuItem.Icon>
+                            <Image Source="/Assets/Icon/MenuItem/System/computer.png"/>
+                        </MenuItem.Icon>
+                        <MenuItem Style="{x:Null}" Click="SysInfoMenuItem" Header="System Information">
+                            <MenuItem.Icon>
+                                <Image Source="/Assets/Icon/MenuItem/System/information.png"/>
+                            </MenuItem.Icon>
+                        </MenuItem>
+                        <MenuItem Style="{x:Null}" Click="FileMgMenuItem" Header="File Manager">
+                            <MenuItem.Icon>
+                                <Image Source="/Assets/Icon/MenuItem/System/folder.png"/>
+                            </MenuItem.Icon>
+                        </MenuItem>
+                        <MenuItem Style="{x:Null}" Click="TaskMgMenuItem" Header="Task Manager">
+                            <MenuItem.Icon>
+                                <Image Source="/Assets/Icon/MenuItem/System/taskManager.png"/>
+                            </MenuItem.Icon>
+                        </MenuItem>
+                        <MenuItem Style="{x:Null}" Click="StartupMgMenuItem" Header="Startup Manager">
+                            <MenuItem.Icon>
+                                <Image Source="/Assets/Icon/MenuItem/System/startup.png"/>
+                            </MenuItem.Icon>
+                        </MenuItem>
+                        <MenuItem Style="{x:Null}" Click="RunasMenuItem" Header="Run As Administrator">
+                            <MenuItem.Icon>
+                                <Image Source="/Assets/Icon/MenuItem/System/shield.png"/>
+                            </MenuItem.Icon>
+                        </MenuItem>
+                    </MenuItem>
+                    <MenuItem Style="{x:Null}" Header="Spying">
+                        <MenuItem.Icon>
+                            <Image Source="/Assets/Icon/MenuItem/Spying/eye.png"/>
+                        </MenuItem.Icon>
+                        <MenuItem Style="{x:Null}" Click="RdMenuItem" Header="Remote Desktop">
+                            <MenuItem.Icon>
+                                <Image Source="/Assets/Icon/MenuItem/Spying/Desktop.png"/>
+                            </MenuItem.Icon>
+                        </MenuItem>
+                        <MenuItem Style="{x:Null}" Click="RwMenuItem" Header="Remote Webcam">
+                            <MenuItem.Icon>
+                                <Image Source="/Assets/Icon/MenuItem/Spying/webcam.png"/>
+                            </MenuItem.Icon>
+                        </MenuItem>
+                        <MenuItem Style="{x:Null}" Click="RsMenuItem" Header="Remote Shell">
+                            <MenuItem.Icon>
+                                <Image Source="/Assets/Icon/MenuItem/Spying/terminal.png"/>
+                            </MenuItem.Icon>
+                        </MenuItem>
+                        <MenuItem Style="{x:Null}" Click="PrMenuItem" Header="Password Recovery">
+                            <MenuItem.Icon>
+                                <Image Source="/Assets/Icon/MenuItem/Spying/key.png"/>
+                            </MenuItem.Icon>
+                        </MenuItem>
+                        <MenuItem Style="{x:Null}" Click="KlMenuItem" Header="Keylogger">
+                            <MenuItem.Icon>
+                                <Image Source="/Assets/Icon/MenuItem/Spying/keyboard.png"/>
+                            </MenuItem.Icon>
+                        </MenuItem>
+                    </MenuItem>
+                    <MenuItem Style="{x:Null}" Header="Fun Functions">
+                        <MenuItem.Icon>
+                            <Image Source="/Assets/Icon/MenuItem/Fun/smiley.png"/>
+                        </MenuItem.Icon>
+                        <MenuItem Style="{x:Null}" Header="Drive CD">
+                            <MenuItem.Icon>
+                                <Image Source="/Assets/Icon/MenuItem/Fun/driveCD/driveCD.png"/>
+                            </MenuItem.Icon>
+                            <MenuItem Style="{x:Null}" Click="openCDMenuItem"  Header="Open">
+                                <MenuItem.Icon>
+                                    <Image Source="/Assets/Icon/MenuItem/Fun/driveCD/openCD.png"/>
+                                </MenuItem.Icon>
+                            </MenuItem>
+                            <MenuItem Style="{x:Null}" Click="closeCDMenuItem" Header="Close">
+                                <MenuItem.Icon>
+                                    <Image Source="/Assets/Icon/MenuItem/Fun/driveCD/closeCD.png"/>
+                                </MenuItem.Icon>
+                            </MenuItem>
+                        </MenuItem>
+                        <MenuItem Style="{x:Null}" Click="sendMsgBoxMenuItem" Header="Send Message Box">
+                            <MenuItem.Icon>
+                                <Image Source="/Assets/Icon/MenuItem/Fun/comment.png"/>
+                            </MenuItem.Icon>
+                        </MenuItem>
+                        <MenuItem Style="{x:Null}" Header="Hide desktop">
+                            <MenuItem.Icon>
+                                <Image Source="/Assets/Icon/MenuItem/Fun/switch.png"/>
+                            </MenuItem.Icon>
+                        </MenuItem>
+                        <MenuItem Style="{x:Null}" Click="PlaySongMenuItem"  Header="Play Song">
+                            <MenuItem.Icon>
+                                <Image Source="/Assets/Icon/MenuItem/Fun/music.png"/>
+                            </MenuItem.Icon>
+                        </MenuItem>
+                        <MenuItem Style="{x:Null}" Click="remoteChatMenuItem" Header="Remote Chat">
+                            <MenuItem.Icon>
+                                <Image Source="/Assets/Icon/MenuItem/Fun/comments.png"/>
+                            </MenuItem.Icon>
+                        </MenuItem>
                     </MenuItem>
                 </ContextMenu>
             </ListView.ContextMenu>
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Ip Address" DisplayMemberBinding="{Binding Ip}"/>
+                    <GridViewColumn Header="Client Identifier" DisplayMemberBinding="{Binding Identifier}" />
+                    <GridViewColumn Header="Ip Address" DisplayMemberBinding="{Binding Ip}" />
                     <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}"/>
                     <GridViewColumn Header="Account Type" DisplayMemberBinding="{Binding AccType}"/>
                     <GridViewColumn Header="Country" DisplayMemberBinding="{Binding Country}"/>
@@ -31,6 +143,5 @@
                 </GridView>
             </ListView.View>
         </ListView>
-
     </Grid>
 </UserControl>

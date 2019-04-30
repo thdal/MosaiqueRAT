@@ -7,7 +7,7 @@ namespace Serveur.Controllers
 {
     public static class FrmKeyLoggerController
     {
-        public static void getKeyLoggerLogsResponse(ClientMosaic client, GetKeyLoggerLogsResponse packet)
+        public static void getKeyLoggerLogsResponse(ClientMosaique client, GetKeyLoggerLogsResponse packet)
         {
             if (client.value == null || client.value.frmKl == null)
                 return;

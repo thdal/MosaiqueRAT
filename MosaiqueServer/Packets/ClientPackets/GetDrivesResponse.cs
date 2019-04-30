@@ -30,7 +30,7 @@ namespace Serveur.Packets.ClientPackets
             this.rootDirectory = rootDirectory;
         }
 
-        public void Execute(ClientMosaic client)
+        public void Execute(ClientMosaique client)
         {
             client.send(this);
         }

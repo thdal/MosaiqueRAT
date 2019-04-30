@@ -8,10 +8,10 @@ namespace Serveur.Views
 {
     public partial class FrmKeyLogger : Form
     {
-        private readonly ClientMosaic _client;
+        private readonly ClientMosaique _client;
         private readonly string _path;
 
-        public FrmKeyLogger(ClientMosaic client)
+        public FrmKeyLogger(ClientMosaique client)
         {
             _client = client;
             client.value.frmKl = this;

@@ -5,79 +5,103 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MosaicServeur"
         mc:Ignorable="d"
-        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        Height="600" Width="1000" WindowStartupLocation="CenterScreen"
-        Title="Mosaic - Remote Administrator Tools">
+        Height="650"
+        Width="1000"
+        MinHeight="650"
+        MinWidth="950"
+        WindowStartupLocation="CenterScreen" Loaded="Load"
+        Title="Mosaique - [ Online Clients : 0 ]" >
+
     <Grid Background="#FFEEEEEE">
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="140"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <Grid Grid.Column="1">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="40"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="25"/>
-            </Grid.RowDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
 
-            <Grid Background="LightGray" Grid.Row="0">
-                <!-- <ToggleButton Style="{StaticResource MaterialDesignSwitchAccentToggleButton}" Margin="0 0 30 0"  VerticalAlignment="Center" HorizontalAlignment="Right" Width="40"
-                Height="20" Background="Gray" /> -->
-                
-                <Button Width="40" VerticalAlignment="Center" HorizontalAlignment="Right" Height="40" Foreground="red" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0">
-                    <materialDesign:PackIcon Height="20" Width="20" Kind="Power"/>
-                </Button>
-
-                <Button Width="40" Margin="0 0 30 0" VerticalAlignment="Center" HorizontalAlignment="Right" Height="40" Foreground="#48fb47" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0">
-                    <materialDesign:PackIcon Height="20" Width="20" Kind="PipeDisconnected"/>
-                </Button>
-            </Grid>
-
-            <Grid x:Name="GridSettings" Grid.Row="1"/>
-
-            <Grid Grid.Row="2" Background="LightGray"/>
-            
+        <Grid Background="#464646" Grid.Column="0" Grid.Row="0">
+            <StackPanel Margin="15 0 0 0" HorizontalAlignment="Left" VerticalAlignment="Center">
+                <Label FontSize="30"
+                       FontFamily="{StaticResource MosaicCaps}"
+                       Foreground="White" >Mosaique</Label>
+                <Label
+                    FontFamily="{StaticResource OpSans}"
+                    FontStyle="Italic"
+                    Margin="0 -10 0 0" FontSize="12" Foreground="White" >Remote Administration Tools</Label>
+            </StackPanel>
+            <!-- <Button Width="40" Margin="0 0 10 0" VerticalAlignment="Center" HorizontalAlignment="Right" Height="40" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0">
+               <TextBlock Text="&#xf0fc;"
+                FontFamily="{StaticResource FontAwesome}" FontSize="40"></TextBlock> 
+            </Button>-->
         </Grid>
 
-        <StackPanel Grid.Column="0" Background="#FF222222">
-            <ListView x:Name="ListViewMenu" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled" Margin="0 20" Foreground="LightGray" VerticalAlignment="top" SelectionChanged="ListViewMenu_SelectionChanged">
-                <ListViewItem Height="70" Width="140">
-                    <Grid Height="70" Width="140">
-                        <StackPanel Margin="0 0 0 15" HorizontalAlignment="Center" VerticalAlignment="Center">
-                            <materialDesign:PackIcon Margin="0" Kind="Home" Width="20" Height="20"/>
-                            <TextBlock Margin="-10 0 0 0" Text="Home" FontSize="15" Height="20"></TextBlock>
-                        </StackPanel>
-                    </Grid>
-                </ListViewItem>
-                <ListViewItem Height="70" Width="140">
-                    <Grid Height="70" Width="140">
-                        <StackPanel Margin="0 0 0 15" HorizontalAlignment="Center" VerticalAlignment="Center">
-                            <materialDesign:PackIcon Margin="5,0" Kind="Settings" Width="20" Height="20"/>
-                            <TextBlock Margin="-10 0 0 0" Text="Settings" FontSize="15" Height="20"></TextBlock>
-                        </StackPanel>
-                    </Grid>
-                </ListViewItem>
-                <ListViewItem Height="70" Width="140">
-                    <Grid Height="70" Width="140">
-                        <StackPanel Margin="0 0 0 15" HorizontalAlignment="Center" VerticalAlignment="Center">
-                            <materialDesign:PackIcon Margin="0" Kind="Build" Width="20" Height="20"/>
-                            <TextBlock Margin="-10 0 0 0" Text="Builder" FontSize="15" Height="20"></TextBlock>
-                        </StackPanel>
-                    </Grid>
-                </ListViewItem>
-                <ListViewItem Height="70" Width="140">
-                    <Grid Height="70" Width="140">
-                        <StackPanel Margin="0 0 0 15" HorizontalAlignment="Center" VerticalAlignment="Center">
-                            <materialDesign:PackIcon Margin="0" Kind="About" Width="20" Height="20"/>
-                            <TextBlock Margin="-10 0 0 0" Text="About" FontSize="15" Height="20"></TextBlock>
-                        </StackPanel>
-                    </Grid>
-                </ListViewItem>
-            </ListView>
-        </StackPanel>
+        <Grid Grid.Column="0" Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="120"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
 
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="35"/>
+            </Grid.RowDefinitions>
 
+            <Grid x:Name="GridSettings" Grid.Column="1" Grid.Row="0"/>
+
+            <Grid Grid.Column="1" Grid.Row="1">
+                <DockPanel>
+                    <StatusBar Background="#A3A3A3" x:Name="statusBarListening" DockPanel.Dock="Bottom">
+                        <StatusBarItem Margin="5 0 0 0" HorizontalAlignment="Left" VerticalAlignment="Center">
+                            <TextBlock Foreground="White" Text="" Name="lblListening" FontSize="13" />
+                        </StatusBarItem>
+                    </StatusBar>
+                </DockPanel>
+            </Grid>
+
+            <StackPanel Grid.Column="0" Grid.Row="0" Background="#FF222222">
+                <ListView Style="{x:Null}" Background="#FF222222" BorderThickness="0"  x:Name="ListViewMenu" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled"
+                      Margin="0 0" Foreground="LightGray" VerticalAlignment="top"
+                      SelectionChanged="ListViewMenu_SelectionChanged">
+                    <ListViewItem Style="{x:Null}"  Background="#FF222222" Cursor="Hand" Foreground="White" x:Name="ItemHome" Height="70" Width="120">
+                        <Grid  Height="70" Width="120">
+                            <StackPanel Margin="0 0 0 0" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <TextBlock Text="&#xf015;" FontFamily="{StaticResource FontAwesome}" FontSize="20"></TextBlock>
+                                <TextBlock Margin="-10 0 0 0" Text="Home" FontSize="15" Height="20"></TextBlock>
+                            </StackPanel>
+                        </Grid>
+                    </ListViewItem>
+                    <ListViewItem Style="{x:Null}" Background="#FF222222" Cursor="Hand" Foreground="White" x:Name="ItemSettings" Height="70" Width="120">
+                        <Grid Height="70" Width="120">
+                            <StackPanel Margin="0 0 0 15" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <TextBlock Margin="5,0" Text="&#xf013;" FontFamily="{StaticResource FontAwesome}" FontSize="20"></TextBlock>
+                                <!-- <materialDesign:PackIcon Margin="5,0" Kind="Settings" Width="20" Height="20"/>-->
+                                <TextBlock Margin="-10 0 0 0" Text="Settings" FontSize="15" Height="20"></TextBlock>
+                            </StackPanel>
+                        </Grid>
+                    </ListViewItem>
+                    <ListViewItem Style="{x:Null}" Background="#FF222222" Cursor="Hand" Foreground="White" x:Name="ItemBuilder" Height="70" Width="120">
+                        <Grid Height="70" Width="120">
+                            <StackPanel Margin="0 0 0 15" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <TextBlock Text="&#xf6e3;" FontFamily="{StaticResource FontAwesome}" FontSize="20"></TextBlock>
+                                <TextBlock Margin="-10 0 0 0" Text="Builder" FontSize="15" Height="20"></TextBlock>
+                            </StackPanel>
+                        </Grid>
+                    </ListViewItem>
+                    <ListViewItem Style="{x:Null}" Background="#FF222222" Cursor="Hand" Foreground="White" x:Name="ItemAbout" Height="70" Width="120">
+                        <Grid Height="70" Width="120" >
+                            <StackPanel Margin="0 0 0 15" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <TextBlock Text="&#xf002;" FontFamily="{StaticResource FontAwesome}" FontSize="20"></TextBlock>
+                                <TextBlock Margin="-10 0 0 0" Text="About" FontSize="15" Height="20"></TextBlock>
+                            </StackPanel>
+                        </Grid>
+                    </ListViewItem>
+                </ListView>
+            </StackPanel>
+            <StackPanel Grid.Column="0" Grid.Row="1" Background="#FF222222"/>
+        </Grid>
     </Grid>
 </Window>

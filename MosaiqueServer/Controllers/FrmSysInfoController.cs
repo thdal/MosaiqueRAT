@@ -6,7 +6,7 @@ namespace Serveur.Controllers
 {
     public static class FrmSysInfoController
     {
-        public static void getSysInfoResponse(ClientMosaic client, GetSysInfoResponse packet)
+        public static void getSysInfoResponse(ClientMosaique client, GetSysInfoResponse packet)
         {
             ListViewItem[] lviCollection = new ListViewItem[packet.infoCollection.Length / 2];
             for (int i = 0, j = 0; i < packet.infoCollection.Length; i += 2, j++)

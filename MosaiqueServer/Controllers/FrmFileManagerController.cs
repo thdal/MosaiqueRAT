@@ -33,7 +33,7 @@ namespace Serveur.Controllers
             Download
         }
 
-        public static void getDrivesResponse(ClientMosaic client, GetDrivesResponse packet)
+        public static void getDrivesResponse(ClientMosaique client, GetDrivesResponse packet)
         {
             if (client.value == null || client.value.frmFm == null || packet.driveDisplayName == null || packet.rootDirectory == null)
                 return;
@@ -53,7 +53,7 @@ namespace Serveur.Controllers
             }
         }
 
-        public static void getDirectoryResponse(ClientMosaic client, GetDirectoryResponse packet)
+        public static void getDirectoryResponse(ClientMosaique client, GetDirectoryResponse packet)
         {
             if(client.value == null || client.value.frmFm == null)
             {
@@ -108,7 +108,7 @@ namespace Serveur.Controllers
             }).Start();
         }
 
-        public static void doDownloadFileResponse(ClientMosaic client, DoDownloadFileResponse packet)
+        public static void doDownloadFileResponse(ClientMosaique client, DoDownloadFileResponse packet)
         {
             if (canceledDownloads.ContainsKey(packet.id) || string.IsNullOrEmpty(packet.fileName))
                 return;            
@@ -186,14 +186,14 @@ namespace Serveur.Controllers
             }
         }
 
-        public static void setStatusFileManager(ClientMosaic client, SetStatusFileManager packet)
+        public static void setStatusFileManager(ClientMosaique client, SetStatusFileManager packet)
         {
             if (client.value == null || client.value.frmFm == null) return;
 
             client.value.frmFm.setStatus(packet.message, packet.setLastDirSeen);
         }
 
-        public static void refreshDirectory(ClientMosaic client)
+        public static void refreshDirectory(ClientMosaique client)
         {
             if (client == null || client.value == null) return;
 
@@ -242,7 +242,7 @@ namespace Serveur.Controllers
             return Path.GetFullPath(Path.Combine(_currentDir, item));
         }
 
-        public static void navigateUp(ClientMosaic client)
+        public static void navigateUp(ClientMosaique client)
         {
             if (!string.IsNullOrEmpty(_currentDir) && _currentDir[0] == '/') // support forward slashes
             {

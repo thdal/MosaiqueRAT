@@ -11,7 +11,7 @@ namespace Serveur.Controllers
         //Propriétés
         public static string[] webcams;
 
-        public static void getAvailableWebcamsResponse(ClientMosaic client, GetAvailableWebcamsResponse packet)
+        public static void getAvailableWebcamsResponse(ClientMosaique client, GetAvailableWebcamsResponse packet)
         {
             if (client.value == null || client.value.frmWbc
                 == null)
@@ -20,7 +20,7 @@ namespace Serveur.Controllers
             client.value.frmWbc.AddWebcams(packet.webcams);
         }
 
-        public static void getWebcamResponse(ClientMosaic client, GetWebcamResponse packet)
+        public static void getWebcamResponse(ClientMosaique client, GetWebcamResponse packet)
         {
             if (client.value == null
                 || client.value.frmWbc == null

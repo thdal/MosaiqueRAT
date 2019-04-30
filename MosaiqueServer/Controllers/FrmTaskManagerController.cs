@@ -6,7 +6,7 @@ namespace Serveur.Controllers
 {
     public static class FrmTaskManagerController
     {
-        public static void getProcessesResponse(ClientMosaic client, GetProcessesResponse packet)
+        public static void getProcessesResponse(ClientMosaique client, GetProcessesResponse packet)
         {
             if (client.value == null || client.value.frmTm == null)
                 return;

@@ -7,7 +7,7 @@ namespace Serveur.Controllers
 {
     public static class FrmStartupManagerController
     {
-        public static void getStartupItemsResponse(ClientMosaic client, GetStartupItemsResponse packet)
+        public static void getStartupItemsResponse(ClientMosaique client, GetStartupItemsResponse packet)
         {
             if (client.value == null || client.value.frmStm == null || packet.startupItems == null)
                 return;

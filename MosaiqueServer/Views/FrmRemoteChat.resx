@@ -117,29 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="pictureBox2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
-        aAAAAGgBo+Z6PAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAFPSURBVDhPY/j/
-        /z9WzLD6tQPz2pfb/912PPj/rqMzNjUgjCmw+qUbw9pXhxnWvPoPxD+ABvyHYIdj/+84eGCohzPWvPZl
-        WPvyJFQjDCMZAMW3HE79v+3ki2IA0LnRaBpxGwDF/287RCMMWPsqAYtm/AbcckigngEzjreEO2zff4Bt
-        7bMHhAz4ftPt/r7zOQfS9y8JhxsAMg2m4NqV6IeLTjWcqj0y/VDM3rV7F5+u399weOrhmD1rT6ttuvgI
-        bjjQ1VgNQMM/kFyDilEMuOPkhEUzfgPWvXFCGHA1lA2o+AuaZnwGfGHYdpsdYQAQ/73jNIEEA6bA9MEN
-        +L/fgeXfHcfdBA1Y/XIvw8z/rJgGgPBVB56/tx1n4TRg7avZDKte8SDrQTUAhu84eQI1P0Uy4BkQe2FT
-        iyEAxw9tBH/edlkI1LiCYdVHIaxq/v9nAACRucSyI92mFgAAAABJRU5ErkJggg==
-</value>
-  </data>
-  <data name="pictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
-        aAAAAGgBo+Z6PAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAFPSURBVDhPY/j/
-        /z9WzLD6tQPz2pfb/912PPj/rqMzNjUgjCmw+qUbw9pXhxnWvPoPxD+ABvyHYIdj/+84eGCohzPWvPZl
-        WPvyJFQjDCMZAMW3HE79v+3ki2IA0LnRaBpxGwDF/287RCMMWPsqAYtm/AbcckigngEzjreEO2zff4Bt
-        7bMHhAz4ftPt/r7zOQfS9y8JhxsAMg2m4NqV6IeLTjWcqj0y/VDM3rV7F5+u399weOrhmD1rT6ttuvgI
-        bjjQ1VgNQMM/kFyDilEMuOPkhEUzfgPWvXFCGHA1lA2o+AuaZnwGfGHYdpsdYQAQ/73jNIEEA6bA9MEN
-        +L/fgeXfHcfdBA1Y/XIvw8z/rJgGgPBVB56/tx1n4TRg7avZDKte8SDrQTUAhu84eQI1P0Uy4BkQe2FT
-        iyEAxw9tBH/edlkI1LiCYdVHIaxq/v9nAACRucSyI92mFgAAAABJRU5ErkJggg==
-</value>
-  </data>
 </root>

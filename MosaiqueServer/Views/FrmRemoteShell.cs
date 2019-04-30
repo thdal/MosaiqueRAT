@@ -17,9 +17,9 @@ namespace Serveur.Views
     {
         //Instance de classe
         public FrmRemoteShellController frmRemoteShellController;
-        private readonly ClientMosaic _clientMosaic;
+        private readonly ClientMosaique _clientMosaic;
 
-        public FrmRemoteShell(ClientMosaic client)
+        public FrmRemoteShell(ClientMosaique client)
         {
             _clientMosaic = client;
             _clientMosaic.value.frmRms = this;

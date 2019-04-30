@@ -8,7 +8,7 @@ namespace Serveur.Controllers
 {
     class FrmRemoteDesktopController
     {
-        public static void getMonitorsResponse(ClientMosaic client, GetMonitorsResponse packet)
+        public static void getMonitorsResponse(ClientMosaique client, GetMonitorsResponse packet)
         {
             int number = packet.number;
 
@@ -22,12 +22,12 @@ namespace Serveur.Controllers
             client.value.frmRdp.addScreens(number);
         }
 
-        public static void getDesktop(ClientMosaic client, int monitor)
+        public static void getDesktop(ClientMosaique client, int monitor)
         {
             new GetDesktop(85, monitor).Execute(client);
         }
 
-        public static void getDesktopResponse(ClientMosaic client, GetDesktopResponse packet)
+        public static void getDesktopResponse(ClientMosaique client, GetDesktopResponse packet)
         {
             if (client.value == null || client.value.frmRdp == null)
                 return;

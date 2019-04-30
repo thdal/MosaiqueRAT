@@ -6,9 +6,9 @@ namespace Serveur.Views
 {
     public partial class FrmSystemInformation : Form
     {
-        private readonly ClientMosaic _client;
+        private readonly ClientMosaique _client;
 
-        public FrmSystemInformation(ClientMosaic client)
+        public FrmSystemInformation(ClientMosaique client)
         {
             _client = client;
             _client.value.frmSi = this;
