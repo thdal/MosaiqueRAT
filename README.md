@@ -41,7 +41,7 @@ Mosaique is writing in C# under the MVC architecture, ZeroFormatter serializer i
 ## Launch Mosaique
 
 1. Open the solution in Your IDE.
-2. Run the "MosaiqueServeur"(Server) release.
+2. Run the "MosaiqueServer" release.
 3. Build the stub.
 
 ## Licence
