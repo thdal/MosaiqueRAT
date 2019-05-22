@@ -20,7 +20,7 @@ namespace Client
         [STAThread]
         static void Main()
         {
-            Boot.Initialization();
+         //   Boot.Initialization();
 
             //public static string getMutexKey()
             //{

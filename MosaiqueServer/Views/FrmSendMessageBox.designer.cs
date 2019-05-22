@@ -30,24 +30,24 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmSendMessageBox));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.pbDanger = new System.Windows.Forms.PictureBox();
-            this.btnSend = new System.Windows.Forms.Button();
-            this.pbCross = new System.Windows.Forms.PictureBox();
-            this.pbIntero = new System.Windows.Forms.PictureBox();
-            this.pbInfo = new System.Windows.Forms.PictureBox();
-            this.txtTitle = new System.Windows.Forms.TextBox();
-            this.txtMsg = new System.Windows.Forms.TextBox();
             this.pbNone = new System.Windows.Forms.PictureBox();
+            this.pbCross = new System.Windows.Forms.PictureBox();
+            this.pbInfo = new System.Windows.Forms.PictureBox();
+            this.pbIntero = new System.Windows.Forms.PictureBox();
+            this.pbDanger = new System.Windows.Forms.PictureBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txtTitle = new System.Windows.Forms.TextBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.txtMsg = new System.Windows.Forms.TextBox();
+            this.btnSend = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbNone)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCross)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbInfo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbIntero)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbDanger)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbDanger)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbCross)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbIntero)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbInfo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbNone)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -67,6 +67,66 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Icon";
             // 
+            // pbNone
+            // 
+            this.pbNone.Image = ((System.Drawing.Image)(resources.GetObject("pbNone.Image")));
+            this.pbNone.Location = new System.Drawing.Point(82, 19);
+            this.pbNone.Name = "pbNone";
+            this.pbNone.Size = new System.Drawing.Size(64, 64);
+            this.pbNone.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pbNone.TabIndex = 4;
+            this.pbNone.TabStop = false;
+            this.pbNone.Click += new System.EventHandler(this.pbNone_Click);
+            this.pbNone.Paint += new System.Windows.Forms.PaintEventHandler(this.pbNone_Paint);
+            // 
+            // pbCross
+            // 
+            this.pbCross.Image = ((System.Drawing.Image)(resources.GetObject("pbCross.Image")));
+            this.pbCross.Location = new System.Drawing.Point(292, 19);
+            this.pbCross.Name = "pbCross";
+            this.pbCross.Size = new System.Drawing.Size(64, 64);
+            this.pbCross.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pbCross.TabIndex = 1;
+            this.pbCross.TabStop = false;
+            this.pbCross.Click += new System.EventHandler(this.pbCross_Click);
+            this.pbCross.Paint += new System.Windows.Forms.PaintEventHandler(this.pbCross_Paint);
+            // 
+            // pbInfo
+            // 
+            this.pbInfo.Image = ((System.Drawing.Image)(resources.GetObject("pbInfo.Image")));
+            this.pbInfo.Location = new System.Drawing.Point(222, 19);
+            this.pbInfo.Name = "pbInfo";
+            this.pbInfo.Size = new System.Drawing.Size(64, 64);
+            this.pbInfo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pbInfo.TabIndex = 3;
+            this.pbInfo.TabStop = false;
+            this.pbInfo.Click += new System.EventHandler(this.pbInfo_Click);
+            this.pbInfo.Paint += new System.Windows.Forms.PaintEventHandler(this.pbInfo_Paint);
+            // 
+            // pbIntero
+            // 
+            this.pbIntero.Image = ((System.Drawing.Image)(resources.GetObject("pbIntero.Image")));
+            this.pbIntero.Location = new System.Drawing.Point(152, 19);
+            this.pbIntero.Name = "pbIntero";
+            this.pbIntero.Size = new System.Drawing.Size(64, 64);
+            this.pbIntero.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pbIntero.TabIndex = 2;
+            this.pbIntero.TabStop = false;
+            this.pbIntero.Click += new System.EventHandler(this.pbIntero_Click);
+            this.pbIntero.Paint += new System.Windows.Forms.PaintEventHandler(this.pbIntero_Paint);
+            // 
+            // pbDanger
+            // 
+            this.pbDanger.Image = ((System.Drawing.Image)(resources.GetObject("pbDanger.Image")));
+            this.pbDanger.Location = new System.Drawing.Point(12, 19);
+            this.pbDanger.Name = "pbDanger";
+            this.pbDanger.Size = new System.Drawing.Size(64, 64);
+            this.pbDanger.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pbDanger.TabIndex = 0;
+            this.pbDanger.TabStop = false;
+            this.pbDanger.Click += new System.EventHandler(this.pbDanger_Click);
+            this.pbDanger.Paint += new System.Windows.Forms.PaintEventHandler(this.pbDanger_Paint);
+            // 
             // groupBox2
             // 
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -79,6 +139,13 @@
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Title";
+            // 
+            // txtTitle
+            // 
+            this.txtTitle.Location = new System.Drawing.Point(6, 19);
+            this.txtTitle.Name = "txtTitle";
+            this.txtTitle.Size = new System.Drawing.Size(353, 20);
+            this.txtTitle.TabIndex = 0;
             // 
             // groupBox3
             // 
@@ -93,17 +160,13 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Message";
             // 
-            // pbDanger
+            // txtMsg
             // 
-            this.pbDanger.Image = ((System.Drawing.Image)(resources.GetObject("pbDanger.Image")));
-            this.pbDanger.Location = new System.Drawing.Point(12, 19);
-            this.pbDanger.Name = "pbDanger";
-            this.pbDanger.Size = new System.Drawing.Size(64, 64);
-            this.pbDanger.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pbDanger.TabIndex = 0;
-            this.pbDanger.TabStop = false;
-            this.pbDanger.Click += new System.EventHandler(this.pbDanger_Click);
-            this.pbDanger.Paint += new System.Windows.Forms.PaintEventHandler(this.pbDanger_Paint);
+            this.txtMsg.Location = new System.Drawing.Point(6, 19);
+            this.txtMsg.Multiline = true;
+            this.txtMsg.Name = "txtMsg";
+            this.txtMsg.Size = new System.Drawing.Size(353, 111);
+            this.txtMsg.TabIndex = 0;
             // 
             // btnSend
             // 
@@ -115,69 +178,6 @@
             this.btnSend.UseVisualStyleBackColor = true;
             this.btnSend.Click += new System.EventHandler(this.btnSend_Click);
             // 
-            // pbCross
-            // 
-            this.pbCross.Image = ((System.Drawing.Image)(resources.GetObject("pbCross.Image")));
-            this.pbCross.Location = new System.Drawing.Point(292, 19);
-            this.pbCross.Name = "pbCross";
-            this.pbCross.Size = new System.Drawing.Size(64, 64);
-            this.pbCross.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pbCross.TabIndex = 1;
-            this.pbCross.TabStop = false;
-            this.pbCross.Click += new System.EventHandler(this.pbCross_Click);
-            this.pbCross.Paint += new System.Windows.Forms.PaintEventHandler(this.pbCross_Paint);
-            // 
-            // pbIntero
-            // 
-            this.pbIntero.Image = ((System.Drawing.Image)(resources.GetObject("pbIntero.Image")));
-            this.pbIntero.Location = new System.Drawing.Point(152, 19);
-            this.pbIntero.Name = "pbIntero";
-            this.pbIntero.Size = new System.Drawing.Size(64, 64);
-            this.pbIntero.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pbIntero.TabIndex = 2;
-            this.pbIntero.TabStop = false;
-            this.pbIntero.Click += new System.EventHandler(this.pbIntero_Click);
-            this.pbIntero.Paint += new System.Windows.Forms.PaintEventHandler(this.pbIntero_Paint);
-            // 
-            // pbInfo
-            // 
-            this.pbInfo.Image = ((System.Drawing.Image)(resources.GetObject("pbInfo.Image")));
-            this.pbInfo.Location = new System.Drawing.Point(222, 19);
-            this.pbInfo.Name = "pbInfo";
-            this.pbInfo.Size = new System.Drawing.Size(64, 64);
-            this.pbInfo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pbInfo.TabIndex = 3;
-            this.pbInfo.TabStop = false;
-            this.pbInfo.Click += new System.EventHandler(this.pbInfo_Click);
-            this.pbInfo.Paint += new System.Windows.Forms.PaintEventHandler(this.pbInfo_Paint);
-            // 
-            // txtTitle
-            // 
-            this.txtTitle.Location = new System.Drawing.Point(6, 19);
-            this.txtTitle.Name = "txtTitle";
-            this.txtTitle.Size = new System.Drawing.Size(353, 20);
-            this.txtTitle.TabIndex = 0;
-            // 
-            // txtMsg
-            // 
-            this.txtMsg.Location = new System.Drawing.Point(6, 19);
-            this.txtMsg.Multiline = true;
-            this.txtMsg.Name = "txtMsg";
-            this.txtMsg.Size = new System.Drawing.Size(353, 111);
-            this.txtMsg.TabIndex = 0;
-            // 
-            // pbNone
-            // 
-            this.pbNone.Image = ((System.Drawing.Image)(resources.GetObject("pbNone.Image")));
-            this.pbNone.Location = new System.Drawing.Point(82, 19);
-            this.pbNone.Name = "pbNone";
-            this.pbNone.Size = new System.Drawing.Size(64, 64);
-            this.pbNone.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pbNone.TabIndex = 4;
-            this.pbNone.TabStop = false;
-            this.pbNone.Click += new System.EventHandler(this.pbNone_Click);
-            this.pbNone.Paint += new System.Windows.Forms.PaintEventHandler(this.pbNone_Paint);
-            // 
             // FrmSendMessageBox
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -188,20 +188,21 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmSendMessageBox";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Send Message Box";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbNone)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCross)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbInfo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbIntero)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbDanger)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbDanger)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbCross)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbIntero)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbInfo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbNone)).EndInit();
             this.ResumeLayout(false);
 
         }

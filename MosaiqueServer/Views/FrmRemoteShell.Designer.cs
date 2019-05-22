@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmRemoteShell));
             this.txtConsoleOutput = new System.Windows.Forms.RichTextBox();
             this.txtConsoleInput = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
@@ -65,7 +66,9 @@
             this.Controls.Add(this.txtConsoleOutput);
             this.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmRemoteShell";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Remote Shell";
             this.Load += new System.EventHandler(this.FrmRemoteShell_Load);
             this.ResumeLayout(false);

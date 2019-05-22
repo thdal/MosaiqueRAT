@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmKeyLogger));
             this.lvLogs = new System.Windows.Forms.ListView();
             this.colLogs = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnGetLogs = new System.Windows.Forms.Button();
@@ -77,7 +78,7 @@
             this.wbLogViewver.Size = new System.Drawing.Size(649, 397);
             this.wbLogViewver.TabIndex = 2;
             // 
-            // FrmKeylogger
+            // FrmKeyLogger
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -86,7 +87,9 @@
             this.Controls.Add(this.btnGetLogs);
             this.Controls.Add(this.lvLogs);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
-            this.Name = "FrmKeylogger";
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Name = "FrmKeyLogger";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "KeyLogger";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmKeylogger_FormClosing);
             this.Load += new System.EventHandler(this.FrmKeylogger_Load);

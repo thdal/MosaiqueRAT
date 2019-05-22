@@ -92,42 +92,74 @@
                     <MenuItem Style="{x:Null}" Header="Fun Functions">
                         <MenuItem.Icon>
                             <Image Source="/Assets/Icon/MenuItem/Fun/smiley.png"/>
-                        </MenuItem.Icon>
-                        <MenuItem Style="{x:Null}" Header="Drive CD">
+                        </MenuItem.Icon>                                             
+                        <MenuItem Style="{x:Null}" Click="PlaySongMenuItem"  Header="Play Song">
                             <MenuItem.Icon>
-                                <Image Source="/Assets/Icon/MenuItem/Fun/driveCD/driveCD.png"/>
+                                <Image Source="/Assets/Icon/MenuItem/Fun/music-note.png"/>
                             </MenuItem.Icon>
-                            <MenuItem Style="{x:Null}" Click="openCDMenuItem"  Header="Open">
-                                <MenuItem.Icon>
-                                    <Image Source="/Assets/Icon/MenuItem/Fun/driveCD/openCD.png"/>
-                                </MenuItem.Icon>
-                            </MenuItem>
-                            <MenuItem Style="{x:Null}" Click="closeCDMenuItem" Header="Close">
-                                <MenuItem.Icon>
-                                    <Image Source="/Assets/Icon/MenuItem/Fun/driveCD/closeCD.png"/>
-                                </MenuItem.Icon>
-                            </MenuItem>
                         </MenuItem>
                         <MenuItem Style="{x:Null}" Click="sendMsgBoxMenuItem" Header="Send Message Box">
                             <MenuItem.Icon>
-                                <Image Source="/Assets/Icon/MenuItem/Fun/comment.png"/>
-                            </MenuItem.Icon>
-                        </MenuItem>
-                        <MenuItem Style="{x:Null}" Header="Hide desktop">
-                            <MenuItem.Icon>
-                                <Image Source="/Assets/Icon/MenuItem/Fun/switch.png"/>
-                            </MenuItem.Icon>
-                        </MenuItem>
-                        <MenuItem Style="{x:Null}" Click="PlaySongMenuItem"  Header="Play Song">
-                            <MenuItem.Icon>
-                                <Image Source="/Assets/Icon/MenuItem/Fun/music.png"/>
+                                <Image Source="/Assets/Icon/MenuItem/Fun/send.png"/>
                             </MenuItem.Icon>
                         </MenuItem>
                         <MenuItem Style="{x:Null}" Click="remoteChatMenuItem" Header="Remote Chat">
                             <MenuItem.Icon>
-                                <Image Source="/Assets/Icon/MenuItem/Fun/comments.png"/>
+                                <Image Source="/Assets/Icon/MenuItem/Fun/chatting.png"/>
                             </MenuItem.Icon>
                         </MenuItem>
+                        <MenuItem Style="{x:Null}" Header="Hide &amp; Show">
+                            <MenuItem.Icon>
+                                <Image Source="/Assets/Icon/MenuItem/Fun/switch/switch.png"/>
+                            </MenuItem.Icon>
+                            <MenuItem Style="{x:Null}" Header="Taskbar">
+                                <MenuItem.Icon>
+                                    <Image Source="/Assets/Icon/MenuItem/Fun/switch/switch.png"/>
+                                </MenuItem.Icon>
+
+                                <MenuItem Style="{x:Null}" Click="HideTaskbarMenuItem" Header="Hide">
+                                    <MenuItem.Icon>
+                                        <Image Source="/Assets/Icon/MenuItem/Fun/switch/switch.png"/>
+                                    </MenuItem.Icon>
+                                </MenuItem>
+                                <MenuItem Style="{x:Null}" Click="ShowTaskbarMenuItem"  Header="Show">
+                                    <MenuItem.Icon>
+                                        <Image Source="/Assets/Icon/MenuItem/Fun/switch/switch.png"/>
+                                    </MenuItem.Icon>
+                                </MenuItem>
+                            </MenuItem>
+                            <MenuItem Style="{x:Null}" Header="Desktop Icons">
+                                <MenuItem.Icon>
+                                    <Image Source="/Assets/Icon/MenuItem/Fun/switch/switch.png"/>
+                                </MenuItem.Icon>
+
+                                <MenuItem Style="{x:Null}" Click="HideDekstopIconsMenuItem" Header="Hide">
+                                    <MenuItem.Icon>
+                                        <Image Source="/Assets/Icon/MenuItem/Fun/switch/switch.png"/>
+                                    </MenuItem.Icon>
+                                </MenuItem>
+                                <MenuItem Style="{x:Null}" Click="ShowDekstopIconsMenuItem"  Header="Show">
+                                    <MenuItem.Icon>
+                                        <Image Source="/Assets/Icon/MenuItem/Fun/switch/switch.png"/>
+                                    </MenuItem.Icon>
+                                </MenuItem>
+                            </MenuItem>
+                        </MenuItem>
+                            <MenuItem Style="{x:Null}" Header="Drive CD">
+                                <MenuItem.Icon>
+                                    <Image Source="/Assets/Icon/MenuItem/Fun/driveCD/driveCD.png"/>
+                                </MenuItem.Icon>
+                                <MenuItem Style="{x:Null}" Click="openCDMenuItem"  Header="Open">
+                                    <MenuItem.Icon>
+                                        <Image Source="/Assets/Icon/MenuItem/Fun/driveCD/openCD.png"/>
+                                    </MenuItem.Icon>
+                                </MenuItem>
+                                <MenuItem Style="{x:Null}" Click="closeCDMenuItem" Header="Close">
+                                    <MenuItem.Icon>
+                                        <Image Source="/Assets/Icon/MenuItem/Fun/driveCD/closeCD.png"/>
+                                    </MenuItem.Icon>
+                                </MenuItem>
+                            </MenuItem>
                     </MenuItem>
                 </ContextMenu>
             </ListView.ContextMenu>

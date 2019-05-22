@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmRemoteChat));
             this.txtWrite = new System.Windows.Forms.TextBox();
             this.btnSend = new System.Windows.Forms.Button();
             this.rtxtChat = new System.Windows.Forms.RichTextBox();
@@ -80,8 +81,9 @@
             this.Controls.Add(this.btnSend);
             this.Controls.Add(this.txtWrite);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmRemoteChat";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Remote Chat";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmRemoteChat_FormClosing);
             this.ResumeLayout(false);

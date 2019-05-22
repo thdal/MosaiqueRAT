@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmStartupManager));
             this.lvStartupM = new System.Windows.Forms.ListView();
             this.colName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colPath = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -72,7 +73,7 @@
             this.addToolStripMenuItem,
             this.removeToolStripMenuItem});
             this.cmsStm.Name = "cmsStm";
-            this.cmsStm.Size = new System.Drawing.Size(181, 70);
+            this.cmsStm.Size = new System.Drawing.Size(118, 48);
             // 
             // addToolStripMenuItem
             // 
@@ -84,7 +85,7 @@
             // removeToolStripMenuItem
             // 
             this.removeToolStripMenuItem.Name = "removeToolStripMenuItem";
-            this.removeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.removeToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
             this.removeToolStripMenuItem.Text = "Remove";
             this.removeToolStripMenuItem.Click += new System.EventHandler(this.removeToolStripMenuItem_Click);
             // 
@@ -95,7 +96,9 @@
             this.ClientSize = new System.Drawing.Size(588, 366);
             this.Controls.Add(this.lvStartupM);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmStartupManager";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Startup Manager";
             this.Load += new System.EventHandler(this.FrmStartupManager_Load);
             this.cmsStm.ResumeLayout(false);

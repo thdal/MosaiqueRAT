@@ -204,6 +204,52 @@ namespace MosaicServeur.Main
             }
         }
 
+        private void HideTaskbarMenuItem(object sender, RoutedEventArgs e)
+        {
+            if (lvClients.Items.Count != 0)
+            {
+                if (getClient() != null)
+                    new MosaiqueServeur.Packets.ServerPackets.HideShow(1).Execute(getClient());
+            }
+        }
+
+        private void ShowTaskbarMenuItem(object sender, RoutedEventArgs e)
+        {
+            if (lvClients.Items.Count != 0)
+            {
+                if (getClient() != null)
+                    new MosaiqueServeur.Packets.ServerPackets.HideShow(2).Execute(getClient());
+            }
+        }
+
+        private void HideDekstopIconsMenuItem(object sender, RoutedEventArgs e)
+        {
+            if (lvClients.Items.Count != 0)
+            {
+                if (getClient() != null)
+                    new MosaiqueServeur.Packets.ServerPackets.HideShow(3).Execute(getClient());
+            }
+        }
+
+        private void ShowDekstopIconsMenuItem(object sender, RoutedEventArgs e)
+        {
+            if (lvClients.Items.Count != 0)
+            {
+                if (getClient() != null)
+                    new MosaiqueServeur.Packets.ServerPackets.HideShow(4).Execute(getClient());
+            }
+        }
+
+        private void HideshowMenuItem(object sender, RoutedEventArgs e)
+        {
+            //if (getClient() != null)
+            //{
+                //FrmHideShowFunctions frmHShow = new FrmHideShowFunctions();
+                //frmHShow.ShowDialog();
+                //frmHShow.Focus();
+           //}
+        }
+
         /// :: GET CLIENT FROM DATAGRIDVIEW :: ///
         public ClientMosaique getClient()
         {
@@ -373,6 +419,6 @@ namespace MosaicServeur.Main
         public static int connectedClients()
         {
             return clientsCount;
-        }
+        }        
     }    
 }

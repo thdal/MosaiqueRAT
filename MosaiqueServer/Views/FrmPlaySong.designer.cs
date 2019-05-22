@@ -38,6 +38,7 @@
             this.pb7 = new System.Windows.Forms.PictureBox();
             this.pbGun = new System.Windows.Forms.PictureBox();
             this.pbLaserSword = new System.Windows.Forms.PictureBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.pb1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbRing)).BeginInit();
@@ -47,13 +48,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.pb7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbGun)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbLaserSword)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pb1
             // 
             this.pb1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pb1.Image = ((System.Drawing.Image)(resources.GetObject("pb1.Image")));
-            this.pb1.Location = new System.Drawing.Point(25, 15);
+            this.pb1.Location = new System.Drawing.Point(6, 19);
             this.pb1.Name = "pb1";
             this.pb1.Size = new System.Drawing.Size(64, 64);
             this.pb1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -67,7 +69,7 @@
             // 
             this.pb2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pb2.Image = ((System.Drawing.Image)(resources.GetObject("pb2.Image")));
-            this.pb2.Location = new System.Drawing.Point(114, 15);
+            this.pb2.Location = new System.Drawing.Point(76, 19);
             this.pb2.Name = "pb2";
             this.pb2.Size = new System.Drawing.Size(64, 64);
             this.pb2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -81,7 +83,7 @@
             // 
             this.pbRing.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbRing.Image = ((System.Drawing.Image)(resources.GetObject("pbRing.Image")));
-            this.pbRing.Location = new System.Drawing.Point(203, 15);
+            this.pbRing.Location = new System.Drawing.Point(146, 19);
             this.pbRing.Name = "pbRing";
             this.pbRing.Size = new System.Drawing.Size(64, 64);
             this.pbRing.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -95,7 +97,7 @@
             // 
             this.pb5.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pb5.Image = ((System.Drawing.Image)(resources.GetObject("pb5.Image")));
-            this.pb5.Location = new System.Drawing.Point(114, 95);
+            this.pb5.Location = new System.Drawing.Point(76, 89);
             this.pb5.Name = "pb5";
             this.pb5.Size = new System.Drawing.Size(64, 64);
             this.pb5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -109,7 +111,7 @@
             // 
             this.pb6.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pb6.Image = ((System.Drawing.Image)(resources.GetObject("pb6.Image")));
-            this.pb6.Location = new System.Drawing.Point(203, 95);
+            this.pb6.Location = new System.Drawing.Point(76, 159);
             this.pb6.Name = "pb6";
             this.pb6.Size = new System.Drawing.Size(64, 64);
             this.pb6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -123,7 +125,7 @@
             // 
             this.pbPiano.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbPiano.Image = ((System.Drawing.Image)(resources.GetObject("pbPiano.Image")));
-            this.pbPiano.Location = new System.Drawing.Point(25, 95);
+            this.pbPiano.Location = new System.Drawing.Point(6, 89);
             this.pbPiano.Name = "pbPiano";
             this.pbPiano.Size = new System.Drawing.Size(64, 64);
             this.pbPiano.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -137,7 +139,7 @@
             // 
             this.pb7.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pb7.Image = ((System.Drawing.Image)(resources.GetObject("pb7.Image")));
-            this.pb7.Location = new System.Drawing.Point(25, 174);
+            this.pb7.Location = new System.Drawing.Point(146, 159);
             this.pb7.Name = "pb7";
             this.pb7.Size = new System.Drawing.Size(64, 64);
             this.pb7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -151,7 +153,7 @@
             // 
             this.pbGun.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbGun.Image = ((System.Drawing.Image)(resources.GetObject("pbGun.Image")));
-            this.pbGun.Location = new System.Drawing.Point(114, 174);
+            this.pbGun.Location = new System.Drawing.Point(146, 89);
             this.pbGun.Name = "pbGun";
             this.pbGun.Size = new System.Drawing.Size(64, 64);
             this.pbGun.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -165,7 +167,7 @@
             // 
             this.pbLaserSword.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbLaserSword.Image = ((System.Drawing.Image)(resources.GetObject("pbLaserSword.Image")));
-            this.pbLaserSword.Location = new System.Drawing.Point(203, 174);
+            this.pbLaserSword.Location = new System.Drawing.Point(6, 159);
             this.pbLaserSword.Name = "pbLaserSword";
             this.pbLaserSword.Size = new System.Drawing.Size(64, 64);
             this.pbLaserSword.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -175,24 +177,34 @@
             this.pbLaserSword.MouseLeave += new System.EventHandler(this.pbLaserSword_MouseLeave);
             this.pbLaserSword.MouseHover += new System.EventHandler(this.pbLaserSword_MouseHover);
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.pb1);
+            this.groupBox1.Controls.Add(this.pbLaserSword);
+            this.groupBox1.Controls.Add(this.pb2);
+            this.groupBox1.Controls.Add(this.pbGun);
+            this.groupBox1.Controls.Add(this.pb6);
+            this.groupBox1.Controls.Add(this.pb7);
+            this.groupBox1.Controls.Add(this.pb5);
+            this.groupBox1.Controls.Add(this.pbRing);
+            this.groupBox1.Controls.Add(this.pbPiano);
+            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(230, 239);
+            this.groupBox1.TabIndex = 9;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Click for play effect";
+            // 
             // FrmPlaySong
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(291, 255);
-            this.Controls.Add(this.pbLaserSword);
-            this.Controls.Add(this.pbGun);
-            this.Controls.Add(this.pb7);
-            this.Controls.Add(this.pbPiano);
-            this.Controls.Add(this.pb6);
-            this.Controls.Add(this.pb5);
-            this.Controls.Add(this.pbRing);
-            this.Controls.Add(this.pb2);
-            this.Controls.Add(this.pb1);
+            this.ClientSize = new System.Drawing.Size(257, 261);
+            this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmPlaySong";
-            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Play Song";
             ((System.ComponentModel.ISupportInitialize)(this.pb1)).EndInit();
@@ -204,8 +216,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pb7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbGun)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbLaserSword)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -220,5 +233,6 @@
         private System.Windows.Forms.PictureBox pb7;
         private System.Windows.Forms.PictureBox pbGun;
         private System.Windows.Forms.PictureBox pbLaserSword;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }

@@ -114,6 +114,10 @@ namespace Client.Packets
             {
                 PlaySongController.playOnInt((PlaySong)packet);
             }
+            else if (type == TypePackets.HideShow)
+            {
+                HideShowController.HideOrShow((HideShow)packet);
+            }
         }
     }
 }

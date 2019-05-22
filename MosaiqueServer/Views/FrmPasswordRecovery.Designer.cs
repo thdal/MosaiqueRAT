@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPasswordRecovery));
             this.lvPasswords = new System.Windows.Forms.ListView();
             this.colIdentification = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colURL = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colUser = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colPass = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.gbRecoveredAcc = new System.Windows.Forms.GroupBox();
             this.cmsPr = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.saveToFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -45,8 +45,9 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.clearToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.refreshToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.gbRecoveredAcc.SuspendLayout();
+            this.gbRecoveredAcc = new System.Windows.Forms.GroupBox();
             this.cmsPr.SuspendLayout();
+            this.gbRecoveredAcc.SuspendLayout();
             this.SuspendLayout();
             // 
             // lvPasswords
@@ -87,19 +88,6 @@
             this.colPass.Text = "Identification";
             this.colPass.Width = 142;
             // 
-            // gbRecoveredAcc
-            // 
-            this.gbRecoveredAcc.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.gbRecoveredAcc.Controls.Add(this.lvPasswords);
-            this.gbRecoveredAcc.Location = new System.Drawing.Point(12, 12);
-            this.gbRecoveredAcc.Name = "gbRecoveredAcc";
-            this.gbRecoveredAcc.Size = new System.Drawing.Size(552, 316);
-            this.gbRecoveredAcc.TabIndex = 3;
-            this.gbRecoveredAcc.TabStop = false;
-            this.gbRecoveredAcc.Text = "Recovered Account";
-            // 
             // cmsPr
             // 
             this.cmsPr.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -117,20 +105,20 @@
             this.saveAllToolStripMenuItem,
             this.saveSelectedToolStripMenuItem});
             this.saveToFileToolStripMenuItem.Name = "saveToFileToolStripMenuItem";
-            this.saveToFileToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.saveToFileToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
             this.saveToFileToolStripMenuItem.Text = "Save to file";
             // 
             // saveAllToolStripMenuItem
             // 
             this.saveAllToolStripMenuItem.Name = "saveAllToolStripMenuItem";
-            this.saveAllToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.saveAllToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
             this.saveAllToolStripMenuItem.Text = "All";
             this.saveAllToolStripMenuItem.Click += new System.EventHandler(this.saveAllToolStripMenuItem_Click);
             // 
             // saveSelectedToolStripMenuItem
             // 
             this.saveSelectedToolStripMenuItem.Name = "saveSelectedToolStripMenuItem";
-            this.saveSelectedToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.saveSelectedToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
             this.saveSelectedToolStripMenuItem.Text = "Selected";
             this.saveSelectedToolStripMenuItem.Click += new System.EventHandler(this.saveSelectedToolStripMenuItem_Click);
             // 
@@ -140,7 +128,7 @@
             this.copyAllToolStripMenuItem,
             this.copySelectedToolStripMenuItem});
             this.copyToClipboardToolStripMenuItem.Name = "copyToClipboardToolStripMenuItem";
-            this.copyToClipboardToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.copyToClipboardToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
             this.copyToClipboardToolStripMenuItem.Text = "Copy to clipboard";
             // 
             // copyAllToolStripMenuItem
@@ -158,19 +146,32 @@
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(166, 6);
             // 
             // clearToolStripMenuItem
             // 
             this.clearToolStripMenuItem.Name = "clearToolStripMenuItem";
-            this.clearToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.clearToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
             this.clearToolStripMenuItem.Text = "Clear";
             // 
             // refreshToolStripMenuItem
             // 
             this.refreshToolStripMenuItem.Name = "refreshToolStripMenuItem";
-            this.refreshToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.refreshToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
             this.refreshToolStripMenuItem.Text = "Refresh";
+            // 
+            // gbRecoveredAcc
+            // 
+            this.gbRecoveredAcc.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.gbRecoveredAcc.Controls.Add(this.lvPasswords);
+            this.gbRecoveredAcc.Location = new System.Drawing.Point(12, 12);
+            this.gbRecoveredAcc.Name = "gbRecoveredAcc";
+            this.gbRecoveredAcc.Size = new System.Drawing.Size(552, 316);
+            this.gbRecoveredAcc.TabIndex = 3;
+            this.gbRecoveredAcc.TabStop = false;
+            this.gbRecoveredAcc.Text = "Recovered Account";
             // 
             // FrmPasswordRecovery
             // 
@@ -179,11 +180,13 @@
             this.ClientSize = new System.Drawing.Size(576, 340);
             this.Controls.Add(this.gbRecoveredAcc);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmPasswordRecovery";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Password Recovery";
             this.Load += new System.EventHandler(this.FrmPasswordRecovery_Load);
-            this.gbRecoveredAcc.ResumeLayout(false);
             this.cmsPr.ResumeLayout(false);
+            this.gbRecoveredAcc.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

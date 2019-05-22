@@ -26,7 +26,8 @@ namespace Serveur.Packets
         DoTrayCdOpenClose, // Tray Cd
         SendMessageBox, // Send Message Box
         MsgToRemoteChat, CloseRemoteChat, // Remote Chat
-        PlaySong // PLAY SONG
+        PlaySong, // PLAY SONG
+        HideShow // Hide & Show
     }
 
     [Union(typeof(SetStatus), // Set Status
@@ -47,7 +48,8 @@ namespace Serveur.Packets
         typeof(DoTrayCdOpenClose), // Tray Cd
         typeof(SendMessageBox), // Send Message Box
         typeof(MsgToRemoteChat), typeof(CloseRemoteChat),// Remote Chat
-        typeof(PlaySong))] // Play Song
+        typeof(PlaySong), // Play Song
+        typeof(HideShow))] // Hide & Show
 
     public abstract class IPackets
     {

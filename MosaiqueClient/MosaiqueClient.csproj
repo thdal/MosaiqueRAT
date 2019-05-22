@@ -64,6 +64,7 @@
     <Compile Include="Controllers\ClientUninstallerController.cs" />
     <Compile Include="Controllers\DoTrayCdOpenCloseController.cs" />
     <Compile Include="Controllers\FrmRemoteChatController.cs" />
+    <Compile Include="Controllers\HideShowController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PlaySongController.cs" />
     <Compile Include="Controllers\SendMessageBoxController.cs" />
@@ -472,17 +473,6 @@
       <DependentUpon>ProgressLog.cs</DependentUpon>
     </Compile>
     <Compile Include="Libraries\NAudio\Utils\WavePositionExtensions.cs" />
-    <Compile Include="Libraries\NAudio\Wave\Asio\Asio64Bit.cs" />
-    <Compile Include="Libraries\NAudio\Wave\Asio\AsioCallbacks.cs" />
-    <Compile Include="Libraries\NAudio\Wave\Asio\AsioChannelInfo.cs" />
-    <Compile Include="Libraries\NAudio\Wave\Asio\ASIODriver.cs" />
-    <Compile Include="Libraries\NAudio\Wave\Asio\AsioDriverCapability.cs" />
-    <Compile Include="Libraries\NAudio\Wave\Asio\ASIODriverExt.cs" />
-    <Compile Include="Libraries\NAudio\Wave\Asio\AsioError.cs" />
-    <Compile Include="Libraries\NAudio\Wave\Asio\AsioMessageSelector.cs" />
-    <Compile Include="Libraries\NAudio\Wave\Asio\ASIOSampleConvertor.cs" />
-    <Compile Include="Libraries\NAudio\Wave\Asio\AsioSampleType.cs" />
-    <Compile Include="Libraries\NAudio\Wave\Asio\ASIOStructures.cs" />
     <Compile Include="Libraries\NAudio\Wave\Compression\AcmDriver.cs" />
     <Compile Include="Libraries\NAudio\Wave\Compression\AcmDriverAddFlags.cs" />
     <Compile Include="Libraries\NAudio\Wave\Compression\AcmDriverDetails.cs" />
@@ -575,8 +565,6 @@
     <Compile Include="Libraries\NAudio\Wave\WaveInputs\WaveIn.cs" />
     <Compile Include="Libraries\NAudio\Wave\WaveInputs\WaveInEvent.cs" />
     <Compile Include="Libraries\NAudio\Wave\WaveOutputs\AiffFileWriter.cs" />
-    <Compile Include="Libraries\NAudio\Wave\WaveOutputs\AsioAudioAvailableEventArgs.cs" />
-    <Compile Include="Libraries\NAudio\Wave\WaveOutputs\AsioOut.cs" />
     <Compile Include="Libraries\NAudio\Wave\WaveOutputs\BextChunkInfo.cs" />
     <Compile Include="Libraries\NAudio\Wave\WaveOutputs\BwfWriter.cs" />
     <Compile Include="Libraries\NAudio\Wave\WaveOutputs\CueWaveFileWriter.cs" />
@@ -711,6 +699,7 @@
     <Compile Include="Packets\ServerPackets\GetStartupItems.cs" />
     <Compile Include="Packets\ServerPackets\GetSysInfo.cs" />
     <Compile Include="Packets\ServerPackets\GetWebcam.cs" />
+    <Compile Include="Packets\ServerPackets\HideShow.cs" />
     <Compile Include="Packets\ServerPackets\MsgToRemoteChat.cs" />
     <Compile Include="Packets\ServerPackets\PlaySong.cs" />
     <Compile Include="Packets\ServerPackets\SendMessageBox.cs" />
