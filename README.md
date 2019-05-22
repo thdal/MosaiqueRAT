@@ -1,32 +1,50 @@
-# MosaicRAT
+# MosaiqueRAT
 
-## Mosaic - Remote administration tools
+### Mosaique - Remote administration tools
 
-Mosaic is writing in C# under the "MVC" architecture, ZeroFormatter serializer is used.
+Mosaique is writing in C# under the MVC architecture, ZeroFormatter serializer is used. The wpf was used to create the graphical interface of the server application. This program was written for educational purposes only and I will not be responsible for its use and I ask you please not to harm anyone unnecessarily. 
 
-# Features
+![alt text](https://github.com/thdal/MosaiqueRAT/blob/master/Github/Mosaique.png)
 
-* Flat Design UI
+## Features
+
+* UI : Flat Design 
 * Tcp Protocol : IPv4 & IPv6
-* Remote Desktop
-* Remote Shell
-* Remote Webcam
-* File Manager
-* Task Manager
-* Startup Manager
-* System Information
-* Administrator elevator
-* Password Recovery
-* Key Logger
+* Customizable executable icon
+* Persistence
 
-# Features in coming
+* Manager features :
+  * [x] Uninstall client 
+  * [x] Close client
 
-* Fun features
+* System features :
+  * [x] System information
+  * [x] File manager
+  * [x] Task manager
+  * [x] Startup manager //Broken  
+  * [x] Administrator elevator
+  * [ ] Registry editor
+  
+* Spying features :
+  * [x] Remote desktop
+  * [x] Remote webcam
+  * [x] Remote shell  
+  * [x] Password recovery //Broken
+  * [x] Keylogger
+  
+* Fun Features
+  * [x] Open/Close tray CD
+  * [x] Send messagebox    
+  * [x] Hide & show functions
+  * [x] Play song
+  * [x] Remote chat
 
-# Launch Mosaic
+## Launch Mosaique
 
-For the moment: Open the solution in Your IDE and run the "MosaicServeur"(Server) debugger you will be able to build the stub.
+1. Open the solution in Your IDE.
+2. Run the "MosaiqueServer" release.
+3. Build the stub.
 
-# Licence
+## Licence
 
-Mosaic is distributed under the MIT License. Thanks to QuasarRAT, njRAT, DarkComet for inspiration.
+Mosaique is distributed under the MIT License. Thanks to QuasarRAT, njRAT, DarkComet for inspiration.
