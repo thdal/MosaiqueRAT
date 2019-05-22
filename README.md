@@ -11,6 +11,7 @@ Mosaique is writing in C# under the MVC architecture, ZeroFormatter serializer i
 * UI : Flat Design 
 * Tcp Protocol : IPv4 & IPv6
 * Customizable executable icon
+* Persistence
 
 * Manager features :
   * [x] Uninstall client 
