@@ -98,7 +98,7 @@
                                 <Image Source="/Assets/Icon/MenuItem/Fun/music-note.png"/>
                             </MenuItem.Icon>
                         </MenuItem>
-                        <MenuItem Style="{x:Null}" Click="sendMsgBoxMenuItem" Header="Send Message Box">
+                        <MenuItem Style="{x:Null}" Click="sendMsgBoxMenuItem" Header="Send Message">
                             <MenuItem.Icon>
                                 <Image Source="/Assets/Icon/MenuItem/Fun/send.png"/>
                             </MenuItem.Icon>

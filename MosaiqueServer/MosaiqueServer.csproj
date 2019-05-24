@@ -38,15 +38,11 @@
   <PropertyGroup>
     <ApplicationIcon>Assets\Icon\MainWindow\Mosaique.ico</ApplicationIcon>
   </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+  </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AForge.Video, Version=2.2.5.0, Culture=neutral, PublicKeyToken=cbfb6e07d173c401, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\Desktop\MosaicRAT\Librairies\AForge.NET Framework-2.2.5-(libs only)\Release\AForge.Video.dll</HintPath>
-    </Reference>
-    <Reference Include="AForge.Video.DirectShow, Version=2.2.5.0, Culture=neutral, PublicKeyToken=61ea4348d43881b7, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\Desktop\MosaicRAT\Librairies\AForge.NET Framework-2.2.5-(libs only)\Release\AForge.Video.DirectShow.dll</HintPath>
-    </Reference>
     <Reference Include="MaterialDesignColors, Version=1.0.0.14576, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MaterialDesignColors.1.1.1\lib\net45\MaterialDesignColors.dll</HintPath>
     </Reference>
@@ -80,7 +76,6 @@
     <Compile Include="Controllers\FrmRemoteChatController.cs" />
     <Compile Include="Controllers\IconInjectorController.cs" />
     <Compile Include="Controllers\Server\ClientMosaique.cs" />
-    <Compile Include="Controllers\test.cs" />
     <Compile Include="Models\ClientRegistration.cs" />
     <Compile Include="Packets\ServerPackets\CloseClient.cs" />
     <Compile Include="Packets\ServerPackets\CloseRemoteChat.cs" />
@@ -348,6 +343,7 @@
     <Resource Include="Assets\Fonts\OpenSans-Bold.ttf" />
     <Resource Include="Assets\Fonts\Roboto-Light.ttf" />
     <None Include="packages.config" />
+    <None Include="Properties\app.manifest" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

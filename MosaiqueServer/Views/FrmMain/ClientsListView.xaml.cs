@@ -26,7 +26,7 @@ namespace MosaicServeur.Main
         static int clientsCount;
 
         public ClientsListView()
-        {           
+        {
             InitializeComponent();
             ClientMosaique.DvgUpdater += dgvUpdater;
             clientsCount = 0;

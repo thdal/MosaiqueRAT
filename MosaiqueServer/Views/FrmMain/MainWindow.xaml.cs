@@ -34,7 +34,7 @@ namespace MosaicServeur
 
         private void Load(object sender, RoutedEventArgs e)
         {
-            // >> Listener >>
+            // Listener 
             _frmListenerController = new FrmListenerController();
             ListenerState.startListen = false;
             if (ListenerState.autoListen == true)
@@ -43,7 +43,7 @@ namespace MosaicServeur
                 _frmListenerController.listen(ListenerState.listenPort, ListenerState.IPv6Support);
                 //pipeIcon.Kind = MaterialDesignThemes.Wpf.PackIconKind.LightbulbOn;
             }
-            // >> UserControls >>
+            //  UserControls 
             _settings = new Settings(_frmListenerController);
             _builder = new Builder();
 

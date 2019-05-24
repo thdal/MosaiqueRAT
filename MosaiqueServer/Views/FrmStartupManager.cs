@@ -70,6 +70,7 @@ namespace Serveur.Views
                 {
                     lvStartupM.Items.Add(lvi);
                 });
+                lvStartupM.ShowGroups = true;
             }
             catch (InvalidOperationException)
             {

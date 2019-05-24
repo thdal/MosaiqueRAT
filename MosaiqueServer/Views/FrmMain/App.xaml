@@ -5,24 +5,16 @@
              xmlns:converters="http://materialdesigninxaml.net/winfx/xaml/themes"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
+        
         <ResourceDictionary>
-            <ResourceDictionary.MergedDictionaries>
-                
+            <ResourceDictionary.MergedDictionaries>                
                 
             </ResourceDictionary.MergedDictionaries>
             <FontFamily x:Key="FontAwesome">/Assets/Fonts/fa-solid-900.ttf#Font Awesome 5 Free Solid</FontFamily>
             <FontFamily x:Key="OpSans">/Assets/Fonts/OpenSans-Bold.ttf#Open Sans</FontFamily>
             <FontFamily x:Key="MosaicCaps">/Assets/Fonts/MosaicCaps.ttf#MosaicCaps</FontFamily>
             <FontFamily x:Key="Roboto">/Assets/Fonts/Roboto-Light.ttf#Roboto Light</FontFamily>
-
-
-
-
-
-
-
-
-
+            
             <Color x:Key="WindowColor">#FFE8EDF9</Color>
             <Color x:Key="ContentAreaColorLight">#FFC5CBF9</Color>
             <Color x:Key="ContentAreaColorDark">#FF7381F9</Color>
