@@ -21,7 +21,7 @@ Mosaique is writing in C# under the MVC architecture, ZeroFormatter serializer i
   * [x] System information
   * [x] File manager
   * [x] Task manager
-  * [x] Startup manager //Broken  
+  * [x] Startup manager  
   * [x] Administrator elevator
   * [ ] Registry editor
   
@@ -29,12 +29,12 @@ Mosaique is writing in C# under the MVC architecture, ZeroFormatter serializer i
   * [x] Remote desktop
   * [x] Remote webcam
   * [x] Remote shell  
-  * [x] Password recovery //Broken
+  * [x] Password recovery
   * [x] Keylogger
   
 * Fun Features
   * [x] Open/Close tray CD
-  * [x] Send messagebox    
+  * [x] Send message
   * [x] Hide & show functions
   * [x] Play song
   * [x] Remote chat
