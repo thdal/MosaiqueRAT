@@ -1,4 +1,5 @@
-﻿using Serveur.Views;
+﻿using MosaiqueServeur.Views;
+using Serveur.Views;
 
 namespace Serveur.Controllers.Server
 {
@@ -28,6 +29,8 @@ namespace Serveur.Controllers.Server
         public FrmKeyLogger frmKl { get; set; }
         public FrmPasswordRecovery frmPr { get; set; }
         public FrmRemoteChat frmRChat { get; set; }
+        public FrmRegistryEditor frmRe { get; set; }
+
 
         public bool receivedLastDirectory { get; set; }
 

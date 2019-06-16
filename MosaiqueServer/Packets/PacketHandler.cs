@@ -1,6 +1,9 @@
-﻿using Serveur.Controllers;
+﻿using MosaiqueServeur.Controllers;
+using MosaiqueServeur.Packets.ClientPackets;
+using Serveur.Controllers;
 using Serveur.Controllers.Server;
 using Serveur.Packets.ClientPackets;
+using System.Windows.Forms;
 
 namespace Serveur.Packets
 {
@@ -74,6 +77,38 @@ namespace Serveur.Packets
             else if (type == TypePackets.MsgToRemoteChat)
             {
                 FrmRemoteChatController.msgFromRemoteChat(client, (MosaiqueServeur.Packets.ServerPackets.MsgToRemoteChat)packet);
+            }
+            else if (type == TypePackets.GetRegistryKeysResponse)
+            {
+                FrmRegistryEditorController.loadRegistryKey((GetRegistryKeysResponse)packet, client);
+            }
+            else if (type == TypePackets.GetCreateRegistryKeyResponse)
+            {
+                FrmRegistryEditorController.createRegistryKey((GetCreateRegistryKeyResponse)packet, client);
+            }
+            else if (type == TypePackets.GetRenameRegistryKeyResponse)
+            {
+                FrmRegistryEditorController.renameRegistryKey((GetRenameRegistryKeyResponse)packet, client);
+            }
+            else if (type == TypePackets.GetDeleteRegistryKeyResponse)
+            {
+                FrmRegistryEditorController.deleteRegistryKey((GetDeleteRegistryKeyResponse)packet, client);
+            }
+            else if (type == TypePackets.GetCreateRegistryValueResponse)
+            {
+                FrmRegistryEditorController.createRegistryValue((GetCreateRegistryValueResponse)packet, client);
+            }
+            else if (type == TypePackets.GetRenameRegistryValueResponse)
+            {
+                FrmRegistryEditorController.renameRegistryValue((GetRenameRegistryValueResponse)packet, client);
+            }
+            else if (type == TypePackets.GetChangeRegistryValueResponse)
+            {
+                FrmRegistryEditorController.changeRegistryValue((GetChangeRegistryValueResponse)packet, client);
+            }
+            else if (type == TypePackets.GetDeleteRegistryValueResponse)
+            {
+                FrmRegistryEditorController.deleteRegistryValueResponse((GetDeleteRegistryValueResponse)packet, client);
             }
         }
     }

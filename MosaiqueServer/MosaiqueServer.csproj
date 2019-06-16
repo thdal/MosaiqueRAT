@@ -52,6 +52,8 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
@@ -73,12 +75,47 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Controls\HexEditor\ByteCollection.cs" />
+    <Compile Include="Assets\Controls\HexEditor\Caret.cs" />
+    <Compile Include="Assets\Controls\HexEditor\EditView.cs" />
+    <Compile Include="Assets\Controls\HexEditor\HexEditor.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Assets\Controls\HexEditor\HexViewHandler.cs" />
+    <Compile Include="Assets\Controls\HexEditor\IKeyMouseEventHandler.cs" />
+    <Compile Include="Assets\Controls\HexEditor\StringViewHandler.cs" />
+    <Compile Include="Assets\Controls\WordTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Assets\Controls\WordTextBox.Designer.cs">
+      <DependentUpon>WordTextBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\ByteConverterController.cs" />
+    <Compile Include="Controllers\FrmRegistryEditorController.cs" />
     <Compile Include="Controllers\FrmRemoteChatController.cs" />
     <Compile Include="Controllers\IconInjectorController.cs" />
     <Compile Include="Controllers\Server\ClientMosaique.cs" />
     <Compile Include="Models\ClientRegistration.cs" />
+    <Compile Include="Models\RegSeekerMatch.cs" />
+    <Compile Include="Models\RegValueData.Cs" />
+    <Compile Include="Packets\ClientPackets\GetChangeRegistryValueResponse.cs" />
+    <Compile Include="Packets\ClientPackets\GetCreateRegistryKeyResponse.cs" />
+    <Compile Include="Packets\ClientPackets\GetCreateRegistryValueResponse.cs" />
+    <Compile Include="Packets\ClientPackets\GetDeleteRegistryKeyResponse.cs" />
+    <Compile Include="Packets\ClientPackets\GetDeleteRegistryValueResponse.cs" />
+    <Compile Include="Packets\ClientPackets\GetRegistryKeysResponse.cs" />
+    <Compile Include="Packets\ClientPackets\GetRenameRegistryKeyResponse.cs" />
+    <Compile Include="Packets\ClientPackets\GetRenameRegistryValueResponse.cs" />
     <Compile Include="Packets\ServerPackets\CloseClient.cs" />
     <Compile Include="Packets\ServerPackets\CloseRemoteChat.cs" />
+    <Compile Include="Packets\ServerPackets\DoChangeRegistryValue.cs" />
+    <Compile Include="Packets\ServerPackets\DoCreateRegistryKey.cs" />
+    <Compile Include="Packets\ServerPackets\DoCreateRegistryValue.cs" />
+    <Compile Include="Packets\ServerPackets\DoDeleteRegistryKey.cs" />
+    <Compile Include="Packets\ServerPackets\DoDeleteRegistryValue.cs" />
+    <Compile Include="Packets\ServerPackets\DoLoadRegistryKey.cs" />
+    <Compile Include="Packets\ServerPackets\DoRenameRegistryKey.cs" />
+    <Compile Include="Packets\ServerPackets\DoRenameRegistryValue.cs" />
     <Compile Include="Packets\ServerPackets\DoTrayCdOpenClose.cs" />
     <Compile Include="Packets\ServerPackets\HideShow.cs" />
     <Compile Include="Packets\ServerPackets\MsgToRemoteChat.cs" />
@@ -91,12 +128,6 @@
     </Compile>
     <Compile Include="Views\FrmFileManager.designer.cs">
       <DependentUpon>FrmFileManager.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\FrmHideShowFunctions.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\FrmHideShowFunctions.Designer.cs">
-      <DependentUpon>FrmHideShowFunctions.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\FrmKeylogger.cs">
       <SubType>Form</SubType>
@@ -136,6 +167,36 @@
     </Compile>
     <Compile Include="Views\FrmPlaySong.designer.cs">
       <DependentUpon>FrmPlaySong.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FrmRegistryEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FrmRegistryEditor.Designer.cs">
+      <DependentUpon>FrmRegistryEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FrmRegValueEditBinary.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FrmRegValueEditBinary.Designer.cs">
+      <DependentUpon>FrmRegValueEditBinary.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FrmRegValueEditMultiString.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FrmRegValueEditMultiString.Designer.cs">
+      <DependentUpon>FrmRegValueEditMultiString.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FrmRegValueEditString.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FrmRegValueEditString.Designer.cs">
+      <DependentUpon>FrmRegValueEditString.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FrmRegValueEditWord.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FrmRegValueEditWord.Designer.cs">
+      <DependentUpon>FrmRegValueEditWord.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\FrmRemoteChat.cs">
       <SubType>Form</SubType>
@@ -297,9 +358,6 @@
     <EmbeddedResource Include="Views\FrmFileManager.resx">
       <DependentUpon>FrmFileManager.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\FrmHideShowFunctions.resx">
-      <DependentUpon>FrmHideShowFunctions.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Views\FrmKeylogger.resx">
       <DependentUpon>FrmKeylogger.cs</DependentUpon>
     </EmbeddedResource>
@@ -308,6 +366,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\FrmPlaySong.resx">
       <DependentUpon>FrmPlaySong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FrmRegistryEditor.resx">
+      <DependentUpon>FrmRegistryEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FrmRegValueEditBinary.resx">
+      <DependentUpon>FrmRegValueEditBinary.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FrmRegValueEditMultiString.resx">
+      <DependentUpon>FrmRegValueEditMultiString.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FrmRegValueEditString.resx">
+      <DependentUpon>FrmRegValueEditString.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FrmRegValueEditWord.resx">
+      <DependentUpon>FrmRegValueEditWord.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\FrmRemoteChat.resx">
       <DependentUpon>FrmRemoteChat.cs</DependentUpon>
@@ -356,12 +429,10 @@
     <Folder Include="Assets\Icon\MessageBox\" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Assets\Icon\MenuItem\Fun\06.png" />
     <Resource Include="Assets\Icon\MenuItem\Fun\music.png" />
     <Resource Include="Assets\Icon\MenuItem\Fun\smiley.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Assets\Icon\MenuItem\Fun\comments.png" />
     <Resource Include="Assets\Icon\MenuItem\Fun\switch.png" />
   </ItemGroup>
   <ItemGroup>
@@ -421,17 +492,17 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\Icon\MenuItem\Spying\keyboard.png" />
-    <Resource Include="Assets\Icon\MenuItem\Fun\comment.png" />
     <Resource Include="Assets\Icon\MenuItem\Fun\switch\switchs.png" />
     <Resource Include="Assets\Icon\MenuItem\Fun\switch\taskbar.png" />
     <Resource Include="Assets\Icon\MenuItem\Fun\music-note.png" />
-    <Resource Include="Assets\Icon\MenuItem\Fun\computer.png" />
-    <Resource Include="Assets\Icon\MenuItem\Fun\sensd.png" />
     <Resource Include="Assets\Icon\MenuItem\Fun\chatting.png" />
     <Resource Include="Assets\Icon\MenuItem\Fun\switch\switch.png" />
     <Resource Include="Assets\Icon\MenuItem\Fun\switch\switchOff.png" />
     <Resource Include="Assets\Icon\MenuItem\Fun\switch\switchOn.png" />
     <Resource Include="Assets\Icon\MenuItem\Fun\send.png" />
+    <Resource Include="Assets\Icon\MenuItem\System\registre.png" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="Resources\Client.exe" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

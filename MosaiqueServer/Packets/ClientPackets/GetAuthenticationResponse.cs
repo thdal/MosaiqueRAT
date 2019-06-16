@@ -1,4 +1,7 @@
-﻿using Serveur.Controllers.Server;
+﻿using MosaiqueServeur.Models;
+using Serveur.Controllers.Server;
+using System;
+using System.Collections.Generic;
 using ZeroFormatter;
 
 namespace Serveur.Packets.ClientPackets

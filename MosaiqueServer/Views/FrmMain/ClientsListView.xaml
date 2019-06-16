@@ -53,6 +53,11 @@
                                 <Image Source="/Assets/Icon/MenuItem/System/startup.png"/>
                             </MenuItem.Icon>
                         </MenuItem>
+                        <MenuItem Style="{x:Null}" Click="RegistryEditorMenuItem" Header="Registry Editor">
+                            <MenuItem.Icon>
+                                <Image Source="/Assets/Icon/MenuItem/System/registre.png"/>
+                            </MenuItem.Icon>
+                        </MenuItem>
                         <MenuItem Style="{x:Null}" Click="RunasMenuItem" Header="Run As Administrator">
                             <MenuItem.Icon>
                                 <Image Source="/Assets/Icon/MenuItem/System/shield.png"/>
@@ -95,7 +100,7 @@
                         </MenuItem.Icon>                                             
                         <MenuItem Style="{x:Null}" Click="PlaySongMenuItem"  Header="Play Song">
                             <MenuItem.Icon>
-                                <Image Source="/Assets/Icon/MenuItem/Fun/music-note.png"/>
+                                <Image Source="/Assets/Icon/MenuItem/Fun/music.png"/>
                             </MenuItem.Icon>
                         </MenuItem>
                         <MenuItem Style="{x:Null}" Click="sendMsgBoxMenuItem" Header="Send Message">

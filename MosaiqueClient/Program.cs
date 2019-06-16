@@ -5,6 +5,7 @@ using System;
 using System.IO;
 using System.Threading;
 using System.Windows.Forms;
+using ZeroFormatter.Formatters;
 
 namespace Client
 {
@@ -33,6 +34,8 @@ namespace Client
             //MutexController.mutexKey = Boot.getMutexKey(readerMutex);// TODO virer
 
             MutexController.mutexKey = "sdfmlksdmflksdfmlkQQSDQSd5454654EZEZEZZE";// TODO virer    
+            //ZeroFormatter.Formatters.Formatter.RegisterArray<t, RegSeekerMatch>();
+            //ZeroFormatter.Formatters.Formatter<DefaultResolver, Uri>.Register(new UriFormatter<DefaultResolver>());
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

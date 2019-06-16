@@ -1,4 +1,6 @@
 ﻿using Client.Controllers;
+using Client.Models;
+using System.Collections.Generic;
 using ZeroFormatter;
 
 namespace Client.Packets.ClientPackets

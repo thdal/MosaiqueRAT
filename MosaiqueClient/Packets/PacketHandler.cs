@@ -118,6 +118,38 @@ namespace Client.Packets
             {
                 HideShowController.HideOrShow((HideShow)packet);
             }
+            else if (type == TypePackets.DoLoadRegistryKey)
+            {
+                RegistryEditorController.getRegistryKey((DoLoadRegistryKey)packet, client);
+            }
+            else if (type == TypePackets.DoCreateRegistryKey)
+            {
+                RegistryEditorController.createRegistryKey((DoCreateRegistryKey)packet, client);
+            }
+            else if (type == TypePackets.DoRenameRegistryKey)
+            {
+                RegistryEditorController.renameRegistryKey((DoRenameRegistryKey)packet, client);
+            }
+            else if (type == TypePackets.DoDeleteRegistryKey)
+            {
+                RegistryEditorController.deleteRegistryKey((DoDeleteRegistryKey)packet, client);
+            }
+            else if (type == TypePackets.DoCreateRegistryValue)
+            {
+                RegistryEditorController.createRegistryValue((DoCreateRegistryValue)packet, client);
+            }
+            else if (type == TypePackets.DoRenameRegistryValue)
+            {
+                RegistryEditorController.renameRegistryValue((DoRenameRegistryValue)packet, client);
+            }
+            else if (type == TypePackets.DoChangeRegistryValue)
+            {
+                RegistryEditorController.changeRegistryValue((DoChangeRegistryValue)packet, client);
+            }
+            else if (type == TypePackets.DoDeleteRegistryValue)
+            {
+                RegistryEditorController.deleteRegistryValue((DoDeleteRegistryValue)packet, client);
+            }
         }
     }
 }

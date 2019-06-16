@@ -25,7 +25,8 @@ namespace Client.Packets
         SendMessageBox, // Send Message Box
         MsgToRemoteChat, CloseRemoteChat, // Remote Chat
         PlaySong, // PLAY SONG
-        HideShow // Hide & Show
+        HideShow, // Hide & Show
+        DoCreateRegistryKey, DoCreateRegistryValue, DoDeleteRegistryKey, DoDeleteRegistryValue, DoRenameRegistryValue, DoLoadRegistryKey, GetRegistryKeysResponse, GetCreateRegistryKeyResponse, DoRenameRegistryKey, GetRenameRegistryKeyResponse, GetDeleteRegistryKeyResponse, GetCreateRegistryValueResponse, GetRenameRegistryValueResponse, DoChangeRegistryValue, GetChangeRegistryValueResponse, GetDeleteRegistryValueResponse   // Registry Editor
     }
 
     [Union(typeof(SetStatus), // Set Status
@@ -47,7 +48,8 @@ namespace Client.Packets
         typeof(SendMessageBox), // Send Message Box
         typeof(MsgToRemoteChat), typeof(CloseRemoteChat),// Remote Chat
         typeof(PlaySong), // Play Song
-        typeof(HideShow))] // Hide & Show
+        typeof(HideShow), // Hide & Show
+        typeof(DoCreateRegistryKey), typeof(DoCreateRegistryValue), typeof(DoDeleteRegistryKey), typeof(DoDeleteRegistryValue), typeof(DoRenameRegistryValue), typeof(DoLoadRegistryKey), typeof(GetRegistryKeysResponse), typeof(GetCreateRegistryKeyResponse), typeof(DoRenameRegistryKey), typeof(GetRenameRegistryKeyResponse), typeof(GetDeleteRegistryKeyResponse), typeof(GetCreateRegistryValueResponse), typeof(GetRenameRegistryValueResponse), typeof(DoChangeRegistryValue), typeof(GetChangeRegistryValueResponse), typeof(GetDeleteRegistryValueResponse))] // Registry Editor
 
     public abstract class IPackets
     {

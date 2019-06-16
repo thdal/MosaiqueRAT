@@ -185,6 +185,15 @@ namespace ZeroFormatter.Formatters
 
             return null;
         }
+        //AJOUT PERSO
+        public static void RegisterArray<TTypeResolver, T>()
+           where TTypeResolver : ITypeResolver, new()
+        {
+            if (Formatter<TTypeResolver, T[]>.Default is IErrorFormatter)
+            {
+                Formatter<TTypeResolver, T[]>.Register(new ArrayFormatter<TTypeResolver, T>());
+            }
+        }
 
         internal static object GetBuiltinFormatter<TTypeResolver
 #if !UNITY
