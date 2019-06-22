@@ -91,6 +91,8 @@ namespace MosaiqueServeur.Views
                 //Prevent exit
                 DialogResult = DialogResult.None;
             }
+
+            this.Close();
         }
 
         private DialogResult ShowWarning(string msg, string caption)
@@ -103,6 +105,11 @@ namespace MosaiqueServeur.Views
             string message = _value.Kind == RegistryValueKind.DWord ? DWORD_WARNING : QWORD_WARNING;
 
             return ShowWarning(message, "Overflow") == DialogResult.Yes;
+        }
+
+        private void cancelButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

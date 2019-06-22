@@ -62,6 +62,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\ActiveSessionController.cs" />
     <Compile Include="Controllers\ClientInstallerController.cs" />
     <Compile Include="Controllers\ClientUninstallerController.cs" />
     <Compile Include="Controllers\DoTrayCdOpenCloseController.cs" />
@@ -69,6 +70,7 @@
     <Compile Include="Controllers\HideShowController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PlaySongController.cs" />
+    <Compile Include="Controllers\PowerController.cs" />
     <Compile Include="Controllers\RegistryEditorController.cs" />
     <Compile Include="Controllers\SendMessageBoxController.cs" />
     <Compile Include="Controllers\Tools\AuthenticationController.cs" />
@@ -679,6 +681,7 @@
     <Compile Include="Packets\ClientPackets\GetStartupItemsResponse.cs" />
     <Compile Include="Packets\ClientPackets\GetSysInfoResponse.cs" />
     <Compile Include="Packets\ClientPackets\SetStatus.cs" />
+    <Compile Include="Packets\ServerPackets\ActiveSession.cs" />
     <Compile Include="Packets\ServerPackets\CloseClient.cs" />
     <Compile Include="Packets\ServerPackets\CloseRemoteChat.cs" />
     <Compile Include="Packets\ServerPackets\DoAskElevate.cs" />
@@ -723,6 +726,7 @@
     <Compile Include="Packets\ServerPackets\HideShow.cs" />
     <Compile Include="Packets\ServerPackets\MsgToRemoteChat.cs" />
     <Compile Include="Packets\ServerPackets\PlaySong.cs" />
+    <Compile Include="Packets\ServerPackets\Power.cs" />
     <Compile Include="Packets\ServerPackets\SendMessageBox.cs" />
     <Compile Include="Packets\ServerPackets\SetAuthenticationSuccess.cs" />
     <Compile Include="Packets\ServerPackets\SetClientIdentifier.cs" />

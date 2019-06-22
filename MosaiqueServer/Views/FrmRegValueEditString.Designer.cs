@@ -28,11 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmRegValueEditString));
             this.label1 = new System.Windows.Forms.Label();
             this.valueNameTxtBox = new System.Windows.Forms.TextBox();
             this.valueDataTxtBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -47,7 +48,7 @@
             // 
             // valueNameTxtBox
             // 
-            this.valueNameTxtBox.BackColor = System.Drawing.SystemColors.Control;
+            this.valueNameTxtBox.BackColor = System.Drawing.SystemColors.Window;
             this.valueNameTxtBox.Location = new System.Drawing.Point(13, 26);
             this.valueNameTxtBox.Name = "valueNameTxtBox";
             this.valueNameTxtBox.Size = new System.Drawing.Size(341, 20);
@@ -69,14 +70,15 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Value data:";
             // 
-            // button1
+            // btnCancel
             // 
-            this.button1.Location = new System.Drawing.Point(279, 96);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Cancel";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnCancel.Location = new System.Drawing.Point(279, 96);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(75, 23);
+            this.btnCancel.TabIndex = 4;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // button2
             // 
@@ -92,14 +94,16 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(366, 129);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.valueDataTxtBox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.valueNameTxtBox);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmRegValueEditString";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Edit String";
@@ -114,7 +118,7 @@
         private System.Windows.Forms.TextBox valueNameTxtBox;
         private System.Windows.Forms.TextBox valueDataTxtBox;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button button2;
     }
 }

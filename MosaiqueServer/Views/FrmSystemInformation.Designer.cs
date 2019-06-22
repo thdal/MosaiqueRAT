@@ -44,9 +44,9 @@
             this.colVal});
             this.lvSysInfo.FullRowSelect = true;
             this.lvSysInfo.GridLines = true;
-            this.lvSysInfo.Location = new System.Drawing.Point(12, 12);
+            this.lvSysInfo.Location = new System.Drawing.Point(14, 14);
             this.lvSysInfo.Name = "lvSysInfo";
-            this.lvSysInfo.Size = new System.Drawing.Size(494, 321);
+            this.lvSysInfo.Size = new System.Drawing.Size(573, 379);
             this.lvSysInfo.TabIndex = 0;
             this.lvSysInfo.UseCompatibleStateImageBehavior = false;
             this.lvSysInfo.View = System.Windows.Forms.View.Details;
@@ -63,11 +63,13 @@
             // 
             // FrmSystemInformation
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(511, 345);
+            this.BackColor = System.Drawing.SystemColors.Window;
+            this.ClientSize = new System.Drawing.Size(593, 407);
             this.Controls.Add(this.lvSysInfo);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
+            this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmSystemInformation";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;

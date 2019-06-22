@@ -46,7 +46,7 @@
             this.cbMonitors});
             this.tsRdp.Location = new System.Drawing.Point(0, 0);
             this.tsRdp.Name = "tsRdp";
-            this.tsRdp.Size = new System.Drawing.Size(477, 25);
+            this.tsRdp.Size = new System.Drawing.Size(704, 25);
             this.tsRdp.TabIndex = 0;
             // 
             // btnStart
@@ -76,7 +76,7 @@
             this.pbRdp.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pbRdp.Location = new System.Drawing.Point(0, 25);
             this.pbRdp.Name = "pbRdp";
-            this.pbRdp.Size = new System.Drawing.Size(477, 276);
+            this.pbRdp.Size = new System.Drawing.Size(704, 356);
             this.pbRdp.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbRdp.TabIndex = 1;
             this.pbRdp.TabStop = false;
@@ -85,11 +85,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(477, 301);
+            this.ClientSize = new System.Drawing.Size(704, 381);
             this.Controls.Add(this.pbRdp);
             this.Controls.Add(this.tsRdp);
             this.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmRemoteDesktop";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;

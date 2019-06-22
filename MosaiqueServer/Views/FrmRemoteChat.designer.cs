@@ -80,7 +80,7 @@
             this.Controls.Add(this.rtxtChat);
             this.Controls.Add(this.btnSend);
             this.Controls.Add(this.txtWrite);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmRemoteChat";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;

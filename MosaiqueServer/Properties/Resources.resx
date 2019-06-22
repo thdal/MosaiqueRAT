@@ -130,9 +130,6 @@ By using this product you agree to everything specified above.</value>
   <data name="Client" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Client.exe;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="gun" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\gun.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="License" xml:space="preserve">
     <value>Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -152,12 +149,6 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.</value>
   </data>
-  <data name="piano" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\piano.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="saber" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\saber.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="TermsofUse" xml:space="preserve">
     <value>1. Disclaimer of warranties and indemnity
 
@@ -172,23 +163,5 @@ SOFTWARE.</value>
 2.1 You use the software at your own risk. To the maximum extent permitted by applicable law, in no event shall thdal be liable to you or to those claiming through you for any direct, indirect, consequential, incidental or special damage or loss of any kind including, but not limited to, loss of profits, loss of contracts, business interruptions, loss of or corruption of information or data however caused and whether arising under contract or tort, including negligence, even if thdal has been advised of the possibility of such damages. 
 
 2.2 If any limitation, exclusion, disclaimer or other provision contained in this licence agreement is held to be invalid for any reason by a court of competent jurisdiction and thdal becomes liable thereby for loss or damage that may lawfully be limited, such liability whether in contract, tort or otherwise, will not exceed the fee paid by you for the software.</value>
-  </data>
-  <data name="_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="_5" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="_6" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="_7" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\7.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

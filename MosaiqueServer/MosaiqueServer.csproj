@@ -106,6 +106,7 @@
     <Compile Include="Packets\ClientPackets\GetRegistryKeysResponse.cs" />
     <Compile Include="Packets\ClientPackets\GetRenameRegistryKeyResponse.cs" />
     <Compile Include="Packets\ClientPackets\GetRenameRegistryValueResponse.cs" />
+    <Compile Include="Packets\ServerPackets\ActiveSession.cs" />
     <Compile Include="Packets\ServerPackets\CloseClient.cs" />
     <Compile Include="Packets\ServerPackets\CloseRemoteChat.cs" />
     <Compile Include="Packets\ServerPackets\DoChangeRegistryValue.cs" />
@@ -120,9 +121,15 @@
     <Compile Include="Packets\ServerPackets\HideShow.cs" />
     <Compile Include="Packets\ServerPackets\MsgToRemoteChat.cs" />
     <Compile Include="Packets\ServerPackets\PlaySong.cs" />
+    <Compile Include="Packets\ServerPackets\Power.cs" />
     <Compile Include="Packets\ServerPackets\SendMessageBox.cs" />
     <Compile Include="Packets\ServerPackets\SetClientIdentifier.cs" />
     <Compile Include="Packets\ServerPackets\UninstallClient.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Views\FrmFileManager.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -340,11 +347,6 @@
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -352,8 +354,8 @@
     </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\FrmFileManager.resx">
       <DependentUpon>FrmFileManager.cs</DependentUpon>
@@ -425,9 +427,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Assets\Icon\MessageBox\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Resource Include="Assets\Icon\MenuItem\Fun\music.png" />
     <Resource Include="Assets\Icon\MenuItem\Fun\smiley.png" />
@@ -461,33 +461,6 @@
     <Resource Include="Assets\Icon\MenuItem\System\taskManager.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\3.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\5.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\6.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\7.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\gun.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\piano.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\saber.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Assets\Icon\MainWindow\Mosaique.ico" />
   </ItemGroup>
   <ItemGroup>
@@ -496,13 +469,30 @@
     <Resource Include="Assets\Icon\MenuItem\Fun\switch\taskbar.png" />
     <Resource Include="Assets\Icon\MenuItem\Fun\music-note.png" />
     <Resource Include="Assets\Icon\MenuItem\Fun\chatting.png" />
-    <Resource Include="Assets\Icon\MenuItem\Fun\switch\switch.png" />
+    <Resource Include="Assets\Icon\MenuItem\Fun\switch\switcdh.png" />
     <Resource Include="Assets\Icon\MenuItem\Fun\switch\switchOff.png" />
     <Resource Include="Assets\Icon\MenuItem\Fun\switch\switchOn.png" />
     <Resource Include="Assets\Icon\MenuItem\Fun\send.png" />
     <Resource Include="Assets\Icon\MenuItem\System\registre.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Assets\Icon\MenuItem\System\Power\power.png" />
+    <Resource Include="Assets\Icon\MenuItem\System\Power\restart.png" />
+    <Resource Include="Assets\Icon\MenuItem\System\Power\standby.png" />
+    <Resource Include="Assets\Icon\MenuItem\System\Session\account.png" />
+    <Resource Include="Assets\Icon\MenuItem\Fun\piano.png" />
+    <Resource Include="Assets\Icon\MenuItem\System\Session\acc.png" />
+    <Resource Include="Assets\Icon\MenuItem\System\Session\logo.png" />
+    <Resource Include="Assets\Icon\MenuItem\Fun\zik.png" />
+    <Resource Include="Assets\Icon\MenuItem\System\Session\lock.png" />
+    <Resource Include="Assets\Icon\MenuItem\System\Session\logout.png" />
+    <Resource Include="Assets\Icon\MenuItem\System\Power\shut.png" />
+    <Resource Include="Assets\Icon\MenuItem\System\Session\lk.png" />
+    <Resource Include="Assets\Icon\MenuItem\System\Session\exit.png" />
+    <Resource Include="Assets\Icon\MenuItem\Fun\switch\switch.png" />
+    <Resource Include="Assets\Icon\MenuItem\System\shut.png" />
+    <Resource Include="Assets\Icon\MenuItem\Fun\cht.png" />
+    <Resource Include="Assets\Icon\MenuItem\System\Session\log.png" />
     <Content Include="Resources\Client.exe" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

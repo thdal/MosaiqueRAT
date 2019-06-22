@@ -63,9 +63,9 @@
             this.lvPasswords.ContextMenuStrip = this.cmsPr;
             this.lvPasswords.FullRowSelect = true;
             this.lvPasswords.GridLines = true;
-            this.lvPasswords.Location = new System.Drawing.Point(6, 19);
+            this.lvPasswords.Location = new System.Drawing.Point(7, 22);
             this.lvPasswords.Name = "lvPasswords";
-            this.lvPasswords.Size = new System.Drawing.Size(540, 291);
+            this.lvPasswords.Size = new System.Drawing.Size(629, 335);
             this.lvPasswords.TabIndex = 0;
             this.lvPasswords.UseCompatibleStateImageBehavior = false;
             this.lvPasswords.View = System.Windows.Forms.View.Details;
@@ -166,19 +166,21 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gbRecoveredAcc.Controls.Add(this.lvPasswords);
-            this.gbRecoveredAcc.Location = new System.Drawing.Point(12, 12);
+            this.gbRecoveredAcc.Location = new System.Drawing.Point(14, 14);
             this.gbRecoveredAcc.Name = "gbRecoveredAcc";
-            this.gbRecoveredAcc.Size = new System.Drawing.Size(552, 316);
+            this.gbRecoveredAcc.Size = new System.Drawing.Size(644, 365);
             this.gbRecoveredAcc.TabIndex = 3;
             this.gbRecoveredAcc.TabStop = false;
             this.gbRecoveredAcc.Text = "Recovered Account";
             // 
             // FrmPasswordRecovery
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(576, 340);
+            this.BackColor = System.Drawing.SystemColors.Window;
+            this.ClientSize = new System.Drawing.Size(672, 392);
             this.Controls.Add(this.gbRecoveredAcc);
+            this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmPasswordRecovery";

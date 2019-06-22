@@ -63,6 +63,21 @@
                                 <Image Source="/Assets/Icon/MenuItem/System/shield.png"/>
                             </MenuItem.Icon>
                         </MenuItem>
+                        <MenuItem Style="{x:Null}" Header="Active Session">
+                            <MenuItem.Icon>
+                                <Image Source="/Assets/Icon/MenuItem/System/Session/acc.png"/>
+                            </MenuItem.Icon>
+                            <MenuItem Style="{x:Null}" Click="LogoutMenuItem" Header="Logout">
+                                <MenuItem.Icon>
+                                    <Image Source="/Assets/Icon/MenuItem/System/Session/log.png"/>
+                                </MenuItem.Icon>
+                            </MenuItem>
+                            <MenuItem Style="{x:Null}" Click="LockMenuItem"  Header="Lock">
+                                <MenuItem.Icon>
+                                    <Image Source="/Assets/Icon/MenuItem/System/Session/lk.png"/>
+                                </MenuItem.Icon>
+                            </MenuItem>
+                        </MenuItem>
                     </MenuItem>
                     <MenuItem Style="{x:Null}" Header="Spying">
                         <MenuItem.Icon>
@@ -100,7 +115,7 @@
                         </MenuItem.Icon>                                             
                         <MenuItem Style="{x:Null}" Click="PlaySongMenuItem"  Header="Play Song">
                             <MenuItem.Icon>
-                                <Image Source="/Assets/Icon/MenuItem/Fun/music.png"/>
+                                <Image Source="/Assets/Icon/MenuItem/Fun/zik.png"/>
                             </MenuItem.Icon>
                         </MenuItem>
                         <MenuItem Style="{x:Null}" Click="sendMsgBoxMenuItem" Header="Send Message">
@@ -110,7 +125,7 @@
                         </MenuItem>
                         <MenuItem Style="{x:Null}" Click="remoteChatMenuItem" Header="Remote Chat">
                             <MenuItem.Icon>
-                                <Image Source="/Assets/Icon/MenuItem/Fun/chatting.png"/>
+                                <Image Source="/Assets/Icon/MenuItem/Fun/cht.png"/>
                             </MenuItem.Icon>
                         </MenuItem>
                         <MenuItem Style="{x:Null}" Header="Hide &amp; Show">
@@ -165,6 +180,27 @@
                                     </MenuItem.Icon>
                                 </MenuItem>
                             </MenuItem>
+                    </MenuItem>
+                    <Separator />
+                    <MenuItem Style="{x:Null}" Header="Power">
+                        <MenuItem.Icon>
+                            <Image Source="/Assets/Icon/MenuItem/System/Power/power.png"/>
+                        </MenuItem.Icon>
+                        <MenuItem Style="{x:Null}" Click="ResetDownMenuItem"  Header="Reset">
+                            <MenuItem.Icon>
+                                <Image Source="/Assets/Icon/MenuItem/System/Power/restart.png"/>
+                            </MenuItem.Icon>
+                        </MenuItem>
+                        <MenuItem Style="{x:Null}" Click="StandbyDownMenuItem"  Header="Standby">
+                            <MenuItem.Icon>
+                                <Image Source="/Assets/Icon/MenuItem/System/Power/standby.png"/>
+                            </MenuItem.Icon>
+                        </MenuItem>
+                        <MenuItem Style="{x:Null}" Click="shutDownMenuItem"  Header="Shutdown">
+                            <MenuItem.Icon>
+                                <Image Source="/Assets/Icon/MenuItem/System/shut.png"/>
+                            </MenuItem.Icon>
+                        </MenuItem>
                     </MenuItem>
                 </ContextMenu>
             </ListView.ContextMenu>

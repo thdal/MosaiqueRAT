@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmRegValueEditMultiString));
             this.label1 = new System.Windows.Forms.Label();
             this.valueNameTxtBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -47,6 +48,7 @@
             // 
             // valueNameTxtBox
             // 
+            this.valueNameTxtBox.BackColor = System.Drawing.SystemColors.Window;
             this.valueNameTxtBox.Location = new System.Drawing.Point(15, 25);
             this.valueNameTxtBox.Name = "valueNameTxtBox";
             this.valueNameTxtBox.ReadOnly = true;
@@ -88,11 +90,13 @@
             this.cancelButton.TabIndex = 5;
             this.cancelButton.Text = "Cancel";
             this.cancelButton.UseVisualStyleBackColor = true;
+            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
             // 
             // FrmRegValueEditMultiString
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(454, 304);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.okButton);
@@ -100,7 +104,8 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.valueNameTxtBox);
             this.Controls.Add(this.label1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmRegValueEditMultiString";
             this.Text = "Edit Multi-String";
             this.ResumeLayout(false);

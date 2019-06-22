@@ -48,7 +48,7 @@
             this.cboResolutions});
             this.tsFrmWbc.Location = new System.Drawing.Point(0, 0);
             this.tsFrmWbc.Name = "tsFrmWbc";
-            this.tsFrmWbc.Size = new System.Drawing.Size(635, 25);
+            this.tsFrmWbc.Size = new System.Drawing.Size(704, 25);
             this.tsFrmWbc.TabIndex = 0;
             // 
             // btnStart
@@ -89,7 +89,7 @@
             this.pbWebcam.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pbWebcam.Location = new System.Drawing.Point(0, 25);
             this.pbWebcam.Name = "pbWebcam";
-            this.pbWebcam.Size = new System.Drawing.Size(635, 289);
+            this.pbWebcam.Size = new System.Drawing.Size(704, 356);
             this.pbWebcam.TabIndex = 1;
             this.pbWebcam.TabStop = false;
             // 
@@ -97,11 +97,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(635, 314);
+            this.ClientSize = new System.Drawing.Size(704, 381);
             this.Controls.Add(this.pbWebcam);
             this.Controls.Add(this.tsFrmWbc);
             this.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmRemoteWebcam";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;

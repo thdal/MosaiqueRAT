@@ -44,6 +44,12 @@ namespace MosaiqueServeur.Views
             string[] valueData = valueDataTxtBox.Text.Split(new string[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries);
             var res = new JavaScriptSerializer().Serialize(valueData);
             new DoChangeRegistryValue(_keyPath, new RegValueData(_value.Name, _value.Kind, res)).Execute(_connectClient);
+            this.Close();
+        }
+
+        private void cancelButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

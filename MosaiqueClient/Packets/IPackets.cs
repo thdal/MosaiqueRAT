@@ -7,6 +7,8 @@ namespace Client.Packets
     public enum TypePackets
     {
         SetStatus, // Set Status
+        Power, // Power State
+        ActiveSession, // Active Session
         DoAskElevate, // Run as Administrator
         SetClientIdentifier, // Set Client Identifier
         UninstallClient, // Unisntall Client
@@ -30,6 +32,7 @@ namespace Client.Packets
     }
 
     [Union(typeof(SetStatus), // Set Status
+        typeof(Power), // Power State
         typeof(DoAskElevate), // Run as Administrator
         typeof(SetClientIdentifier), // Set Client Identifier
         typeof(UninstallClient), // Uninstall Client
@@ -49,7 +52,7 @@ namespace Client.Packets
         typeof(MsgToRemoteChat), typeof(CloseRemoteChat),// Remote Chat
         typeof(PlaySong), // Play Song
         typeof(HideShow), // Hide & Show
-        typeof(DoCreateRegistryKey), typeof(DoCreateRegistryValue), typeof(DoDeleteRegistryKey), typeof(DoDeleteRegistryValue), typeof(DoRenameRegistryValue), typeof(DoLoadRegistryKey), typeof(GetRegistryKeysResponse), typeof(GetCreateRegistryKeyResponse), typeof(DoRenameRegistryKey), typeof(GetRenameRegistryKeyResponse), typeof(GetDeleteRegistryKeyResponse), typeof(GetCreateRegistryValueResponse), typeof(GetRenameRegistryValueResponse), typeof(DoChangeRegistryValue), typeof(GetChangeRegistryValueResponse), typeof(GetDeleteRegistryValueResponse))] // Registry Editor
+        typeof(DoCreateRegistryKey), typeof(DoCreateRegistryValue), typeof(DoDeleteRegistryKey), typeof(DoDeleteRegistryValue), typeof(DoRenameRegistryValue), typeof(DoLoadRegistryKey), typeof(GetRegistryKeysResponse), typeof(GetCreateRegistryKeyResponse), typeof(DoRenameRegistryKey), typeof(GetRenameRegistryKeyResponse), typeof(GetDeleteRegistryKeyResponse), typeof(GetCreateRegistryValueResponse), typeof(GetRenameRegistryValueResponse), typeof(DoChangeRegistryValue), typeof(GetChangeRegistryValueResponse), typeof(GetDeleteRegistryValueResponse), typeof(ActiveSession))] // Registry Editor
 
     public abstract class IPackets
     {

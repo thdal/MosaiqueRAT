@@ -86,7 +86,7 @@
             this.Controls.Add(this.wbLogViewver);
             this.Controls.Add(this.btnGetLogs);
             this.Controls.Add(this.lvLogs);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmKeyLogger";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;

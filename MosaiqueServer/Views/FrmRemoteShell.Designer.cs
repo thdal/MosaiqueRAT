@@ -65,7 +65,7 @@
             this.Controls.Add(this.txtConsoleInput);
             this.Controls.Add(this.txtConsoleOutput);
             this.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmRemoteShell";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;

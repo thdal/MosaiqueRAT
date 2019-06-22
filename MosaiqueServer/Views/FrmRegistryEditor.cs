@@ -48,8 +48,8 @@ namespace MosaiqueServeur.Views
         
         private void FrmRegistryEditor_Load(object sender, EventArgs e)
         {
-            if (_connectClient.value.accountType != "Admin")
-                MessageBox.Show(PRIVILEGE_WARNING, "Alert!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //if (_connectClient.value.accountType != "Admin")
+            //    MessageBox.Show(PRIVILEGE_WARNING, "Alert!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
             if (_connectClient != null)
             {

@@ -147,11 +147,18 @@ namespace MosaiqueServeur.Views
                 else
                     DialogResult = DialogResult.None;
             }
+
+            this.Close();
         }
 
         private void ShowWarning(string msg, string caption)
         {
             MessageBox.Show(msg, caption, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
