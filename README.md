@@ -62,9 +62,9 @@ Mosaique is writing in C# under the MVC architecture, ZeroFormatter serializer i
 
 ## About
 
-> Mosaique version uploaded is totaly unstable and contain a long list of bug, I'm sorry in advance, I don't work full-time on it. if you have any recommendations or if you find any bugs please report them to me I thank you for your support.
+Mosaique version uploaded is totaly unstable and contain a long list of bug, I'm sorry in advance, I don't work full-time on it. if you have any recommendations or if you find any bugs please report them to me I thank you for your support.
 
-> with kind regards,
+With kind regards,
 
 > Thdal.
 
