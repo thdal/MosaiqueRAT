@@ -55,8 +55,6 @@ Mosaique is writing in C# under the MVC architecture, ZeroFormatter serializer i
 
 ## Launch Mosaique with executable
 
-  ### You can now use the Mosaique executable
-
 1. Open "Executable" directory on github root folder.
 2. Download Mosaique.
 3. Disable AV or Windows Defender if its is necesary.
@@ -69,6 +67,14 @@ Mosaique version uploaded is totaly unstable and contain a long list of bug, I'm
 with kind regards,
 
 Thdal.
+
+## Ideas for the future
+
+* Option to switch languages
+* Option to switch theme Dark/Light
+* Multiple client selection
+* Reduce file sizes
+* Add new fun features
 
 ## Licence
 
