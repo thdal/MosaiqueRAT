@@ -51,6 +51,15 @@ Mosaique is writing in C# under the MVC architecture, ZeroFormatter serializer i
 2. Run the "MosaiqueServer" release.
 3. Build the stub.
 
+## Excecutable Path
+
+  # You can now use the Mosaique executable
+
+1. Open "Executable" directory on github root folder.
+2. Download Mosaique.
+3. Disable AV or Windows Defender if its is necesary.
+3. Launch Mosaique and generate the stub(client) without any installation.
+
 ## Licence
 
 Mosaique is distributed under the MIT License. Thanks to QuasarRAT, njRAT, DarkComet for inspiration.
