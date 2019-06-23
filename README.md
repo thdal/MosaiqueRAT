@@ -45,7 +45,7 @@ Mosaique is writing in C# under the MVC architecture, ZeroFormatter serializer i
    * [x] Standby
    * [x] Shutdown
 
-## Launch Mosaique with sources
+# Launch Mosaique with sources
 
 1. Open the solution in Your IDE.
 2. Generate Client Release and put the executable file directly in MosaiqueServer resources Folder.
@@ -53,7 +53,7 @@ Mosaique is writing in C# under the MVC architecture, ZeroFormatter serializer i
 3. Build the stub.
 
 
-## Launch Mosaique with executable
+# Launch Mosaique with executable
 
 1. Open "Executable" directory on github root folder.
 2. Download Mosaique.
