@@ -70,4 +70,4 @@ With kind regards,
 
 ## Licence
 
-> Mosaique is distributed under the MIT License. Thanks to QuasarRAT, njRAT, DarkComet for inspiration.
+Mosaique is distributed under the MIT License. Thanks to QuasarRAT, njRAT, DarkComet for inspiration.
