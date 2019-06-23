@@ -52,7 +52,7 @@ Mosaique is writing in C# under the MVC architecture, ZeroFormatter serializer i
 2. Run the "MosaiqueServer" release.
 3. Build the stub.
 
-## Launch Mosaique executable
+## Launch Mosaique with executable
 
   ### You can now use the Mosaique executable
 
