@@ -44,6 +44,8 @@ Mosaique is writing in C# under the MVC architecture, ZeroFormatter serializer i
    * [x] Restart
    * [x] Standby
    * [x] Shutdown
+   
+-------------
 
 # Launch Mosaique with sources
 
@@ -60,12 +62,13 @@ Mosaique is writing in C# under the MVC architecture, ZeroFormatter serializer i
 3. Disable AV or Windows Defender if its is necesary.
 3. Launch Mosaique and generate the stub(client) without any installation.
 
+-------------
+
 ## About
 
-Mosaique version uploaded is totaly unstable and contain a long list of bug, I'm sorry in advance, I don't work full-time on it. if you have any recommendations or if you find any bugs please report them to me I thank you for your support.
+>Mosaique version uploaded is totaly unstable and contain a long list of bug, I'm sorry in advance, I don't work full-time on it. if you have any recommendations or if you find any bugs please report them to me I thank you for your support.
 
-With kind regards,
-Thdal.
+>With kind regards, Thdal.
 
 ## Licence
 
