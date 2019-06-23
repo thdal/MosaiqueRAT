@@ -62,6 +62,14 @@ Mosaique is writing in C# under the MVC architecture, ZeroFormatter serializer i
 3. Disable AV or Windows Defender if its is necesary.
 3. Launch Mosaique and generate the stub(client) without any installation.
 
+## About
+
+Mosaique version uploaded is totaly unstable and contain a long list of bug, I'm sorry in advance, I don't work full-time on it. if you have any recommendations or if you find any bugs please report them to me I thank you for your support.
+
+with kind regards
+
+Thdal
+
 ## Licence
 
 Mosaique is distributed under the MIT License. Thanks to QuasarRAT, njRAT, DarkComet for inspiration.
