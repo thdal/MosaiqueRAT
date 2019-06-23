@@ -71,3 +71,13 @@ With kind regards,
 ## Licence
 
 Mosaique is distributed under the MIT License. Thanks to QuasarRAT, njRAT, DarkComet for inspiration.
+
+
+##### Ideas for the future
+
+* Option to switch languages
+* Option to switch theme Dark/Light
+* Multiple client selection
+* Reduce file sizes
+* Add new fun features
+
