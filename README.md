@@ -75,6 +75,12 @@ With kind regards, Thdal.
 Mosaique is distributed under the MIT License. Thanks to QuasarRAT, njRAT, DarkComet for inspiration.
 
 
+
+
+
+
+-------------
+
 > # Ideas for the future
 
 > * Option to switch languages
@@ -82,6 +88,5 @@ Mosaique is distributed under the MIT License. Thanks to QuasarRAT, njRAT, DarkC
 > * Multiple client selection
 > * Reduce file sizes
 > * Add new fun features
-
 
 -------------
