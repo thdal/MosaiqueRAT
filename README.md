@@ -87,6 +87,5 @@ Mosaique is distributed under the MIT License. Thanks to QuasarRAT, njRAT, DarkC
 > * Option to switch theme Dark/Light
 > * Multiple client selection
 > * Reduce file sizes
-> * Add new fun features
 
 -------------
