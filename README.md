@@ -53,7 +53,7 @@ Mosaique is writing in C# under the MVC architecture, ZeroFormatter serializer i
 
 ## Excecutable Path
 
-  # You can now use the Mosaique executable
+  ### You can now use the Mosaique executable
 
 1. Open "Executable" directory on github root folder.
 2. Download Mosaique.
