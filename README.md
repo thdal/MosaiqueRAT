@@ -66,20 +66,20 @@ Mosaique is writing in C# under the MVC architecture, ZeroFormatter serializer i
 
 ## About
 
->Mosaique version uploaded is totaly unstable and contain a long list of bug, I'm sorry in advance, I don't work full-time on it. if you have any recommendations or if you find any bugs please report them to me I thank you for your support.
+Mosaique version uploaded is totaly unstable and contain a long list of bug, I'm sorry in advance, I don't work full-time on it. if you have any recommendations or if you find any bugs please report them to me I thank you for your support.
 
->With kind regards, Thdal.
+With kind regards, Thdal.
 
 ## Licence
 
 Mosaique is distributed under the MIT License. Thanks to QuasarRAT, njRAT, DarkComet for inspiration.
 
 
-## Ideas for the future
+> ## Ideas for the future
 
-* Option to switch languages
-* Option to switch theme Dark/Light
-* Multiple client selection
-* Reduce file sizes
-* Add new fun features
+> * Option to switch languages
+> * Option to switch theme Dark/Light
+> * Multiple client selection
+> * Reduce file sizes
+> * Add new fun features
 
