@@ -73,7 +73,7 @@ With kind regards,
 Mosaique is distributed under the MIT License. Thanks to QuasarRAT, njRAT, DarkComet for inspiration.
 
 
-##### Ideas for the future
+*Ideas for the future
 
 * Option to switch languages
 * Option to switch theme Dark/Light
