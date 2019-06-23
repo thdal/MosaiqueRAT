@@ -48,19 +48,51 @@ namespace Client.Controllers
 
         public static void getWebcam(GetWebcam command, ClientMosaique client)
         {
-            c = client;
-            needsCapture = true;
-            webcam = command.webcam;
-            quality = command.quality;
-            if (!webcamStarted)
+            try
             {
-                var videoCaptureDevices = new FilterInfoCollection(FilterCategory.VideoInputDevice);
-                finalVideo = new VideoCaptureDevice(videoCaptureDevices[command.webcam].MonikerString);
-                finalVideo.NewFrame += finalVideo_NewFrame;
-                finalVideo.VideoResolution = finalVideo.VideoCapabilities[command.quality];
-                finalVideo.Start();
-                webcamStarted = true;
+                c = client;
+                needsCapture = true;
+                webcam = command.webcam;
+                quality = command.quality;
+                if (!webcamStarted)
+                {
+                    var videoCaptureDevices = new FilterInfoCollection(FilterCategory.VideoInputDevice);
+                    finalVideo = new VideoCaptureDevice(videoCaptureDevices[command.webcam].MonikerString);
+                    finalVideo.NewFrame += finalVideo_NewFrame;
+
+                    if (finalVideo.VideoCapabilities[command.quality].FrameSize.Width > 1280 && finalVideo.VideoCapabilities[command.quality].FrameSize.Height > 960)
+                    {
+
+                        if (finalVideo.VideoCapabilities.Length > 0)
+                        {
+
+                            int i = 0;
+                            while (finalVideo.VideoCapabilities[i].FrameSize.Width > 1280 && finalVideo.VideoCapabilities[i].FrameSize.Height > 960 && i < finalVideo.VideoCapabilities.Length)
+                            {
+                                i++;
+                            }
+                            finalVideo.VideoResolution = finalVideo.VideoCapabilities[i];
+
+                        }
+                        else
+                        {
+                            return;
+                        }
+                    }
+                    else
+                    {
+                        finalVideo.VideoResolution = finalVideo.VideoCapabilities[command.quality];
+                    }
+
+                    finalVideo.Start();
+                    webcamStarted = true;
+                }
             }
+            catch(Exception ex) 
+            {
+                System.Windows.Forms.MessageBox.Show(ex.ToString(), "RemoteWebcamController - getWebcam()");
+            }
+            
         }
 
         private static void finalVideo_NewFrame(object sender, NewFrameEventArgs e)

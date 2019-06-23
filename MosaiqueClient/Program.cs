@@ -22,16 +22,16 @@ namespace Client
         static void Main()
         {
             #region ifProd
-            Boot.Initialization();
+            ///Boot.Initialization();
 
-            MutexController.mutexKey = Boot.mutex;
+            //MutexController.mutexKey = Boot.mutex;
 
-            client = new ClientMosaique(Boot.host, Boot.port);
+            //client = new ClientMosaique(Boot.host, Boot.port);
             #endregion
 
             #region ifPreProd
-            //MutexController.mutexKey = "sdfmlksdmflksdfmlkQQSDQSd5454654EZEZEZZE";
-            //client = new ClientMosaique("192.168.8.100", 4444);
+            MutexController.mutexKey = "sdfmlksdmflksdfmlkQQSDQSd5454654EZEZEZZE";
+            client = new ClientMosaique("127.0.0.1", 4444);
             #endregion
 
 
