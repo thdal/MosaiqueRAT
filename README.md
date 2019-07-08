@@ -59,8 +59,6 @@ Mosaique is writing in C# under the MVC architecture, ZeroFormatter serializer i
 
 I made available an executable version of mosaique in github executable foler, you will probably have to disable AV or Windows Defender. 
 
-Open the executable folder and disable the antivirus if its is necessary
-
 -------------
 
 ## About
