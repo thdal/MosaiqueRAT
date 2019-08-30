@@ -37,7 +37,6 @@ Mosaique is writing in C# under the MVC architecture, ZeroFormatter serializer i
   * [x] Open/Close tray CD
   * [x] Send message
   * [x] Hide & show functions
-  * [x] Play song
   * [x] Remote chat
   
  * Power
