@@ -83,6 +83,6 @@ Mosaique is distributed under the MIT License. Thanks to QuasarRAT, njRAT, DarkC
 > * Option to switch languages
 > * Option to switch theme Dark/Light
 > * Multiple client selection
-> * Reduce file sizes
+> * Reduce file sizes => Changer le serializer netSerializer ??
 
 -------------
