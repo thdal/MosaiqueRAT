@@ -2,7 +2,7 @@
 
 ### Mosaique - Remote administration tools
 
-Mosaique is written in C#, at the time I wrote mosaique I tried to follow an MVC architecture, ZeroFormatter serializer is used. The wpf was used to create the graphical interface of the server application. This program was written for educational purposes only and I will not be responsible for its use and I ask you please not to harm anyone unnecessarily. 
+Mosaique is written in C#, at the time I wrote Mosaique I tried to follow an MVC architecture, ZeroFormatter serializer is used. The wpf was used to create the graphical interface of the server application. This program was written for educational purposes only and I will not be responsible for its use and I ask you please not to harm anyone unnecessarily. 
 
 ![alt text](https://github.com/thdal/MosaiqueRAT/blob/master/Github/Mosaique.png)
 
