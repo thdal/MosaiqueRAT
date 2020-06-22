@@ -2,7 +2,7 @@
 
 ### Mosaique - Remote administration tools
 
-Mosaique is writing in C# under the MVC architecture, ZeroFormatter serializer is used. The wpf was used to create the graphical interface of the server application. This program was written for educational purposes only and I will not be responsible for its use and I ask you please not to harm anyone unnecessarily. 
+Mosaique is written in C# under the MVC architecture, ZeroFormatter serializer is used. The wpf was used to create the graphical interface of the server application. This program was written for educational purposes only and I will not be responsible for its use and I ask you please not to harm anyone unnecessarily. 
 
 ![alt text](https://github.com/thdal/MosaiqueRAT/blob/master/Github/Mosaique.png)
 
@@ -82,6 +82,6 @@ Mosaique is distributed under the MIT License. Thanks to QuasarRAT, njRAT, DarkC
 > * Option to switch languages
 > * Option to switch theme Dark/Light
 > * Multiple client selection
-> * Reduce file sizes => Changer le serializer netSerializer ??
+> * Reduce file sizes =>  netSerializer ??
 
 -------------
