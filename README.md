@@ -1,7 +1,6 @@
--------------
--------------
-
 # MosaiqueRAT
+
+-------------
 
 ### Mosaique - Remote administration tools
 
@@ -50,7 +49,6 @@ This program was written for educational purposes only and I will not be respons
    * [x] Shutdown
    
 -------------
--------------
 
 # Launch Mosaique 
 
@@ -68,3 +66,5 @@ Thank you for your support, Kind regards.
 ## Licence
 
 Mosaique is distributed under the MIT License. Thanks to QuasarRAT, njRAT, DarkComet for inspiration.
+
+-------------
