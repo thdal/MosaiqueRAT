@@ -56,9 +56,12 @@ I made available an executable version of mosaique you can download it here, the
 
 ## About
 
-The Mosaique version uploaded is unstable and contain a long list of bug.  If you have any recommendations or if you find any bugs please report them to me I thank you for your support.
+The Mosaique version uploaded is unstable and contain a long list of bug.
 
-Kind regards.
+If you have any recommendations or if you find any bugs please report them to me.
+
+Thank you for your support, Kind regards.
+
 
 ## Licence
 
