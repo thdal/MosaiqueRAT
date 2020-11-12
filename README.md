@@ -1,3 +1,6 @@
+-------------
+-------------
+
 # MosaiqueRAT
 
 ### Mosaique - Remote administration tools
@@ -47,12 +50,11 @@ This program was written for educational purposes only and I will not be respons
    * [x] Shutdown
    
 -------------
+-------------
 
 # Launch Mosaique 
 
 I made available an executable version of mosaique you can download it here, the second solution is to compiles with the sources.
-
--------------
 
 ## About
 
